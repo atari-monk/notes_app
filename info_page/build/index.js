@@ -8766,6 +8766,42 @@ __exportStar(__webpack_require__(/*! ./z_exports/ui_initializer */ "./node_modul
 
 /***/ }),
 
+/***/ "./node_modules/notes_lib/ui_initializer/ToggleButton.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/notes_lib/ui_initializer/ToggleButton.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const ErrorUtils_1 = __importDefault(__webpack_require__(/*! ../utils/ErrorUtils */ "./node_modules/notes_lib/utils/ErrorUtils.js"));
+const UIElement_1 = __importDefault(__webpack_require__(/*! ./UIElement */ "./node_modules/notes_lib/ui_initializer/UIElement.js"));
+class ToggleButton extends UIElement_1.default {
+    initialize(data) {
+        try {
+            super.initialize(data);
+            this.addClick((_event) => {
+                this.toggle(this.className);
+            });
+        }
+        catch (error) {
+            ErrorUtils_1.default.handleError(error);
+        }
+    }
+    toggle(className) {
+        const body = document.body;
+        body.classList.toggle(className);
+    }
+}
+exports["default"] = ToggleButton;
+
+
+/***/ }),
+
 /***/ "./node_modules/notes_lib/ui_initializer/UIElement.js":
 /*!************************************************************!*\
   !*** ./node_modules/notes_lib/ui_initializer/UIElement.js ***!
@@ -8779,11 +8815,13 @@ class UIElement {
     id = '';
     className = '';
     ui;
-    set(id, className) {
+    initialize(data) {
+        const { id, className } = data;
         this.id = id;
-        this.className = className;
+        this.className = className ?? '';
+        this.setUI();
     }
-    getUI() {
+    setUI() {
         const item = document.getElementById(this.id);
         if (!item) {
             throw new Error(`Element with ID '${this.id}' not found.`);
@@ -8793,22 +8831,23 @@ class UIElement {
     addClick(listener) {
         this.ui.addEventListener('click', listener);
     }
-    initializeToggle() {
-        try {
-            this.getUI();
-            this.addClick((_event) => {
-                this.toggle(this.className);
-            });
-        }
-        catch (error) {
-            this.handleError(error);
-        }
-    }
-    toggle(className) {
-        const body = document.body;
-        body.classList.toggle(className);
-    }
-    handleError(error) {
+}
+exports["default"] = UIElement;
+
+
+/***/ }),
+
+/***/ "./node_modules/notes_lib/utils/ErrorUtils.js":
+/*!****************************************************!*\
+  !*** ./node_modules/notes_lib/utils/ErrorUtils.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class ErrorUtils {
+    static handleError(error) {
         if (error instanceof Error) {
             console.error(error.message);
         }
@@ -8817,7 +8856,7 @@ class UIElement {
         }
     }
 }
-exports["default"] = UIElement;
+exports["default"] = ErrorUtils;
 
 
 /***/ }),
@@ -8889,9 +8928,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UIElement = void 0;
+exports.ToggleButton = exports.UIElement = void 0;
 var UIElement_1 = __webpack_require__(/*! ../ui_initializer/UIElement */ "./node_modules/notes_lib/ui_initializer/UIElement.js");
 Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(UIElement_1).default; } }));
+var ToggleButton_1 = __webpack_require__(/*! ../ui_initializer/ToggleButton */ "./node_modules/notes_lib/ui_initializer/ToggleButton.js");
+Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 
 
 /***/ }),
@@ -9380,9 +9421,11 @@ const notes_lib_1 = __webpack_require__(/*! notes_lib */ "./node_modules/notes_l
 const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
-const uiElement = new notes_lib_1.UIElement();
-uiElement.set('darkModeButton', 'dark-mode');
-uiElement.initializeToggle();
+const darkModeToggle = new notes_lib_1.ToggleButton();
+darkModeToggle.initialize({
+    id: 'darkModeButton',
+    className: 'dark-mode',
+});
 const jsonContainer = document.getElementById('jsonContainer');
 const index = document.getElementById('index');
 const markDownIt = new markdown_it_1.default();

@@ -5,16 +5,19 @@ import {
   IndexComponent,
   SectionComponent,
   ISectionsAndChats,
-  UIElement,
   loadJSONFile,
+  ToggleButton,
 } from 'notes_lib'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
+import IUIElementData from 'notes_lib/ui_initializer/IUIElementData'
 
-const uiElement: UIElement = new UIElement()
-uiElement.set('darkModeButton', 'dark-mode')
-uiElement.initializeToggle()
+const darkModeToggle = new ToggleButton()
+darkModeToggle.initialize({
+  id: 'darkModeButton',
+  className: 'dark-mode',
+} as IUIElementData)
 
 const jsonContainer = document.getElementById('jsonContainer') as HTMLElement
 const index = document.getElementById('index') as HTMLElement

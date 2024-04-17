@@ -1,16 +1,19 @@
-import IUIElement from './IUIElement'
+import IUIElementData from './IUIElementData'
+import IUIElement from './IUIElementData'
 
 export default class UIElement implements IUIElement {
   id: string = ''
   className: string = ''
   ui!: HTMLElement
 
-  set(id: string, className: string) {
+  initialize(data: IUIElementData) {
+    const { id, className } = data
     this.id = id
-    this.className = className
+    this.className = className ?? ''
+    this.setUI()
   }
 
-  getUI() {
+  private setUI() {
     const item = document.getElementById(this.id)
     if (!item) {
       throw new Error(`Element with ID '${this.id}' not found.`)
@@ -20,29 +23,5 @@ export default class UIElement implements IUIElement {
 
   addClick(listener: (ev: MouseEvent) => any) {
     this.ui.addEventListener('click', listener)
-  }
-
-  initializeToggle(): void {
-    try {
-      this.getUI()
-      this.addClick((_event) => {
-        this.toggle(this.className)
-      })
-    } catch (error) {
-      this.handleError(error)
-    }
-  }
-
-  toggle(className: string): void {
-    const body = document.body
-    body.classList.toggle(className)
-  }
-
-  handleError(error: any) {
-    if (error instanceof Error) {
-      console.error(error.message)
-    } else {
-      console.error('An unknown error occurred.')
-    }
   }
 }
