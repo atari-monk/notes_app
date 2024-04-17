@@ -1,5 +1,5 @@
 import loadJSONFile from '../file_sys/json'
-import ErrorUtils from '../utils/ErrorUtils'
+import ErrorUtils from '../util/ErrorUtil'
 import IUIElementData from './IUIElementData'
 import UIElement from './UIElement'
 

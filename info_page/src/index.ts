@@ -7,11 +7,11 @@ import {
   ISectionsAndChats,
   loadJSONFile,
   ToggleButton,
+  IUIElementData,
 } from 'notes_lib'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
-import IUIElementData from 'notes_lib/ui_initializer/IUIElementData'
 
 const darkModeToggle = new ToggleButton()
 darkModeToggle.initialize({

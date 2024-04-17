@@ -1,7 +1,0 @@
-export { default as IChat } from '../data_types/IChat'
-export { default as IChatEdit } from '../data_types/IChatEdit'
-export { default as IChatWithSectionTitle } from '../data_types/IChatWithSectionTitle'
-export { default as IFileSectionChatData } from '../data_types/IFileSectionChatData'
-export { default as ISectionAndChatNr } from '../data_types/ISectionAndChatNr'
-export { default as ISectionAndChats } from '../data_types/ISectionAndChats'
-export { default as ISectionsAndChats } from '../data_types/ISectionsAndChats'

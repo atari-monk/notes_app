@@ -8584,10 +8584,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/components/AnswerCard.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/notes_lib/components/AnswerCard.js ***!
-  \*********************************************************/
+/***/ "./node_modules/notes_lib/component/AnswerCard.js":
+/*!********************************************************!*\
+  !*** ./node_modules/notes_lib/component/AnswerCard.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -8622,10 +8622,10 @@ exports["default"] = AnswerCard;
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/components/IndexComponent.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/notes_lib/components/IndexComponent.js ***!
-  \*************************************************************/
+/***/ "./node_modules/notes_lib/component/IndexComponent.js":
+/*!************************************************************!*\
+  !*** ./node_modules/notes_lib/component/IndexComponent.js ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -8666,10 +8666,10 @@ exports["default"] = IndexComponent;
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/components/SectionComponent.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/notes_lib/components/SectionComponent.js ***!
-  \***************************************************************/
+/***/ "./node_modules/notes_lib/component/SectionComponent.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/notes_lib/component/SectionComponent.js ***!
+  \**************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -8678,7 +8678,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./node_modules/notes_lib/components/AnswerCard.js"));
+const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./node_modules/notes_lib/component/AnswerCard.js"));
 class SectionComponent {
     renderer;
     sectionIndex;
@@ -8758,18 +8758,18 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-__exportStar(__webpack_require__(/*! ./z_exports/components */ "./node_modules/notes_lib/z_exports/components.js"), exports);
-__exportStar(__webpack_require__(/*! ./z_exports/data_types */ "./node_modules/notes_lib/z_exports/data_types.js"), exports);
-__exportStar(__webpack_require__(/*! ./z_exports/file_sys */ "./node_modules/notes_lib/z_exports/file_sys.js"), exports);
-__exportStar(__webpack_require__(/*! ./z_exports/ui_initializer */ "./node_modules/notes_lib/z_exports/ui_initializer.js"), exports);
+__exportStar(__webpack_require__(/*! ./z_export/component */ "./node_modules/notes_lib/z_export/component.js"), exports);
+__exportStar(__webpack_require__(/*! ./z_export/data_type */ "./node_modules/notes_lib/z_export/data_type.js"), exports);
+__exportStar(__webpack_require__(/*! ./z_export/file_sys */ "./node_modules/notes_lib/z_export/file_sys.js"), exports);
+__exportStar(__webpack_require__(/*! ./z_export/ui_element */ "./node_modules/notes_lib/z_export/ui_element.js"), exports);
 
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/ui_initializer/ToggleButton.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/notes_lib/ui_initializer/ToggleButton.js ***!
-  \***************************************************************/
+/***/ "./node_modules/notes_lib/ui_element/ToggleButton.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/notes_lib/ui_element/ToggleButton.js ***!
+  \***********************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -8778,8 +8778,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const ErrorUtils_1 = __importDefault(__webpack_require__(/*! ../utils/ErrorUtils */ "./node_modules/notes_lib/utils/ErrorUtils.js"));
-const UIElement_1 = __importDefault(__webpack_require__(/*! ./UIElement */ "./node_modules/notes_lib/ui_initializer/UIElement.js"));
+const ErrorUtil_1 = __importDefault(__webpack_require__(/*! ../util/ErrorUtil */ "./node_modules/notes_lib/util/ErrorUtil.js"));
+const UIElement_1 = __importDefault(__webpack_require__(/*! ./UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js"));
 class ToggleButton extends UIElement_1.default {
     initialize(data) {
         try {
@@ -8789,7 +8789,7 @@ class ToggleButton extends UIElement_1.default {
             });
         }
         catch (error) {
-            ErrorUtils_1.default.handleError(error);
+            ErrorUtil_1.default.handleError(error);
         }
     }
     toggle(className) {
@@ -8802,10 +8802,10 @@ exports["default"] = ToggleButton;
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/ui_initializer/UIElement.js":
-/*!************************************************************!*\
-  !*** ./node_modules/notes_lib/ui_initializer/UIElement.js ***!
-  \************************************************************/
+/***/ "./node_modules/notes_lib/ui_element/UIElement.js":
+/*!********************************************************!*\
+  !*** ./node_modules/notes_lib/ui_element/UIElement.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -8837,16 +8837,16 @@ exports["default"] = UIElement;
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/utils/ErrorUtils.js":
-/*!****************************************************!*\
-  !*** ./node_modules/notes_lib/utils/ErrorUtils.js ***!
-  \****************************************************/
+/***/ "./node_modules/notes_lib/util/ErrorUtil.js":
+/*!**************************************************!*\
+  !*** ./node_modules/notes_lib/util/ErrorUtil.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-class ErrorUtils {
+class ErrorUtil {
     static handleError(error) {
         if (error instanceof Error) {
             console.error(error.message);
@@ -8856,15 +8856,15 @@ class ErrorUtils {
         }
     }
 }
-exports["default"] = ErrorUtils;
+exports["default"] = ErrorUtil;
 
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/z_exports/components.js":
-/*!********************************************************!*\
-  !*** ./node_modules/notes_lib/z_exports/components.js ***!
-  \********************************************************/
+/***/ "./node_modules/notes_lib/z_export/component.js":
+/*!******************************************************!*\
+  !*** ./node_modules/notes_lib/z_export/component.js ***!
+  \******************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -8874,20 +8874,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SectionComponent = exports.IndexComponent = exports.AnswerCard = void 0;
-var AnswerCard_1 = __webpack_require__(/*! ../components/AnswerCard */ "./node_modules/notes_lib/components/AnswerCard.js");
+var AnswerCard_1 = __webpack_require__(/*! ../component/AnswerCard */ "./node_modules/notes_lib/component/AnswerCard.js");
 Object.defineProperty(exports, "AnswerCard", ({ enumerable: true, get: function () { return __importDefault(AnswerCard_1).default; } }));
-var IndexComponent_1 = __webpack_require__(/*! ../components/IndexComponent */ "./node_modules/notes_lib/components/IndexComponent.js");
+var IndexComponent_1 = __webpack_require__(/*! ../component/IndexComponent */ "./node_modules/notes_lib/component/IndexComponent.js");
 Object.defineProperty(exports, "IndexComponent", ({ enumerable: true, get: function () { return __importDefault(IndexComponent_1).default; } }));
-var SectionComponent_1 = __webpack_require__(/*! ../components/SectionComponent */ "./node_modules/notes_lib/components/SectionComponent.js");
+var SectionComponent_1 = __webpack_require__(/*! ../component/SectionComponent */ "./node_modules/notes_lib/component/SectionComponent.js");
 Object.defineProperty(exports, "SectionComponent", ({ enumerable: true, get: function () { return __importDefault(SectionComponent_1).default; } }));
 
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/z_exports/data_types.js":
-/*!********************************************************!*\
-  !*** ./node_modules/notes_lib/z_exports/data_types.js ***!
-  \********************************************************/
+/***/ "./node_modules/notes_lib/z_export/data_type.js":
+/*!******************************************************!*\
+  !*** ./node_modules/notes_lib/z_export/data_type.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -8897,10 +8897,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/z_exports/file_sys.js":
-/*!******************************************************!*\
-  !*** ./node_modules/notes_lib/z_exports/file_sys.js ***!
-  \******************************************************/
+/***/ "./node_modules/notes_lib/z_export/file_sys.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/notes_lib/z_export/file_sys.js ***!
+  \*****************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -8916,10 +8916,10 @@ Object.defineProperty(exports, "loadJSONFile", ({ enumerable: true, get: functio
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/z_exports/ui_initializer.js":
-/*!************************************************************!*\
-  !*** ./node_modules/notes_lib/z_exports/ui_initializer.js ***!
-  \************************************************************/
+/***/ "./node_modules/notes_lib/z_export/ui_element.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/notes_lib/z_export/ui_element.js ***!
+  \*******************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -8928,11 +8928,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ToggleButton = exports.UIElement = void 0;
-var UIElement_1 = __webpack_require__(/*! ../ui_initializer/UIElement */ "./node_modules/notes_lib/ui_initializer/UIElement.js");
-Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(UIElement_1).default; } }));
-var ToggleButton_1 = __webpack_require__(/*! ../ui_initializer/ToggleButton */ "./node_modules/notes_lib/ui_initializer/ToggleButton.js");
+exports.UIElement = exports.ToggleButton = void 0;
+var ToggleButton_1 = __webpack_require__(/*! ../ui_element/ToggleButton */ "./node_modules/notes_lib/ui_element/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
+var UIElement_1 = __webpack_require__(/*! ../ui_element/UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js");
+Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(UIElement_1).default; } }));
 
 
 /***/ }),
