@@ -8,6 +8,8 @@ import {
   loadJSONFile,
   ToggleButton,
   IUIElementData,
+  UIFileList,
+  IUIFileListData,
 } from 'notes_lib'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
@@ -24,52 +26,58 @@ const index = document.getElementById('index') as HTMLElement
 const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
-export default interface IFile {
-  path: string
-  name: string
-  protected: boolean
-}
+const fileList = new UIFileList()
+fileList.initialize({
+  id: 'fileListContainer',
+  filePath: 'data/files.json',
+} as IUIFileListData)
 
-const fileList: IFile[] = []
+// export default interface IFile {
+//   path: string
+//   name: string
+//   protected: boolean
+// }
 
-const filePath: string = 'data/files.json'
+// const fileList: IFile[] = []
 
-async function initialize() {
-  try {
-    const fileListData = await loadJSONFile(filePath)
-    if (fileListData) {
-      fileList.push(...fileListData)
+// const filePath: string = 'data/files.json'
 
-      const fileListContainer = document.getElementById(
-        'fileListContainer'
-      ) as HTMLElement
-      fileList.forEach((file) => {
-        const link = document.createElement('a')
-        link.href = '#'
-        link.textContent = file.name
-        link.addEventListener('click', async (event) => {
-          event.preventDefault()
-          await handleLinkClick(file)
-        })
-        fileListContainer.appendChild(link)
-        const br = document.createElement('br')
-        fileListContainer.appendChild(br)
-      })
+// async function initialize() {
+//   try {
+//     const fileListData = await loadJSONFile(filePath)
+//     if (fileListData) {
+//       fileList.push(...fileListData)
 
-      const firstLink = fileListContainer.querySelector('a') as HTMLElement
-      firstLink.click()
-    } else {
-      console.error('Error loading JSON file:', filePath)
-    }
-  } catch (error) {
-    console.error('Error:', error)
-  }
-}
+//       const fileListContainer = document.getElementById(
+//         'fileListContainer'
+//       ) as HTMLElement
+//       fileList.forEach((file) => {
+//         const link = document.createElement('a')
+//         link.href = '#'
+//         link.textContent = file.name
+//         link.addEventListener('click', async (event) => {
+//           event.preventDefault()
+//           await handleLinkClick(file)
+//         })
+//         fileListContainer.appendChild(link)
+//         const br = document.createElement('br')
+//         fileListContainer.appendChild(br)
+//       })
 
-;(async () => {
-  await initialize()
-})()
+//       const firstLink = fileListContainer.querySelector('a') as HTMLElement
+//       firstLink.click()
+//     } else {
+//       console.error('Error loading JSON file:', filePath)
+//     }
+//   } catch (error) {
+//     console.error('Error:', error)
+//   }
+// }
+// ;(async () => {
+//   await initialize()
+// })()
 
+/*
 async function handleLinkClick(file: IFile) {
   if (file.protected) {
     const encodedPassword = 'NkN6bG9uZWs2'
@@ -101,7 +109,7 @@ async function handleLinkClick(file: IFile) {
     console.error('Error loading or parsing JSON file:', error.message)
   }
 }
-
+*/
 function handleFileLoad(data: ISectionsAndChats) {
   jsonContainer.innerHTML = ''
   index.innerHTML = ''

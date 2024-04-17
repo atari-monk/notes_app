@@ -1,4 +1,4 @@
-import IUIElementData from './IUIElementData'
+import IUIElementData from './IUIFileListData'
 
 export default interface IUIElement {
   id: string

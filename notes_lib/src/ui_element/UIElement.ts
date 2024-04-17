@@ -1,5 +1,5 @@
 import IUIElementData from './IUIElementData'
-import IUIElement from './IUIElementData'
+import IUIElement from './IUIElement'
 
 export default class UIElement implements IUIElement {
   id: string = ''

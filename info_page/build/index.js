@@ -8837,6 +8837,69 @@ exports["default"] = UIElement;
 
 /***/ }),
 
+/***/ "./node_modules/notes_lib/ui_element/UIFileList.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/notes_lib/ui_element/UIFileList.js ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const json_1 = __importDefault(__webpack_require__(/*! ../file_sys/json */ "./node_modules/notes_lib/file_sys/json.js"));
+const ErrorUtil_1 = __importDefault(__webpack_require__(/*! ../util/ErrorUtil */ "./node_modules/notes_lib/util/ErrorUtil.js"));
+const UIElement_1 = __importDefault(__webpack_require__(/*! ./UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js"));
+class UIFileList extends UIElement_1.default {
+    fileList = [];
+    filePath = '';
+    async initialize(data) {
+        try {
+            super.initialize(data);
+            this.filePath = data.filePath;
+            await this.loadFiles();
+            this.createList();
+            const firstLink = this.ui.querySelector('a');
+            firstLink.click();
+        }
+        catch (error) {
+            ErrorUtil_1.default.handleError(error);
+        }
+    }
+    async loadFiles() {
+        try {
+            this.fileList.push(...(await (0, json_1.default)(this.filePath)));
+        }
+        catch (error) {
+            ErrorUtil_1.default.handleError(error);
+        }
+    }
+    createList() {
+        for (const file of this.fileList) {
+            this.createItem(file);
+        }
+    }
+    createItem(file) {
+        const link = document.createElement('a');
+        link.href = '#';
+        link.textContent = file.name;
+        link.addEventListener('click', async (event) => {
+            event.preventDefault();
+            //await handleLinkClick(file)
+            console.log('fire');
+        });
+        this.ui.appendChild(link);
+        const br = document.createElement('br');
+        this.ui.appendChild(br);
+    }
+}
+exports["default"] = UIFileList;
+
+
+/***/ }),
+
 /***/ "./node_modules/notes_lib/util/ErrorUtil.js":
 /*!**************************************************!*\
   !*** ./node_modules/notes_lib/util/ErrorUtil.js ***!
@@ -8928,11 +8991,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UIElement = exports.ToggleButton = void 0;
+exports.UIFileList = exports.UIElement = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ../ui_element/ToggleButton */ "./node_modules/notes_lib/ui_element/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var UIElement_1 = __webpack_require__(/*! ../ui_element/UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js");
 Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(UIElement_1).default; } }));
+var UIFileList_1 = __webpack_require__(/*! ../ui_element/UIFileList */ "./node_modules/notes_lib/ui_element/UIFileList.js");
+Object.defineProperty(exports, "UIFileList", ({ enumerable: true, get: function () { return __importDefault(UIFileList_1).default; } }));
 
 
 /***/ }),
@@ -9430,69 +9495,83 @@ const jsonContainer = document.getElementById('jsonContainer');
 const index = document.getElementById('index');
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-const fileList = [];
-const filePath = 'data/files.json';
-async function initialize() {
-    try {
-        const fileListData = await (0, notes_lib_1.loadJSONFile)(filePath);
-        if (fileListData) {
-            fileList.push(...fileListData);
-            const fileListContainer = document.getElementById('fileListContainer');
-            fileList.forEach((file) => {
-                const link = document.createElement('a');
-                link.href = '#';
-                link.textContent = file.name;
-                link.addEventListener('click', async (event) => {
-                    event.preventDefault();
-                    await handleLinkClick(file);
-                });
-                fileListContainer.appendChild(link);
-                const br = document.createElement('br');
-                fileListContainer.appendChild(br);
-            });
-            const firstLink = fileListContainer.querySelector('a');
-            firstLink.click();
-        }
-        else {
-            console.error('Error loading JSON file:', filePath);
-        }
+const fileList = new notes_lib_1.UIFileList();
+fileList.initialize({
+    id: 'fileListContainer',
+    filePath: 'data/files.json',
+});
+// export default interface IFile {
+//   path: string
+//   name: string
+//   protected: boolean
+// }
+// const fileList: IFile[] = []
+// const filePath: string = 'data/files.json'
+// async function initialize() {
+//   try {
+//     const fileListData = await loadJSONFile(filePath)
+//     if (fileListData) {
+//       fileList.push(...fileListData)
+//       const fileListContainer = document.getElementById(
+//         'fileListContainer'
+//       ) as HTMLElement
+//       fileList.forEach((file) => {
+//         const link = document.createElement('a')
+//         link.href = '#'
+//         link.textContent = file.name
+//         link.addEventListener('click', async (event) => {
+//           event.preventDefault()
+//           await handleLinkClick(file)
+//         })
+//         fileListContainer.appendChild(link)
+//         const br = document.createElement('br')
+//         fileListContainer.appendChild(br)
+//       })
+//       const firstLink = fileListContainer.querySelector('a') as HTMLElement
+//       firstLink.click()
+//     } else {
+//       console.error('Error loading JSON file:', filePath)
+//     }
+//   } catch (error) {
+//     console.error('Error:', error)
+//   }
+// }
+// ;(async () => {
+//   await initialize()
+// })()
+/*
+async function handleLinkClick(file: IFile) {
+  if (file.protected) {
+    const encodedPassword = 'NkN6bG9uZWs2'
+    const password = prompt('Enter password:')
+    const decodedPassword = atob(encodedPassword)
+
+    if (password !== decodedPassword) {
+      alert('Incorrect password. Access denied.')
+      return
     }
-    catch (error) {
-        console.error('Error:', error);
+  }
+
+  try {
+    const response = await fetch(file.path)
+    if (!response.ok) {
+      throw new Error(`Failed to load JSON file. Status: ${response.status}`)
     }
+
+    const jsonData = await response.json()
+    handleFileLoad(jsonData)
+    const currentPage = document.getElementById('currentPage_value')
+    currentPage!.innerText = file.name
+
+    const indexTitleLink = document.getElementById('index_title')
+    if (indexTitleLink) {
+      indexTitleLink.scrollIntoView({ behavior: 'smooth' })
+    }
+  } catch (error: any) {
+    console.error('Error loading or parsing JSON file:', error.message)
+  }
 }
-;
-(async () => {
-    await initialize();
-})();
-async function handleLinkClick(file) {
-    if (file.protected) {
-        const encodedPassword = 'NkN6bG9uZWs2';
-        const password = prompt('Enter password:');
-        const decodedPassword = atob(encodedPassword);
-        if (password !== decodedPassword) {
-            alert('Incorrect password. Access denied.');
-            return;
-        }
-    }
-    try {
-        const response = await fetch(file.path);
-        if (!response.ok) {
-            throw new Error(`Failed to load JSON file. Status: ${response.status}`);
-        }
-        const jsonData = await response.json();
-        handleFileLoad(jsonData);
-        const currentPage = document.getElementById('currentPage_value');
-        currentPage.innerText = file.name;
-        const indexTitleLink = document.getElementById('index_title');
-        if (indexTitleLink) {
-            indexTitleLink.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-    catch (error) {
-        console.error('Error loading or parsing JSON file:', error.message);
-    }
-}
+*/
 function handleFileLoad(data) {
     jsonContainer.innerHTML = '';
     index.innerHTML = '';
