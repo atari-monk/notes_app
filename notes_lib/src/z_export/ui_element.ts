@@ -4,3 +4,8 @@ export { default as IUIFileListData } from '../ui_element/IUIFileListData'
 export { default as ToggleButton } from '../ui_element/ToggleButton'
 export { default as UIElement } from '../ui_element/UIElement'
 export { default as UIFileList } from '../ui_element/UIFileList'
+
+export { default as LinkClickHandler } from '../ui_element/LinkClickHandler'
+export { default as PasswordProvider } from '../ui_element/PasswordProvider'
+export { default as UIIndex } from '../ui_element/UIIndex'
+export { default as UIPageContent } from '../ui_element/UIPageContent'

@@ -1,12 +1,17 @@
 import loadJSONFile from '../file_sys/json'
 import ErrorUtils from '../util/ErrorUtil'
 import IFile from './IFile'
+import IHandleLinkClick from './IHandleLinkClick'
 import IUIFileListData from './IUIFileListData'
 import UIElement from './UIElement'
 
 export default class UIFileList extends UIElement {
   private readonly fileList: IFile[] = []
   private filePath = ''
+
+  constructor(private readonly handler: IHandleLinkClick) {
+    super()
+  }
 
   async initialize(data: IUIFileListData): Promise<void> {
     try {
@@ -41,8 +46,7 @@ export default class UIFileList extends UIElement {
     link.textContent = file.name
     link.addEventListener('click', async (event) => {
       event.preventDefault()
-      //await handleLinkClick(file)
-      console.log('fire')
+      await this.handler.handleLinkClick(file)
     })
     this.ui.appendChild(link)
     const br = document.createElement('br')

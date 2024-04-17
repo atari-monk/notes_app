@@ -5,32 +5,40 @@ import {
   IndexComponent,
   SectionComponent,
   ISectionsAndChats,
-  loadJSONFile,
   ToggleButton,
-  IUIElementData,
   UIFileList,
-  IUIFileListData,
+  LinkClickHandler,
+  UIIndex,
+  UIPageContent,
 } from 'notes_lib'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
+import PasswordProvider from 'notes_lib/ui_element/PasswordProvider'
 
 const darkModeToggle = new ToggleButton()
 darkModeToggle.initialize({
   id: 'darkModeButton',
   className: 'dark-mode',
-} as IUIElementData)
+})
 
-const jsonContainer = document.getElementById('jsonContainer') as HTMLElement
-const index = document.getElementById('index') as HTMLElement
+//const jsonContainer = document.getElementById('jsonContainer') as HTMLElement
+//const index = document.getElementById('index') as HTMLElement
+
 const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
-const fileList = new UIFileList()
+const fileList = new UIFileList(
+  new LinkClickHandler(
+    new PasswordProvider(),
+    new UIIndex(),
+    new UIPageContent(markDownIt)
+  )
+)
 fileList.initialize({
   id: 'fileListContainer',
   filePath: 'data/files.json',
-} as IUIFileListData)
+})
 
 // export default interface IFile {
 //   path: string
@@ -110,6 +118,8 @@ async function handleLinkClick(file: IFile) {
   }
 }
 */
+
+/*
 function handleFileLoad(data: ISectionsAndChats) {
   jsonContainer.innerHTML = ''
   index.innerHTML = ''
@@ -129,6 +139,7 @@ function handleFileLoad(data: ISectionsAndChats) {
   highlightCodeBlocks()
   addCopyBtns()
 }
+*/
 
 function highlightCodeBlocks() {
   document.querySelectorAll('code').forEach((codeBlock) => {

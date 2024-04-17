@@ -8766,6 +8766,92 @@ __exportStar(__webpack_require__(/*! ./z_export/ui_element */ "./node_modules/no
 
 /***/ }),
 
+/***/ "./node_modules/notes_lib/ui_element/LinkClickHandler.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/notes_lib/ui_element/LinkClickHandler.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const ErrorUtil_1 = __importDefault(__webpack_require__(/*! ../util/ErrorUtil */ "./node_modules/notes_lib/util/ErrorUtil.js"));
+class LinkClickHandler {
+    passwordProvider;
+    index;
+    content;
+    constructor(passwordProvider, index, content) {
+        this.passwordProvider = passwordProvider;
+        this.index = index;
+        this.content = content;
+    }
+    async handleLinkClick(file) {
+        console.log('fire');
+        if (this.isProtectedFile(file))
+            return;
+        const jsonData = await this.fetchData(file);
+        this.createPage(jsonData);
+    }
+    isProtectedFile(file) {
+        if (!file.protected)
+            return false;
+        if (this.passwordProvider.validatePassword())
+            return false;
+        return true;
+    }
+    async fetchData(file) {
+        try {
+            const response = await fetch(file.path);
+            if (!response.ok) {
+                throw new Error(`Failed to load JSON file. Status: ${response.status}`);
+            }
+            return await response.json();
+        }
+        catch (error) {
+            ErrorUtil_1.default.handleError(error, 'Error loading or parsing JSON file');
+        }
+    }
+    createPage(jsonData) {
+        this.index.initialize({ id: 'index' });
+        this.content.indexComponent = this.index.indexComponent;
+        this.content.data = jsonData;
+        this.content.initialize({ id: 'jsonContainer' });
+    }
+}
+exports["default"] = LinkClickHandler;
+
+
+/***/ }),
+
+/***/ "./node_modules/notes_lib/ui_element/PasswordProvider.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/notes_lib/ui_element/PasswordProvider.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class PasswordProvider {
+    validatePassword() {
+        const encodedPassword = 'NkN6bG9uZWs2';
+        const password = prompt('Enter password:');
+        const decodedPassword = atob(encodedPassword);
+        if (password !== decodedPassword) {
+            alert('Incorrect password. Access denied.');
+            return false;
+        }
+        return true;
+    }
+}
+exports["default"] = PasswordProvider;
+
+
+/***/ }),
+
 /***/ "./node_modules/notes_lib/ui_element/ToggleButton.js":
 /*!***********************************************************!*\
   !*** ./node_modules/notes_lib/ui_element/ToggleButton.js ***!
@@ -8853,8 +8939,13 @@ const json_1 = __importDefault(__webpack_require__(/*! ../file_sys/json */ "./no
 const ErrorUtil_1 = __importDefault(__webpack_require__(/*! ../util/ErrorUtil */ "./node_modules/notes_lib/util/ErrorUtil.js"));
 const UIElement_1 = __importDefault(__webpack_require__(/*! ./UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js"));
 class UIFileList extends UIElement_1.default {
+    handler;
     fileList = [];
     filePath = '';
+    constructor(handler) {
+        super();
+        this.handler = handler;
+    }
     async initialize(data) {
         try {
             super.initialize(data);
@@ -8887,8 +8978,7 @@ class UIFileList extends UIElement_1.default {
         link.textContent = file.name;
         link.addEventListener('click', async (event) => {
             event.preventDefault();
-            //await handleLinkClick(file)
-            console.log('fire');
+            await this.handler.handleLinkClick(file);
         });
         this.ui.appendChild(link);
         const br = document.createElement('br');
@@ -8896,6 +8986,92 @@ class UIFileList extends UIElement_1.default {
     }
 }
 exports["default"] = UIFileList;
+
+
+/***/ }),
+
+/***/ "./node_modules/notes_lib/ui_element/UIIndex.js":
+/*!******************************************************!*\
+  !*** ./node_modules/notes_lib/ui_element/UIIndex.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const UIElement_1 = __importDefault(__webpack_require__(/*! ./UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js"));
+const ErrorUtil_1 = __importDefault(__webpack_require__(/*! ../util/ErrorUtil */ "./node_modules/notes_lib/util/ErrorUtil.js"));
+const IndexComponent_1 = __importDefault(__webpack_require__(/*! ../component/IndexComponent */ "./node_modules/notes_lib/component/IndexComponent.js"));
+class UIIndex extends UIElement_1.default {
+    _indexComponent;
+    get indexComponent() {
+        return this._indexComponent;
+    }
+    initialize(data) {
+        try {
+            super.initialize(data);
+            this.ui.innerHTML = '';
+            this._indexComponent = new IndexComponent_1.default(this.ui);
+        }
+        catch (error) {
+            ErrorUtil_1.default.handleError(error);
+        }
+    }
+}
+exports["default"] = UIIndex;
+
+
+/***/ }),
+
+/***/ "./node_modules/notes_lib/ui_element/UIPageContent.js":
+/*!************************************************************!*\
+  !*** ./node_modules/notes_lib/ui_element/UIPageContent.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const UIElement_1 = __importDefault(__webpack_require__(/*! ./UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js"));
+const ErrorUtil_1 = __importDefault(__webpack_require__(/*! ../util/ErrorUtil */ "./node_modules/notes_lib/util/ErrorUtil.js"));
+const SectionComponent_1 = __importDefault(__webpack_require__(/*! ../component/SectionComponent */ "./node_modules/notes_lib/component/SectionComponent.js"));
+class UIPageContent extends UIElement_1.default {
+    renderer;
+    _indexComponent;
+    _data;
+    set indexComponent(indexComponent) {
+        this._indexComponent = indexComponent;
+    }
+    set data(data) {
+        this._data = data;
+    }
+    constructor(renderer) {
+        super();
+        this.renderer = renderer;
+    }
+    initialize(data) {
+        try {
+            super.initialize(data);
+            this.createPageContent();
+        }
+        catch (error) {
+            ErrorUtil_1.default.handleError(error);
+        }
+    }
+    createPageContent() {
+        this._data.sections.forEach((section, sectionIndex) => {
+            const sectionComponent = new SectionComponent_1.default(this.renderer, sectionIndex, this.ui, this._indexComponent);
+            sectionComponent.createSectionElement(section.title, section.chats);
+        });
+    }
+}
+exports["default"] = UIPageContent;
 
 
 /***/ }),
@@ -8910,9 +9086,11 @@ exports["default"] = UIFileList;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 class ErrorUtil {
-    static handleError(error) {
+    static handleError(error, customMessage = '') {
         if (error instanceof Error) {
-            console.error(error.message);
+            console.error(customMessage === ''
+                ? error.message
+                : `${customMessage}: ${error.message}`);
         }
         else {
             console.error('An unknown error occurred.');
@@ -8991,13 +9169,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UIFileList = exports.UIElement = exports.ToggleButton = void 0;
+exports.UIPageContent = exports.UIIndex = exports.PasswordProvider = exports.LinkClickHandler = exports.UIFileList = exports.UIElement = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ../ui_element/ToggleButton */ "./node_modules/notes_lib/ui_element/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var UIElement_1 = __webpack_require__(/*! ../ui_element/UIElement */ "./node_modules/notes_lib/ui_element/UIElement.js");
 Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(UIElement_1).default; } }));
 var UIFileList_1 = __webpack_require__(/*! ../ui_element/UIFileList */ "./node_modules/notes_lib/ui_element/UIFileList.js");
 Object.defineProperty(exports, "UIFileList", ({ enumerable: true, get: function () { return __importDefault(UIFileList_1).default; } }));
+var LinkClickHandler_1 = __webpack_require__(/*! ../ui_element/LinkClickHandler */ "./node_modules/notes_lib/ui_element/LinkClickHandler.js");
+Object.defineProperty(exports, "LinkClickHandler", ({ enumerable: true, get: function () { return __importDefault(LinkClickHandler_1).default; } }));
+var PasswordProvider_1 = __webpack_require__(/*! ../ui_element/PasswordProvider */ "./node_modules/notes_lib/ui_element/PasswordProvider.js");
+Object.defineProperty(exports, "PasswordProvider", ({ enumerable: true, get: function () { return __importDefault(PasswordProvider_1).default; } }));
+var UIIndex_1 = __webpack_require__(/*! ../ui_element/UIIndex */ "./node_modules/notes_lib/ui_element/UIIndex.js");
+Object.defineProperty(exports, "UIIndex", ({ enumerable: true, get: function () { return __importDefault(UIIndex_1).default; } }));
+var UIPageContent_1 = __webpack_require__(/*! ../ui_element/UIPageContent */ "./node_modules/notes_lib/ui_element/UIPageContent.js");
+Object.defineProperty(exports, "UIPageContent", ({ enumerable: true, get: function () { return __importDefault(UIPageContent_1).default; } }));
 
 
 /***/ }),
@@ -9486,16 +9672,17 @@ const notes_lib_1 = __webpack_require__(/*! notes_lib */ "./node_modules/notes_l
 const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
+const PasswordProvider_1 = __importDefault(__webpack_require__(/*! notes_lib/ui_element/PasswordProvider */ "./node_modules/notes_lib/ui_element/PasswordProvider.js"));
 const darkModeToggle = new notes_lib_1.ToggleButton();
 darkModeToggle.initialize({
     id: 'darkModeButton',
     className: 'dark-mode',
 });
-const jsonContainer = document.getElementById('jsonContainer');
-const index = document.getElementById('index');
+//const jsonContainer = document.getElementById('jsonContainer') as HTMLElement
+//const index = document.getElementById('index') as HTMLElement
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-const fileList = new notes_lib_1.UIFileList();
+const fileList = new notes_lib_1.UIFileList(new notes_lib_1.LinkClickHandler(new PasswordProvider_1.default(), new notes_lib_1.UIIndex(), new notes_lib_1.UIPageContent(markDownIt)));
 fileList.initialize({
     id: 'fileListContainer',
     filePath: 'data/files.json',
@@ -9572,17 +9759,27 @@ async function handleLinkClick(file: IFile) {
   }
 }
 */
-function handleFileLoad(data) {
-    jsonContainer.innerHTML = '';
-    index.innerHTML = '';
-    const indexComponent = new notes_lib_1.IndexComponent(index);
-    data.sections.forEach((section, sectionIndex) => {
-        const sectionComponent = new notes_lib_1.SectionComponent(markDownIt, sectionIndex, jsonContainer, indexComponent);
-        sectionComponent.createSectionElement(section.title, section.chats);
-    });
-    highlightCodeBlocks();
-    addCopyBtns();
+/*
+function handleFileLoad(data: ISectionsAndChats) {
+  jsonContainer.innerHTML = ''
+  index.innerHTML = ''
+
+  const indexComponent = new IndexComponent(index)
+
+  data.sections.forEach((section, sectionIndex) => {
+    const sectionComponent = new SectionComponent(
+      markDownIt,
+      sectionIndex,
+      jsonContainer,
+      indexComponent
+    )
+    sectionComponent.createSectionElement(section.title, section.chats)
+  })
+
+  highlightCodeBlocks()
+  addCopyBtns()
 }
+*/
 function highlightCodeBlocks() {
     document.querySelectorAll('code').forEach((codeBlock) => {
         highlight_js_1.default.highlightElement(codeBlock);
