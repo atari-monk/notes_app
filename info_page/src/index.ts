@@ -5,14 +5,17 @@ import {
   IndexComponent,
   SectionComponent,
   ISectionsAndChats,
-  initializeDarkModeToggle,
+  UIElement,
   loadJSONFile,
 } from 'notes_lib'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 
-initializeDarkModeToggle('darkModeButton', 'dark-mode')
+const uiElement: UIElement = new UIElement()
+uiElement.set('darkModeButton', 'dark-mode')
+uiElement.initializeToggle()
+
 const jsonContainer = document.getElementById('jsonContainer') as HTMLElement
 const index = document.getElementById('index') as HTMLElement
 const markDownIt: MarkdownIt = new MarkdownIt()

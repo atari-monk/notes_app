@@ -8766,28 +8766,58 @@ __exportStar(__webpack_require__(/*! ./z_exports/ui_initializer */ "./node_modul
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/ui_initializer/initializeDarkModeToggle.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/notes_lib/ui_initializer/initializeDarkModeToggle.js ***!
-  \***************************************************************************/
+/***/ "./node_modules/notes_lib/ui_initializer/UIElement.js":
+/*!************************************************************!*\
+  !*** ./node_modules/notes_lib/ui_initializer/UIElement.js ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-function initializeDarkModeToggle(buttonId, darkModeClass) {
-    const darkModeButton = document.getElementById(buttonId);
-    if (!darkModeButton) {
-        console.error(`Element with ID '${buttonId}' not found.`);
-        return;
+class UIElement {
+    id = '';
+    className = '';
+    ui;
+    set(id, className) {
+        this.id = id;
+        this.className = className;
     }
-    darkModeButton.addEventListener('click', toggleDarkMode);
-    function toggleDarkMode() {
+    getUI() {
+        const item = document.getElementById(this.id);
+        if (!item) {
+            throw new Error(`Element with ID '${this.id}' not found.`);
+        }
+        this.ui = item;
+    }
+    addClick(listener) {
+        this.ui.addEventListener('click', listener);
+    }
+    initializeToggle() {
+        try {
+            this.getUI();
+            this.addClick((_event) => {
+                this.toggle(this.className);
+            });
+        }
+        catch (error) {
+            this.handleError(error);
+        }
+    }
+    toggle(className) {
         const body = document.body;
-        body.classList.toggle(darkModeClass);
+        body.classList.toggle(className);
+    }
+    handleError(error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+        else {
+            console.error('An unknown error occurred.');
+        }
     }
 }
-exports["default"] = initializeDarkModeToggle;
+exports["default"] = UIElement;
 
 
 /***/ }),
@@ -8859,9 +8889,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.initializeDarkModeToggle = void 0;
-var initializeDarkModeToggle_1 = __webpack_require__(/*! ../ui_initializer/initializeDarkModeToggle */ "./node_modules/notes_lib/ui_initializer/initializeDarkModeToggle.js");
-Object.defineProperty(exports, "initializeDarkModeToggle", ({ enumerable: true, get: function () { return __importDefault(initializeDarkModeToggle_1).default; } }));
+exports.UIElement = void 0;
+var UIElement_1 = __webpack_require__(/*! ../ui_initializer/UIElement */ "./node_modules/notes_lib/ui_initializer/UIElement.js");
+Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(UIElement_1).default; } }));
 
 
 /***/ }),
@@ -9350,7 +9380,9 @@ const notes_lib_1 = __webpack_require__(/*! notes_lib */ "./node_modules/notes_l
 const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
-(0, notes_lib_1.initializeDarkModeToggle)('darkModeButton', 'dark-mode');
+const uiElement = new notes_lib_1.UIElement();
+uiElement.set('darkModeButton', 'dark-mode');
+uiElement.initializeToggle();
 const jsonContainer = document.getElementById('jsonContainer');
 const index = document.getElementById('index');
 const markDownIt = new markdown_it_1.default();
