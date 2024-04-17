@@ -1,5 +1,5 @@
 {
-  "name": "notes_lib",
+  "name": "ui_lib",
   "version": "1.0.0",
   "description": "Shared lib",
   "main": "index.js",
@@ -13,5 +13,7 @@
   "devDependencies": {
     "typescript": "^5.2.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "data_lib": "file:data_lib-1.0.0.tgz"
+  }
 }

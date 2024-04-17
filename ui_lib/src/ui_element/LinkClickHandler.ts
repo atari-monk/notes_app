@@ -1,4 +1,4 @@
-import ErrorUtil from '../util/ErrorUtil'
+import { ErrorUtil } from 'data_lib'
 import IFile from './IFile'
 import IHandleLinkClick from './IHandleLinkClick'
 import PasswordProvider from './PasswordProvider'

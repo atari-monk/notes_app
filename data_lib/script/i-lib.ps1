@@ -7,15 +7,17 @@ param (
 . "./../../scripts/src_ps1/npm.ps1"
 
 $repoPath = "C:\atari-monk\Code\notes_app\"
-$libFolder = "notes_lib"
-$libName = "notes_lib"
+$libFolder = "data_lib"
+$libName = "data_lib"
+
 $build = "$libFolder\build\"
 $pack = "$libName-1.0.0.tgz"
 $lib = Join-Path $repoPath ($build + $pack)
 
 $workingList = @(
+    "ui_lib",
     "info_page"
-    "notes_server"
+    "server"
 )
 
 $fullList = @(

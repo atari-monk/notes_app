@@ -1,4 +1,4 @@
-import ErrorUtils from '../util/ErrorUtil'
+import { ErrorUtil } from 'data_lib'
 import IUIElementData from './IUIElementData'
 import UIElement from './UIElement'
 
@@ -10,7 +10,7 @@ export default class ToggleButton extends UIElement {
         this.toggle(this.className)
       })
     } catch (error) {
-      ErrorUtils.handleError(error)
+      ErrorUtil.handleError(error)
     }
   }
 

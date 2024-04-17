@@ -1,5 +1,4 @@
-import loadJSONFile from '../file_sys/json'
-import ErrorUtils from '../util/ErrorUtil'
+import { loadJSONFile, ErrorUtil } from 'data_lib'
 import IFile from './IFile'
 import IHandleLinkClick from './IHandleLinkClick'
 import IUIFileListData from './IUIFileListData'
@@ -22,7 +21,7 @@ export default class UIFileList extends UIElement {
       const firstLink = this.ui.querySelector('a') as HTMLElement
       firstLink.click()
     } catch (error) {
-      ErrorUtils.handleError(error)
+      ErrorUtil.handleError(error)
     }
   }
 
@@ -30,7 +29,7 @@ export default class UIFileList extends UIElement {
     try {
       this.fileList.push(...(await loadJSONFile(this.filePath)))
     } catch (error) {
-      ErrorUtils.handleError(error)
+      ErrorUtil.handleError(error)
     }
   }
 

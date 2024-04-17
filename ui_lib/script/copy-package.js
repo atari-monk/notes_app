@@ -1,7 +1,8 @@
-const lib = require('./../../../scripts/src_js/copy_package')
+const lib = require('../../../scripts/src_js/copy_package')
 
 const repoFolder = 'notes_app'
-const projFolder = 'notes_lib'
+const projFolder = 'ui_lib'
+
 const sourceFile = `../../${repoFolder}/${projFolder}/package.json`
 const targetDir = `../../${repoFolder}/${projFolder}/build`
 const debug = false
