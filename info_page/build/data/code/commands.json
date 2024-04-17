@@ -1,0 +1,15 @@
+{
+  "sections": [
+    {
+      "title": "Powershell",
+      "chats": [
+        {
+          "indexTitle": "basic",
+          "question": "basic",
+          "answer": "1. Create Directory \n```bash\nNew-Item -ItemType Directory -Path \"C:\\atari-monk\\temp\"\n```\n2. List Directory Content\n```bash\nls\n```",
+          "dateTime": "2024-03-29T18:44:15.485Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "notes_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./script/copy-package.js && tsc",
+    "i-lib": "powershell.exe -ExecutionPolicy Bypass -File .\\script\\i-lib.ps1",
+    "debug": "ndb build/server.js",
+    "start": "node build/server.js",
+    "build&run": "npm run build && node build/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "notes_lib": "file:notes_lib-1.0.0.tgz"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.15",
+    "typescript": "^5.2.2"
+  }
+}
