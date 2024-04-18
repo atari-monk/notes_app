@@ -2,19 +2,23 @@ import './css/styles.css'
 import './css/dark_mode.css'
 import 'font-awesome/css/font-awesome.min.css'
 import {
-  IndexComponent,
-  SectionComponent,
-  ISectionsAndChats,
+  //IndexComponent,
+  //SectionComponent,
+  //ISectionsAndChats,
   ToggleButton,
   UIFileList,
   LinkClickHandler,
   UIIndex,
   UIPageContent,
-} from 'notes_lib'
-import hljs from 'highlight.js'
+  Page,
+} from 'ui_lib'
+//import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import PasswordProvider from 'notes_lib/ui_element/PasswordProvider'
+import { UIElements } from 'ui_lib'
+import CodeHighlight from './CodeHighlight'
+//import { IRenderer } from 'ui_lib'
 
 const darkModeToggle = new ToggleButton()
 darkModeToggle.initialize({
@@ -31,8 +35,11 @@ markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 const fileList = new UIFileList(
   new LinkClickHandler(
     new PasswordProvider(),
-    new UIIndex(),
-    new UIPageContent(markDownIt)
+    new Page(
+      new UIIndex(),
+      new UIPageContent(markDownIt),
+      new UIElements(new CodeHighlight())
+    )
   )
 )
 fileList.initialize({
@@ -40,6 +47,8 @@ fileList.initialize({
   filePath: 'data/files.json',
 })
 
+//const codes = new UIElements(new CodeHighlight())
+//codes.initialize({ selector: 'code' })
 // export default interface IFile {
 //   path: string
 //   name: string
@@ -141,11 +150,11 @@ function handleFileLoad(data: ISectionsAndChats) {
 }
 */
 
-function highlightCodeBlocks() {
-  document.querySelectorAll('code').forEach((codeBlock) => {
-    hljs.highlightElement(codeBlock)
-  })
-}
+// function highlightCodeBlocks() {
+//   document.querySelectorAll('code').forEach((codeBlock) => {
+//     hljs.highlightElement(codeBlock)
+//   })
+// }
 
 function addCopyBtns() {
   const codeBlocks = document.querySelectorAll(

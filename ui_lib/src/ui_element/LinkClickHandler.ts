@@ -2,20 +2,18 @@ import { ErrorUtil } from 'data_lib'
 import IFile from './IFile'
 import IHandleLinkClick from './IHandleLinkClick'
 import PasswordProvider from './PasswordProvider'
-import UIIndex from './UIIndex'
-import UIPageContent from './UIPageContent'
+import Page from './Page'
 
 export default class LinkClickHandler implements IHandleLinkClick {
   constructor(
     private readonly passwordProvider: PasswordProvider,
-    private readonly index: UIIndex,
-    private readonly content: UIPageContent
+    private readonly page: Page
   ) {}
 
   async handleLinkClick(file: IFile) {
     if (this.isProtectedFile(file)) return
     const jsonData = await this.fetchData(file)
-    this.createPage(jsonData)
+    this.page.createPage(jsonData)
   }
 
   private isProtectedFile(file: IFile) {
@@ -34,12 +32,5 @@ export default class LinkClickHandler implements IHandleLinkClick {
     } catch (error) {
       ErrorUtil.handleError(error, 'Error loading or parsing JSON file')
     }
-  }
-
-  private createPage(jsonData: any) {
-    this.index.initialize({ id: 'index' })
-    this.content.indexComponent = this.index.indexComponent
-    this.content.data = jsonData
-    this.content.initialize({ id: 'jsonContainer' })
   }
 }
