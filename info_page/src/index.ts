@@ -11,6 +11,7 @@ import {
   UIIndex,
   UIPageContent,
   Page,
+  CopyButtonCreator,
 } from 'ui_lib'
 //import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
@@ -38,7 +39,8 @@ const fileList = new UIFileList(
     new Page(
       new UIIndex(),
       new UIPageContent(markDownIt),
-      new UIElements(new CodeHighlight())
+      new UIElements(new CodeHighlight()),
+      new UIElements(new CopyButtonCreator())
     )
   )
 )
@@ -46,6 +48,9 @@ fileList.initialize({
   id: 'fileListContainer',
   filePath: 'data/files.json',
 })
+
+//const copyButtons = new UIElements(new CopyButtonCreator())
+//copyButtons.initialize({ selector: 'pre code[class*="language-"]' })
 
 //const codes = new UIElements(new CodeHighlight())
 //codes.initialize({ selector: 'code' })
@@ -156,40 +161,40 @@ function handleFileLoad(data: ISectionsAndChats) {
 //   })
 // }
 
-function addCopyBtns() {
-  const codeBlocks = document.querySelectorAll(
-    'pre code[class*="language-"]'
-  ) as NodeListOf<HTMLElement>
+// function addCopyBtns() {
+//   const codeBlocks = document.querySelectorAll(
+//     'pre code[class*="language-"]'
+//   ) as NodeListOf<HTMLElement>
 
-  codeBlocks.forEach((codeBlock: HTMLElement) => {
-    const pre = codeBlock.parentNode
-    const container = document.createElement('div')
-    container.className = 'code-container'
+//   codeBlocks.forEach((codeBlock: HTMLElement) => {
+//     const pre = codeBlock.parentNode
+//     const container = document.createElement('div')
+//     container.className = 'code-container'
 
-    const copyButton = document.createElement('button')
-    copyButton.className = 'copy-button'
+//     const copyButton = document.createElement('button')
+//     copyButton.className = 'copy-button'
 
-    const copyIcon = document.createElement('i')
-    copyIcon.className = 'fa fa-copy'
+//     const copyIcon = document.createElement('i')
+//     copyIcon.className = 'fa fa-copy'
 
-    copyButton.appendChild(copyIcon)
+//     copyButton.appendChild(copyIcon)
 
-    copyButton.addEventListener('click', async () => {
-      await handleCopyButtonClick(codeBlock)
-    })
+//     copyButton.addEventListener('click', async () => {
+//       await handleCopyButtonClick(codeBlock)
+//     })
 
-    container.appendChild(codeBlock)
-    container.appendChild(copyButton)
-    pre?.appendChild(container)
-  })
-}
+//     container.appendChild(codeBlock)
+//     container.appendChild(copyButton)
+//     pre?.appendChild(container)
+//   })
+// }
 
-async function handleCopyButtonClick(codeBlock: HTMLElement) {
-  const text = codeBlock.textContent || ''
+// async function handleCopyButtonClick(codeBlock: HTMLElement) {
+//   const text = codeBlock.textContent || ''
 
-  try {
-    await navigator.clipboard.writeText(text)
-  } catch (err) {
-    console.error('Failed to copy text: ', err)
-  }
-}
+//   try {
+//     await navigator.clipboard.writeText(text)
+//   } catch (err) {
+//     console.error('Failed to copy text: ', err)
+//   }
+// }

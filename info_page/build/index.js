@@ -9264,11 +9264,13 @@ darkModeToggle.initialize({
 //const index = document.getElementById('index') as HTMLElement
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-const fileList = new ui_lib_1.UIFileList(new ui_lib_1.LinkClickHandler(new PasswordProvider_1.default(), new ui_lib_1.Page(new ui_lib_1.UIIndex(), new ui_lib_1.UIPageContent(markDownIt), new ui_lib_2.UIElements(new CodeHighlight_1.default()))));
+const fileList = new ui_lib_1.UIFileList(new ui_lib_1.LinkClickHandler(new PasswordProvider_1.default(), new ui_lib_1.Page(new ui_lib_1.UIIndex(), new ui_lib_1.UIPageContent(markDownIt), new ui_lib_2.UIElements(new CodeHighlight_1.default()), new ui_lib_2.UIElements(new ui_lib_1.CopyButtonCreator()))));
 fileList.initialize({
     id: 'fileListContainer',
     filePath: 'data/files.json',
 });
+//const copyButtons = new UIElements(new CopyButtonCreator())
+//copyButtons.initialize({ selector: 'pre code[class*="language-"]' })
 //const codes = new UIElements(new CodeHighlight())
 //codes.initialize({ selector: 'code' })
 // export default interface IFile {
@@ -9369,34 +9371,35 @@ function handleFileLoad(data: ISectionsAndChats) {
 //     hljs.highlightElement(codeBlock)
 //   })
 // }
-function addCopyBtns() {
-    const codeBlocks = document.querySelectorAll('pre code[class*="language-"]');
-    codeBlocks.forEach((codeBlock) => {
-        const pre = codeBlock.parentNode;
-        const container = document.createElement('div');
-        container.className = 'code-container';
-        const copyButton = document.createElement('button');
-        copyButton.className = 'copy-button';
-        const copyIcon = document.createElement('i');
-        copyIcon.className = 'fa fa-copy';
-        copyButton.appendChild(copyIcon);
-        copyButton.addEventListener('click', async () => {
-            await handleCopyButtonClick(codeBlock);
-        });
-        container.appendChild(codeBlock);
-        container.appendChild(copyButton);
-        pre?.appendChild(container);
-    });
-}
-async function handleCopyButtonClick(codeBlock) {
-    const text = codeBlock.textContent || '';
-    try {
-        await navigator.clipboard.writeText(text);
-    }
-    catch (err) {
-        console.error('Failed to copy text: ', err);
-    }
-}
+// function addCopyBtns() {
+//   const codeBlocks = document.querySelectorAll(
+//     'pre code[class*="language-"]'
+//   ) as NodeListOf<HTMLElement>
+//   codeBlocks.forEach((codeBlock: HTMLElement) => {
+//     const pre = codeBlock.parentNode
+//     const container = document.createElement('div')
+//     container.className = 'code-container'
+//     const copyButton = document.createElement('button')
+//     copyButton.className = 'copy-button'
+//     const copyIcon = document.createElement('i')
+//     copyIcon.className = 'fa fa-copy'
+//     copyButton.appendChild(copyIcon)
+//     copyButton.addEventListener('click', async () => {
+//       await handleCopyButtonClick(codeBlock)
+//     })
+//     container.appendChild(codeBlock)
+//     container.appendChild(copyButton)
+//     pre?.appendChild(container)
+//   })
+// }
+// async function handleCopyButtonClick(codeBlock: HTMLElement) {
+//   const text = codeBlock.textContent || ''
+//   try {
+//     await navigator.clipboard.writeText(text)
+//   } catch (err) {
+//     console.error('Failed to copy text: ', err)
+//   }
+// }
 
 
 /***/ }),
@@ -9684,10 +9687,12 @@ class Page {
     index;
     content;
     code;
-    constructor(index, content, code) {
+    buttons;
+    constructor(index, content, code, buttons) {
         this.index = index;
         this.content = content;
         this.code = code;
+        this.buttons = buttons;
     }
     createPage(jsonData) {
         this.index.initialize({ id: 'index' });
@@ -9695,6 +9700,7 @@ class Page {
         this.content.data = jsonData;
         this.content.initialize({ id: 'jsonContainer' });
         this.code.initialize({ selector: 'code' });
+        this.buttons.initialize({ selector: 'pre code[class*="language-"]' });
     }
 }
 exports["default"] = Page;
@@ -9952,6 +9958,47 @@ exports["default"] = UIPageContent;
 
 /***/ }),
 
+/***/ "./node_modules/ui_lib/ui_elements/CopyButtonCreator.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/ui_lib/ui_elements/CopyButtonCreator.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class CopyButtonCreator {
+    render(item) {
+        const pre = item.parentNode;
+        const container = document.createElement('div');
+        container.className = 'code-container';
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-button';
+        const copyIcon = document.createElement('i');
+        copyIcon.className = 'fa fa-copy';
+        copyButton.appendChild(copyIcon);
+        copyButton.addEventListener('click', async () => {
+            await this.handleCopyButtonClick(item);
+        });
+        container.appendChild(item);
+        container.appendChild(copyButton);
+        pre?.appendChild(container);
+    }
+    async handleCopyButtonClick(codeBlock) {
+        const text = codeBlock.textContent || '';
+        try {
+            await navigator.clipboard.writeText(text);
+        }
+        catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
+    }
+}
+exports["default"] = CopyButtonCreator;
+
+
+/***/ }),
+
 /***/ "./node_modules/ui_lib/ui_elements/UIElements.js":
 /*!*******************************************************!*\
   !*** ./node_modules/ui_lib/ui_elements/UIElements.js ***!
@@ -9970,9 +10017,10 @@ class UIElements {
     initialize(data) {
         const { selector } = data;
         this.selector = selector;
-        document.querySelectorAll(this.selector).forEach((item) => {
+        const items = document.querySelectorAll(this.selector);
+        for (const item of items) {
             this.renderer.render(item);
-        });
+        }
     }
 }
 exports["default"] = UIElements;
@@ -10048,9 +10096,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UIElements = void 0;
+exports.CopyButtonCreator = exports.UIElements = void 0;
 var UIElements_1 = __webpack_require__(/*! ../ui_elements/UIElements */ "./node_modules/ui_lib/ui_elements/UIElements.js");
 Object.defineProperty(exports, "UIElements", ({ enumerable: true, get: function () { return __importDefault(UIElements_1).default; } }));
+var CopyButtonCreator_1 = __webpack_require__(/*! ../ui_elements/CopyButtonCreator */ "./node_modules/ui_lib/ui_elements/CopyButtonCreator.js");
+Object.defineProperty(exports, "CopyButtonCreator", ({ enumerable: true, get: function () { return __importDefault(CopyButtonCreator_1).default; } }));
 
 
 /***/ }),

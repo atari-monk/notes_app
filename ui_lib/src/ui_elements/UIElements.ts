@@ -9,8 +9,9 @@ export default class UIElements {
   initialize(data: IUIElementsData) {
     const { selector } = data
     this.selector = selector
-    document.querySelectorAll<HTMLElement>(this.selector).forEach((item) => {
-      this.renderer.render(item)
-    })
+    const items = document.querySelectorAll<HTMLElement>(this.selector)
+    for (const item of items) {
+      this.renderer.render(item)   
+    }
   }
 }

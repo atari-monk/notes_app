@@ -6,7 +6,8 @@ export default class Page {
   constructor(
     private readonly index: UIIndex,
     private readonly content: UIPageContent,
-    private readonly code: UIElements
+    private readonly code: UIElements,
+    private readonly buttons: UIElements
   ) {}
 
   createPage(jsonData: any) {
@@ -15,5 +16,6 @@ export default class Page {
     this.content.data = jsonData
     this.content.initialize({ id: 'jsonContainer' })
     this.code.initialize({ selector: 'code' })
+    this.buttons.initialize({ selector: 'pre code[class*="language-"]' })
   }
 }
