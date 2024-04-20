@@ -1,6 +1,9 @@
-import IUIElementData from './IUIFileListData'
+import IUIElementData from './IUIInnerTextData'
+
+export type Tag = '' | 'a' | 'br'
 
 export default interface IUIElement {
+  tag: Tag
   id: string
   className: string
   ui: HTMLElement

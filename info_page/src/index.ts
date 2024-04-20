@@ -33,15 +33,16 @@ darkModeToggle.initialize({
 const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
+//content.indexComponent = index.indexComponent
+// const page = new Page(
+//   new UIElements(new CodeHighlight()),
+//   new UIElements(new CopyButtonCreator())
+// )
+//page.initializeIndex()
 const fileList = new UIFileList(
   new LinkClickHandler(
     new PasswordProvider(),
-    new Page(
-      new UIIndex(),
-      new UIPageContent(markDownIt),
-      new UIElements(new CodeHighlight()),
-      new UIElements(new CopyButtonCreator())
-    )
+    new Page(markDownIt, new CodeHighlight())
   )
 )
 fileList.initialize({

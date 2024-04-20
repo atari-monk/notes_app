@@ -1,6 +1,6 @@
 import IUIElementData from './IUIElementData'
 import UIElement from './UIElement'
-import { ErrorUtil, ISectionsAndChats } from 'data_lib'
+import { ISectionsAndChats } from 'data_lib'
 import IndexComponent from '../component/IndexComponent'
 import SectionComponent from '../component/SectionComponent'
 import IRenderer from '../component/IRenderer'
@@ -26,8 +26,8 @@ export default class UIPageContent extends UIElement {
       super.initialize(data)
       this.ui.innerHTML = ''
       this.createPageContent()
-    } catch (error) {
-      ErrorUtil.handleError(error)
+    } catch (error: any) {
+      console.error(error.message)
     }
   }
 

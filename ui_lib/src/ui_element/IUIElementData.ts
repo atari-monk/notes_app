@@ -1,4 +1,4 @@
 export default interface IUIElementData {
-  id: string
+  id?: string
   className?: string
 }

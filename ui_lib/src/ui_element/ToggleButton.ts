@@ -1,4 +1,3 @@
-import { ErrorUtil } from 'data_lib'
 import IUIElementData from './IUIElementData'
 import UIElement from './UIElement'
 
@@ -9,8 +8,8 @@ export default class ToggleButton extends UIElement {
       this.addClick((_event) => {
         this.toggle(this.className)
       })
-    } catch (error) {
-      ErrorUtil.handleError(error)
+    } catch (error: any) {
+      console.error(error.message)
     }
   }
 

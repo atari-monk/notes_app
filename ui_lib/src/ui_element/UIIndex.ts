@@ -1,6 +1,5 @@
 import IUIElementData from './IUIElementData'
 import UIElement from './UIElement'
-import { ErrorUtil } from 'data_lib'
 import IndexComponent from '../component/IndexComponent'
 
 export default class UIIndex extends UIElement {
@@ -15,8 +14,8 @@ export default class UIIndex extends UIElement {
       super.initialize(data)
       this.ui.innerHTML = ''
       this._indexComponent = new IndexComponent(this.ui)
-    } catch (error) {
-      ErrorUtil.handleError(error)
+    } catch (error: any) {
+      console.error(error.message)
     }
   }
 }

@@ -1,8 +1,11 @@
-import { loadJSONFile, ErrorUtil } from 'data_lib'
+import { loadJSONFile } from 'data_lib'
 import IFile from './IFile'
 import IHandleLinkClick from './IHandleLinkClick'
 import IUIFileListData from './IUIFileListData'
 import UIElement from './UIElement'
+import FirstLinkClick from './FirstLinkClick'
+import UILink from './UILink'
+import UIBreakLine from './UIBreakLine'
 
 export default class UIFileList extends UIElement {
   private readonly fileList: IFile[] = []
@@ -18,18 +21,17 @@ export default class UIFileList extends UIElement {
       this.filePath = data.filePath
       await this.loadFiles()
       this.createList()
-      const firstLink = this.ui.querySelector('a') as HTMLElement
-      firstLink.click()
-    } catch (error) {
-      ErrorUtil.handleError(error)
+      new FirstLinkClick().initialize({})
+    } catch (error: any) {
+      console.error(error.message)
     }
   }
 
   private async loadFiles() {
     try {
       this.fileList.push(...(await loadJSONFile(this.filePath)))
-    } catch (error) {
-      ErrorUtil.handleError(error)
+    } catch (error: any) {
+      console.error(error.message)
     }
   }
 
@@ -40,15 +42,13 @@ export default class UIFileList extends UIElement {
   }
 
   private createItem(file: IFile) {
-    const link = document.createElement('a')
-    link.href = '#'
-    link.textContent = file.name
-    link.addEventListener('click', async (event) => {
-      event.preventDefault()
-      await this.handler.handleLinkClick(file)
-    })
-    this.ui.appendChild(link)
-    const br = document.createElement('br')
-    this.ui.appendChild(br)
+    new UILink().create(
+      this.ui,
+      { href: '#', textContent: file.name },
+      async (_event: MouseEvent) => {
+        this.handler.handleLinkClick(file)
+      }
+    )
+    new UIBreakLine().create(this.ui)
   }
 }
