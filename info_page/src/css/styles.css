@@ -152,11 +152,11 @@ button.copy-button:active {
   color: #fff;
 }
 
-#index a.section {
+#index a.section-link {
   margin-left: 50px;
 }
 
-#index a.chat {
+#index a.question-link {
   margin-left: 100px;
 }
 

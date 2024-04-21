@@ -1,4 +1,4 @@
-import IRenderer from '../generate_component/IRenderer'
+import IRenderer from '../generate_component/type/IRenderer'
 import CopyButtonCreator from '../ui_elements/CopyButtonCreator'
 import IDOMRenderer from '../ui_elements/IDOMRenderer'
 import UIElements from '../ui_elements/UIElements'

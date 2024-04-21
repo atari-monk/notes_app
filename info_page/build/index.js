@@ -9504,18 +9504,34 @@ class AnswerCard {
     }
     generate(data) {
         const { sectionIndex, questionIndex, question, answer } = data;
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML += `<p>${this.renderer.render(question)}</p><hr />`;
-        card.appendChild(this.createDiv(answer));
+        const card = this.createCard(question, answer);
         card.id = `section-${sectionIndex}-question-${questionIndex}`;
-        card.innerHTML += `<a href="#index_title" class="index">&#9650;</a>`;
         return card;
     }
-    createDiv(answer) {
+    createCard(question, answer) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.appendChild(this.createQuestionParagraph(question));
+        card.appendChild(this.createAnswerDiv(answer));
+        card.appendChild(this.createIndexLink());
+        return card;
+    }
+    createQuestionParagraph(question) {
+        const paragraph = document.createElement('p');
+        paragraph.innerHTML = this.renderer.render(question);
+        return paragraph;
+    }
+    createAnswerDiv(answer) {
         const div = document.createElement('div');
         div.innerHTML = this.renderer.render(answer);
         return div;
+    }
+    createIndexLink() {
+        const link = document.createElement('a');
+        link.href = '#index_title';
+        link.classList.add('index');
+        link.innerHTML = '&#9650;';
+        return link;
     }
 }
 exports["default"] = AnswerCard;
@@ -9533,31 +9549,39 @@ exports["default"] = AnswerCard;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 class IndexComponent {
-    index;
-    constructor(index) {
-        this.index = index;
+    indexContainer;
+    constructor(indexContainer) {
+        this.indexContainer = indexContainer;
     }
-    createSectionLink(sectionIndex, sectionTitle) {
+    createSectionLink(data) {
+        const { sectionIndex, sectionTitle } = data;
         const sectionLink = document.createElement('a');
         sectionLink.textContent = sectionTitle.replace(/#/g, '');
         sectionLink.href = `#section-${sectionIndex}`;
-        sectionLink.classList.add('section');
+        sectionLink.classList.add('section-link');
         return sectionLink;
     }
-    createQuestionLink(sectionIndex, questionIndex, indexTitle) {
+    createQuestionLink(data) {
+        const { indexTitle, sectionIndex, questionIndex } = data;
         const questionLink = document.createElement('a');
         questionLink.textContent = indexTitle.replace(/#/g, '');
         questionLink.href = `#section-${sectionIndex}-question-${questionIndex}`;
-        questionLink.classList.add('chat');
+        questionLink.classList.add('question-link');
         return questionLink;
     }
-    addSectionEntry(sectionIndex, sectionTitle, questions) {
-        const sectionLink = this.createSectionLink(sectionIndex, sectionTitle);
+    generate(data) {
+        const { questions } = data;
+        const sectionLink = this.createSectionLink(data);
         const sectionEntry = document.createElement('div');
         sectionEntry.appendChild(sectionLink);
-        this.index.appendChild(sectionEntry);
+        this.indexContainer.appendChild(sectionEntry);
         questions.forEach((item, questionIndex) => {
-            const questionLink = this.createQuestionLink(sectionIndex, questionIndex, item.indexTitle);
+            const updatedData = {
+                ...data,
+                questionIndex,
+                indexTitle: item.indexTitle,
+            };
+            const questionLink = this.createQuestionLink(updatedData);
             sectionEntry.appendChild(questionLink);
         });
     }
@@ -9605,7 +9629,13 @@ class SectionComponent {
             });
             sectionDiv.appendChild(card);
         });
-        this.indexComponent.addSectionEntry(this.sectionIndex, sectionTitle, questions);
+        this.indexComponent.generate({
+            sectionIndex: this.sectionIndex,
+            questionIndex: 0,
+            sectionTitle: '',
+            indexTitle: '',
+            questions,
+        });
         this.jsonContainer.appendChild(sectionDiv);
     }
 }

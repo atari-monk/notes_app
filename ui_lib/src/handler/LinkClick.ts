@@ -4,7 +4,7 @@ import PasswordProvider from '../provider/PasswordProvider'
 import Page from '../initialize_component/Page'
 import ScrollIntoView from '../initialize_component/ScrollIntoView'
 import SetInnerText from '../initialize_component/SetInnerText'
-import IRenderer from '../generate_component/IRenderer'
+import IRenderer from '../generate_component/type/IRenderer'
 import IDOMRenderer from '../ui_elements/IDOMRenderer'
 
 export default class LinkClick implements ILinkClick {

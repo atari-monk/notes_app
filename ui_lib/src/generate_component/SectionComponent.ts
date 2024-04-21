@@ -1,6 +1,6 @@
-import IndexComponent from './IndexComponent'
-import IRenderer from './IRenderer'
+import IRenderer from './type/IRenderer'
 import AnswerCard from './AnswerCard'
+import IndexComponent from './IndexComponent'
 
 export default class SectionComponent {
   constructor(
@@ -30,11 +30,13 @@ export default class SectionComponent {
       sectionDiv.appendChild(card)
     })
 
-    this.indexComponent.addSectionEntry(
-      this.sectionIndex,
-      sectionTitle,
-      questions
-    )
+    this.indexComponent.generate({
+      sectionIndex: this.sectionIndex,
+      questionIndex: 0,
+      sectionTitle: '',
+      indexTitle: '',
+      questions,
+    })
     this.jsonContainer.appendChild(sectionDiv)
   }
 }

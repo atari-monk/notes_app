@@ -1,46 +1,47 @@
-export default class IndexComponent {
-  private index: HTMLElement
+import IGenerateComponent from '../component/type/IGenerateComponent'
+import IIndexComponentData from './type/IIndexComponentData'
 
-  constructor(index: HTMLElement) {
-    this.index = index
+export default class IndexComponent
+  implements IGenerateComponent<IIndexComponentData, void>
+{
+  private indexContainer: HTMLElement
+
+  constructor(indexContainer: HTMLElement) {
+    this.indexContainer = indexContainer
   }
 
-  createSectionLink(sectionIndex: number, sectionTitle: string): HTMLElement {
+  private createSectionLink(data: IIndexComponentData): HTMLElement {
+    const { sectionIndex, sectionTitle } = data
     const sectionLink = document.createElement('a')
     sectionLink.textContent = sectionTitle.replace(/#/g, '')
     sectionLink.href = `#section-${sectionIndex}`
-    sectionLink.classList.add('section')
+    sectionLink.classList.add('section-link')
     return sectionLink
   }
 
-  createQuestionLink(
-    sectionIndex: number,
-    questionIndex: number,
-    indexTitle: string
-  ): HTMLElement {
+  private createQuestionLink(data: IIndexComponentData): HTMLElement {
+    const { indexTitle, sectionIndex, questionIndex } = data
     const questionLink = document.createElement('a')
     questionLink.textContent = indexTitle.replace(/#/g, '')
     questionLink.href = `#section-${sectionIndex}-question-${questionIndex}`
-    questionLink.classList.add('chat')
+    questionLink.classList.add('question-link')
     return questionLink
   }
 
-  addSectionEntry(
-    sectionIndex: number,
-    sectionTitle: string,
-    questions: { indexTitle: string }[]
-  ): void {
-    const sectionLink = this.createSectionLink(sectionIndex, sectionTitle)
+  generate(data: IIndexComponentData): void {
+    const { questions } = data
+    const sectionLink = this.createSectionLink(data)
     const sectionEntry = document.createElement('div')
     sectionEntry.appendChild(sectionLink)
-    this.index.appendChild(sectionEntry)
+    this.indexContainer.appendChild(sectionEntry)
 
     questions.forEach((item, questionIndex) => {
-      const questionLink = this.createQuestionLink(
-        sectionIndex,
+      const updatedData = {
+        ...data,
         questionIndex,
-        item.indexTitle
-      )
+        indexTitle: item.indexTitle,
+      }
+      const questionLink = this.createQuestionLink(updatedData)
       sectionEntry.appendChild(questionLink)
     })
   }

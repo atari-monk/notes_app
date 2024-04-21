@@ -1,9 +1,9 @@
 import IComponentData from '../component/type/IComponentData'
 import Component from '../component/Component'
 import { ISectionsAndChats } from 'data_lib'
-import IndexComponent from '../generate_component/IndexComponent'
 import SectionComponent from '../generate_component/SectionComponent'
-import IRenderer from '../generate_component/IRenderer'
+import IRenderer from '../generate_component/type/IRenderer'
+import IndexComponent from '../generate_component/IndexComponent'
 
 export default class PageContent extends Component {
   private _indexComponent!: IndexComponent

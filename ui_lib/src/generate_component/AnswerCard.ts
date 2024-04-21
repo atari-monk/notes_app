@@ -1,5 +1,5 @@
 import IGenerateComponent from '../component/type/IGenerateComponent'
-import IRenderer from './IRenderer'
+import IRenderer from './type/IRenderer'
 import IAnswerCardData from './type/IAnswerCardData'
 
 export default class AnswerCard
