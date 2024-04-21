@@ -1,8 +1,9 @@
-import IUIElementData from './IUIElementData'
-import IUIElement, { Tag } from './IUIElement'
+import IUIElementData from './data_type/IUIElementData'
+import IComponent from './ui_type/IComponent'
+import { Tag } from './ui_type/Tag'
 import InitializationGuard from '../util/InitializationGuard'
 
-export default class UIElement implements IUIElement {
+export default class Component implements IComponent {
   private readonly initializationGuard: InitializationGuard
   id: string = ''
   tag: Tag = ''

@@ -1,17 +1,17 @@
 import { loadJSONFile } from 'data_lib'
-import IFile from './IFile'
-import IHandleLinkClick from './IHandleLinkClick'
-import IUIFileListData from './IUIFileListData'
-import UIElement from './UIElement'
+import IFile from './data_type/IFile'
+import ILinkClick from '../handler/ILinkClick'
+import IUIFileListData from './data_type/IUIFileListData'
+import Component from './Component'
 import FirstLinkClick from './FirstLinkClick'
-import UILink from './UILink'
-import UIBreakLine from './UIBreakLine'
+import Link from './Link'
+import BreakLine from './BreakLine'
 
-export default class UIFileList extends UIElement {
+export default class FileIndex extends Component {
   private readonly fileList: IFile[] = []
   private filePath = ''
 
-  constructor(private readonly handler: IHandleLinkClick) {
+  constructor(private readonly handler: ILinkClick) {
     super()
   }
 
@@ -42,13 +42,13 @@ export default class UIFileList extends UIElement {
   }
 
   private createItem(file: IFile) {
-    new UILink().create(
+    new Link().create(
       this.ui,
       { href: '#', textContent: file.name },
       async (_event: MouseEvent) => {
-        this.handler.handleLinkClick(file)
+        this.handler.linkClick(file)
       }
     )
-    new UIBreakLine().create(this.ui)
+    new BreakLine().create(this.ui)
   }
 }

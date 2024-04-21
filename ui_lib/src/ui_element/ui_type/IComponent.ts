@@ -1,8 +1,7 @@
-import IUIElementData from './IUIInnerTextData'
+import IUIElementData from '../data_type/IUIInnerTextData'
+import { Tag } from './Tag'
 
-export type Tag = '' | 'a' | 'br'
-
-export default interface IUIElement {
+export default interface IComponent {
   tag: Tag
   id: string
   className: string

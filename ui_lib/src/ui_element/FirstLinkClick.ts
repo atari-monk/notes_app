@@ -1,7 +1,7 @@
-import UIElement from './UIElement'
-import IUIElementData from './IUIElementData'
+import Component from './Component'
+import IUIElementData from './data_type/IUIElementData'
 
-export default class FirstLinkClick extends UIElement {
+export default class FirstLinkClick extends Component {
   constructor() {
     super()
     this.tag = 'a'

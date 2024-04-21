@@ -1,7 +1,7 @@
-import UIElement from './UIElement'
-import IUIElementData from './IUIElementData'
+import Component from './Component'
+import IUIElementData from './data_type/IUIElementData'
 
-export default class ScrollIntoView extends UIElement {
+export default class ScrollIntoView extends Component {
   initialize(data: IUIElementData) {
     try {
       super.initialize(data)

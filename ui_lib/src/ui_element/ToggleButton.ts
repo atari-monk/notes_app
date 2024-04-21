@@ -1,7 +1,7 @@
-import IUIElementData from './IUIElementData'
-import UIElement from './UIElement'
+import IUIElementData from './data_type/IUIElementData'
+import Component from './Component'
 
-export default class ToggleButton extends UIElement {
+export default class ToggleButton extends Component {
   initialize(data: IUIElementData): void {
     try {
       super.initialize(data)

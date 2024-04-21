@@ -1,8 +1,8 @@
-import IUIElementData from './IUIElementData'
-import UIElement from './UIElement'
+import IUIElementData from './data_type/IUIElementData'
+import Component from './Component'
 import IndexComponent from '../component/IndexComponent'
 
-export default class UIIndex extends UIElement {
+export default class PageIndex extends Component {
   private _indexComponent!: IndexComponent
 
   get indexComponent(): IndexComponent {

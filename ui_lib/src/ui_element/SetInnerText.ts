@@ -1,7 +1,7 @@
-import IUIInnerTextData from './IUIInnerTextData'
-import UIElement from './UIElement'
+import IUIInnerTextData from './data_type/IUIInnerTextData'
+import Component from './Component'
 
-export default class SetInnerText extends UIElement {
+export default class SetInnerText extends Component {
   initialize(data: IUIInnerTextData) {
     try {
       super.initialize(data)

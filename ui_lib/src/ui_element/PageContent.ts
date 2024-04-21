@@ -1,11 +1,11 @@
-import IUIElementData from './IUIElementData'
-import UIElement from './UIElement'
+import IUIElementData from './data_type/IUIElementData'
+import Component from './Component'
 import { ISectionsAndChats } from 'data_lib'
 import IndexComponent from '../component/IndexComponent'
 import SectionComponent from '../component/SectionComponent'
 import IRenderer from '../component/IRenderer'
 
-export default class UIPageContent extends UIElement {
+export default class PageContent extends Component {
   private _indexComponent!: IndexComponent
   private _data!: ISectionsAndChats
 

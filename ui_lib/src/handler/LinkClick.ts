@@ -1,17 +1,17 @@
-import IFile from './IFile'
-import IHandleLinkClick from './IHandleLinkClick'
+import IFile from '../ui_element/data_type/IFile'
+import ILinkClick from './ILinkClick'
 import PasswordProvider from '../provider/PasswordProvider'
-import Page from './Page'
-import ScrollIntoView from './ScrollIntoView'
-import SetInnerText from './SetInnerText'
+import Page from '../ui_element/Page'
+import ScrollIntoView from '../ui_element/ScrollIntoView'
+import SetInnerText from '../ui_element/SetInnerText'
 
-export default class LinkClickHandler implements IHandleLinkClick {
+export default class LinkClick implements ILinkClick {
   constructor(
     private readonly passwordProvider: PasswordProvider,
     private readonly page: Page
   ) {}
 
-  async handleLinkClick(file: IFile) {
+  async linkClick(file: IFile) {
     if (this.isProtectedFile(file)) return
     const jsonData = await this.fetchData(file)
     this.page.createPage(jsonData)

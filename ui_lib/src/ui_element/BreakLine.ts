@@ -1,6 +1,6 @@
-import UIElement from './UIElement'
+import Component from './Component'
 
-export default class UIBreakLine extends UIElement {
+export default class BreakLine extends Component {
   constructor() {
     super()
     this.tag = 'br'

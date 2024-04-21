@@ -2,8 +2,8 @@ import IRenderer from '../component/IRenderer'
 import CopyButtonCreator from '../ui_elements/CopyButtonCreator'
 import IDOMRenderer from '../ui_elements/IDOMRenderer'
 import UIElements from '../ui_elements/UIElements'
-import UIIndex from './UIIndex'
-import UIPageContent from './UIPageContent'
+import PageIndex from './PageIndex'
+import UIPageContent from './PageContent'
 
 export default class Page {
   constructor(
@@ -12,7 +12,7 @@ export default class Page {
   ) {}
 
   createPage(jsonData: any) {
-    const index = new UIIndex()
+    const index = new PageIndex()
     index.initialize({ id: 'index' })
     const content = new UIPageContent(this.markdown)
     content.data = jsonData

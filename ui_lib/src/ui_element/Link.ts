@@ -1,7 +1,7 @@
-import IUILinkData from './IUILinkData'
-import UIElement from './UIElement'
+import IUILinkData from './data_type/IUILinkData'
+import Component from './Component'
 
-export default class UILink extends UIElement {
+export default class Link extends Component {
   private href: string = ''
   private textContent: string = ''
 
