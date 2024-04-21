@@ -1,6 +1,6 @@
 import IndexComponent from './IndexComponent'
-import AnswerCard from './AnswerCard'
 import IRenderer from './IRenderer'
+import AnswerCard from './AnswerCard'
 
 export default class SectionComponent {
   constructor(
@@ -19,12 +19,13 @@ export default class SectionComponent {
     sectionDiv.innerHTML = this.renderer.render(sectionTitle)
 
     questions.forEach((item, questionIndex) => {
-      const answerCard = new AnswerCard(
-        this.renderer,
-        this.sectionIndex,
-        questionIndex
-      )
-      const card = answerCard.createCard(item.question, item.answer)
+      const answerCard = new AnswerCard(this.renderer)
+      const card = answerCard.generate({
+        sectionIndex: this.sectionIndex,
+        questionIndex: questionIndex,
+        question: item.question,
+        answer: item.answer,
+      })
 
       sectionDiv.appendChild(card)
     })

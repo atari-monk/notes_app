@@ -1,5 +1,5 @@
-import IInnerTextData from './data_type/IInnerTextData'
-import Component from './Component'
+import IInnerTextData from './type/IInnerTextData'
+import Component from '../component/Component'
 
 export default class SetInnerText extends Component {
   initialize(data: IInnerTextData) {

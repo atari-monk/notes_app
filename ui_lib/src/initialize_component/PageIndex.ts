@@ -1,6 +1,6 @@
-import IComponentData from './data_type/IComponentData'
-import Component from './Component'
-import IndexComponent from '../component/IndexComponent'
+import IComponentData from '../component/type/IComponentData'
+import Component from '../component/Component'
+import IndexComponent from '../generate_component/IndexComponent'
 
 export default class PageIndex extends Component {
   private _indexComponent!: IndexComponent

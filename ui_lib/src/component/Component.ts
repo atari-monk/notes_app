@@ -1,6 +1,6 @@
-import IComponentData from './data_type/IComponentData'
-import IComponent from './ui_type/IComponent'
-import { Tag } from './ui_type/Tag'
+import IComponentData from './type/IComponentData'
+import IComponent from './type/IComponent'
+import { Tag } from './type/Tag'
 import InitializationGuard from '../util/InitializationGuard'
 
 export default class Component implements IComponent {

@@ -9431,10 +9431,67 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/component/AnswerCard.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/ui_lib/component/AnswerCard.js ***!
-  \*****************************************************/
+/***/ "./node_modules/ui_lib/component/Component.js":
+/*!****************************************************!*\
+  !*** ./node_modules/ui_lib/component/Component.js ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const InitializationGuard_1 = __importDefault(__webpack_require__(/*! ../util/InitializationGuard */ "./node_modules/ui_lib/util/InitializationGuard.js"));
+class Component {
+    initializationGuard;
+    id = '';
+    tag = '';
+    className = '';
+    ui;
+    constructor() {
+        this.initializationGuard = new InitializationGuard_1.default('UIElement already initialized.');
+    }
+    initialize(data) {
+        this.initializationGuard.checkInitialized();
+        const { id, className } = data;
+        this.id = id ?? '';
+        this.className = className ?? '';
+        this.setUI();
+        this.initializationGuard.setInitialized();
+    }
+    setUI() {
+        const item = document.getElementById(this.id);
+        if (!item) {
+            throw new Error(`Element with ID '${this.id}' not found.`);
+        }
+        this.ui = item;
+    }
+    addClick(listener) {
+        this.ui.addEventListener('click', listener);
+    }
+    addClickAsync(ui, listener) {
+        ui.addEventListener('click', async (event) => {
+            event.preventDefault();
+            try {
+                await listener(event);
+            }
+            catch (error) {
+                console.error(error.message);
+            }
+        });
+    }
+}
+exports["default"] = Component;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/generate_component/AnswerCard.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/ui_lib/generate_component/AnswerCard.js ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -9442,19 +9499,16 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 class AnswerCard {
     renderer;
-    sectionIndex;
-    questionIndex;
-    constructor(renderer, sectionIndex, questionIndex) {
+    constructor(renderer) {
         this.renderer = renderer;
-        this.sectionIndex = sectionIndex;
-        this.questionIndex = questionIndex;
     }
-    createCard(question, answer) {
+    generate(data) {
+        const { sectionIndex, questionIndex, question, answer } = data;
         const card = document.createElement('div');
         card.classList.add('card');
         card.innerHTML += `<p>${this.renderer.render(question)}</p><hr />`;
         card.appendChild(this.createDiv(answer));
-        card.id = `section-${this.sectionIndex}-question-${this.questionIndex}`;
+        card.id = `section-${sectionIndex}-question-${questionIndex}`;
         card.innerHTML += `<a href="#index_title" class="index">&#9650;</a>`;
         return card;
     }
@@ -9469,10 +9523,10 @@ exports["default"] = AnswerCard;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/component/IndexComponent.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/ui_lib/component/IndexComponent.js ***!
-  \*********************************************************/
+/***/ "./node_modules/ui_lib/generate_component/IndexComponent.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/ui_lib/generate_component/IndexComponent.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -9513,10 +9567,10 @@ exports["default"] = IndexComponent;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/component/SectionComponent.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/ui_lib/component/SectionComponent.js ***!
-  \***********************************************************/
+/***/ "./node_modules/ui_lib/generate_component/SectionComponent.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/ui_lib/generate_component/SectionComponent.js ***!
+  \********************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -9525,7 +9579,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./node_modules/ui_lib/component/AnswerCard.js"));
+const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./node_modules/ui_lib/generate_component/AnswerCard.js"));
 class SectionComponent {
     renderer;
     sectionIndex;
@@ -9542,8 +9596,13 @@ class SectionComponent {
         sectionDiv.id = `section-${this.sectionIndex}`;
         sectionDiv.innerHTML = this.renderer.render(sectionTitle);
         questions.forEach((item, questionIndex) => {
-            const answerCard = new AnswerCard_1.default(this.renderer, this.sectionIndex, questionIndex);
-            const card = answerCard.createCard(item.question, item.answer);
+            const answerCard = new AnswerCard_1.default(this.renderer);
+            const card = answerCard.generate({
+                sectionIndex: this.sectionIndex,
+                questionIndex: questionIndex,
+                question: item.question,
+                answer: item.answer,
+            });
             sectionDiv.appendChild(card);
         });
         this.indexComponent.addSectionEntry(this.sectionIndex, sectionTitle, questions);
@@ -9567,9 +9626,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Page_1 = __importDefault(__webpack_require__(/*! ../ui_element/Page */ "./node_modules/ui_lib/ui_element/Page.js"));
-const ScrollIntoView_1 = __importDefault(__webpack_require__(/*! ../ui_element/ScrollIntoView */ "./node_modules/ui_lib/ui_element/ScrollIntoView.js"));
-const SetInnerText_1 = __importDefault(__webpack_require__(/*! ../ui_element/SetInnerText */ "./node_modules/ui_lib/ui_element/SetInnerText.js"));
+const Page_1 = __importDefault(__webpack_require__(/*! ../initialize_component/Page */ "./node_modules/ui_lib/initialize_component/Page.js"));
+const ScrollIntoView_1 = __importDefault(__webpack_require__(/*! ../initialize_component/ScrollIntoView */ "./node_modules/ui_lib/initialize_component/ScrollIntoView.js"));
+const SetInnerText_1 = __importDefault(__webpack_require__(/*! ../initialize_component/SetInnerText */ "./node_modules/ui_lib/initialize_component/SetInnerText.js"));
 class LinkClick {
     passwordProvider;
     markdown;
@@ -9646,36 +9705,10 @@ __exportStar(__webpack_require__(/*! ./z_export/ui_elements */ "./node_modules/u
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/provider/PasswordProvider.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/ui_lib/provider/PasswordProvider.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-class PasswordProvider {
-    validatePassword() {
-        const encodedPassword = 'NkN6bG9uZWs2';
-        const password = prompt('Enter password:');
-        const decodedPassword = atob(encodedPassword);
-        if (password !== decodedPassword) {
-            alert('Incorrect password. Access denied.');
-            return false;
-        }
-        return true;
-    }
-}
-exports["default"] = PasswordProvider;
-
-
-/***/ }),
-
-/***/ "./node_modules/ui_lib/ui_element/BreakLine.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/BreakLine.js ***!
-  \*****************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/BreakLine.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/BreakLine.js ***!
+  \***************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -9684,7 +9717,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 class BreakLine extends Component_1.default {
     constructor() {
         super();
@@ -9700,67 +9733,10 @@ exports["default"] = BreakLine;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/Component.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/Component.js ***!
-  \*****************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const InitializationGuard_1 = __importDefault(__webpack_require__(/*! ../util/InitializationGuard */ "./node_modules/ui_lib/util/InitializationGuard.js"));
-class Component {
-    initializationGuard;
-    id = '';
-    tag = '';
-    className = '';
-    ui;
-    constructor() {
-        this.initializationGuard = new InitializationGuard_1.default('UIElement already initialized.');
-    }
-    initialize(data) {
-        this.initializationGuard.checkInitialized();
-        const { id, className } = data;
-        this.id = id ?? '';
-        this.className = className ?? '';
-        this.setUI();
-        this.initializationGuard.setInitialized();
-    }
-    setUI() {
-        const item = document.getElementById(this.id);
-        if (!item) {
-            throw new Error(`Element with ID '${this.id}' not found.`);
-        }
-        this.ui = item;
-    }
-    addClick(listener) {
-        this.ui.addEventListener('click', listener);
-    }
-    addClickAsync(ui, listener) {
-        ui.addEventListener('click', async (event) => {
-            event.preventDefault();
-            try {
-                await listener(event);
-            }
-            catch (error) {
-                console.error(error.message);
-            }
-        });
-    }
-}
-exports["default"] = Component;
-
-
-/***/ }),
-
-/***/ "./node_modules/ui_lib/ui_element/FileIndex.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/FileIndex.js ***!
-  \*****************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/FileIndex.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/FileIndex.js ***!
+  \***************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -9770,10 +9746,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const data_lib_1 = __webpack_require__(/*! data_lib */ "./node_modules/data_lib/index.js");
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
-const FirstLinkClick_1 = __importDefault(__webpack_require__(/*! ./FirstLinkClick */ "./node_modules/ui_lib/ui_element/FirstLinkClick.js"));
-const Link_1 = __importDefault(__webpack_require__(/*! ./Link */ "./node_modules/ui_lib/ui_element/Link.js"));
-const BreakLine_1 = __importDefault(__webpack_require__(/*! ./BreakLine */ "./node_modules/ui_lib/ui_element/BreakLine.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
+const FirstLinkClick_1 = __importDefault(__webpack_require__(/*! ./FirstLinkClick */ "./node_modules/ui_lib/initialize_component/FirstLinkClick.js"));
+const Link_1 = __importDefault(__webpack_require__(/*! ./Link */ "./node_modules/ui_lib/initialize_component/Link.js"));
+const BreakLine_1 = __importDefault(__webpack_require__(/*! ./BreakLine */ "./node_modules/ui_lib/initialize_component/BreakLine.js"));
 class FileIndex extends Component_1.default {
     handler;
     fileList = [];
@@ -9819,10 +9795,10 @@ exports["default"] = FileIndex;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/FirstLinkClick.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/FirstLinkClick.js ***!
-  \**********************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/FirstLinkClick.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/FirstLinkClick.js ***!
+  \********************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -9831,7 +9807,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 class FirstLinkClick extends Component_1.default {
     constructor() {
         super();
@@ -9859,10 +9835,10 @@ exports["default"] = FirstLinkClick;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/Link.js":
-/*!************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/Link.js ***!
-  \************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/Link.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/Link.js ***!
+  \**********************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -9871,7 +9847,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 class Link extends Component_1.default {
     href = '';
     textContent = '';
@@ -9902,10 +9878,10 @@ exports["default"] = Link;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/Page.js":
-/*!************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/Page.js ***!
-  \************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/Page.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/Page.js ***!
+  \**********************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -9916,9 +9892,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const CopyButtonCreator_1 = __importDefault(__webpack_require__(/*! ../ui_elements/CopyButtonCreator */ "./node_modules/ui_lib/ui_elements/CopyButtonCreator.js"));
 const UIElements_1 = __importDefault(__webpack_require__(/*! ../ui_elements/UIElements */ "./node_modules/ui_lib/ui_elements/UIElements.js"));
-const PageIndex_1 = __importDefault(__webpack_require__(/*! ./PageIndex */ "./node_modules/ui_lib/ui_element/PageIndex.js"));
-const PageContent_1 = __importDefault(__webpack_require__(/*! ./PageContent */ "./node_modules/ui_lib/ui_element/PageContent.js"));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
+const PageIndex_1 = __importDefault(__webpack_require__(/*! ./PageIndex */ "./node_modules/ui_lib/initialize_component/PageIndex.js"));
+const PageContent_1 = __importDefault(__webpack_require__(/*! ./PageContent */ "./node_modules/ui_lib/initialize_component/PageContent.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 class Page extends Component_1.default {
     markdown;
     codeHighlight;
@@ -9950,10 +9926,10 @@ exports["default"] = Page;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/PageContent.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/PageContent.js ***!
-  \*******************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/PageContent.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/PageContent.js ***!
+  \*****************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -9962,8 +9938,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
-const SectionComponent_1 = __importDefault(__webpack_require__(/*! ../component/SectionComponent */ "./node_modules/ui_lib/component/SectionComponent.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
+const SectionComponent_1 = __importDefault(__webpack_require__(/*! ../generate_component/SectionComponent */ "./node_modules/ui_lib/generate_component/SectionComponent.js"));
 class PageContent extends Component_1.default {
     renderer;
     _indexComponent;
@@ -10000,10 +9976,10 @@ exports["default"] = PageContent;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/PageIndex.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/PageIndex.js ***!
-  \*****************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/PageIndex.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/PageIndex.js ***!
+  \***************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -10012,8 +9988,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
-const IndexComponent_1 = __importDefault(__webpack_require__(/*! ../component/IndexComponent */ "./node_modules/ui_lib/component/IndexComponent.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
+const IndexComponent_1 = __importDefault(__webpack_require__(/*! ../generate_component/IndexComponent */ "./node_modules/ui_lib/generate_component/IndexComponent.js"));
 class PageIndex extends Component_1.default {
     _indexComponent;
     get indexComponent() {
@@ -10035,10 +10011,10 @@ exports["default"] = PageIndex;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/ScrollIntoView.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/ScrollIntoView.js ***!
-  \**********************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/ScrollIntoView.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/ScrollIntoView.js ***!
+  \********************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -10047,7 +10023,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 class ScrollIntoView extends Component_1.default {
     initialize(data) {
         try {
@@ -10064,10 +10040,10 @@ exports["default"] = ScrollIntoView;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/SetInnerText.js":
-/*!********************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/SetInnerText.js ***!
-  \********************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/SetInnerText.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/SetInnerText.js ***!
+  \******************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -10076,7 +10052,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 class SetInnerText extends Component_1.default {
     initialize(data) {
         try {
@@ -10093,10 +10069,10 @@ exports["default"] = SetInnerText;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_element/ToggleButton.js":
-/*!********************************************************!*\
-  !*** ./node_modules/ui_lib/ui_element/ToggleButton.js ***!
-  \********************************************************/
+/***/ "./node_modules/ui_lib/initialize_component/ToggleButton.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/ToggleButton.js ***!
+  \******************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -10105,7 +10081,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Component_1 = __importDefault(__webpack_require__(/*! ./Component */ "./node_modules/ui_lib/ui_element/Component.js"));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 class ToggleButton extends Component_1.default {
     initialize(data) {
         try {
@@ -10124,6 +10100,32 @@ class ToggleButton extends Component_1.default {
     }
 }
 exports["default"] = ToggleButton;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/provider/PasswordProvider.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/ui_lib/provider/PasswordProvider.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class PasswordProvider {
+    validatePassword() {
+        const encodedPassword = 'NkN6bG9uZWs2';
+        const password = prompt('Enter password:');
+        const decodedPassword = atob(encodedPassword);
+        if (password !== decodedPassword) {
+            alert('Incorrect password. Access denied.');
+            return false;
+        }
+        return true;
+    }
+}
+exports["default"] = PasswordProvider;
 
 
 /***/ }),
@@ -10240,11 +10242,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SectionComponent = exports.IndexComponent = exports.AnswerCard = void 0;
-var AnswerCard_1 = __webpack_require__(/*! ../component/AnswerCard */ "./node_modules/ui_lib/component/AnswerCard.js");
+var AnswerCard_1 = __webpack_require__(/*! ../generate_component/AnswerCard */ "./node_modules/ui_lib/generate_component/AnswerCard.js");
 Object.defineProperty(exports, "AnswerCard", ({ enumerable: true, get: function () { return __importDefault(AnswerCard_1).default; } }));
-var IndexComponent_1 = __webpack_require__(/*! ../component/IndexComponent */ "./node_modules/ui_lib/component/IndexComponent.js");
+var IndexComponent_1 = __webpack_require__(/*! ../generate_component/IndexComponent */ "./node_modules/ui_lib/generate_component/IndexComponent.js");
 Object.defineProperty(exports, "IndexComponent", ({ enumerable: true, get: function () { return __importDefault(IndexComponent_1).default; } }));
-var SectionComponent_1 = __webpack_require__(/*! ../component/SectionComponent */ "./node_modules/ui_lib/component/SectionComponent.js");
+var SectionComponent_1 = __webpack_require__(/*! ../generate_component/SectionComponent */ "./node_modules/ui_lib/generate_component/SectionComponent.js");
 Object.defineProperty(exports, "SectionComponent", ({ enumerable: true, get: function () { return __importDefault(SectionComponent_1).default; } }));
 
 
@@ -10263,21 +10265,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Page = exports.UIPageContent = exports.UIIndex = exports.PasswordProvider = exports.LinkClickHandler = exports.UIFileList = exports.UIElement = exports.ToggleButton = void 0;
-var ToggleButton_1 = __webpack_require__(/*! ../ui_element/ToggleButton */ "./node_modules/ui_lib/ui_element/ToggleButton.js");
+var ToggleButton_1 = __webpack_require__(/*! ../initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
-var Component_1 = __webpack_require__(/*! ../ui_element/Component */ "./node_modules/ui_lib/ui_element/Component.js");
+var Component_1 = __webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js");
 Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(Component_1).default; } }));
-var FileIndex_1 = __webpack_require__(/*! ../ui_element/FileIndex */ "./node_modules/ui_lib/ui_element/FileIndex.js");
+var FileIndex_1 = __webpack_require__(/*! ../initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
 Object.defineProperty(exports, "UIFileList", ({ enumerable: true, get: function () { return __importDefault(FileIndex_1).default; } }));
 var LinkClick_1 = __webpack_require__(/*! ../handler/LinkClick */ "./node_modules/ui_lib/handler/LinkClick.js");
 Object.defineProperty(exports, "LinkClickHandler", ({ enumerable: true, get: function () { return __importDefault(LinkClick_1).default; } }));
 var PasswordProvider_1 = __webpack_require__(/*! ../provider/PasswordProvider */ "./node_modules/ui_lib/provider/PasswordProvider.js");
 Object.defineProperty(exports, "PasswordProvider", ({ enumerable: true, get: function () { return __importDefault(PasswordProvider_1).default; } }));
-var PageIndex_1 = __webpack_require__(/*! ../ui_element/PageIndex */ "./node_modules/ui_lib/ui_element/PageIndex.js");
+var PageIndex_1 = __webpack_require__(/*! ../initialize_component/PageIndex */ "./node_modules/ui_lib/initialize_component/PageIndex.js");
 Object.defineProperty(exports, "UIIndex", ({ enumerable: true, get: function () { return __importDefault(PageIndex_1).default; } }));
-var PageContent_1 = __webpack_require__(/*! ../ui_element/PageContent */ "./node_modules/ui_lib/ui_element/PageContent.js");
+var PageContent_1 = __webpack_require__(/*! ../initialize_component/PageContent */ "./node_modules/ui_lib/initialize_component/PageContent.js");
 Object.defineProperty(exports, "UIPageContent", ({ enumerable: true, get: function () { return __importDefault(PageContent_1).default; } }));
-var Page_1 = __webpack_require__(/*! ../ui_element/Page */ "./node_modules/ui_lib/ui_element/Page.js");
+var Page_1 = __webpack_require__(/*! ../initialize_component/Page */ "./node_modules/ui_lib/initialize_component/Page.js");
 Object.defineProperty(exports, "Page", ({ enumerable: true, get: function () { return __importDefault(Page_1).default; } }));
 
 

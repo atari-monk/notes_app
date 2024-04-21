@@ -1,5 +1,5 @@
-import ILinkData from './data_type/ILinkData'
-import Component from './Component'
+import ILinkData from './type/ILinkData'
+import Component from '../component/Component'
 
 export default class Link extends Component {
   private href: string = ''

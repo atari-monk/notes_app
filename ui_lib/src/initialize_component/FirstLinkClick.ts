@@ -1,5 +1,5 @@
-import Component from './Component'
-import IComponentData from './data_type/IComponentData'
+import Component from '../component/Component'
+import IComponentData from '../component/type/IComponentData'
 
 export default class FirstLinkClick extends Component {
   constructor() {

@@ -1,10 +1,10 @@
-import IFileMetadata from '../ui_element/data_type/IFileMetadata'
+import IFileMetadata from '../initialize_component/type/IFileMetadata'
 import ILinkClick from './ILinkClick'
 import PasswordProvider from '../provider/PasswordProvider'
-import Page from '../ui_element/Page'
-import ScrollIntoView from '../ui_element/ScrollIntoView'
-import SetInnerText from '../ui_element/SetInnerText'
-import IRenderer from '../component/IRenderer'
+import Page from '../initialize_component/Page'
+import ScrollIntoView from '../initialize_component/ScrollIntoView'
+import SetInnerText from '../initialize_component/SetInnerText'
+import IRenderer from '../generate_component/IRenderer'
 import IDOMRenderer from '../ui_elements/IDOMRenderer'
 
 export default class LinkClick implements ILinkClick {

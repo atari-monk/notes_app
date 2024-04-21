@@ -1,11 +1,11 @@
-import IRenderer from '../component/IRenderer'
+import IRenderer from '../generate_component/IRenderer'
 import CopyButtonCreator from '../ui_elements/CopyButtonCreator'
 import IDOMRenderer from '../ui_elements/IDOMRenderer'
 import UIElements from '../ui_elements/UIElements'
 import PageIndex from './PageIndex'
 import UIPageContent from './PageContent'
-import Component from './Component'
-import IJsonComponentData from './data_type/IJsonComponentData'
+import Component from '../component/Component'
+import IJsonComponentData from './type/IJsonComponentData'
 
 export default class Page extends Component {
   constructor(

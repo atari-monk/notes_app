@@ -1,4 +1,4 @@
-import IUIElementData from '../data_type/IInnerTextData'
+import IComponentData from './IComponentData'
 import { Tag } from './Tag'
 
 export default interface IComponent {
@@ -6,6 +6,6 @@ export default interface IComponent {
   id: string
   className: string
   ui: HTMLElement
-  initialize(data: IUIElementData): void
+  initialize(data: IComponentData): void
   addClick(listener: (ev: MouseEvent) => any): void
 }

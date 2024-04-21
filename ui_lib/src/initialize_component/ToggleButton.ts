@@ -1,5 +1,5 @@
-import IComponentData from './data_type/IComponentData'
-import Component from './Component'
+import IComponentData from '../component/type/IComponentData'
+import Component from '../component/Component'
 
 export default class ToggleButton extends Component {
   initialize(data: IComponentData): void {
