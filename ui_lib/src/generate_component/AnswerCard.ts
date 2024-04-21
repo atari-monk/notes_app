@@ -9,21 +9,37 @@ export default class AnswerCard
 
   generate(data: IAnswerCardData) {
     const { sectionIndex, questionIndex, question, answer } = data
-    const card = document.createElement('div')
-    card.classList.add('card')
-    card.innerHTML += `<p>${this.renderer.render(question)}</p><hr />`
-
-    card.appendChild(this.createDiv(answer))
-
+    const card = this.createCard(question, answer)
     card.id = `section-${sectionIndex}-question-${questionIndex}`
-
-    card.innerHTML += `<a href="#index_title" class="index">&#9650;</a>`
     return card
   }
 
-  private createDiv(answer: string): Node {
+  private createCard(question: string, answer: string): HTMLDivElement {
+    const card = document.createElement('div')
+    card.classList.add('card')
+    card.appendChild(this.createQuestionParagraph(question))
+    card.appendChild(this.createAnswerDiv(answer))
+    card.appendChild(this.createIndexLink())
+    return card
+  }
+
+  private createQuestionParagraph(question: string): HTMLParagraphElement {
+    const paragraph = document.createElement('p')
+    paragraph.innerHTML = this.renderer.render(question)
+    return paragraph
+  }
+
+  private createAnswerDiv(answer: string): HTMLDivElement {
     const div = document.createElement('div')
     div.innerHTML = this.renderer.render(answer)
     return div
+  }
+
+  private createIndexLink(): HTMLAnchorElement {
+    const link = document.createElement('a')
+    link.href = '#index_title'
+    link.classList.add('index')
+    link.innerHTML = '&#9650;'
+    return link
   }
 }
