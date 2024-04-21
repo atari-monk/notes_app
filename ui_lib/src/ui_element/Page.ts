@@ -5,6 +5,7 @@ import UIElements from '../ui_elements/UIElements'
 import PageIndex from './PageIndex'
 import UIPageContent from './PageContent'
 import Component from './Component'
+import IComponentData from './data_type/IComponentData'
 
 export default class Page extends Component {
   constructor(
@@ -14,13 +15,17 @@ export default class Page extends Component {
     super()
   }
 
-  initialize(jsonData: any) {
+  initialize(data: IComponentData) {
     const index = new PageIndex()
     index.initialize({ id: 'index' })
 
     const content = new UIPageContent(this.markdown)
-    content.data = jsonData
     content.indexComponent = index.indexComponent
+    if (data.jsonData) {
+      content.data = data.jsonData
+    } else {
+      throw new Error('No json data for Page')
+    }
     content.initialize({ id: 'jsonContainer' })
 
     new UIElements(this.codeHighlight).initialize({ selector: 'code' })

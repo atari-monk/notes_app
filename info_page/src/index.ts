@@ -40,10 +40,7 @@ markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 // )
 //page.initializeIndex()
 const fileList = new UIFileList(
-  new LinkClickHandler(
-    new PasswordProvider(),
-    new Page(markDownIt, new CodeHighlight())
-  )
+  new LinkClickHandler(new PasswordProvider(), markDownIt, new CodeHighlight())
 )
 fileList.initialize({
   id: 'fileListContainer',

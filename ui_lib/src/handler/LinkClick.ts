@@ -4,17 +4,21 @@ import PasswordProvider from '../provider/PasswordProvider'
 import Page from '../ui_element/Page'
 import ScrollIntoView from '../ui_element/ScrollIntoView'
 import SetInnerText from '../ui_element/SetInnerText'
+import IRenderer from '../component/IRenderer'
+import IDOMRenderer from '../ui_elements/IDOMRenderer'
 
 export default class LinkClick implements ILinkClick {
   constructor(
     private readonly passwordProvider: PasswordProvider,
-    private readonly page: Page
+    private readonly markdown: IRenderer,
+    private readonly codeHighlight: IDOMRenderer<HTMLElement>
   ) {}
 
   async linkClick(file: IFileMetadata) {
     if (this.isProtectedFile(file)) return
     const jsonData = await this.fetchData(file)
-    this.page.createPage(jsonData)
+    const page = new Page(this.markdown, this.codeHighlight)
+    page.initialize({ jsonData })
     new SetInnerText().initialize({
       id: 'currentPage_value',
       innerText: file.name,
