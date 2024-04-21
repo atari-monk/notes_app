@@ -1,8 +1,8 @@
-import IUIElementData from './data_type/IUIElementData'
+import IComponentData from './data_type/IComponentData'
 import Component from './Component'
 
 export default class ToggleButton extends Component {
-  initialize(data: IUIElementData): void {
+  initialize(data: IComponentData): void {
     try {
       super.initialize(data)
       this.addClick((_event) => {

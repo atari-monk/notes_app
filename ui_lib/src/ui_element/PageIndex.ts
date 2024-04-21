@@ -1,4 +1,4 @@
-import IUIElementData from './data_type/IUIElementData'
+import IComponentData from './data_type/IComponentData'
 import Component from './Component'
 import IndexComponent from '../component/IndexComponent'
 
@@ -9,7 +9,7 @@ export default class PageIndex extends Component {
     return this._indexComponent
   }
 
-  initialize(data: IUIElementData): void {
+  initialize(data: IComponentData): void {
     try {
       super.initialize(data)
       this.ui.innerHTML = ''

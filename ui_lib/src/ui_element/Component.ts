@@ -1,4 +1,4 @@
-import IUIElementData from './data_type/IUIElementData'
+import IComponentData from './data_type/IComponentData'
 import IComponent from './ui_type/IComponent'
 import { Tag } from './ui_type/Tag'
 import InitializationGuard from '../util/InitializationGuard'
@@ -16,7 +16,7 @@ export default class Component implements IComponent {
     )
   }
 
-  initialize(data: IUIElementData) {
+  initialize(data: IComponentData) {
     this.initializationGuard.checkInitialized()
     const { id, className } = data
     this.id = id ?? ''

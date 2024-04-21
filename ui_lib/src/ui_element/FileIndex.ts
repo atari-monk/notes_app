@@ -1,21 +1,21 @@
 import { loadJSONFile } from 'data_lib'
-import IFile from './data_type/IFile'
+import IFileMetadata from './data_type/IFileMetadata'
 import ILinkClick from '../handler/ILinkClick'
-import IUIFileListData from './data_type/IUIFileListData'
+import IFileIndexData from './data_type/IFileIndexData'
 import Component from './Component'
 import FirstLinkClick from './FirstLinkClick'
 import Link from './Link'
 import BreakLine from './BreakLine'
 
 export default class FileIndex extends Component {
-  private readonly fileList: IFile[] = []
+  private readonly fileList: IFileMetadata[] = []
   private filePath = ''
 
   constructor(private readonly handler: ILinkClick) {
     super()
   }
 
-  async initialize(data: IUIFileListData): Promise<void> {
+  async initialize(data: IFileIndexData): Promise<void> {
     try {
       super.initialize(data)
       this.filePath = data.filePath
@@ -41,7 +41,7 @@ export default class FileIndex extends Component {
     }
   }
 
-  private createItem(file: IFile) {
+  private createItem(file: IFileMetadata) {
     new Link().create(
       this.ui,
       { href: '#', textContent: file.name },

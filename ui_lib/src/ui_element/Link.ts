@@ -1,4 +1,4 @@
-import IUILinkData from './data_type/IUILinkData'
+import ILinkData from './data_type/ILinkData'
 import Component from './Component'
 
 export default class Link extends Component {
@@ -10,7 +10,7 @@ export default class Link extends Component {
     this.tag = 'a'
   }
 
-  async initialize(data: IUILinkData): Promise<void> {
+  async initialize(data: ILinkData): Promise<void> {
     try {
       super.initialize(data)
       this.href = data.href
@@ -22,7 +22,7 @@ export default class Link extends Component {
 
   create(
     parentUI: HTMLElement,
-    data: IUILinkData,
+    data: ILinkData,
     listener: (event: MouseEvent) => Promise<any>
   ) {
     const element = document.createElement(this.tag) as HTMLAnchorElement

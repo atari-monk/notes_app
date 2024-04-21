@@ -1,6 +1,6 @@
 export { default as IUIElement } from '../ui_element/ui_type/IComponent'
-export { default as IUIElementData } from '../ui_element/data_type/IUIElementData'
-export { default as IUIFileListData } from '../ui_element/data_type/IUIFileListData'
+export { default as IUIElementData } from '../ui_element/data_type/IComponentData'
+export { default as IUIFileListData } from '../ui_element/data_type/IFileIndexData'
 export { default as ToggleButton } from '../ui_element/ToggleButton'
 export { default as UIElement } from '../ui_element/Component'
 export { default as UIFileList } from '../ui_element/FileIndex'

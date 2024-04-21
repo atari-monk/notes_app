@@ -1,4 +1,4 @@
-import IUIElementData from '../data_type/IUIInnerTextData'
+import IUIElementData from '../data_type/IInnerTextData'
 import { Tag } from './Tag'
 
 export default interface IComponent {

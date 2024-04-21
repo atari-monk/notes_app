@@ -1,5 +1,5 @@
 import Component from './Component'
-import IUIElementData from './data_type/IUIElementData'
+import IComponentData from './data_type/IComponentData'
 
 export default class FirstLinkClick extends Component {
   constructor() {
@@ -7,7 +7,7 @@ export default class FirstLinkClick extends Component {
     this.tag = 'a'
   }
 
-  initialize(data: IUIElementData) {
+  initialize(data: IComponentData) {
     try {
       super.initialize(data)
       this.ui.click()

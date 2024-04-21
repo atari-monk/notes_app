@@ -1,4 +1,4 @@
-import IFile from '../ui_element/data_type/IFile'
+import IFileMetadata from '../ui_element/data_type/IFileMetadata'
 import ILinkClick from './ILinkClick'
 import PasswordProvider from '../provider/PasswordProvider'
 import Page from '../ui_element/Page'
@@ -11,7 +11,7 @@ export default class LinkClick implements ILinkClick {
     private readonly page: Page
   ) {}
 
-  async linkClick(file: IFile) {
+  async linkClick(file: IFileMetadata) {
     if (this.isProtectedFile(file)) return
     const jsonData = await this.fetchData(file)
     this.page.createPage(jsonData)
@@ -22,13 +22,13 @@ export default class LinkClick implements ILinkClick {
     new ScrollIntoView().initialize({ id: 'index_title' })
   }
 
-  private isProtectedFile(file: IFile) {
+  private isProtectedFile(file: IFileMetadata) {
     if (!file.protected) return false
     if (this.passwordProvider.validatePassword()) return false
     return true
   }
 
-  private async fetchData(file: IFile) {
+  private async fetchData(file: IFileMetadata) {
     try {
       const response = await fetch(file.path)
       if (!response.ok) {

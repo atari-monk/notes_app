@@ -1,5 +1,5 @@
-import IFile from '../ui_element/data_type/IFile'
+import IFileMetadata from '../ui_element/data_type/IFileMetadata'
 
 export default interface ILinkClick {
-  linkClick(file: IFile): Promise<void>
+  linkClick(file: IFileMetadata): Promise<void>
 }

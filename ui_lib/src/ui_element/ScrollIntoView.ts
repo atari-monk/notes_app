@@ -1,8 +1,8 @@
 import Component from './Component'
-import IUIElementData from './data_type/IUIElementData'
+import IComponentData from './data_type/IComponentData'
 
 export default class ScrollIntoView extends Component {
-  initialize(data: IUIElementData) {
+  initialize(data: IComponentData) {
     try {
       super.initialize(data)
       this.ui.scrollIntoView({ behavior: 'smooth' })

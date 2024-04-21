@@ -1,4 +1,4 @@
-import IUIElementData from './data_type/IUIElementData'
+import IComponentData from './data_type/IComponentData'
 import Component from './Component'
 import { ISectionsAndChats } from 'data_lib'
 import IndexComponent from '../component/IndexComponent'
@@ -21,7 +21,7 @@ export default class PageContent extends Component {
     super()
   }
 
-  initialize(data: IUIElementData): void {
+  initialize(data: IComponentData): void {
     try {
       super.initialize(data)
       this.ui.innerHTML = ''
