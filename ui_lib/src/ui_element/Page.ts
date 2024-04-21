@@ -5,7 +5,7 @@ import UIElements from '../ui_elements/UIElements'
 import PageIndex from './PageIndex'
 import UIPageContent from './PageContent'
 import Component from './Component'
-import IComponentData from './data_type/IComponentData'
+import IJsonComponentData from './data_type/IJsonComponentData'
 
 export default class Page extends Component {
   constructor(
@@ -15,7 +15,7 @@ export default class Page extends Component {
     super()
   }
 
-  initialize(data: IComponentData) {
+  initialize(data: IJsonComponentData) {
     const index = new PageIndex()
     index.initialize({ id: 'index' })
 
