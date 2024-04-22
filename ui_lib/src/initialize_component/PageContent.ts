@@ -1,9 +1,9 @@
 import IComponentData from '../component/type/IComponentData'
 import Component from '../component/Component'
 import { ISectionsAndChats } from 'data_lib'
-import SectionComponent from '../generate_component/SectionComponent'
 import IRenderer from '../generate_component/type/IRenderer'
 import IndexComponent from '../generate_component/IndexComponent'
+import SectionComponent from '../generate_component/SectionComponent'
 
 export default class PageContent extends Component {
   private _indexComponent!: IndexComponent
@@ -33,13 +33,14 @@ export default class PageContent extends Component {
 
   private createPageContent() {
     this._data.sections.forEach((section, sectionIndex) => {
-      const sectionComponent = new SectionComponent(
-        this.renderer,
+      const sectionComponent = new SectionComponent(this.renderer)
+      sectionComponent.generate({
         sectionIndex,
-        this.ui,
-        this._indexComponent
-      )
-      sectionComponent.createSectionElement(section.title, section.chats)
+        sectionTitle: section.title,
+        questions: section.chats,
+        jsonContainer: this.ui,
+        indexComponent: this._indexComponent,
+      })
     })
   }
 }

@@ -9606,37 +9606,32 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./node_modules/ui_lib/generate_component/AnswerCard.js"));
 class SectionComponent {
     renderer;
-    sectionIndex;
-    jsonContainer;
-    indexComponent;
-    constructor(renderer, sectionIndex, jsonContainer, indexComponent) {
+    constructor(renderer) {
         this.renderer = renderer;
-        this.sectionIndex = sectionIndex;
-        this.jsonContainer = jsonContainer;
-        this.indexComponent = indexComponent;
     }
-    createSectionElement(sectionTitle, questions) {
+    generate(data) {
+        const { sectionIndex, sectionTitle, questions, jsonContainer, indexComponent, } = data;
         const sectionDiv = document.createElement('div');
-        sectionDiv.id = `section-${this.sectionIndex}`;
+        sectionDiv.id = `section-${sectionIndex}`;
         sectionDiv.innerHTML = this.renderer.render(sectionTitle);
         questions.forEach((item, questionIndex) => {
-            const answerCard = new AnswerCard_1.default(this.renderer);
-            const card = answerCard.generate({
-                sectionIndex: this.sectionIndex,
+            const component = new AnswerCard_1.default(this.renderer);
+            const ui = component.generate({
+                sectionIndex: data.sectionIndex,
                 questionIndex: questionIndex,
                 question: item.question,
                 answer: item.answer,
             });
-            sectionDiv.appendChild(card);
+            sectionDiv.appendChild(ui);
         });
-        this.indexComponent.generate({
-            sectionIndex: this.sectionIndex,
+        indexComponent.generate({
+            sectionIndex: data.sectionIndex,
             questionIndex: 0,
             sectionTitle: '',
             indexTitle: '',
             questions,
         });
-        this.jsonContainer.appendChild(sectionDiv);
+        jsonContainer.appendChild(sectionDiv);
     }
 }
 exports["default"] = SectionComponent;
@@ -9996,8 +9991,14 @@ class PageContent extends Component_1.default {
     }
     createPageContent() {
         this._data.sections.forEach((section, sectionIndex) => {
-            const sectionComponent = new SectionComponent_1.default(this.renderer, sectionIndex, this.ui, this._indexComponent);
-            sectionComponent.createSectionElement(section.title, section.chats);
+            const sectionComponent = new SectionComponent_1.default(this.renderer);
+            sectionComponent.generate({
+                sectionIndex,
+                sectionTitle: section.title,
+                questions: section.chats,
+                jsonContainer: this.ui,
+                indexComponent: this._indexComponent,
+            });
         });
     }
 }

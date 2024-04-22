@@ -1,42 +1,43 @@
 import IRenderer from './type/IRenderer'
 import AnswerCard from './AnswerCard'
-import IndexComponent from './IndexComponent'
+import IGenerateComponent from '../component/type/IGenerateComponent'
+import ISectionComponentData from './type/ISectionComponentData'
 
-export default class SectionComponent {
-  constructor(
-    private readonly renderer: IRenderer,
-    private readonly sectionIndex: number,
-    private readonly jsonContainer: HTMLElement,
-    private readonly indexComponent: IndexComponent
-  ) {}
+export default class SectionComponent
+  implements IGenerateComponent<ISectionComponentData, void>
+{
+  constructor(private readonly renderer: IRenderer) {}
 
-  createSectionElement(
-    sectionTitle: string,
-    questions: { indexTitle: string; question: string; answer: string }[]
-  ) {
+  generate(data: ISectionComponentData) {
+    const {
+      sectionIndex,
+      sectionTitle,
+      questions,
+      jsonContainer,
+      indexComponent,
+    } = data
     const sectionDiv = document.createElement('div')
-    sectionDiv.id = `section-${this.sectionIndex}`
+    sectionDiv.id = `section-${sectionIndex}`
     sectionDiv.innerHTML = this.renderer.render(sectionTitle)
 
     questions.forEach((item, questionIndex) => {
-      const answerCard = new AnswerCard(this.renderer)
-      const card = answerCard.generate({
-        sectionIndex: this.sectionIndex,
+      const component = new AnswerCard(this.renderer)
+      const ui = component.generate({
+        sectionIndex: data.sectionIndex,
         questionIndex: questionIndex,
         question: item.question,
         answer: item.answer,
       })
-
-      sectionDiv.appendChild(card)
+      sectionDiv.appendChild(ui)
     })
 
-    this.indexComponent.generate({
-      sectionIndex: this.sectionIndex,
+    indexComponent.generate({
+      sectionIndex: data.sectionIndex,
       questionIndex: 0,
       sectionTitle: '',
       indexTitle: '',
       questions,
     })
-    this.jsonContainer.appendChild(sectionDiv)
+    jsonContainer.appendChild(sectionDiv)
   }
 }
