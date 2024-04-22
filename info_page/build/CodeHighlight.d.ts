@@ -1,4 +1,4 @@
-import { IDOMRenderer } from 'ui_lib';
-export default class CodeHighlight implements IDOMRenderer<HTMLElement> {
-    render(item: HTMLElement): void;
+import IGenerateComponent from 'ui_lib/component/type/IGenerateComponent';
+export default class CodeHighlight implements IGenerateComponent<HTMLElement, void> {
+    generate(item: HTMLElement): void;
 }

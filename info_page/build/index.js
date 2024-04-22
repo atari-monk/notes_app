@@ -9177,7 +9177,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
 class CodeHighlight {
-    render(item) {
+    generate(item) {
         highlight_js_1.default.highlightElement(item);
     }
 }
@@ -9202,163 +9202,20 @@ __webpack_require__(/*! ./css/styles.css */ "./src/css/styles.css");
 __webpack_require__(/*! ./css/dark_mode.css */ "./src/css/dark_mode.css");
 __webpack_require__(/*! font-awesome/css/font-awesome.min.css */ "./node_modules/font-awesome/css/font-awesome.min.css");
 const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
-//import hljs from 'highlight.js'
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
 const PasswordProvider_1 = __importDefault(__webpack_require__(/*! notes_lib/ui_element/PasswordProvider */ "./node_modules/notes_lib/ui_element/PasswordProvider.js"));
 const CodeHighlight_1 = __importDefault(__webpack_require__(/*! ./CodeHighlight */ "./src/CodeHighlight.ts"));
-//import { IRenderer } from 'ui_lib'
-const darkModeToggle = new ui_lib_1.ToggleButton();
-darkModeToggle.initialize({
+new ui_lib_1.ToggleButton().initialize({
     id: 'darkModeButton',
     className: 'dark-mode',
 });
-//const jsonContainer = document.getElementById('jsonContainer') as HTMLElement
-//const index = document.getElementById('index') as HTMLElement
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-//content.indexComponent = index.indexComponent
-// const page = new Page(
-//   new UIElements(new CodeHighlight()),
-//   new UIElements(new CopyButtonCreator())
-// )
-//page.initializeIndex()
-const fileList = new ui_lib_1.UIFileList(new ui_lib_1.LinkClickHandler(new PasswordProvider_1.default(), markDownIt, new CodeHighlight_1.default()));
-fileList.initialize({
+new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new PasswordProvider_1.default(), markDownIt, new CodeHighlight_1.default())).initialize({
     id: 'fileListContainer',
     filePath: 'data/files.json',
 });
-//const copyButtons = new UIElements(new CopyButtonCreator())
-//copyButtons.initialize({ selector: 'pre code[class*="language-"]' })
-//const codes = new UIElements(new CodeHighlight())
-//codes.initialize({ selector: 'code' })
-// export default interface IFile {
-//   path: string
-//   name: string
-//   protected: boolean
-// }
-// const fileList: IFile[] = []
-// const filePath: string = 'data/files.json'
-// async function initialize() {
-//   try {
-//     const fileListData = await loadJSONFile(filePath)
-//     if (fileListData) {
-//       fileList.push(...fileListData)
-//       const fileListContainer = document.getElementById(
-//         'fileListContainer'
-//       ) as HTMLElement
-//       fileList.forEach((file) => {
-//         const link = document.createElement('a')
-//         link.href = '#'
-//         link.textContent = file.name
-//         link.addEventListener('click', async (event) => {
-//           event.preventDefault()
-//           await handleLinkClick(file)
-//         })
-//         fileListContainer.appendChild(link)
-//         const br = document.createElement('br')
-//         fileListContainer.appendChild(br)
-//       })
-//       const firstLink = fileListContainer.querySelector('a') as HTMLElement
-//       firstLink.click()
-//     } else {
-//       console.error('Error loading JSON file:', filePath)
-//     }
-//   } catch (error) {
-//     console.error('Error:', error)
-//   }
-// }
-// ;(async () => {
-//   await initialize()
-// })()
-/*
-async function handleLinkClick(file: IFile) {
-  if (file.protected) {
-    const encodedPassword = 'NkN6bG9uZWs2'
-    const password = prompt('Enter password:')
-    const decodedPassword = atob(encodedPassword)
-
-    if (password !== decodedPassword) {
-      alert('Incorrect password. Access denied.')
-      return
-    }
-  }
-
-  try {
-    const response = await fetch(file.path)
-    if (!response.ok) {
-      throw new Error(`Failed to load JSON file. Status: ${response.status}`)
-    }
-
-    const jsonData = await response.json()
-    handleFileLoad(jsonData)
-    const currentPage = document.getElementById('currentPage_value')
-    currentPage!.innerText = file.name
-
-    const indexTitleLink = document.getElementById('index_title')
-    if (indexTitleLink) {
-      indexTitleLink.scrollIntoView({ behavior: 'smooth' })
-    }
-  } catch (error: any) {
-    console.error('Error loading or parsing JSON file:', error.message)
-  }
-}
-*/
-/*
-function handleFileLoad(data: ISectionsAndChats) {
-  jsonContainer.innerHTML = ''
-  index.innerHTML = ''
-
-  const indexComponent = new IndexComponent(index)
-
-  data.sections.forEach((section, sectionIndex) => {
-    const sectionComponent = new SectionComponent(
-      markDownIt,
-      sectionIndex,
-      jsonContainer,
-      indexComponent
-    )
-    sectionComponent.createSectionElement(section.title, section.chats)
-  })
-
-  highlightCodeBlocks()
-  addCopyBtns()
-}
-*/
-// function highlightCodeBlocks() {
-//   document.querySelectorAll('code').forEach((codeBlock) => {
-//     hljs.highlightElement(codeBlock)
-//   })
-// }
-// function addCopyBtns() {
-//   const codeBlocks = document.querySelectorAll(
-//     'pre code[class*="language-"]'
-//   ) as NodeListOf<HTMLElement>
-//   codeBlocks.forEach((codeBlock: HTMLElement) => {
-//     const pre = codeBlock.parentNode
-//     const container = document.createElement('div')
-//     container.className = 'code-container'
-//     const copyButton = document.createElement('button')
-//     copyButton.className = 'copy-button'
-//     const copyIcon = document.createElement('i')
-//     copyIcon.className = 'fa fa-copy'
-//     copyButton.appendChild(copyIcon)
-//     copyButton.addEventListener('click', async () => {
-//       await handleCopyButtonClick(codeBlock)
-//     })
-//     container.appendChild(codeBlock)
-//     container.appendChild(copyButton)
-//     pre?.appendChild(container)
-//   })
-// }
-// async function handleCopyButtonClick(codeBlock: HTMLElement) {
-//   const text = codeBlock.textContent || ''
-//   try {
-//     await navigator.clipboard.writeText(text)
-//   } catch (err) {
-//     console.error('Failed to copy text: ', err)
-//   }
-// }
 
 
 /***/ }),
@@ -9488,6 +9345,32 @@ exports["default"] = Component;
 
 /***/ }),
 
+/***/ "./node_modules/ui_lib/component/ComponentGenerator.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/ui_lib/component/ComponentGenerator.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class ComponentGenerator {
+    generator;
+    constructor(generator) {
+        this.generator = generator;
+    }
+    generate(data) {
+        const { selector } = data;
+        for (const item of document.querySelectorAll(selector)) {
+            this.generator.generate(item);
+        }
+    }
+}
+exports["default"] = ComponentGenerator;
+
+
+/***/ }),
+
 /***/ "./node_modules/ui_lib/generate_component/AnswerCard.js":
 /*!**************************************************************!*\
   !*** ./node_modules/ui_lib/generate_component/AnswerCard.js ***!
@@ -9535,6 +9418,67 @@ class AnswerCard {
     }
 }
 exports["default"] = AnswerCard;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/generate_component/CopyButtons.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/ui_lib/generate_component/CopyButtons.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class CopyButtons {
+    generate(codeElement) {
+        const container = this.generateContainer();
+        const copyButton = this.generateCopyButton();
+        this.setupCopyButton(copyButton, codeElement);
+        this.appendElements(container, codeElement, copyButton);
+    }
+    generateContainer() {
+        const container = document.createElement('div');
+        container.className = 'code-container';
+        return container;
+    }
+    generateCopyButton() {
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-button';
+        const copyIcon = this.generateCopyIcon();
+        copyButton.appendChild(copyIcon);
+        return copyButton;
+    }
+    generateCopyIcon() {
+        const copyIcon = document.createElement('i');
+        copyIcon.className = 'fa fa-copy';
+        return copyIcon;
+    }
+    setupCopyButton(copyButton, codeElement) {
+        copyButton.addEventListener('click', async () => {
+            await this.copyClick(codeElement);
+        });
+    }
+    async copyClick(codeBlock) {
+        const text = codeBlock.textContent || '';
+        try {
+            await navigator.clipboard.writeText(text);
+        }
+        catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
+    }
+    appendElements(container, codeElement, copyButton) {
+        const pre = codeElement.parentNode;
+        if (pre) {
+            container.appendChild(codeElement);
+            container.appendChild(copyButton);
+            pre.appendChild(container);
+        }
+    }
+}
+exports["default"] = CopyButtons;
 
 
 /***/ }),
@@ -9708,24 +9652,19 @@ exports["default"] = LinkClick;
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-__exportStar(__webpack_require__(/*! ./z_export/component */ "./node_modules/ui_lib/z_export/component.js"), exports);
-__exportStar(__webpack_require__(/*! ./z_export/ui_element */ "./node_modules/ui_lib/z_export/ui_element.js"), exports);
-__exportStar(__webpack_require__(/*! ./z_export/ui_elements */ "./node_modules/ui_lib/z_export/ui_elements.js"), exports);
+exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
+Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
+var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
+Object.defineProperty(exports, "FileIndex", ({ enumerable: true, get: function () { return __importDefault(FileIndex_1).default; } }));
+var LinkClick_1 = __webpack_require__(/*! ./handler/LinkClick */ "./node_modules/ui_lib/handler/LinkClick.js");
+Object.defineProperty(exports, "LinkClick", ({ enumerable: true, get: function () { return __importDefault(LinkClick_1).default; } }));
+var PasswordProvider_1 = __webpack_require__(/*! ./provider/PasswordProvider */ "./node_modules/ui_lib/provider/PasswordProvider.js");
+Object.defineProperty(exports, "PasswordProvider", ({ enumerable: true, get: function () { return __importDefault(PasswordProvider_1).default; } }));
 
 
 /***/ }),
@@ -9915,8 +9854,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const CopyButtonCreator_1 = __importDefault(__webpack_require__(/*! ../ui_elements/CopyButtonCreator */ "./node_modules/ui_lib/ui_elements/CopyButtonCreator.js"));
-const UIElements_1 = __importDefault(__webpack_require__(/*! ../ui_elements/UIElements */ "./node_modules/ui_lib/ui_elements/UIElements.js"));
+const CopyButtons_1 = __importDefault(__webpack_require__(/*! ../generate_component/CopyButtons */ "./node_modules/ui_lib/generate_component/CopyButtons.js"));
+const ComponentGenerator_1 = __importDefault(__webpack_require__(/*! ../component/ComponentGenerator */ "./node_modules/ui_lib/component/ComponentGenerator.js"));
 const PageIndex_1 = __importDefault(__webpack_require__(/*! ./PageIndex */ "./node_modules/ui_lib/initialize_component/PageIndex.js"));
 const PageContent_1 = __importDefault(__webpack_require__(/*! ./PageContent */ "./node_modules/ui_lib/initialize_component/PageContent.js"));
 const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
@@ -9940,8 +9879,8 @@ class Page extends Component_1.default {
             throw new Error('No json data for Page');
         }
         content.initialize({ id: 'jsonContainer' });
-        new UIElements_1.default(this.codeHighlight).initialize({ selector: 'code' });
-        new UIElements_1.default(new CopyButtonCreator_1.default()).initialize({
+        new ComponentGenerator_1.default(this.codeHighlight).generate({ selector: 'code' });
+        new ComponentGenerator_1.default(new CopyButtons_1.default()).generate({
             selector: 'pre code[class*="language-"]',
         });
     }
@@ -10161,76 +10100,6 @@ exports["default"] = PasswordProvider;
 
 /***/ }),
 
-/***/ "./node_modules/ui_lib/ui_elements/CopyButtonCreator.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/ui_lib/ui_elements/CopyButtonCreator.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-class CopyButtonCreator {
-    render(item) {
-        const pre = item.parentNode;
-        const container = document.createElement('div');
-        container.className = 'code-container';
-        const copyButton = document.createElement('button');
-        copyButton.className = 'copy-button';
-        const copyIcon = document.createElement('i');
-        copyIcon.className = 'fa fa-copy';
-        copyButton.appendChild(copyIcon);
-        copyButton.addEventListener('click', async () => {
-            await this.handleCopyButtonClick(item);
-        });
-        container.appendChild(item);
-        container.appendChild(copyButton);
-        pre?.appendChild(container);
-    }
-    async handleCopyButtonClick(codeBlock) {
-        const text = codeBlock.textContent || '';
-        try {
-            await navigator.clipboard.writeText(text);
-        }
-        catch (err) {
-            console.error('Failed to copy text: ', err);
-        }
-    }
-}
-exports["default"] = CopyButtonCreator;
-
-
-/***/ }),
-
-/***/ "./node_modules/ui_lib/ui_elements/UIElements.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/ui_lib/ui_elements/UIElements.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-class UIElements {
-    renderer;
-    selector = '';
-    constructor(renderer) {
-        this.renderer = renderer;
-    }
-    initialize(data) {
-        const { selector } = data;
-        this.selector = selector;
-        const items = document.querySelectorAll(this.selector);
-        for (const item of items) {
-            this.renderer.render(item);
-        }
-    }
-}
-exports["default"] = UIElements;
-
-
-/***/ }),
-
 /***/ "./node_modules/ui_lib/util/InitializationGuard.js":
 /*!*********************************************************!*\
   !*** ./node_modules/ui_lib/util/InitializationGuard.js ***!
@@ -10256,83 +10125,6 @@ class InitializationGuard {
     }
 }
 exports["default"] = InitializationGuard;
-
-
-/***/ }),
-
-/***/ "./node_modules/ui_lib/z_export/component.js":
-/*!***************************************************!*\
-  !*** ./node_modules/ui_lib/z_export/component.js ***!
-  \***************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SectionComponent = exports.IndexComponent = exports.AnswerCard = void 0;
-var AnswerCard_1 = __webpack_require__(/*! ../generate_component/AnswerCard */ "./node_modules/ui_lib/generate_component/AnswerCard.js");
-Object.defineProperty(exports, "AnswerCard", ({ enumerable: true, get: function () { return __importDefault(AnswerCard_1).default; } }));
-var IndexComponent_1 = __webpack_require__(/*! ../generate_component/IndexComponent */ "./node_modules/ui_lib/generate_component/IndexComponent.js");
-Object.defineProperty(exports, "IndexComponent", ({ enumerable: true, get: function () { return __importDefault(IndexComponent_1).default; } }));
-var SectionComponent_1 = __webpack_require__(/*! ../generate_component/SectionComponent */ "./node_modules/ui_lib/generate_component/SectionComponent.js");
-Object.defineProperty(exports, "SectionComponent", ({ enumerable: true, get: function () { return __importDefault(SectionComponent_1).default; } }));
-
-
-/***/ }),
-
-/***/ "./node_modules/ui_lib/z_export/ui_element.js":
-/*!****************************************************!*\
-  !*** ./node_modules/ui_lib/z_export/ui_element.js ***!
-  \****************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Page = exports.UIPageContent = exports.UIIndex = exports.PasswordProvider = exports.LinkClickHandler = exports.UIFileList = exports.UIElement = exports.ToggleButton = void 0;
-var ToggleButton_1 = __webpack_require__(/*! ../initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
-Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
-var Component_1 = __webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js");
-Object.defineProperty(exports, "UIElement", ({ enumerable: true, get: function () { return __importDefault(Component_1).default; } }));
-var FileIndex_1 = __webpack_require__(/*! ../initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
-Object.defineProperty(exports, "UIFileList", ({ enumerable: true, get: function () { return __importDefault(FileIndex_1).default; } }));
-var LinkClick_1 = __webpack_require__(/*! ../handler/LinkClick */ "./node_modules/ui_lib/handler/LinkClick.js");
-Object.defineProperty(exports, "LinkClickHandler", ({ enumerable: true, get: function () { return __importDefault(LinkClick_1).default; } }));
-var PasswordProvider_1 = __webpack_require__(/*! ../provider/PasswordProvider */ "./node_modules/ui_lib/provider/PasswordProvider.js");
-Object.defineProperty(exports, "PasswordProvider", ({ enumerable: true, get: function () { return __importDefault(PasswordProvider_1).default; } }));
-var PageIndex_1 = __webpack_require__(/*! ../initialize_component/PageIndex */ "./node_modules/ui_lib/initialize_component/PageIndex.js");
-Object.defineProperty(exports, "UIIndex", ({ enumerable: true, get: function () { return __importDefault(PageIndex_1).default; } }));
-var PageContent_1 = __webpack_require__(/*! ../initialize_component/PageContent */ "./node_modules/ui_lib/initialize_component/PageContent.js");
-Object.defineProperty(exports, "UIPageContent", ({ enumerable: true, get: function () { return __importDefault(PageContent_1).default; } }));
-var Page_1 = __webpack_require__(/*! ../initialize_component/Page */ "./node_modules/ui_lib/initialize_component/Page.js");
-Object.defineProperty(exports, "Page", ({ enumerable: true, get: function () { return __importDefault(Page_1).default; } }));
-
-
-/***/ }),
-
-/***/ "./node_modules/ui_lib/z_export/ui_elements.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/ui_lib/z_export/ui_elements.js ***!
-  \*****************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CopyButtonCreator = exports.UIElements = void 0;
-var UIElements_1 = __webpack_require__(/*! ../ui_elements/UIElements */ "./node_modules/ui_lib/ui_elements/UIElements.js");
-Object.defineProperty(exports, "UIElements", ({ enumerable: true, get: function () { return __importDefault(UIElements_1).default; } }));
-var CopyButtonCreator_1 = __webpack_require__(/*! ../ui_elements/CopyButtonCreator */ "./node_modules/ui_lib/ui_elements/CopyButtonCreator.js");
-Object.defineProperty(exports, "CopyButtonCreator", ({ enumerable: true, get: function () { return __importDefault(CopyButtonCreator_1).default; } }));
 
 
 /***/ }),

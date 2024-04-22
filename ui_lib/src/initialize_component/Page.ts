@@ -1,16 +1,16 @@
 import IRenderer from '../generate_component/type/IRenderer'
-import CopyButtonCreator from '../ui_elements/CopyButtonCreator'
-import IDOMRenderer from '../ui_elements/IDOMRenderer'
-import UIElements from '../ui_elements/UIElements'
+import CopyButtons from '../generate_component/CopyButtons'
+import ComponentGenerator from '../component/ComponentGenerator'
 import PageIndex from './PageIndex'
 import UIPageContent from './PageContent'
 import Component from '../component/Component'
 import IJsonComponentData from './type/IJsonComponentData'
+import IGenerateComponent from '../component/type/IGenerateComponent'
 
 export default class Page extends Component {
   constructor(
     private readonly markdown: IRenderer,
-    private readonly codeHighlight: IDOMRenderer<HTMLElement>
+    private readonly codeHighlight: IGenerateComponent<HTMLElement, void>
   ) {
     super()
   }
@@ -28,8 +28,8 @@ export default class Page extends Component {
     }
     content.initialize({ id: 'jsonContainer' })
 
-    new UIElements(this.codeHighlight).initialize({ selector: 'code' })
-    new UIElements(new CopyButtonCreator()).initialize({
+    new ComponentGenerator(this.codeHighlight).generate({ selector: 'code' })
+    new ComponentGenerator(new CopyButtons()).generate({
       selector: 'pre code[class*="language-"]',
     })
   }

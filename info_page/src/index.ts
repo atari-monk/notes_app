@@ -1,198 +1,23 @@
 import './css/styles.css'
 import './css/dark_mode.css'
 import 'font-awesome/css/font-awesome.min.css'
-import {
-  //IndexComponent,
-  //SectionComponent,
-  //ISectionsAndChats,
-  ToggleButton,
-  UIFileList,
-  LinkClickHandler,
-  UIIndex,
-  UIPageContent,
-  Page,
-  CopyButtonCreator,
-} from 'ui_lib'
-//import hljs from 'highlight.js'
+import { ToggleButton, FileIndex, LinkClick } from 'ui_lib'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import PasswordProvider from 'notes_lib/ui_element/PasswordProvider'
-import { UIElements } from 'ui_lib'
 import CodeHighlight from './CodeHighlight'
-//import { IRenderer } from 'ui_lib'
 
-const darkModeToggle = new ToggleButton()
-darkModeToggle.initialize({
+new ToggleButton().initialize({
   id: 'darkModeButton',
   className: 'dark-mode',
 })
 
-//const jsonContainer = document.getElementById('jsonContainer') as HTMLElement
-//const index = document.getElementById('index') as HTMLElement
-
 const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
-//content.indexComponent = index.indexComponent
-// const page = new Page(
-//   new UIElements(new CodeHighlight()),
-//   new UIElements(new CopyButtonCreator())
-// )
-//page.initializeIndex()
-const fileList = new UIFileList(
-  new LinkClickHandler(new PasswordProvider(), markDownIt, new CodeHighlight())
-)
-fileList.initialize({
+new FileIndex(
+  new LinkClick(new PasswordProvider(), markDownIt, new CodeHighlight())
+).initialize({
   id: 'fileListContainer',
   filePath: 'data/files.json',
 })
-
-//const copyButtons = new UIElements(new CopyButtonCreator())
-//copyButtons.initialize({ selector: 'pre code[class*="language-"]' })
-
-//const codes = new UIElements(new CodeHighlight())
-//codes.initialize({ selector: 'code' })
-// export default interface IFile {
-//   path: string
-//   name: string
-//   protected: boolean
-// }
-
-// const fileList: IFile[] = []
-
-// const filePath: string = 'data/files.json'
-
-// async function initialize() {
-//   try {
-//     const fileListData = await loadJSONFile(filePath)
-//     if (fileListData) {
-//       fileList.push(...fileListData)
-
-//       const fileListContainer = document.getElementById(
-//         'fileListContainer'
-//       ) as HTMLElement
-//       fileList.forEach((file) => {
-//         const link = document.createElement('a')
-//         link.href = '#'
-//         link.textContent = file.name
-//         link.addEventListener('click', async (event) => {
-//           event.preventDefault()
-//           await handleLinkClick(file)
-//         })
-//         fileListContainer.appendChild(link)
-//         const br = document.createElement('br')
-//         fileListContainer.appendChild(br)
-//       })
-
-//       const firstLink = fileListContainer.querySelector('a') as HTMLElement
-//       firstLink.click()
-//     } else {
-//       console.error('Error loading JSON file:', filePath)
-//     }
-//   } catch (error) {
-//     console.error('Error:', error)
-//   }
-// }
-// ;(async () => {
-//   await initialize()
-// })()
-
-/*
-async function handleLinkClick(file: IFile) {
-  if (file.protected) {
-    const encodedPassword = 'NkN6bG9uZWs2'
-    const password = prompt('Enter password:')
-    const decodedPassword = atob(encodedPassword)
-
-    if (password !== decodedPassword) {
-      alert('Incorrect password. Access denied.')
-      return
-    }
-  }
-
-  try {
-    const response = await fetch(file.path)
-    if (!response.ok) {
-      throw new Error(`Failed to load JSON file. Status: ${response.status}`)
-    }
-
-    const jsonData = await response.json()
-    handleFileLoad(jsonData)
-    const currentPage = document.getElementById('currentPage_value')
-    currentPage!.innerText = file.name
-
-    const indexTitleLink = document.getElementById('index_title')
-    if (indexTitleLink) {
-      indexTitleLink.scrollIntoView({ behavior: 'smooth' })
-    }
-  } catch (error: any) {
-    console.error('Error loading or parsing JSON file:', error.message)
-  }
-}
-*/
-
-/*
-function handleFileLoad(data: ISectionsAndChats) {
-  jsonContainer.innerHTML = ''
-  index.innerHTML = ''
-
-  const indexComponent = new IndexComponent(index)
-
-  data.sections.forEach((section, sectionIndex) => {
-    const sectionComponent = new SectionComponent(
-      markDownIt,
-      sectionIndex,
-      jsonContainer,
-      indexComponent
-    )
-    sectionComponent.createSectionElement(section.title, section.chats)
-  })
-
-  highlightCodeBlocks()
-  addCopyBtns()
-}
-*/
-
-// function highlightCodeBlocks() {
-//   document.querySelectorAll('code').forEach((codeBlock) => {
-//     hljs.highlightElement(codeBlock)
-//   })
-// }
-
-// function addCopyBtns() {
-//   const codeBlocks = document.querySelectorAll(
-//     'pre code[class*="language-"]'
-//   ) as NodeListOf<HTMLElement>
-
-//   codeBlocks.forEach((codeBlock: HTMLElement) => {
-//     const pre = codeBlock.parentNode
-//     const container = document.createElement('div')
-//     container.className = 'code-container'
-
-//     const copyButton = document.createElement('button')
-//     copyButton.className = 'copy-button'
-
-//     const copyIcon = document.createElement('i')
-//     copyIcon.className = 'fa fa-copy'
-
-//     copyButton.appendChild(copyIcon)
-
-//     copyButton.addEventListener('click', async () => {
-//       await handleCopyButtonClick(codeBlock)
-//     })
-
-//     container.appendChild(codeBlock)
-//     container.appendChild(copyButton)
-//     pre?.appendChild(container)
-//   })
-// }
-
-// async function handleCopyButtonClick(codeBlock: HTMLElement) {
-//   const text = codeBlock.textContent || ''
-
-//   try {
-//     await navigator.clipboard.writeText(text)
-//   } catch (err) {
-//     console.error('Failed to copy text: ', err)
-//   }
-// }

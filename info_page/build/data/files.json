@@ -1,87 +1,12 @@
 [
   {
     "path": "../data/info/links.json",
-    "name": "info: links",
-    "protected": false
-  },
-  {
-    "path": "../data/log/cleaning.json",
-    "name": "log: cleaning",
-    "protected": false
-  },
-  {
-    "path": "../data/log/day.json",
-    "name": "day",
-    "protected": false
-  },
-  {
-    "path": "../data/log/fap.json",
-    "name": "fap",
-    "protected": true
-  },
-  {
-    "path": "../data/log/plan.json",
-    "name": "plan",
-    "protected": false
-  },
-  {
-    "path": "../data/log/project.json",
-    "name": "project",
-    "protected": false
-  },
-  {
-    "path": "../data/log/project_goal.json",
-    "name": "project_goal",
-    "protected": false
-  },
-  {
-    "path": "../data/log/rules_2023.json",
-    "name": "rules_2023",
-    "protected": false
-  },
-  {
-    "path": "../data/log/rules_2024.json",
-    "name": "rules_2024",
-    "protected": false
-  },
-  {
-    "path": "../data/log/shoping.json",
-    "name": "shoping",
-    "protected": false
-  },
-  {
-    "path": "../data/log/sleep.json",
-    "name": "sleep",
-    "protected": false
-  },
-  {
-    "path": "../data/log/to_do.json",
-    "name": "to_do",
-    "protected": false
-  },
-  {
-    "path": "../data/log/video_watching.json",
-    "name": "video_watching.json",
+    "name": "links",
     "protected": false
   },
   {
     "path": "../data/code/nestjs_tutorial.json",
     "name": "code: nestjs_tutorial",
-    "protected": false
-  },
-  {
-    "path": "../data/code/react_notes.json",
-    "name": "react_notes",
-    "protected": false
-  },
-  {
-    "path": "../data/code/unity_2d_tutorial.json",
-    "name": "unity_2d_tutorial",
-    "protected": false
-  },
-  {
-    "path": "../data/code/commands.json",
-    "name": "commands",
     "protected": false
   }
 ]

@@ -1,8 +1,10 @@
 import hljs from 'highlight.js'
-import { IDOMRenderer } from 'ui_lib'
+import IGenerateComponent from 'ui_lib/component/type/IGenerateComponent'
 
-export default class CodeHighlight implements IDOMRenderer<HTMLElement> {
-  render(item: HTMLElement): void {
+export default class CodeHighlight
+  implements IGenerateComponent<HTMLElement, void>
+{
+  generate(item: HTMLElement): void {
     hljs.highlightElement(item)
   }
 }

@@ -5,13 +5,13 @@ import Page from '../initialize_component/Page'
 import ScrollIntoView from '../initialize_component/ScrollIntoView'
 import SetInnerText from '../initialize_component/SetInnerText'
 import IRenderer from '../generate_component/type/IRenderer'
-import IDOMRenderer from '../ui_elements/IDOMRenderer'
+import IGenerateComponent from '../component/type/IGenerateComponent'
 
 export default class LinkClick implements ILinkClick {
   constructor(
     private readonly passwordProvider: PasswordProvider,
     private readonly markdown: IRenderer,
-    private readonly codeHighlight: IDOMRenderer<HTMLElement>
+    private readonly codeHighlight: IGenerateComponent<HTMLElement, void>
   ) {}
 
   async linkClick(file: IFileMetadata) {
