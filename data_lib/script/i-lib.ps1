@@ -16,8 +16,9 @@ $lib = Join-Path $repoPath ($build + $pack)
 
 $workingList = @(
     "ui_lib",
+    "server",
+    "editor",
     "info_page"
-    "server"
 )
 
 $fullList = @(
