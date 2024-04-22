@@ -9185,10 +9185,25 @@ new ui_lib_1.ToggleButton().initialize({
 });
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
-    id: 'fileListContainer',
-    filePath: 'data/files.json',
+const categories = ['Info', 'Code'];
+const select = (0, ui_lib_1.getById)('filter');
+categories.forEach(function (category) {
+    const option = document.createElement('option');
+    option.text = category;
+    select.add(option);
 });
+select.addEventListener('change', function () {
+    const selectedCategory = select.value.toLowerCase();
+    console.log('Category selected:', selectedCategory);
+    new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
+        id: 'fileListContainer',
+        filePath: 'data/files.json',
+        category: selectedCategory,
+    });
+});
+select.value = 'Info';
+var event = new Event('change');
+select.dispatchEvent(event);
 
 
 /***/ }),
@@ -9626,7 +9641,6 @@ class LinkClick {
             return;
         const jsonData = await this.fetchData(file);
         const page = new Page_1.default(this.markdown, this.codeHighlight);
-        //const parsedData: ISectionsAndChats = JSON.parse(jsonData as string)
         page.generate(jsonData);
         new SetInnerText_1.default().initialize({
             id: 'currentPage_value',
@@ -9671,7 +9685,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
@@ -9682,6 +9696,10 @@ var PasswordProvider_1 = __webpack_require__(/*! ./provider/PasswordProvider */ 
 Object.defineProperty(exports, "PasswordProvider", ({ enumerable: true, get: function () { return __importDefault(PasswordProvider_1).default; } }));
 var Page_1 = __webpack_require__(/*! ./generate_component/Page */ "./node_modules/ui_lib/generate_component/Page.js");
 Object.defineProperty(exports, "Page", ({ enumerable: true, get: function () { return __importDefault(Page_1).default; } }));
+var getById_1 = __webpack_require__(/*! ./util/getById */ "./node_modules/ui_lib/util/getById.js");
+Object.defineProperty(exports, "getById", ({ enumerable: true, get: function () { return __importDefault(getById_1).default; } }));
+var DarkModeToggler_1 = __webpack_require__(/*! ./vanilla_component/DarkModeToggler */ "./node_modules/ui_lib/vanilla_component/DarkModeToggler.js");
+Object.defineProperty(exports, "DarkModeToggler", ({ enumerable: true, get: function () { return __importDefault(DarkModeToggler_1).default; } }));
 
 
 /***/ }),
@@ -9743,7 +9761,8 @@ class FileIndex extends Component_1.default {
         try {
             super.initialize(data);
             this.filePath = data.filePath;
-            await this.loadFiles();
+            await this.loadFiles(data.category);
+            this.ui.innerHTML = '';
             this.createList();
             new FirstLinkClick_1.default().initialize({});
         }
@@ -9751,9 +9770,11 @@ class FileIndex extends Component_1.default {
             console.error(error.message);
         }
     }
-    async loadFiles() {
+    async loadFiles(category) {
         try {
-            this.fileList.push(...(await (0, data_lib_1.loadJSONFile)(this.filePath)));
+            const data = await (0, data_lib_1.loadJSONFile)(this.filePath);
+            const filteredData = data.filter((item) => item.category === category);
+            this.fileList.push(...filteredData);
         }
         catch (error) {
             console.error(error.message);
@@ -10094,6 +10115,61 @@ class InitializationGuard {
     }
 }
 exports["default"] = InitializationGuard;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/util/getById.js":
+/*!*********************************************!*\
+  !*** ./node_modules/ui_lib/util/getById.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+function getById(id) {
+    const element = document.getElementById(id);
+    if (!element)
+        throw new Error(`No element with id ${id}`);
+    return element;
+}
+exports["default"] = getById;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/vanilla_component/DarkModeToggler.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/ui_lib/vanilla_component/DarkModeToggler.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class DarkModeToggler {
+    darkModeToggle;
+    body;
+    isDarkMode = true;
+    constructor() {
+        this.darkModeToggle = document.getElementById('darkModeToggle');
+        this.body = document.body;
+        this.body.classList.add('dark-mode');
+        this.darkModeToggle.addEventListener('click', this.toggleDarkMode.bind(this));
+    }
+    toggleDarkMode() {
+        this.isDarkMode = !this.isDarkMode;
+        this.body.classList.toggle('dark-mode', this.isDarkMode);
+        if (!this.isDarkMode) {
+            this.darkModeToggle.innerHTML = '<span class="icon">🌙</span> Dark';
+        }
+        else {
+            this.darkModeToggle.innerHTML = '<span class="icon">☀️</span> Light';
+        }
+    }
+}
+exports["default"] = DarkModeToggler;
 
 
 /***/ }),

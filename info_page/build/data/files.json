@@ -2,11 +2,13 @@
   {
     "path": "../data/info/links.json",
     "name": "links",
+    "category": "info",
     "protected": false
   },
   {
     "path": "../data/code/nestjs_tutorial.json",
-    "name": "code: nestjs_tutorial",
+    "name": "nestjs_tutorial",
+    "category": "code",
     "protected": false
   }
 ]
