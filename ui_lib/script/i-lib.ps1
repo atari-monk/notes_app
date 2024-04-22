@@ -17,7 +17,7 @@ $lib = Join-Path $repoPath ($build + $pack)
 $workingList = @(
     "editor",
     "reader",
-    "info_page"
+    "page"
 )
 
 $fullList = @(
