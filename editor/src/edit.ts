@@ -1,13 +1,12 @@
 import './css/styles.css'
 import './css/dark_mode.css'
-import { DarkModeToggler } from './DarkModeToggler'
 import {
   IChatEdit,
   IChat,
   IFileSectionChatData,
   ISectionAndChatNr,
 } from 'data_lib'
-import getById from './getById'
+import { DarkModeToggler, getById } from 'ui_lib'
 
 let noteIndex: ISectionAndChatNr = {
   sectionNr: 0,

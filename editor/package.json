@@ -22,6 +22,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "data_lib": "file:data_lib-1.0.0.tgz"
+    "data_lib": "file:data_lib-1.0.0.tgz",
+    "ui_lib": "file:ui_lib-1.0.0.tgz"
   }
 }

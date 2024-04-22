@@ -1,8 +1,7 @@
 import './css/styles.css'
 import './css/dark_mode.css'
-import { DarkModeToggler } from './DarkModeToggler'
 import { IFileSectionChatData } from 'data_lib'
-import getById from './getById'
+import { DarkModeToggler, getById } from 'ui_lib'
 
 async function handleSubmit(event: Event) {
   event.preventDefault()
