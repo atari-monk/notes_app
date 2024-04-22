@@ -8672,32 +8672,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/notes_lib/ui_element/PasswordProvider.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/notes_lib/ui_element/PasswordProvider.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-class PasswordProvider {
-    validatePassword() {
-        const encodedPassword = 'NkN6bG9uZWs2';
-        const password = prompt('Enter password:');
-        const decodedPassword = atob(encodedPassword);
-        if (password !== decodedPassword) {
-            alert('Incorrect password. Access denied.');
-            return false;
-        }
-        return true;
-    }
-}
-exports["default"] = PasswordProvider;
-
-
-/***/ }),
-
 /***/ "./node_modules/punycode/punycode.es6.js":
 /*!***********************************************!*\
   !*** ./node_modules/punycode/punycode.es6.js ***!
@@ -9204,7 +9178,6 @@ __webpack_require__(/*! font-awesome/css/font-awesome.min.css */ "./node_modules
 const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
-const PasswordProvider_1 = __importDefault(__webpack_require__(/*! notes_lib/ui_element/PasswordProvider */ "./node_modules/notes_lib/ui_element/PasswordProvider.js"));
 const CodeHighlight_1 = __importDefault(__webpack_require__(/*! ./CodeHighlight */ "./src/CodeHighlight.ts"));
 new ui_lib_1.ToggleButton().initialize({
     id: 'darkModeButton',
@@ -9212,7 +9185,7 @@ new ui_lib_1.ToggleButton().initialize({
 });
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new PasswordProvider_1.default(), markDownIt, new CodeHighlight_1.default())).initialize({
+new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
     id: 'fileListContainer',
     filePath: 'data/files.json',
 });
