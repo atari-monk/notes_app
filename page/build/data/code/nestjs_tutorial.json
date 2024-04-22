@@ -1,0 +1,99 @@
+{
+  "sections": [
+    {
+      "title": "Note",
+      "chats": [
+        {
+          "indexTitle": "Source",
+          "question": "Source",
+          "answer": "[Tutorial](https://youtu.be/sFnAHC9lLaw)  \n[Documentation](https://docs.nestjs.com/)  ",
+          "dateTime": "2024-03-28T14:06:36.483Z"
+        },
+        {
+          "indexTitle": "What it is",
+          "question": "What it is",
+          "answer": "NestJS is framework to build server site apps  \nBuild on Node.js, Express.js and TypeScript  \nUsing Angular concepts on backend  \nIt provides structure for architecture level  \n\n",
+          "dateTime": "2024-03-28T14:08:05.574Z"
+        },
+        {
+          "indexTitle": "New Project",
+          "question": "New Project",
+          "answer": "create repo in github, name: nestjs_tutorial, no readme and gitignore  \nclone it with gitbash\n```bash\ngit clone https://github.com/atari-monk/nestjs_tutorial.git\n```\nrun admin powershell\n```bash\ncd \"C:\\atari-monk\\code\"\n```\n```bash\nnpm i -g @nestjs/cli\n```\n```bash\nnest new nestjs_tutorial\n```\nchoose npm\n```bash\ncd nestjs_tutorial\n```\n```bash\ncode .\n```\n```bash\nnpm run start:dev\n```\nveriffy port 3000 in src/main.ts, i edited to 49\n```bash\nlocalhost:3049\n```",
+          "dateTime": "2024-03-28T14:45:34.009Z"
+        },
+        {
+          "indexTitle": "Module",
+          "question": "Module",
+          "answer": "* Module is build from Providers, Controllers, imports, exports  \n* Provider is class acting as services, factories, repositories,  \nencapsulates logic and injected to controllers or other services  \n* Controllers handle http requests  \n* imports is array of modules needed by current one  \n* Root Module is AppModule  \n* We will have App Module, Arist Module, Song Module, Auth Module  \n\nTo generate module and import it in App Module:\n```bash\nnest g module songs\n```",
+          "dateTime": "2024-03-29T10:49:47.248Z"
+        },
+        {
+          "indexTitle": "Controller",
+          "question": "Controller",
+          "answer": "Controllers handle http requests  \n```typescript\n@Controller('songs')\nexport class SongsController{}\n```\n```typescript\n@Controller('songs')\nexport class SongsController{\n@Get()\nfindAll() {\nreturn 'Fetch all the songs'\n}\n}\n```\n* will convert to GET http://localhost:3000/songs\n\n* generate controller\n```bash\nnest g controller songs\n```",
+          "dateTime": "2024-03-29T11:05:28.427Z"
+        },
+        {
+          "indexTitle": "Api",
+          "question": "Api",
+          "answer": "* Rest Client by Huachao Mao - VSCode plugin to test apis  \n* file needed by plugin  \n\n'rest-client.http'  \n\n```plaintext\nGET http://localhost:3000\n\n### Send Fetch Songs Request\nGET http://localhost:3000/songs\n\n### Find Songs Request\nGET http://localhost:3000/songs/1\n\n### Create Song Request\nPOST http://localhost:3000/songs\n\n### Update Song Request\nPUT http://localhost:3000/songs/1\n\n### Delete Song Request\nDELETE http://localhost:3000/songs/1\n```",
+          "dateTime": "2024-03-29T11:12:54.446Z"
+        },
+        {
+          "indexTitle": "Crud Controller",
+          "question": "Crud Controller",
+          "answer": "CRUD Controller example\n```typescript\n@Controller('songs')\nexport class SongsController{\n@Post()\ncreate() {\nreturn 'Create a new song'\n}\n@Get()\nfindAll() {\nreturn 'Fetch all the songs'\n}\n@Get(':id')\nfindOne() {\nreturn 'Fetch one song based on id'\n}\n@Put(':id')\nupdate() {\nreturn 'Update song based on id'\n}\n@Delete(':id')\ndelete() {\nreturn 'Delete song based on id'\n}\n}\n```",
+          "dateTime": "2024-03-30T13:53:01.485Z"
+        },
+        {
+          "indexTitle": "Services",
+          "question": "Services",
+          "answer": "* Service - classes injectable to controllers, handling fetching and saving to database, it is a provider  \n* example:\n```typescript\nimport {injectable} from '@nestjs/common'\n@injectable()\nexport class SongsService {}\n```\n```typescript\n@Controller('songs')\nexport class SongsController{\n  constructor(private songsService: SongsService) {}\n}\n```\n```bash\nnest g service songs\n```\nDummy service\n```typescript\nimport {injectable} from '@nestjs/common'\n@injectable()\nexport class SongsService {\nprivate readonly songs = []\n\ncreate(song) {\nthis.songs.push(song)\nreturn this.songs\n}\n\nfindAll() {\nreturn this.songs\n}\n}\n```\nUse it in controller\n```typescript\n@Controller('songs')\nexport class SongsController {\n  constructor(private songsService: SongsService) {}\n\n  @Post()\n  create() {\n    return this.songsService.create('Animals by Martin Garrix');\n  }\n  @Get()\n  findAll() {\n    return this.songsService.findAll();\n  }\n...\n```",
+          "dateTime": "2024-03-30T14:13:19.195Z"
+        },
+        {
+          "indexTitle": "Validators",
+          "question": "Validators",
+          "answer": "```bash\nnpm i class-validator class-transformer\n```\ncreate global ValidationPipe (injectable in all controllers)\n```typescript\napp.useGlobalPipes(new ValidationPipe())\n```\ncreate songs dto 'create-song-dto.ts'\n```typescript\nexport class CreateSongDTO {\n  @IsString()\n  @IsNotEmpty()\n  readonly title: string\n\n  @IsArray()\n  @ArrayMinSize(1)\n  @ArrayUnique()\n  @IsString({ each: true })\n  readonly artists: string[]\n\n  @IsNotEmpty()\n  @IsDateString()\n  readonly releasedDate: Date\n\n  @IsMilitaryTime()\n  @IsNotEmpty()\n  readonly duration: Date\n}\n```\nusage in controller\n```typescript\n@Post()\ncreate(@Body() createSongDTO: CreateSongDTO) {\n  return this.songsService.create(createSongDTO)\n}\n```\n```bash\nnpm run start:dev\n```\nupdate request, to test validation  \nPOST http://localhost:3049/songs\n```plaintext\nContent-Type: application/json\n\n{\n\"releasedDate\" : \"2022-99-29\",\n\"duration\" : \"302:34\"\n}\n```\ncorrect one  \n```plaintext\nPOST http://localhost:3049/songs\nContent-Type: application/json\n\n{\n\"title\": \"lasting lover\",\n\"artists\": [\"sigla\"],\n\"releasedDate\" : \"2022-09-29\",\n\"duration\" : \"02:34\"\n}\n```",
+          "dateTime": "2024-03-30T16:13:16.772Z"
+        },
+        {
+          "indexTitle": "Middleware",
+          "question": "Middleware",
+          "answer": "* Middleware\n    * code that runs in request\n    * to modiffy it\n    * request, response, next()\n* Middleware can\n    * execute any code\n    * changes to request, response objects\n    * end req-res cycle\n    * call next middleware function\n* Example\n```typescript\n@Injectable()\nexport class LoggerMiddleware implements NestMiddleware {\n  use(req: any, res: any, next: ()=>void) {\n    console.log('Request...', new Date().toDateString())\n    next()\n  } \n}\n```\nInjecting\n```typescript\nexport class AppModule implements NestModule {\n    configure(consumer: MiddlewareConsumer) {\n    consumer.apply(LoggerMiddleware).forRoutes('songs')\n  }\n}\n```\nor \n```typescript\nconsumer.apply(LoggerMiddleware).forRoutes({ path: 'songs', method: RequestMethod.POST})\n```\nor\n```typescript\nconsumer.apply(LoggerMiddleware).forRoutes(SongsController)\n```\nnest cli help\n```bash\nnest g --help\n```\nto test command with no changes\n```bash\nnest g mi common/middleware/logger --no-spec --no-flat --dry-run\n```\nthis was used\n```\n nest g mi common/middleware/logger --no-spec --flat\n```",
+          "dateTime": "2024-04-01T18:26:33.464Z"
+        },
+        {
+          "indexTitle": "Exception",
+          "question": "Exception",
+          "answer": "throw error\n```typescript\nimport {injectable} from '@nestjs/common'\n@injectable()\nexport class SongsService {\nprivate readonly songs = []\n\ncreate(song) {\nthis.songs.push(song)\nreturn this.songs\n}\n\nfindAll() {\nthrow new Error('Error in Db while fetching record')\nreturn this.songs\n}\n}\n```\nhandle error and give custom message by using custom HttpException\n```typescript\nimport { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';\nimport { SongsService } from './songs.service';\nimport { CreateSongDTO } from './dto/create-song-dto';\n\n@Controller('songs')\nexport class SongsController {\n  constructor(private songsService: SongsService) {}\n\n  @Post()\n  create(@Body() createSongDTO: CreateSongDTO) {\n    return this.songsService.create(createSongDTO);\n  }\n\n  @Get()\n  findAll() {\n    try {\n      return this.songsService.findAll();\n    } catch (e) {\n      //console.log('I am in the catch block', e)\n      throw new HttpException('server error', HttpStatus.INTERNAL_SERVER_ERROR, { cause: e, })\n    }\n  }\n\n  @Get(':id')\n  findOne() {\n    return 'Fetch one song based on id';\n  }\n\n  @Put(':id')\n  update() {\n    return 'Update song based on id';\n  }\n  \n  @Delete(':id')\n  delete() {\n    return 'Delete song based on id';\n  }\n}\n```\n",
+          "dateTime": "2024-04-02T12:34:36.401Z"
+        },
+        {
+          "indexTitle": "Pipes",
+          "question": "Pipes",
+          "answer": "songs.controller.ts:  \nHere id is string\n```typescript\n@Get(':id')\n  findOne(\n    // @Param('id', ParseIntPipe) //option 1\n    @Param('id')\n    id: number,\n  ) {\n    return `Fetch one song based on id ${typeof id}`\n  }\n```\nHere its number  \nreq:  \nGET http://localhost:3049/songs/1  \nres:  \nFetch one song based on id number  \nreq:  \nGET http://localhost:3049/songs/abs  \nres:  \n```json\n{\n  \"message\": \"Validation failed (numeric string is expected)\",\n  \"error\": \"Bad Request\",\n  \"statusCode\": 400\n}\n```\nPipe enables conversion to int\n```typescript\n@Get(':id')\n  findOne(\n    // @Param('id', ParseIntPipe) //option 1\n    @Param('id', ParseIntPipe)\n    id: number,\n  ) {\n    return `Fetch one song based on id ${typeof id}`\n  }\n```\nThis is version with error message customization\n```typescript\n@Get(':id')\n  findOne(\n    // @Param('id', ParseIntPipe) //option 1 \n    @Param('id', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE \n  }),\n  id: number,       \n) {\n    return 'Fetch one song based on id ${typeof id}';\n  }\n```",
+          "dateTime": "2024-04-02T13:52:11.127Z"
+        },
+        {
+          "indexTitle": "Custom Providers",
+          "question": "Custom Providers",
+          "answer": "When instantiating `SongsController`\n- It looks for dependencies.\n- Instantiates them and caches them.\n- When already in cache, it uses that.\n- By default, singleton is used.\n- `Scope.REQUEST`: new instance every request.\n\n* Standard way of defining module and service dependency:\n```typescript\nimport { Module } from '@nestjs/common'\nimport { SongsController } from './songs.controller'\nimport { SongsService } from './songs.service'\n\n@Module({\n  controllers: [SongsController],\n  providers: [SongsService],\n})\nexport class SongsModule {}\n```\n* Second way, Config way\n```typescript\nproviders: [\n{\n  provide: SongsService,\n  useClass: SongsService  \n}],\n```\n* Value Providers  \n```typescript\nconst mockSongsService = {\n  findAll() {\n    return [{id: 1, title: 'Lasting Lover'}]\n  }\n}\n```\n```typescript\nproviders: [\n{\n  provide: SongsService,\n  useValue: mockSongsService \n}],\n```\n* Non class providers\n```typescript\nexport const connection: Connection = {\n  CONNECTION_STRING: 'CONNECTION_STRING',\n  DB: 'MYSQL',\n  DBNAME: 'TEST'\n}\nexport type Connection = {\n  CONNECTION_STRING: string\n  DB: string,\n  DBNAME: string\n}\n```\nSongsModule.ts\n```typescript\n{  \nprovide: 'CONNECTION',\nuseValue: connection,\n}\n```\nSongsController\n```typescript\nconstructor(\n    private songsService: SongsService,\n    @Inject('CONNECTION')\n    private connection: Connection,\n  ) {\n    console.log(this.connection)\n  }\n```\n* Class providers\n```typescript\nimport { Injectable } from '@nestjs/common'\n\n@Injectable()\nexport class DevConfigService {\n  DBHOST = 'localhost'\n  getDBHOST() {\n    return this.DBHOST\n  }\n}\n```\n```typescript\n@Module({\n  imports: [SongsModule],\n  controllers: [AppController],\n  providers: [\n    AppService,\n    { provide: DevConfigService, useClass: DevConfigService },\n  ],\n})\nexport class AppModule implements NestModule {\n```\n```typescript\n@Injectable()\nexport class AppService {\n  constructor(private devConfigService: DevConfigService) {}\n\n  getHello(): string {\n    return `Hello I am learning Nest.js Fundamentals ${this.devConfigService.getDBHOST()}`\n  }\n}\n```\nNon Service Provider\n```typescript\nconst devConfig = { port: 3000 }\nconst proConfig = { port: 400 }\n//in module providers\n{\n      provide: 'CONFIG',\n      useFactory: () => {\n        return process.env.NODE_ENV === 'development' ? devConfig : proConfig\n      },\n    },\n//in app service ctor\n @Inject('CONFIG')\n    private config: { port: string },\n```\n",
+          "dateTime": "2024-04-09T15:19:31.991Z"
+        },
+        {
+          "indexTitle": "Injection Scopes",
+          "question": "Injection Scopes",
+          "answer": "1. Dafault\n  - A single instance for app, cached on second request\n2. Request\n  - new instance for each request\n3. Transient\n  - not shared, each consumer recives new instance \n\n```typescript\n@Injectable({\n  scope: Scope.TRANSIENT,\n})\nexport class SongsService {\n```\n```typescript\n@Controller({ path: 'songs', scope: Scope.REQUEST })\nexport class SongsController {\n```",
+          "dateTime": "2024-04-10T17:46:02.252Z"
+        },
+        {
+          "indexTitle": "One to Many Relation",
+          "question": "One to Many Relation",
+          "answer": "* A has many instances of B, B has one of A\n* Playlist have multiple songs\n* User can have multiple playlists\n* Many playlists can belong to single user\n\n1. Create Playlist Entity and add Relations\n  - create folder src/playlists\n  - create file playlist.entity.ts\n  - install typeorm\n```bash\nnpm i typeorm\n```\n  - define entitties and relationships\n```typescript\nimport { Song } from 'src/songs/song.entity'\nimport {\n  Column,\n  Entity,\n  JoinTable,\n  ManyToMany,\n  PrimaryGeneratedColumn,\n} from 'typeorm'\n\n@Entity('artists')\nexport class Artist {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  name: string\n\n  @ManyToMany(() => Song, (song) => song.artists, { cascade: true })\n  @JoinTable({ name: 'songs_artists' })\n  songs: Song[]\n}\n```\n```typescript\nimport { Song } from 'src/songs/song.entity'\nimport { User } from 'src/users/user.entity'\nimport {\n  Column,\n  Entity,\n  ManyToOne,\n  OneToMany,\n  PrimaryGeneratedColumn,\n} from 'typeorm'\n\n@Entity('playlists')\nexport class Playlist {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  name: string\n\n  @OneToMany(() => Song, (song) => song.playList)\n  songs: Song[]\n\n  @ManyToOne(() => User, (user) => user.playLists)\n  user: User\n}\n```\n```typescript\nimport { Artist } from 'src/artists/artist.entity'\nimport { Playlist } from 'src/playlists/playlist.entity'\nimport {\n  Column,\n  Entity,\n  JoinTable,\n  ManyToMany,\n  ManyToOne,\n  PrimaryGeneratedColumn,\n} from 'typeorm'\n\n@Entity('songs')\nexport class Song {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  title: string\n\n  @Column('date')\n  releasedDate: Date\n\n  @Column('time')\n  duration: Date\n\n  @Column()\n  lyrics: string\n\n  @ManyToMany(() => Artist, (artist) => artist.songs, { cascade: true })\n  @JoinTable({ name: 'songs_artists' })\n  artists: Artist[]\n\n  @ManyToOne(() => Playlist, (playList) => playList.songs)\n  playList: Playlist\n}\n```\n```typescript\nimport { Playlist } from 'src/playlists/playlist.entity'\nimport { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'\n\n@Entity('users')\nexport class User {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  firstName: string\n\n  @Column()\n  lastName: string\n\n  @Column()\n  email: string\n\n  @Column()\n  password: string\n\n  @OneToMany(() => Playlist, (playList) => playList.user)\n  playLists: Playlist[]\n}\n```",
+          "dateTime": "2024-04-11T21:42:31.317Z"
+        }
+      ]
+    }
+  ]
+}
