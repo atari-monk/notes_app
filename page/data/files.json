@@ -1,19 +1,19 @@
 [
   {
     "path": "../data/info/links.json",
-    "name": "links",
+    "name": "Links",
     "category": "info",
     "protected": false
   },
   {
     "path": "../data/code/nestjs_tutorial.json",
-    "name": "nestjs_tutorial",
+    "name": "Nestjs Tutorial",
     "category": "code",
     "protected": false
   },
   {
     "path": "../data/diy/atari_monk_homemade_highlights.json",
-    "name": "atari_monk_homemade_highlights",
+    "name": "Atari Monk Homemade Highlights",
     "category": "diy",
     "protected": false
   }
