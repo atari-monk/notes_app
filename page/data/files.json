@@ -10,5 +10,11 @@
     "name": "nestjs_tutorial",
     "category": "code",
     "protected": false
+  },
+  {
+    "path": "../data/diy/atari_monk_homemade_highlights.json",
+    "name": "atari_monk_homemade_highlights",
+    "category": "diy",
+    "protected": false
   }
 ]

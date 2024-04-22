@@ -20,7 +20,7 @@ new ToggleButton().initialize({
 const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
-const categories = ['Info', 'Code']
+const categories = ['Info', 'Code', 'DIY']
 
 const select = getById('filter') as HTMLSelectElement
 
