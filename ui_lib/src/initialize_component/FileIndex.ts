@@ -19,7 +19,8 @@ export default class FileIndex extends Component {
     try {
       super.initialize(data)
       this.filePath = data.filePath
-      await this.loadFiles()
+      await this.loadFiles(data.category)
+      this.ui.innerHTML = ''
       this.createList()
       new FirstLinkClick().initialize({})
     } catch (error: any) {
@@ -27,9 +28,11 @@ export default class FileIndex extends Component {
     }
   }
 
-  private async loadFiles() {
+  private async loadFiles(category: string) {
     try {
-      this.fileList.push(...(await loadJSONFile(this.filePath)))
+      const data: IFileMetadata[] = await loadJSONFile(this.filePath)
+      const filteredData = data.filter((item) => item.category === category)
+      this.fileList.push(...filteredData)
     } catch (error: any) {
       console.error(error.message)
     }
