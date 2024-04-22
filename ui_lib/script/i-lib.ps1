@@ -15,6 +15,7 @@ $pack = "$libName-1.0.0.tgz"
 $lib = Join-Path $repoPath ($build + $pack)
 
 $workingList = @(
+    "reader",
     "info_page"
 )
 

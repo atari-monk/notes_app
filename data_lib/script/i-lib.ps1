@@ -18,6 +18,7 @@ $workingList = @(
     "ui_lib",
     "server",
     "editor",
+    "reader",
     "info_page"
 )
 
