@@ -20,29 +20,43 @@ new ToggleButton().initialize({
 const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
-const categories = ['Info', 'Code', 'DIY']
+const categories = { info: 'Info', code: 'Code', diy: 'DIY' }
 
 const select = getById('filter') as HTMLSelectElement
 
-categories.forEach(function (category) {
+Object.entries(categories).forEach(function ([key, value]) {
   const option = document.createElement('option')
-  option.text = category
+  option.value = key
+  option.text = value
   select.add(option)
 })
 
 select.addEventListener('change', function () {
-  const selectedCategory = select.value.toLowerCase()
-  console.log('Category selected:', selectedCategory)
   new FileIndex(
     new LinkClick(new PasswordProvider(), markDownIt, new CodeHighlight())
   ).initialize({
     id: 'fileListContainer',
     filePath: 'data/files.json',
-    category: selectedCategory,
+    category: select.value.toLowerCase(),
   })
 })
 
-select.value = 'Info'
+function getCategoryFromUrl() {
+  const params = new URLSearchParams(window.location.search)
+  const categoryParam = params.get('category')
+  return categoryParam ? categoryParam.toLowerCase() : undefined
+}
+
+function capitalizeFirstLetter(value: string) {
+  return value.charAt(0).toUpperCase() + value.slice(1)
+}
+
+const categoryFromUrl = getCategoryFromUrl()
+if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
+  select.value = categoryFromUrl
+} else {
+  select.value = 'info'
+}
 
 var event = new Event('change')
 select.dispatchEvent(event)
