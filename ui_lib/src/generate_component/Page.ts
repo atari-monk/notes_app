@@ -1,31 +1,26 @@
-import IRenderer from '../generate_component/type/IRenderer'
-import CopyButtons from '../generate_component/CopyButtons'
+import IRenderer from './type/IRenderer'
+import CopyButtons from './CopyButtons'
 import ComponentGenerator from '../component/ComponentGenerator'
-import PageIndex from './PageIndex'
-import UIPageContent from './PageContent'
-import Component from '../component/Component'
-import IJsonComponentData from './type/IJsonComponentData'
+import PageIndex from '../initialize_component/PageIndex'
+import PageContent from '../initialize_component/PageContent'
 import IGenerateComponent from '../component/type/IGenerateComponent'
+import { ISectionsAndChats } from 'data_lib'
 
-export default class Page extends Component {
+export default class Page
+  implements IGenerateComponent<ISectionsAndChats, void>
+{
   constructor(
     private readonly markdown: IRenderer,
     private readonly codeHighlight: IGenerateComponent<HTMLElement, void>
-  ) {
-    super()
-  }
+  ) {}
 
-  initialize(data: IJsonComponentData) {
+  generate(data: ISectionsAndChats) {
     const index = new PageIndex()
     index.initialize({ id: 'index' })
 
-    const content = new UIPageContent(this.markdown)
+    const content = new PageContent(this.markdown)
     content.indexComponent = index.indexComponent
-    if (data.jsonData) {
-      content.data = data.jsonData
-    } else {
-      throw new Error('No json data for Page')
-    }
+    content.data = data
     content.initialize({ id: 'jsonContainer' })
 
     new ComponentGenerator(this.codeHighlight).generate({ selector: 'code' })

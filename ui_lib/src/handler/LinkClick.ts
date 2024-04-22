@@ -1,11 +1,12 @@
 import IFileMetadata from '../initialize_component/type/IFileMetadata'
 import ILinkClick from './ILinkClick'
 import PasswordProvider from '../provider/PasswordProvider'
-import Page from '../initialize_component/Page'
+import Page from '../generate_component/Page'
 import ScrollIntoView from '../initialize_component/ScrollIntoView'
 import SetInnerText from '../initialize_component/SetInnerText'
 import IRenderer from '../generate_component/type/IRenderer'
 import IGenerateComponent from '../component/type/IGenerateComponent'
+import { ISectionsAndChats } from 'data_lib'
 
 export default class LinkClick implements ILinkClick {
   constructor(
@@ -16,9 +17,9 @@ export default class LinkClick implements ILinkClick {
 
   async linkClick(file: IFileMetadata) {
     if (this.isProtectedFile(file)) return
-    const jsonData = await this.fetchData(file)
+    const jsonData: ISectionsAndChats = await this.fetchData(file)
     const page = new Page(this.markdown, this.codeHighlight)
-    page.initialize({ jsonData })
+    page.generate(jsonData)
     new SetInnerText().initialize({
       id: 'currentPage_value',
       innerText: file.name,
