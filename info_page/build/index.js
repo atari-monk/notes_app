@@ -9508,6 +9508,47 @@ exports["default"] = IndexComponent;
 
 /***/ }),
 
+/***/ "./node_modules/ui_lib/generate_component/Page.js":
+/*!********************************************************!*\
+  !*** ./node_modules/ui_lib/generate_component/Page.js ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const CopyButtons_1 = __importDefault(__webpack_require__(/*! ./CopyButtons */ "./node_modules/ui_lib/generate_component/CopyButtons.js"));
+const ComponentGenerator_1 = __importDefault(__webpack_require__(/*! ../component/ComponentGenerator */ "./node_modules/ui_lib/component/ComponentGenerator.js"));
+const PageIndex_1 = __importDefault(__webpack_require__(/*! ../initialize_component/PageIndex */ "./node_modules/ui_lib/initialize_component/PageIndex.js"));
+const PageContent_1 = __importDefault(__webpack_require__(/*! ../initialize_component/PageContent */ "./node_modules/ui_lib/initialize_component/PageContent.js"));
+class Page {
+    markdown;
+    codeHighlight;
+    constructor(markdown, codeHighlight) {
+        this.markdown = markdown;
+        this.codeHighlight = codeHighlight;
+    }
+    generate(data) {
+        const index = new PageIndex_1.default();
+        index.initialize({ id: 'index' });
+        const content = new PageContent_1.default(this.markdown);
+        content.indexComponent = index.indexComponent;
+        content.data = data;
+        content.initialize({ id: 'jsonContainer' });
+        new ComponentGenerator_1.default(this.codeHighlight).generate({ selector: 'code' });
+        new ComponentGenerator_1.default(new CopyButtons_1.default()).generate({
+            selector: 'pre code[class*="language-"]',
+        });
+    }
+}
+exports["default"] = Page;
+
+
+/***/ }),
+
 /***/ "./node_modules/ui_lib/generate_component/SectionComponent.js":
 /*!********************************************************************!*\
   !*** ./node_modules/ui_lib/generate_component/SectionComponent.js ***!
@@ -9568,7 +9609,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Page_1 = __importDefault(__webpack_require__(/*! ../initialize_component/Page */ "./node_modules/ui_lib/initialize_component/Page.js"));
+const Page_1 = __importDefault(__webpack_require__(/*! ../generate_component/Page */ "./node_modules/ui_lib/generate_component/Page.js"));
 const ScrollIntoView_1 = __importDefault(__webpack_require__(/*! ../initialize_component/ScrollIntoView */ "./node_modules/ui_lib/initialize_component/ScrollIntoView.js"));
 const SetInnerText_1 = __importDefault(__webpack_require__(/*! ../initialize_component/SetInnerText */ "./node_modules/ui_lib/initialize_component/SetInnerText.js"));
 class LinkClick {
@@ -9585,7 +9626,8 @@ class LinkClick {
             return;
         const jsonData = await this.fetchData(file);
         const page = new Page_1.default(this.markdown, this.codeHighlight);
-        page.initialize({ jsonData });
+        //const parsedData: ISectionsAndChats = JSON.parse(jsonData as string)
+        page.generate(jsonData);
         new SetInnerText_1.default().initialize({
             id: 'currentPage_value',
             innerText: file.name,
@@ -9629,7 +9671,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
@@ -9638,6 +9680,8 @@ var LinkClick_1 = __webpack_require__(/*! ./handler/LinkClick */ "./node_modules
 Object.defineProperty(exports, "LinkClick", ({ enumerable: true, get: function () { return __importDefault(LinkClick_1).default; } }));
 var PasswordProvider_1 = __webpack_require__(/*! ./provider/PasswordProvider */ "./node_modules/ui_lib/provider/PasswordProvider.js");
 Object.defineProperty(exports, "PasswordProvider", ({ enumerable: true, get: function () { return __importDefault(PasswordProvider_1).default; } }));
+var Page_1 = __webpack_require__(/*! ./generate_component/Page */ "./node_modules/ui_lib/generate_component/Page.js");
+Object.defineProperty(exports, "Page", ({ enumerable: true, get: function () { return __importDefault(Page_1).default; } }));
 
 
 /***/ }),
@@ -9811,54 +9855,6 @@ class Link extends Component_1.default {
     }
 }
 exports["default"] = Link;
-
-
-/***/ }),
-
-/***/ "./node_modules/ui_lib/initialize_component/Page.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/ui_lib/initialize_component/Page.js ***!
-  \**********************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const CopyButtons_1 = __importDefault(__webpack_require__(/*! ../generate_component/CopyButtons */ "./node_modules/ui_lib/generate_component/CopyButtons.js"));
-const ComponentGenerator_1 = __importDefault(__webpack_require__(/*! ../component/ComponentGenerator */ "./node_modules/ui_lib/component/ComponentGenerator.js"));
-const PageIndex_1 = __importDefault(__webpack_require__(/*! ./PageIndex */ "./node_modules/ui_lib/initialize_component/PageIndex.js"));
-const PageContent_1 = __importDefault(__webpack_require__(/*! ./PageContent */ "./node_modules/ui_lib/initialize_component/PageContent.js"));
-const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
-class Page extends Component_1.default {
-    markdown;
-    codeHighlight;
-    constructor(markdown, codeHighlight) {
-        super();
-        this.markdown = markdown;
-        this.codeHighlight = codeHighlight;
-    }
-    initialize(data) {
-        const index = new PageIndex_1.default();
-        index.initialize({ id: 'index' });
-        const content = new PageContent_1.default(this.markdown);
-        content.indexComponent = index.indexComponent;
-        if (data.jsonData) {
-            content.data = data.jsonData;
-        }
-        else {
-            throw new Error('No json data for Page');
-        }
-        content.initialize({ id: 'jsonContainer' });
-        new ComponentGenerator_1.default(this.codeHighlight).generate({ selector: 'code' });
-        new ComponentGenerator_1.default(new CopyButtons_1.default()).generate({
-            selector: 'pre code[class*="language-"]',
-        });
-    }
-}
-exports["default"] = Page;
 
 
 /***/ }),
