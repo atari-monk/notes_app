@@ -28,5 +28,29 @@
     "name": "Project Log",
     "category": "log",
     "protected": false
+  },
+  {
+    "path": "../data/log/sleep.json",
+    "name": "Sleep",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../data/log/cleaning.json",
+    "name": "Cleaning Log",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../data/log/day.json",
+    "name": "Day",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../data/log/video_watching.json",
+    "name": "Video Watching",
+    "category": "log",
+    "protected": false
   }
 ]
