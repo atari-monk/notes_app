@@ -203,8 +203,8 @@
         {
           "indexTitle": "23",
           "question": "23",
-          "answer": "1. notes_app\n  - 12:02\n  - ",
-          "dateTime": "2024-04-23T10:02:39.063Z"
+          "answer": "1. notes_app\n   - New Script running note apps in scripts repo and cli script\n   - Fix no section title in page index bug\n   - Moved css styles to lib\n   - Changed data source to page/data in server\n   - Added new category, log files, established their formats",
+          "dateTime": "2024-04-23T13:01:26.216Z"
         }
       ]
     }
