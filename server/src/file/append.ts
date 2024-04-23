@@ -1,4 +1,4 @@
-import { ISectionsAndChats, IChat, ISectionAndChats } from 'notes_lib'
+import { ISectionsAndChats, IChat, ISectionAndChats } from 'data_lib'
 import { readJson, writeJson } from './fileSys'
 
 export async function appendChatToFile(

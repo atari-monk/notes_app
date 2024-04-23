@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 import path from 'path'
 import { updateChatFromFile } from '../file/update'
-import { IChat, IChatEdit } from 'notes_lib'
+import { IChat, IChatEdit } from 'data_lib'
 import { appendChatToFile } from '../file/append'
 import { loadchatFromFile } from '../file/load'
 
-const baseDirectory = 'C:/atari-monk/docs/notes_db'
+const baseDirectory = 'C:/atari-monk/code/notes_app/page/data'
 
 export const appendChat = async (req: Request, res: Response) => {
   const { category, filename } = req.params

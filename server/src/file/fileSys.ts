@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs'
-import { ISectionsAndChats } from 'notes_lib'
+import { ISectionsAndChats } from 'data_lib'
 
 export async function readJson(filePath: string): Promise<ISectionsAndChats> {
   try {
