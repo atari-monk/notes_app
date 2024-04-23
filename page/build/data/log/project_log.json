@@ -203,8 +203,8 @@
         {
           "indexTitle": "23",
           "question": "23",
-          "answer": "1. notes_app\n   - New Script running note apps in scripts repo and cli script\n   - Fix no section title in page index bug\n   - Moved css styles to lib\n   - Changed data source to page/data in server\n   - Added new category, log files, established their formats",
-          "dateTime": "2024-04-23T13:01:26.216Z"
+          "answer": "1. notes_app\n   - New Script running note apps in scripts repo and cli script\n   - Fix no section title in page index bug\n   - Moved css styles to lib\n   - Changed data source to page/data in server\n   - Added new category, log files, established their formats\n2. notes_app\n   - Edit button in AnswearCard\n3. notes_app\n   - Open form with params in url, to fill form, when edit button in reader is clicked\n   - Debt in that there is no category data in reader, plus data is passed in ctors of components, should in data in ui_lib   ",
+          "dateTime": "2024-04-23T19:19:25.756Z"
         }
       ]
     }

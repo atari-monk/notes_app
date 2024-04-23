@@ -9388,9 +9388,11 @@ const EditButton_1 = __importDefault(__webpack_require__(/*! ./EditButton */ "./
 class AnswerCard {
     renderer;
     isEditable;
-    constructor(renderer, isEditable = false) {
+    editFileData;
+    constructor(renderer, isEditable = false, editFileData = {}) {
         this.renderer = renderer;
         this.isEditable = isEditable;
+        this.editFileData = editFileData;
     }
     generate(data) {
         const { sectionIndex, questionIndex } = data;
@@ -9406,6 +9408,7 @@ class AnswerCard {
         card.appendChild(this.createAnswerDiv(answer));
         if (this.isEditable) {
             const editButton = new EditButton_1.default().generate({
+                fileData: this.editFileData,
                 sectionIndex,
                 questionIndex,
             });
@@ -9517,15 +9520,28 @@ class EditButton {
     generateDiv(data) {
         const div = document.createElement('div');
         div.classList.add('edit_button_div');
-        div.appendChild(this.generateButton(data));
+        const button = this.generateButton(data);
+        this.setupButton(button, data);
+        div.appendChild(button);
         return div;
     }
     generateButton(data) {
-        const { sectionIndex, questionIndex } = data;
+        //const { sectionIndex, questionIndex } = data
         const element = document.createElement('button');
         element.className = 'edit_button';
-        element.innerText = `SectionIndex: ${sectionIndex}, QuestionIndex: ${questionIndex}`;
+        element.innerText = 'Edit'; //`SectionIndex: ${sectionIndex}, QuestionIndex: ${questionIndex}`
         return element;
+    }
+    setupButton(button, data) {
+        button.addEventListener('click', () => {
+            this.redirectToForm(data);
+        });
+    }
+    redirectToForm(data) {
+        const { sectionIndex, questionIndex } = data;
+        const { category, name } = data.fileData;
+        const url = `http://127.0.0.1:5500/editor/build/edit.html?category=${category}&file=${name}&section=${sectionIndex}&question=${questionIndex}`;
+        window.open(url, '_blank');
     }
 }
 exports["default"] = EditButton;
@@ -9605,15 +9621,17 @@ class Page {
     markdown;
     codeHighlight;
     isEditable;
-    constructor(markdown, codeHighlight, isEditable = false) {
+    editFileData;
+    constructor(markdown, codeHighlight, isEditable = false, editFileData = {}) {
         this.markdown = markdown;
         this.codeHighlight = codeHighlight;
         this.isEditable = isEditable;
+        this.editFileData = editFileData;
     }
     generate(data) {
         const index = new PageIndex_1.default();
         index.initialize({ id: 'index' });
-        const content = new PageContent_1.default(this.markdown, this.isEditable);
+        const content = new PageContent_1.default(this.markdown, this.isEditable, this.editFileData);
         content.indexComponent = index.indexComponent;
         content.data = data;
         content.initialize({ id: 'jsonContainer' });
@@ -9644,9 +9662,11 @@ const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./
 class SectionComponent {
     renderer;
     isEditable;
-    constructor(renderer, isEditable = false) {
+    editFileData;
+    constructor(renderer, isEditable = false, editFileData = {}) {
         this.renderer = renderer;
         this.isEditable = isEditable;
+        this.editFileData = editFileData;
     }
     generate(data) {
         const { sectionIndex, sectionTitle, questions, jsonContainer, indexComponent, } = data;
@@ -9654,7 +9674,7 @@ class SectionComponent {
         sectionDiv.id = `section-${sectionIndex}`;
         sectionDiv.innerHTML = this.renderer.render(sectionTitle);
         questions.forEach((item, questionIndex) => {
-            const component = new AnswerCard_1.default(this.renderer, this.isEditable);
+            const component = new AnswerCard_1.default(this.renderer, this.isEditable, this.editFileData);
             const ui = component.generate({
                 sectionIndex: data.sectionIndex,
                 questionIndex: questionIndex,
@@ -9963,6 +9983,7 @@ const SectionComponent_1 = __importDefault(__webpack_require__(/*! ../generate_c
 class PageContent extends Component_1.default {
     renderer;
     isEditable;
+    editFileData;
     _indexComponent;
     _data;
     set indexComponent(indexComponent) {
@@ -9971,10 +9992,11 @@ class PageContent extends Component_1.default {
     set data(data) {
         this._data = data;
     }
-    constructor(renderer, isEditable = false) {
+    constructor(renderer, isEditable = false, editFileData = {}) {
         super();
         this.renderer = renderer;
         this.isEditable = isEditable;
+        this.editFileData = editFileData;
     }
     initialize(data) {
         try {
@@ -9988,7 +10010,7 @@ class PageContent extends Component_1.default {
     }
     createPageContent() {
         this._data.sections.forEach((section, sectionIndex) => {
-            const sectionComponent = new SectionComponent_1.default(this.renderer, this.isEditable);
+            const sectionComponent = new SectionComponent_1.default(this.renderer, this.isEditable, this.editFileData);
             sectionComponent.generate({
                 sectionIndex,
                 sectionTitle: section.title,
