@@ -4,6 +4,7 @@ import { ISectionsAndChats } from 'data_lib'
 import IRenderer from '../generate_component/type/IRenderer'
 import IndexComponent from '../generate_component/IndexComponent'
 import SectionComponent from '../generate_component/SectionComponent'
+import IEditFileData from '../generate_component/type/IEditFileData'
 
 export default class PageContent extends Component {
   private _indexComponent!: IndexComponent
@@ -19,7 +20,8 @@ export default class PageContent extends Component {
 
   constructor(
     private readonly renderer: IRenderer,
-    private readonly isEditable = false
+    private readonly isEditable = false,
+    private readonly editFileData: IEditFileData = {} as IEditFileData
   ) {
     super()
   }
@@ -38,7 +40,8 @@ export default class PageContent extends Component {
     this._data.sections.forEach((section, sectionIndex) => {
       const sectionComponent = new SectionComponent(
         this.renderer,
-        this.isEditable
+        this.isEditable,
+        this.editFileData
       )
       sectionComponent.generate({
         sectionIndex,

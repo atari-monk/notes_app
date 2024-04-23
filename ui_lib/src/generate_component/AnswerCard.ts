@@ -2,13 +2,15 @@ import IGenerateComponent from '../component/type/IGenerateComponent'
 import IRenderer from './type/IRenderer'
 import IAnswerCardData from './type/IAnswerCardData'
 import EditButton from './EditButton'
+import IEditFileData from './type/IEditFileData'
 
 export default class AnswerCard
   implements IGenerateComponent<IAnswerCardData, HTMLDivElement>
 {
   constructor(
     private readonly renderer: IRenderer,
-    private readonly isEditable = false
+    private readonly isEditable = false,
+    private readonly editFileData: IEditFileData = {} as IEditFileData
   ) {}
 
   generate(data: IAnswerCardData) {
@@ -26,6 +28,7 @@ export default class AnswerCard
     card.appendChild(this.createAnswerDiv(answer))
     if (this.isEditable) {
       const editButton = new EditButton().generate({
+        fileData: this.editFileData,
         sectionIndex,
         questionIndex,
       })

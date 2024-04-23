@@ -21,10 +21,10 @@ export default class EditButton
   }
 
   private generateButton(data: IEditButtonData): HTMLButtonElement {
-    const { sectionIndex, questionIndex } = data
+    //const { sectionIndex, questionIndex } = data
     const element = document.createElement('button')
     element.className = 'edit_button'
-    element.innerText = `SectionIndex: ${sectionIndex}, QuestionIndex: ${questionIndex}`
+    element.innerText = 'Edit' //`SectionIndex: ${sectionIndex}, QuestionIndex: ${questionIndex}`
     return element
   }
 
@@ -36,7 +36,8 @@ export default class EditButton
 
   private redirectToForm(data: IEditButtonData) {
     const { sectionIndex, questionIndex } = data
-    const url = `http://127.0.0.1:5500/editor/build/edit.html?section=${sectionIndex}&question=${questionIndex}`
+    const { category, name } = data.fileData
+    const url = `http://127.0.0.1:5500/editor/build/edit.html?category=${category}&file=${name}&section=${sectionIndex}&question=${questionIndex}`
     window.open(url, '_blank')
   }
 }
