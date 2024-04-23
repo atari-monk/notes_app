@@ -16,5 +16,17 @@
     "name": "Atari Monk Homemade Highlights",
     "category": "diy",
     "protected": false
+  },
+  {
+    "path": "../data/log/project_time.json",
+    "name": "Project Time",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../data/log/project_log.json",
+    "name": "Project Log",
+    "category": "log",
+    "protected": false
   }
 ]

@@ -1,0 +1,212 @@
+{
+  "sections": [
+    {
+      "title": "03.2024",
+      "chats": [
+        {
+          "indexTitle": "21",
+          "question": "21",
+          "answer": "1. Repo notes\n   - 12:30\n   - 13:00\n2. Repo micro-engine\n   - 13:00\n   - 14:20\n3. Repo micro-engine\n   - 14:20\n   - 16:30\n4. Sending cv\n   - 19:00\n   - 20:00\n5. Repo react_tutorial\n   - 21:30\n   - 22:30\n---\n06:00",
+          "dateTime": "2024-04-23T12:32:00.677Z"
+        },
+        {
+          "indexTitle": "22",
+          "question": "22",
+          "answer": "1. Grocery, roasting chicken, slicing food for cold storage, 3 h, 12-15, chicken clean up 15:00 - 17:20\n2. Learning React and taking notes - 1 hour.\n3. Soccer game development (focused on game mechanics) - 1 hour 20 min",
+          "dateTime": "2024-03-22T21:34:00.675Z"
+        },
+        {
+          "indexTitle": "23",
+          "question": "23",
+          "answer": "1. Adding the pool project and 3D Unity project to your portfolio page - 1 hour.\n2. Learning React and taking notes - 1 hour.\n3. Working on your inventory page - 1 hour.\n4. Sending out your CV - 3 sends.\n5. Soccer game development (focused on game mechanics)",
+          "dateTime": "2024-03-23T13:05:23.018Z"
+        },
+        {
+          "indexTitle": "24",
+          "question": "24",
+          "answer": "1. Upgraded scripts proj\n2. Made lame video from that",
+          "dateTime": "2024-03-25T11:21:28.087Z"
+        },
+        {
+          "indexTitle": "25",
+          "question": "25",
+          "answer": "1. cv, now 34 sended\n2. update script mouse automate, video on it, testing it",
+          "dateTime": "2024-03-26T12:24:05.866Z"
+        },
+        {
+          "indexTitle": "26",
+          "question": "26",
+          "answer": "1. scripts, mouse \n    * updated mouse automate to use positions files data, multiple menus and lists type are now posiible to handle, testing it a lot  \n2. micro-engine  \n    * start 18:36, with music\n    * changes:\n    * beter error handling in commponent loader\n    * fix mapper create overridable method bug\n    * add component type in new way\n    * add data of component\n    * 19:09\n    * todo: od dribble turn dribble:enable = true\n    * 19:12 setup standing and break\n    * 19:27 standing start\n    * 20:11 dribble state set\n    * 20:11 break\n    * 22:05 continue\n    * 22:51 moved dribble commponent to players, set it in kickBall handler, turn of boots     * collision if in dribble\n    * total of (2hours 6 min)\n    * todo: wait 3s to be in dribble or on button, so boots can catch a ball or push it  \n    * print text for states as debug tool",
+          "dateTime": "2024-03-28T16:52:26.034Z"
+        },
+        {
+          "indexTitle": "27",
+          "question": "27",
+          "answer": "1. micro-engine\n    * start 11:53, ears stoppers\n    * create playerState component, load from json\n    * 12:55 from 30 min a problem with engine loading seqence and starting\n    * 12:56 break\n    * 13:33 music,\n    * logging\n    * engine methods strart, prepare, run sequence modification\n    * there was a bug of not await when loading data to engine!\n    * alert: systems are loaded after data in callback, only after that engine can start!\n    * 15:11 alert: when adding new component that dosent have sprite, exclude it in withSpriteRenderer!!!!\n    * 15:20 break, wasted so much time on this sprite exclude thing\n2. scripts  \n    * 17:30 resume, scripts\n    * 19:08 refactor build_all\n    * 19:23 verb-noun ps1 function name convention, refactor build folders script\n    * 19:38 break, mom phone\n    * 23:06 resume\n    * 00:38 refactor scripts, end",
+          "dateTime": "2024-03-28T16:54:53.181Z"
+        },
+        {
+          "indexTitle": "28",
+          "question": "28",
+          "answer": "1. scripts  \n    * start 11:14\n    * taks 71, upgrade build script\n    * i need faster builds\n    * 5 pomodoro\n    * made script that can run all my build configs, feed from json\n    * end 13:54\n    * 2 hours 40 minutes\n2. nestjs tutorial  \n    * 14:48 notes, nestjs tutorial\n    * todo: do unity tut next\n    * tutorial fin for today 15:51\n    * 1 hour 3 minutes\n3. notes  \n    * 16:52 - mod notes to use json for pages list\n    * 17:45 done removing data from code to json  \n    * failed again changing config to await on top level, did not builds after that\n    * 53 minutes\n4. micro-engine  \n   * 18:18 PlayerStateRenderer\n   * make client engine separate from singleplayer\n   * make server engine separate from singleplayer\n   * new core system in engine, sumsystem (agregates components of entities in cache on start and renders once)\n   * PlayerStateRenderer\n   * end 20:46\n   * 2 hours 28 minutes\n   * total 7 hours 4 minutes",
+          "dateTime": "2024-03-28T19:56:50.340Z"
+        },
+        {
+          "indexTitle": "29",
+          "question": "29",
+          "answer": "1. nestjs tutorial\n    * 11:33 start\n    * 12:20 end on vid time 15:46\n    * 47 min\n2. micro-engine\n    * 13:21 start\n    * what makes a bug on kick box ?\n    * 14:13, logger levels, logger can be dissabled and filtered with levels from config.json\n    * 14:27 rename logger, to remove dredded, useless manager word from it\n    * 14:40 thanks to logging i now see what is the problem, initially ball is flipped right even when player was right\n    * 15:02 fixed ball flip bug, synced initial player facing direction left or right with flip state\n    * todo: box flip is done on kick state, should be on dribble\n    * 15:05 stop for now\n    * 1 hour and 44 minutes\n    * 16:04 resume\n    * 16:09 switched box flip to dribble.enable\n    * 17:15 dribble on delay\n    * 17:29 upgrade player state render\n    * todo: left, right must be on player entity in some component\n    * 1 hour and 25 minutes\n3. react tutorial\n    * 18:06 start\n    * tic tac toe\n    * 19:45 end\n    * 1 hour and 39 minutes  \n- Total 5 hours and 35 minutes.",
+          "dateTime": "2024-03-29T18:52:49.435Z"
+        },
+        {
+          "indexTitle": "30",
+          "question": "30",
+          "answer": "1. nestjs-tutorial\n    * start 14:30\n    * code in repo, tested, detailed notes\n    * end 17:16, video time 32:00 midleware\n2. micro-engine\n    * start 19:04\n    * end 21:05",
+          "dateTime": "2024-03-31T22:41:04.564Z"
+        }
+      ]
+    },
+    {
+      "title": "04.2024",
+      "chats": [
+        {
+          "indexTitle": "01",
+          "question": "01",
+          "answer": "1. nestjs-tutorial\n    * start 00:42\n    * end 01:17, vid on 39:30\n2. nestjs-tutorial\n    * start 19:51\n    * end 20:29, vid on 43:23\n3. micro-engine\n    * start 21:00\n    * end 22:05 ",
+          "dateTime": "2024-04-01T20:23:08.916Z"
+        },
+        {
+          "indexTitle": "02",
+          "question": "02",
+          "answer": "1. nestjs-tutorial\n    * start 14:12\n    * end 16:00\n    * vid 52:10\n2. micro-engine\n    * strat 18:22\n    * end 19:09",
+          "dateTime": "2024-04-02T17:10:11.199Z"
+        },
+        {
+          "indexTitle": "03",
+          "question": "03",
+          "answer": "1. micro-engine\n    * start 11:37\n    * end 14:20\n    * start 16:45\n    * end 17:12\n2. nestjs-tutorial\n    * start 17:14\n    * end 18:13, vid 1:02",
+          "dateTime": "2024-04-03T16:16:45.843Z"
+        },
+        {
+          "indexTitle": "04",
+          "question": "04",
+          "answer": "1. micro-engine\n    * start 19:00\n    * end 20:30",
+          "dateTime": "2024-04-04T18:31:22.032Z"
+        },
+        {
+          "indexTitle": "05",
+          "question": "05",
+          "answer": "1. micro-engine\n  - start 14:00\n  - end 14:30\n\n  - start 15:32\n  - end 16:53\n\n  - start 17:47\n  - end 19:19\n\n  - start 22:11\n  - end 00:29",
+          "dateTime": "2024-04-05T22:29:27.185Z"
+        },
+        {
+          "indexTitle": "06",
+          "question": "06",
+          "answer": "1. micro-engine\n  - start 19:13\n  - end 20:20\n2. playing rdr2\n  - start 22:00",
+          "dateTime": "2024-04-06T19:59:16.805Z"
+        },
+        {
+          "indexTitle": "07",
+          "question": "07",
+          "answer": "1. micro-engine\n  - start 17:13\n  - end 18:06, fail, to hot, to much sun on balcony, despite reflection screens\n  - start 18:11\n  - end 19:39, refactor, renaming, very time intensive, as it was core used evrywhere\n  - start 21:14\n  - end 21:48, replaced manager name to cache for maps of resources classes\n  * total 2hrs",
+          "dateTime": "2024-04-07T19:53:28.790Z"
+        },
+        {
+          "indexTitle": "08",
+          "question": "08",
+          "answer": "1. diy, sun protection for laptop\n  - start 13:15\n  - end 21:00\n2. micro-engine\n  - start 22:14\n  - end 23:47, refactoring, \n  - todo: validation of system regarding if it is on or off, must be in one place, currently two",
+          "dateTime": "2024-04-08T21:50:00.408Z"
+        },
+        {
+          "indexTitle": "09",
+          "question": "09",
+          "answer": "1. micro-engine\n  - start 11:12\n  - end 14:30, refactoring, added systemAssembler, better validations\n2. nest-js tutorial\n  - start 16:17\n  - end 17:28, vid 1:15:29\n3. add 3d unity tutorial to portfolio\n  - start 17:29\n  - end 18:41, put on [myitch](https://atari-monk.itch.io/)\n4. micro-engine\n  - start 20:55\n  - end 21:45\n5. play game rdr2\n  - start 21:46\n  - end 00:27",
+          "dateTime": "2024-04-09T22:27:56.724Z"
+        },
+        {
+          "indexTitle": "10",
+          "question": "10",
+          "answer": "1. micro-engine\n  - start 14:28\n  - end 16:41\n2. nestjs\n  - start 19:29\n  - end 19:48, vid 1:21:07\n3. samples\n  - mp3 update (~30 min)\n4. micro-engine\n  - start 21:46\n  - end 22:26, refactor system builder\n* total 03:12\n5. rdr2 game\n  - start 22:57\n  - end 00:00",
+          "dateTime": "2024-04-11T08:08:03.534Z"
+        },
+        {
+          "indexTitle": "11",
+          "question": "11",
+          "answer": "1. micro-engine\n  - 11:10\n  - 13:21\n2. micro-engine\n  - 14:35\n  - 17:14, refactor system builder (exported data to new model and used to build)\n* total 04:50\n3. nest-js tutorial\n  - 22:47\n  - 23:58, before One To Many Relation, do Module4 from 1:35:18\n* total 06:01",
+          "dateTime": "2024-04-11T22:03:12.833Z"
+        },
+        {
+          "indexTitle": "12",
+          "question": "12",
+          "answer": "1. micro-engine\n  - 15:41\n  - 17:10, refactoring, split sys assembler class to prepare and add\n2. diy\n  - 17:40\n  - 18:40, glue and screw panel\n3. micro-engine\n  - 19:17\n  - 20:44, fixed system builder, after broken by refactoring, now its simpler\n4. rdr2 game\n  - 22:47\n  - 00:00",
+          "dateTime": "2024-04-12T22:21:06.341Z"
+        },
+        {
+          "indexTitle": "13",
+          "question": "13",
+          "answer": "1. micro-engine\n  - 11:37\n  - 13:24\n  - script that puts code in one txt file for chatgpt\n2. notes\n  - 13:24\n  - 14:32\n  - reorganizing\n3. micro-engine\n  - 15:14\n  - 16:12\n  - refactor\n  - improved file structure\n  - add step of system builder\n4. notes\n - 18:41\n - 21:00\n - rewrite video_watching_log format\n5. micro-engine\n  - 22:43\n  - 23:43\n  - add new entities validation step\n6. rdr2 game\n  - 23:44\n  - 01:15\n  - 2 levels, 2 vids uploaded\n",
+          "dateTime": "2024-04-13T23:15:48.974Z"
+        },
+        {
+          "indexTitle": "14",
+          "question": "14",
+          "answer": "1. micro-engine\n  - 15:44\n  - 16:46",
+          "dateTime": "2024-04-14T14:47:31.050Z"
+        },
+        {
+          "indexTitle": "15",
+          "question": "15",
+          "answer": "1. micro-engine\n  - 12:32\n  - 12:55\n2. notes\n  - 13:20\n  - 17:32\n3. micro-engine\n  - 23:25\n  - 00:23",
+          "dateTime": "2024-04-15T22:23:31.183Z"
+        },
+        {
+          "indexTitle": "16",
+          "question": "16",
+          "answer": "1. notes \n  - 13:36\n  - 15:23\n2. notes\n  - 16:30\n  - 17:30\n3. notes\n  - 19:00\n  - 20:00\n4. notes\n  - 21:00\n  - 22:00",
+          "dateTime": "2024-04-16T20:54:04.801Z"
+        },
+        {
+          "indexTitle": "17",
+          "question": "17",
+          "answer": "1. notes\n  - 11:00\n  - 12:20\n2. notes\n  - 13:46\n  - 15:00\n3. notes\n  - 19:10\n  - 21:00\n4. notes\n  - 22:38\n  - 23:06  \n---\nTotal of 4 hours and 52 minutes",
+          "dateTime": "2024-04-17T21:09:14.672Z"
+        },
+        {
+          "indexTitle": "18",
+          "question": "18",
+          "answer": "1. notes_app\n  - 17:37\n  - 19:14",
+          "dateTime": "2024-04-18T17:14:55.983Z"
+        },
+        {
+          "indexTitle": "19",
+          "question": "19",
+          "answer": "1. notes\n  - 12:20\n  - 12:45\n2. notes\n  - 14:04\n  - 15:20",
+          "dateTime": "2024-04-19T13:21:11.563Z"
+        },
+        {
+          "indexTitle": "20",
+          "question": "20",
+          "answer": "1. notes_app\n  - 13:47\n  - 18:37",
+          "dateTime": "2024-04-20T16:37:12.841Z"
+        },
+        {
+          "indexTitle": "21",
+          "question": "21",
+          "answer": "1. notes_app\n  - 17:06\n  - 19:42\n  - minus 20 min on phone call\n2. notes_app\n  - 22:24\n  - 23:30\n  - total 03:22",
+          "dateTime": "2024-04-21T21:34:37.497Z"
+        },
+        {
+          "indexTitle": "22",
+          "question": "22",
+          "answer": "1. notes_app\n  - 12:48\n  - 15:13\n2. notes_app\n  - 16:22\n  - 18:10\n3. notes_app\n  - 18:10\n  - 19:37\n---\n5 hours and 40 minutes",
+          "dateTime": "2024-04-22T17:40:22.373Z"
+        },
+        {
+          "indexTitle": "23",
+          "question": "23",
+          "answer": "1. notes_app\n  - 12:02\n  - ",
+          "dateTime": "2024-04-23T10:02:39.063Z"
+        }
+      ]
+    }
+  ]
+}

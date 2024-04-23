@@ -9185,7 +9185,7 @@ new ui_lib_1.ToggleButton().initialize({
 });
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-const categories = { info: 'Info', code: 'Code', diy: 'DIY' };
+const categories = { info: 'Info', code: 'Code', diy: 'DIY', log: 'Log' };
 const select = (0, ui_lib_1.getById)('filter');
 Object.entries(categories).forEach(function ([key, value]) {
     const option = document.createElement('option');
