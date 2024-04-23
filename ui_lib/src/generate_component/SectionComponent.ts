@@ -34,7 +34,7 @@ export default class SectionComponent
     indexComponent.generate({
       sectionIndex: data.sectionIndex,
       questionIndex: 0,
-      sectionTitle: '',
+      sectionTitle: data.sectionTitle,
       indexTitle: '',
       questions,
     })
