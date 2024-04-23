@@ -25,6 +25,18 @@ function getQueryVariable(variable: string) {
   console.error('Nie znaleziono parametru w adresie URL: ' + variable)
 }
 
+const categoryInput = getById('category') as HTMLInputElement
+const categoryValue = getQueryVariable('category')
+if (categoryInput && categoryValue !== undefined) {
+  categoryInput.value = categoryValue
+}
+
+const fileTitleInput = getById('fileTitle') as HTMLInputElement
+const fileTitleValue = getQueryVariable('file')
+if (fileTitleInput && fileTitleValue !== undefined) {
+  fileTitleInput.value = fileTitleValue
+}
+
 const sectionNumberInput = getById('sectionNumber') as HTMLInputElement
 const sectionValue = getQueryVariable('section')
 if (sectionNumberInput && sectionValue !== undefined) {
