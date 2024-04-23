@@ -13,6 +13,30 @@ let noteIndex: ISectionAndChatNr = {
   chatNr: 0,
 }
 
+function getQueryVariable(variable: string) {
+  const query = window.location.search.substring(1)
+  const vars = query.split('&')
+  for (let i = 0; i < vars.length; i++) {
+    const pair = vars[i].split('=')
+    if (decodeURIComponent(pair[0]) === variable) {
+      return decodeURIComponent(pair[1])
+    }
+  }
+  console.error('Nie znaleziono parametru w adresie URL: ' + variable)
+}
+
+const sectionNumberInput = getById('sectionNumber') as HTMLInputElement
+const sectionValue = getQueryVariable('section')
+if (sectionNumberInput && sectionValue !== undefined) {
+  sectionNumberInput.value = sectionValue
+}
+
+const questionNumberInput = getById('questionNumber') as HTMLInputElement
+const questionValue = getQueryVariable('question')
+if (questionNumberInput && questionValue !== undefined) {
+  questionNumberInput.value = questionValue
+}
+
 async function handleLoad(event: Event) {
   event.preventDefault()
 
