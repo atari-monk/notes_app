@@ -1,24 +1,36 @@
 import IGenerateComponent from '../component/type/IGenerateComponent'
 import IRenderer from './type/IRenderer'
 import IAnswerCardData from './type/IAnswerCardData'
+import EditButton from './EditButton'
 
 export default class AnswerCard
   implements IGenerateComponent<IAnswerCardData, HTMLDivElement>
 {
-  constructor(private readonly renderer: IRenderer) {}
+  constructor(
+    private readonly renderer: IRenderer,
+    private readonly isEditable = false
+  ) {}
 
   generate(data: IAnswerCardData) {
-    const { sectionIndex, questionIndex, question, answer } = data
-    const card = this.createCard(question, answer)
+    const { sectionIndex, questionIndex } = data
+    const card = this.createCard(data)
     card.id = `section-${sectionIndex}-question-${questionIndex}`
     return card
   }
 
-  private createCard(question: string, answer: string): HTMLDivElement {
+  private createCard(data: IAnswerCardData): HTMLDivElement {
+    const { sectionIndex, questionIndex, question, answer } = data
     const card = document.createElement('div')
     card.classList.add('card')
     card.appendChild(this.createQuestionParagraph(question))
     card.appendChild(this.createAnswerDiv(answer))
+    if (this.isEditable) {
+      const editButton = new EditButton().generate({
+        sectionIndex,
+        questionIndex,
+      })
+      card.appendChild(editButton)
+    }
     card.appendChild(this.createIndexLink())
     return card
   }

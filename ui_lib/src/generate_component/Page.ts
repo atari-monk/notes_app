@@ -11,14 +11,15 @@ export default class Page
 {
   constructor(
     private readonly markdown: IRenderer,
-    private readonly codeHighlight: IGenerateComponent<HTMLElement, void>
+    private readonly codeHighlight: IGenerateComponent<HTMLElement, void>,
+    private readonly isEditable = false
   ) {}
 
   generate(data: ISectionsAndChats) {
     const index = new PageIndex()
     index.initialize({ id: 'index' })
 
-    const content = new PageContent(this.markdown)
+    const content = new PageContent(this.markdown, this.isEditable)
     content.indexComponent = index.indexComponent
     content.data = data
     content.initialize({ id: 'jsonContainer' })

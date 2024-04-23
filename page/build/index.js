@@ -9376,27 +9376,41 @@ exports["default"] = ComponentGenerator;
 /*!**************************************************************!*\
   !*** ./node_modules/ui_lib/generate_component/AnswerCard.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+const EditButton_1 = __importDefault(__webpack_require__(/*! ./EditButton */ "./node_modules/ui_lib/generate_component/EditButton.js"));
 class AnswerCard {
     renderer;
-    constructor(renderer) {
+    isEditable;
+    constructor(renderer, isEditable = false) {
         this.renderer = renderer;
+        this.isEditable = isEditable;
     }
     generate(data) {
-        const { sectionIndex, questionIndex, question, answer } = data;
-        const card = this.createCard(question, answer);
+        const { sectionIndex, questionIndex } = data;
+        const card = this.createCard(data);
         card.id = `section-${sectionIndex}-question-${questionIndex}`;
         return card;
     }
-    createCard(question, answer) {
+    createCard(data) {
+        const { sectionIndex, questionIndex, question, answer } = data;
         const card = document.createElement('div');
         card.classList.add('card');
         card.appendChild(this.createQuestionParagraph(question));
         card.appendChild(this.createAnswerDiv(answer));
+        if (this.isEditable) {
+            const editButton = new EditButton_1.default().generate({
+                sectionIndex,
+                questionIndex,
+            });
+            card.appendChild(editButton);
+        }
         card.appendChild(this.createIndexLink());
         return card;
     }
@@ -9484,6 +9498,41 @@ exports["default"] = CopyButtons;
 
 /***/ }),
 
+/***/ "./node_modules/ui_lib/generate_component/EditButton.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/ui_lib/generate_component/EditButton.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class EditButton {
+    generate(data) {
+        const element = this.generateDiv(data);
+        const { sectionIndex, questionIndex } = data;
+        element.id = `edit_button_section_${sectionIndex}_question_${questionIndex}`;
+        return element;
+    }
+    generateDiv(data) {
+        const div = document.createElement('div');
+        div.classList.add('edit_button_div');
+        div.appendChild(this.generateButton(data));
+        return div;
+    }
+    generateButton(data) {
+        const { sectionIndex, questionIndex } = data;
+        const element = document.createElement('button');
+        element.className = 'edit_button';
+        element.innerText = `SectionIndex: ${sectionIndex}, QuestionIndex: ${questionIndex}`;
+        return element;
+    }
+}
+exports["default"] = EditButton;
+
+
+/***/ }),
+
 /***/ "./node_modules/ui_lib/generate_component/IndexComponent.js":
 /*!******************************************************************!*\
   !*** ./node_modules/ui_lib/generate_component/IndexComponent.js ***!
@@ -9555,14 +9604,16 @@ const PageContent_1 = __importDefault(__webpack_require__(/*! ../initialize_comp
 class Page {
     markdown;
     codeHighlight;
-    constructor(markdown, codeHighlight) {
+    isEditable;
+    constructor(markdown, codeHighlight, isEditable = false) {
         this.markdown = markdown;
         this.codeHighlight = codeHighlight;
+        this.isEditable = isEditable;
     }
     generate(data) {
         const index = new PageIndex_1.default();
         index.initialize({ id: 'index' });
-        const content = new PageContent_1.default(this.markdown);
+        const content = new PageContent_1.default(this.markdown, this.isEditable);
         content.indexComponent = index.indexComponent;
         content.data = data;
         content.initialize({ id: 'jsonContainer' });
@@ -9592,8 +9643,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./node_modules/ui_lib/generate_component/AnswerCard.js"));
 class SectionComponent {
     renderer;
-    constructor(renderer) {
+    isEditable;
+    constructor(renderer, isEditable = false) {
         this.renderer = renderer;
+        this.isEditable = isEditable;
     }
     generate(data) {
         const { sectionIndex, sectionTitle, questions, jsonContainer, indexComponent, } = data;
@@ -9601,7 +9654,7 @@ class SectionComponent {
         sectionDiv.id = `section-${sectionIndex}`;
         sectionDiv.innerHTML = this.renderer.render(sectionTitle);
         questions.forEach((item, questionIndex) => {
-            const component = new AnswerCard_1.default(this.renderer);
+            const component = new AnswerCard_1.default(this.renderer, this.isEditable);
             const ui = component.generate({
                 sectionIndex: data.sectionIndex,
                 questionIndex: questionIndex,
@@ -9909,6 +9962,7 @@ const Component_1 = __importDefault(__webpack_require__(/*! ../component/Compone
 const SectionComponent_1 = __importDefault(__webpack_require__(/*! ../generate_component/SectionComponent */ "./node_modules/ui_lib/generate_component/SectionComponent.js"));
 class PageContent extends Component_1.default {
     renderer;
+    isEditable;
     _indexComponent;
     _data;
     set indexComponent(indexComponent) {
@@ -9917,9 +9971,10 @@ class PageContent extends Component_1.default {
     set data(data) {
         this._data = data;
     }
-    constructor(renderer) {
+    constructor(renderer, isEditable = false) {
         super();
         this.renderer = renderer;
+        this.isEditable = isEditable;
     }
     initialize(data) {
         try {
@@ -9933,7 +9988,7 @@ class PageContent extends Component_1.default {
     }
     createPageContent() {
         this._data.sections.forEach((section, sectionIndex) => {
-            const sectionComponent = new SectionComponent_1.default(this.renderer);
+            const sectionComponent = new SectionComponent_1.default(this.renderer, this.isEditable);
             sectionComponent.generate({
                 sectionIndex,
                 sectionTitle: section.title,

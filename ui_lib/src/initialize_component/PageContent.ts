@@ -17,7 +17,10 @@ export default class PageContent extends Component {
     this._data = data
   }
 
-  constructor(private readonly renderer: IRenderer) {
+  constructor(
+    private readonly renderer: IRenderer,
+    private readonly isEditable = false
+  ) {
     super()
   }
 
@@ -33,7 +36,10 @@ export default class PageContent extends Component {
 
   private createPageContent() {
     this._data.sections.forEach((section, sectionIndex) => {
-      const sectionComponent = new SectionComponent(this.renderer)
+      const sectionComponent = new SectionComponent(
+        this.renderer,
+        this.isEditable
+      )
       sectionComponent.generate({
         sectionIndex,
         sectionTitle: section.title,

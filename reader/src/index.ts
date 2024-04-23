@@ -42,7 +42,7 @@ function openFile() {
         const jsonData: ISectionsAndChats = JSON.parse(
           event.target?.result as string
         )
-        new Page(markDownIt, new CodeHighlight()).generate(jsonData)
+        new Page(markDownIt, new CodeHighlight(), true).generate(jsonData)
       } catch (error) {
         console.error('Error parsing JSON:', error)
         jsonContainer.textContent =

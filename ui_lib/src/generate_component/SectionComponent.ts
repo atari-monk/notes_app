@@ -6,7 +6,10 @@ import ISectionComponentData from './type/ISectionComponentData'
 export default class SectionComponent
   implements IGenerateComponent<ISectionComponentData, void>
 {
-  constructor(private readonly renderer: IRenderer) {}
+  constructor(
+    private readonly renderer: IRenderer,
+    private readonly isEditable = false
+  ) {}
 
   generate(data: ISectionComponentData) {
     const {
@@ -21,7 +24,7 @@ export default class SectionComponent
     sectionDiv.innerHTML = this.renderer.render(sectionTitle)
 
     questions.forEach((item, questionIndex) => {
-      const component = new AnswerCard(this.renderer)
+      const component = new AnswerCard(this.renderer, this.isEditable)
       const ui = component.generate({
         sectionIndex: data.sectionIndex,
         questionIndex: questionIndex,
