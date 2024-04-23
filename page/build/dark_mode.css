@@ -1,6 +1,57 @@
-/*!**********************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/styles.css ***!
-  \**********************************************************************/
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/ui_lib/css/dark_mode.css ***!
+  \*****************************************************************************************/
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode button {
+  background-color: #555;
+}
+
+.dark-mode #index {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode a {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode #index_title a,
+#index a {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode #index_title a,
+#index a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.dark-mode #jsonContainer {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode #jsonContainer a {
+  color: #f5f5f5;
+
+  &:hover {
+    color: #007bff;
+  }
+}
+
+.dark-mode code.hljs {
+  background-color: #c3c0c0;
+}
+
+/*!**************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/ui_lib/css/styles.css ***!
+  \**************************************************************************************/
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -198,57 +249,6 @@ button.copy-button:active {
 
 .card p {
   margin: 5px 0;
-}
-
-/*!*************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/dark_mode.css ***!
-  \*************************************************************************/
-.dark-mode {
-  background-color: #333;
-  color: #fff;
-}
-
-.dark-mode button {
-  background-color: #555;
-}
-
-.dark-mode #index {
-  background-color: #333;
-  color: #fff;
-}
-
-.dark-mode a {
-  background-color: #333;
-  color: #fff;
-}
-
-.dark-mode #index_title a,
-#index a {
-  background-color: #333;
-  color: #fff;
-}
-
-.dark-mode #index_title a,
-#index a:hover {
-  background-color: #555;
-  color: #fff;
-}
-
-.dark-mode #jsonContainer {
-  background-color: #333;
-  color: #fff;
-}
-
-body.dark-mode #jsonContainer a {
-  color: #f5f5f5;
-
-  &:hover {
-    color: #007bff;
-  }
-}
-
-.dark-mode code.hljs {
-  background-color: #c3c0c0;
 }
 
 /*!******************************************************************************************************!*\

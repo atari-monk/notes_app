@@ -8646,10 +8646,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/css/dark_mode.css":
-/*!*******************************!*\
-  !*** ./src/css/dark_mode.css ***!
-  \*******************************/
+/***/ "./node_modules/ui_lib/css/dark_mode.css":
+/*!***********************************************!*\
+  !*** ./node_modules/ui_lib/css/dark_mode.css ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8659,10 +8659,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/css/styles.css":
-/*!****************************!*\
-  !*** ./src/css/styles.css ***!
-  \****************************/
+/***/ "./node_modules/ui_lib/css/styles.css":
+/*!********************************************!*\
+  !*** ./node_modules/ui_lib/css/styles.css ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9172,8 +9172,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-__webpack_require__(/*! ./css/styles.css */ "./src/css/styles.css");
-__webpack_require__(/*! ./css/dark_mode.css */ "./src/css/dark_mode.css");
+__webpack_require__(/*! ui_lib/css/dark_mode.css */ "./node_modules/ui_lib/css/dark_mode.css");
+__webpack_require__(/*! ui_lib/css/styles.css */ "./node_modules/ui_lib/css/styles.css");
 __webpack_require__(/*! font-awesome/css/font-awesome.min.css */ "./node_modules/font-awesome/css/font-awesome.min.css");
 const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
@@ -9613,7 +9613,7 @@ class SectionComponent {
         indexComponent.generate({
             sectionIndex: data.sectionIndex,
             questionIndex: 0,
-            sectionTitle: '',
+            sectionTitle: data.sectionTitle,
             indexTitle: '',
             questions,
         });

@@ -4,7 +4,11 @@
   "description": "Shared lib",
   "main": "index.js",
   "scripts": {
-    "build": "node ./script/copy-package.js && tsc",
+    "copy_package": "node ./script/copy-package.js",
+    "make_css": "if not exist build\\css mkdir build\\css",
+    "copy_css": "xcopy /s /e /y src\\css\\*.* build\\css\\",
+    "build_css": "npm run make_css && npm run copy_css",
+    "build": "npm run copy_package && npm run build_css && tsc",
     "i-lib": "powershell.exe -ExecutionPolicy Bypass -File .\\script\\i-lib.ps1"
   },
   "keywords": [],

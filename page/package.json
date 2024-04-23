@@ -13,10 +13,10 @@
   "devDependencies": {
     "@types/markdown-it": "^14.0.1",
     "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.8.1",
+    "css-loader": "^6.11.0",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.7.6",
-    "style-loader": "^3.3.3",
+    "style-loader": "^3.3.4",
     "ts-loader": "^9.5.0",
     "typescript": "^5.2.2",
     "webpack": "^5.89.0",

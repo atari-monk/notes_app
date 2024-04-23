@@ -1,5 +1,5 @@
-import './css/styles.css'
-import './css/dark_mode.css'
+import 'ui_lib/css/editor/dark_mode.css'
+import 'ui_lib/css/editor/styles.css'
 import {
   IChatEdit,
   IChat,
