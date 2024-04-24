@@ -6,8 +6,8 @@ import { appendChatToFile } from '../file/append'
 import { loadchatFromFile } from '../file/load'
 
 const public_note = 'C:/atari-monk/code/notes_app/page/public_note'
-const private_note = 'C:/atari-monk/docs/notes_app/page/private_note'
-const private_category = 'private'
+const private_note = 'C:/atari-monk/docs/notes_app'
+const private_category = 'private_note'
 
 function getBaseDirectory(category: string) {
   return category === private_category ? private_note : public_note
