@@ -9,6 +9,7 @@ import IEditFileData from '../generate_component/type/IEditFileData'
 export default class PageContent extends Component {
   private _indexComponent!: IndexComponent
   private _data!: ISectionsAndChats
+  private _editFileData!: IEditFileData
 
   set indexComponent(indexComponent: IndexComponent) {
     this._indexComponent = indexComponent
@@ -18,11 +19,11 @@ export default class PageContent extends Component {
     this._data = data
   }
 
-  constructor(
-    private readonly renderer: IRenderer,
-    private readonly isEditable = false,
-    private readonly editFileData: IEditFileData = {} as IEditFileData
-  ) {
+  set editFileData(editFileData: IEditFileData) {
+    this._editFileData = editFileData
+  }
+
+  constructor(private readonly renderer: IRenderer) {
     super()
   }
 
@@ -38,17 +39,14 @@ export default class PageContent extends Component {
 
   private createPageContent() {
     this._data.sections.forEach((section, sectionIndex) => {
-      const sectionComponent = new SectionComponent(
-        this.renderer,
-        this.isEditable,
-        this.editFileData
-      )
+      const sectionComponent = new SectionComponent(this.renderer)
       sectionComponent.generate({
         sectionIndex,
         sectionTitle: section.title,
         questions: section.chats,
         jsonContainer: this.ui,
         indexComponent: this._indexComponent,
+        editFileData: this._editFileData,
       })
     })
   }

@@ -4,7 +4,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import { ISectionsAndChats } from 'data_lib'
-import { IEditFileData, Page, ToggleButton } from 'ui_lib'
+import { Page, ToggleButton } from 'ui_lib'
 import CodeHighlight from './CodeHighlight'
 
 new ToggleButton().initialize({
@@ -42,10 +42,14 @@ function openFile() {
         const jsonData: ISectionsAndChats = JSON.parse(
           event.target?.result as string
         )
-        new Page(markDownIt, new CodeHighlight(), true, {
-          category: 'log',
-          name: file.name.replace('.json', ''),
-        } as IEditFileData).generate(jsonData)
+        new Page(markDownIt, new CodeHighlight()).generate({
+          fileData: jsonData,
+          editFileData: {
+            isEditable: true,
+            category: 'log',
+            name: file.name.replace('.json', ''),
+          },
+        })
       } catch (error) {
         console.error('Error parsing JSON:', error)
         jsonContainer.textContent =

@@ -4,30 +4,22 @@ import ComponentGenerator from '../component/ComponentGenerator'
 import PageIndex from '../initialize_component/PageIndex'
 import PageContent from '../initialize_component/PageContent'
 import IGenerateComponent from '../component/type/IGenerateComponent'
-import { ISectionsAndChats } from 'data_lib'
-import IEditFileData from './type/IEditFileData'
+import IPageData from './type/IPageData'
 
-export default class Page
-  implements IGenerateComponent<ISectionsAndChats, void>
-{
+export default class Page implements IGenerateComponent<IPageData, void> {
   constructor(
     private readonly markdown: IRenderer,
-    private readonly codeHighlight: IGenerateComponent<HTMLElement, void>,
-    private readonly isEditable = false,
-    private readonly editFileData: IEditFileData = {} as IEditFileData
+    private readonly codeHighlight: IGenerateComponent<HTMLElement, void>
   ) {}
 
-  generate(data: ISectionsAndChats) {
+  generate(data: IPageData) {
     const index = new PageIndex()
     index.initialize({ id: 'index' })
 
-    const content = new PageContent(
-      this.markdown,
-      this.isEditable,
-      this.editFileData
-    )
+    const content = new PageContent(this.markdown)
     content.indexComponent = index.indexComponent
-    content.data = data
+    content.data = data.fileData
+    content.editFileData = data.editFileData
     content.initialize({ id: 'jsonContainer' })
 
     new ComponentGenerator(this.codeHighlight).generate({ selector: 'code' })

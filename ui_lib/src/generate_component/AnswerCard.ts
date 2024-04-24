@@ -2,16 +2,11 @@ import IGenerateComponent from '../component/type/IGenerateComponent'
 import IRenderer from './type/IRenderer'
 import IAnswerCardData from './type/IAnswerCardData'
 import EditButton from './EditButton'
-import IEditFileData from './type/IEditFileData'
 
 export default class AnswerCard
   implements IGenerateComponent<IAnswerCardData, HTMLDivElement>
 {
-  constructor(
-    private readonly renderer: IRenderer,
-    private readonly isEditable = false,
-    private readonly editFileData: IEditFileData = {} as IEditFileData
-  ) {}
+  constructor(private readonly renderer: IRenderer) {}
 
   generate(data: IAnswerCardData) {
     const { sectionIndex, questionIndex } = data
@@ -21,14 +16,14 @@ export default class AnswerCard
   }
 
   private createCard(data: IAnswerCardData): HTMLDivElement {
-    const { sectionIndex, questionIndex, question, answer } = data
+    const { sectionIndex, questionIndex, question, answer, editFileData } = data
     const card = document.createElement('div')
     card.classList.add('card')
     card.appendChild(this.createQuestionParagraph(question))
     card.appendChild(this.createAnswerDiv(answer))
-    if (this.isEditable) {
+    if (editFileData.isEditable) {
       const editButton = new EditButton().generate({
-        fileData: this.editFileData,
+        fileData: editFileData,
         sectionIndex,
         questionIndex,
       })

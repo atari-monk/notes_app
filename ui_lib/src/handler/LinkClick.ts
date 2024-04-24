@@ -7,6 +7,7 @@ import SetInnerText from '../initialize_component/SetInnerText'
 import IRenderer from '../generate_component/type/IRenderer'
 import IGenerateComponent from '../component/type/IGenerateComponent'
 import { ISectionsAndChats } from 'data_lib'
+import IEditFileData from '../generate_component/type/IEditFileData'
 
 export default class LinkClick implements ILinkClick {
   constructor(
@@ -19,7 +20,7 @@ export default class LinkClick implements ILinkClick {
     if (this.isProtectedFile(file)) return
     const jsonData: ISectionsAndChats = await this.fetchData(file)
     const page = new Page(this.markdown, this.codeHighlight)
-    page.generate(jsonData)
+    page.generate({ fileData: jsonData, editFileData: {} as IEditFileData })
     new SetInnerText().initialize({
       id: 'currentPage_value',
       innerText: file.name,

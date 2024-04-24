@@ -1,4 +1,5 @@
 import IndexComponent from '../IndexComponent'
+import IEditFileData from './IEditFileData'
 
 export default interface ISectionComponentData {
   sectionIndex: number
@@ -6,4 +7,5 @@ export default interface ISectionComponentData {
   questions: { indexTitle: string; question: string; answer: string }[]
   jsonContainer: HTMLElement
   indexComponent: IndexComponent
+  editFileData: IEditFileData
 }
