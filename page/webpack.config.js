@@ -23,14 +23,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      }
+      },
     ],
   },
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/index.html', to: 'index.html' },
-        { from: 'data', to: 'data' },
+        { from: 'public_note', to: 'public_note' },
       ],
     }),
     new MiniCssExtractPlugin({

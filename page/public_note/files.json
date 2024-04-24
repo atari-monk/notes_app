@@ -1,54 +1,54 @@
 [
   {
-    "path": "../data/info/links.json",
+    "path": "../public_note/info/links.json",
     "name": "Links",
     "category": "info",
     "protected": false
   },
   {
-    "path": "../data/code/nestjs_tutorial.json",
+    "path": "../public_note/code/nestjs_tutorial.json",
     "name": "Nestjs Tutorial",
     "category": "code",
     "protected": false
   },
   {
-    "path": "../data/diy/atari_monk_homemade_highlights.json",
+    "path": "../public_note/diy/atari_monk_homemade_highlights.json",
     "name": "Atari Monk Homemade Highlights",
     "category": "diy",
     "protected": false
   },
   {
-    "path": "../data/log/project_time.json",
+    "path": "../public_note/log/project_time.json",
     "name": "Project Time",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../data/log/project_log.json",
+    "path": "../public_note/log/project_log.json",
     "name": "Project Log",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../data/log/sleep.json",
+    "path": "../public_note/log/sleep.json",
     "name": "Sleep",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../data/log/cleaning.json",
+    "path": "../public_note/log/cleaning.json",
     "name": "Cleaning Log",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../data/log/day.json",
+    "path": "../public_note/log/day.json",
     "name": "Day",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../data/log/video_watching.json",
+    "path": "../public_note/log/video_watching.json",
     "name": "Video Watching",
     "category": "log",
     "protected": false
