@@ -5,12 +5,19 @@ import { IChat, IChatEdit } from 'data_lib'
 import { appendChatToFile } from '../file/append'
 import { loadchatFromFile } from '../file/load'
 
-const baseDirectory = 'C:/atari-monk/code/notes_app/page/data'
+const public_note = 'C:/atari-monk/code/notes_app/page/public_note'
+const private_note = 'C:/atari-monk/docs/notes_app/page/private_note'
+const private_category = 'private'
+
+function getBaseDirectory(category: string) {
+  return category === private_category ? private_note : public_note
+}
 
 export const appendChat = async (req: Request, res: Response) => {
   const { category, filename } = req.params
   const { indexTitle, question, answer, section } = req.body
-  const filePath = path.join(baseDirectory, category, filename)
+
+  const filePath = path.join(getBaseDirectory(category), category, filename)
 
   const newChat: IChat = {
     indexTitle,
@@ -32,7 +39,7 @@ export const loadChat = async (req: Request, res: Response) => {
   const { category, filename } = req.params
   const { sectionNr, chatNr } = req.body
 
-  const filePath = path.join(baseDirectory, category, filename)
+  const filePath = path.join(getBaseDirectory(category), category, filename)
 
   try {
     const notesData = await loadchatFromFile(filePath, sectionNr, chatNr)
@@ -49,7 +56,7 @@ export const updateChat = async (req: Request, res: Response) => {
 
   const { sectionNr, chatNr } = noteEdit.chatNr
 
-  const filePath = path.join(baseDirectory, category, filename)
+  const filePath = path.join(getBaseDirectory(category), category, filename)
 
   try {
     await updateChatFromFile(
