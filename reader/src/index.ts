@@ -46,7 +46,7 @@ function openFile() {
           fileData: jsonData,
           editFileData: {
             isEditable: true,
-            category: 'log',
+            category: jsonData.category,
             name: file.name.replace('.json', ''),
           },
         })

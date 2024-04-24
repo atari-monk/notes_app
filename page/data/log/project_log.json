@@ -1,4 +1,5 @@
 {
+  "category": "log",
   "sections": [
     {
       "title": "03.2024",
@@ -12,8 +13,8 @@
         {
           "indexTitle": "22",
           "question": "22",
-          "answer": "1. Grocery, roasting chicken, slicing food for cold storage, 3 h, 12-15, chicken clean up 15:00 - 17:20\n2. Learning React and taking notes - 1 hour.\n3. Soccer game development (focused on game mechanics) - 1 hour 20 min",
-          "dateTime": "2024-03-22T21:34:00.675Z"
+          "answer": "1. Grocery, roasting chicken, slicing food for cold storage\n2. Chicken clean up\n3. Learning React and taking notes\n4. Soccer game development (focused on game mechanics)",
+          "dateTime": "2024-04-24T14:05:43.940Z"
         },
         {
           "indexTitle": "23",
@@ -205,6 +206,12 @@
           "question": "23",
           "answer": "1. notes_app\n   - New Script running note apps in scripts repo and cli script\n   - Fix no section title in page index bug\n   - Moved css styles to lib\n   - Changed data source to page/data in server\n   - Added new category, log files, established their formats\n2. notes_app\n   - Edit button in AnswearCard\n3. notes_app\n   - Open form with params in url, to fill form, when edit button in reader is clicked\n   - Debt in that there is no category data in reader, plus data is passed in ctors of components, should in data in ui_lib   ",
           "dateTime": "2024-04-23T19:19:25.756Z"
+        },
+        {
+          "indexTitle": "24",
+          "question": "24",
+          "answer": "1. notes_app\n   - removed data from ctors of commponents, moved to proper data types and objects, tested\n2. notes_app\n   - added category data to files, this duplicates data in files.json to files, but reader dosent use files.json\n   - edited log files so they have consistent formats",
+          "dateTime": "2024-04-24T14:14:57.182Z"
         }
       ]
     }

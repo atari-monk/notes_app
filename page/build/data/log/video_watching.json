@@ -1,4 +1,5 @@
 {
+  "category": "log",
   "sections": [
     {
       "title": "Lexicon",
@@ -6,8 +7,8 @@
         {
           "indexTitle": "Channels",
           "question": "Channels",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \n[Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)  \n[ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)  \n[GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)  \n[JoergSprave](https://www.youtube.com/@Slingshotchannel)  \n[Thunderf00t](https://www.youtube.com/@Thunderf00t)  \n[KabaretMalina](https://www.youtube.com/@KabaretMalina)  \n[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  ",
-          "dateTime": "2024-04-13T18:27:26.341Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)\n3. [Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)\n4. [KabaretMalina](https://www.youtube.com/@KabaretMalina)\n5. [Thunderf00t](https://www.youtube.com/@Thunderf00t)\n6. [JoergSprave](https://www.youtube.com/@Slingshotchannel)\n7. [GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)\n8. [ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)",
+          "dateTime": "2024-04-24T13:23:27.264Z"
         }
       ]
     },
@@ -17,86 +18,86 @@
         {
           "indexTitle": "08",
           "question": "08",
-          "answer": "[Thunderf00t](https://www.youtube.com/@Thunderf00t)",
-          "dateTime": "2024-04-13T16:56:32.672Z"
+          "answer": "1. [Thunderf00t](https://www.youtube.com/@Thunderf00t)",
+          "dateTime": "2024-04-24T13:28:42.637Z"
         },
         {
           "indexTitle": "11",
           "question": "11",
-          "answer": "[KabaretMalina](https://www.youtube.com/@KabaretMalina)  \n[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  \n[Louis C.K. - Topic](https://www.youtube.com/channel/UCEUlUpnbNt6S95RnX9G1jGw)  ",
-          "dateTime": "2024-04-13T18:41:21.577Z"
+          "answer": "1. [KabaretMalina](https://www.youtube.com/@KabaretMalina)\n2. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)\n3. [Louis C.K. - Topic](https://www.youtube.com/channel/UCEUlUpnbNt6S95RnX9G1jGw)",
+          "dateTime": "2024-04-24T13:29:11.270Z"
         },
         {
           "indexTitle": "12",
           "question": "12",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \n[Louis C.K. - Topic](https://www.youtube.com/channel/UCEUlUpnbNt6S95RnX9G1jGw)  ",
-          "dateTime": "2024-04-13T17:01:20.453Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [Louis C.K. - Topic](https://www.youtube.com/channel/UCEUlUpnbNt6S95RnX9G1jGw)",
+          "dateTime": "2024-04-24T13:29:49.318Z"
         },
         {
           "indexTitle": "13",
           "question": "13",
-          "answer": "[Buddha's Lounge](https://www.youtube.com/channel/UCWaZJ2Mu5zjfhZoEEMxs1MQ)  \n",
-          "dateTime": "2024-04-13T17:03:01.811Z"
+          "answer": "1. [Buddha's Lounge](https://www.youtube.com/channel/UCWaZJ2Mu5zjfhZoEEMxs1MQ)\n",
+          "dateTime": "2024-04-24T13:30:04.477Z"
         },
         {
           "indexTitle": "15",
           "question": "15",
-          "answer": "[Pasja informatyki](https://www.youtube.com/@Pasjainformatyki)  ",
-          "dateTime": "2024-04-13T17:05:11.092Z"
+          "answer": "1. [Pasja informatyki](https://www.youtube.com/@Pasjainformatyki)",
+          "dateTime": "2024-04-24T13:30:17.434Z"
         },
         {
           "indexTitle": "16",
           "question": "16",
-          "answer": "[Rusty78609](https://www.youtube.com/@rusty78609), 30 first vids ",
-          "dateTime": "2024-04-13T17:10:12.679Z"
+          "answer": "1. [Rusty78609](https://www.youtube.com/@rusty78609)\n   - 30 first",
+          "dateTime": "2024-04-24T13:28:09.861Z"
         },
         {
           "indexTitle": "19",
           "question": "19",
-          "answer": "The Lord of the Rings Fellowship part 1  ",
-          "dateTime": "2024-02-25T13:17:42.030Z"
+          "answer": "1. [The Lord of the Rings Fellowship part 1]()",
+          "dateTime": "2024-04-24T13:36:04.455Z"
         },
         {
           "indexTitle": "23",
           "question": "23",
-          "answer": "[GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)  ",
-          "dateTime": "2024-04-13T17:11:37.854Z"
+          "answer": "1. [GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)",
+          "dateTime": "2024-04-24T13:30:43.808Z"
         },
         {
           "indexTitle": "24",
           "question": "24",
-          "answer": "[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  \nTwo Towers Part 1  \n[KabaretMalina](https://www.youtube.com/@KabaretMalina)  ",
-          "dateTime": "2024-04-13T17:15:10.778Z"
+          "answer": "1. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)\n2. [Two Towers Part 1]()\n3. [KabaretMalina](https://www.youtube.com/@KabaretMalina)",
+          "dateTime": "2024-04-24T13:35:12.399Z"
         },
         {
           "indexTitle": "25",
           "question": "25",
-          "answer": "[Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)\n[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \nJ Krishnamirti, Bohm 1983, 1  \nJ Krishnamirti, Bohm 1983, 2  \n[7 Ways to Maximize Misery](https://youtu.be/LO1mTELoj6o)  \n[George Carlin - Jammin' In New York (1992) [Full]](https://youtu.be/9NrnJGFlJBE)\n",
-          "dateTime": "2024-04-13T17:23:39.383Z"
+          "answer": "1. [Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)\n2. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n3. [J Krishnamirti, Bohm 1983, 1]()\n4. [J Krishnamirti, Bohm 1983, 2]()\n5. [7 Ways to Maximize Misery](https://youtu.be/LO1mTELoj6o)\n6. [George Carlin - Jammin' In New York (1992) [Full]](https://youtu.be/9NrnJGFlJBE)\n",
+          "dateTime": "2024-04-24T13:36:28.893Z"
         },
         {
           "indexTitle": "26",
           "question": "26",
-          "answer": "[Einzelgänger](https://www.youtube.com/@Einzelganger)  \n[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  \n[Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)  \n[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \nTolkien Two Towers Part 1  ",
-          "dateTime": "2024-04-13T17:29:08.618Z"
+          "answer": "1. [Einzelgänger](https://www.youtube.com/@Einzelganger)\n2. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)\n3. [Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)\n4. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n5. [Tolkien Two Towers Part 1]()",
+          "dateTime": "2024-04-24T13:36:59.334Z"
         },
         {
           "indexTitle": "27",
           "question": "27",
-          "answer": "[ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)  \n[Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)\n",
-          "dateTime": "2024-04-13T17:30:42.238Z"
+          "answer": "1. [ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)\n2. [Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)",
+          "dateTime": "2024-04-24T13:33:08.083Z"
         },
         {
           "indexTitle": "28",
           "question": "28",
-          "answer": "[ORKA czysto ogrzewa Jarosław](https://www.youtube.com/@orkaczystoogrzewajarosaw3202)  ",
-          "dateTime": "2024-04-13T17:32:08.307Z"
+          "answer": "1. [ORKA czysto ogrzewa Jarosław](https://www.youtube.com/@orkaczystoogrzewajarosaw3202)",
+          "dateTime": "2024-04-24T13:33:25.973Z"
         },
         {
           "indexTitle": "29",
           "question": "29",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \n[ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)    \n[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  \nTolkien Two Towers Part 2  \n  ",
-          "dateTime": "2024-04-13T17:35:04.919Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)\n3. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)\n4. [Tolkien Two Towers Part 2]()",
+          "dateTime": "2024-04-24T13:37:28.799Z"
         }
       ]
     },
@@ -106,68 +107,68 @@
         {
           "indexTitle": "1",
           "question": "1",
-          "answer": "[ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)  \n[Primitive Technology](https://www.youtube.com/@primitivetechnology9550)  \nTwo Towers Part2  \n[Indie GameDev’s MUST Build a Custom Game Engine!](https://youtu.be/3L6EkTjbbvg)  \n[Charles Bukowski: The Slavery of the 9 to 5. You will never be free.](https://youtu.be/2c4UmdaYWAs)  \n[Ethically, Should You Have a Baby?](https://youtu.be/E9WoOQGOQ_w)",
-          "dateTime": "2024-04-13T18:48:12.910Z"
+          "answer": "1. [ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)\n2. [Primitive Technology](https://www.youtube.com/@primitivetechnology9550)\n3. [Two Towers Part2]()\n4. [Indie GameDev’s MUST Build a Custom Game Engine!](https://youtu.be/3L6EkTjbbvg)  \n5. [Charles Bukowski: The Slavery of the 9 to 5. You will never be free.](https://youtu.be/2c4UmdaYWAs)  \n6. [Ethically, Should You Have a Baby?](https://youtu.be/E9WoOQGOQ_w)",
+          "dateTime": "2024-04-24T13:38:19.585Z"
         },
         {
           "indexTitle": "3",
           "question": "3",
-          "answer": "[Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)  \n[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  ",
-          "dateTime": "2024-04-13T18:48:48.688Z"
+          "answer": "1. [Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)\n2. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)",
+          "dateTime": "2024-04-24T13:38:40.886Z"
         },
         {
           "indexTitle": "4",
           "question": "4",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)   \nReturn of the King Part 1",
-          "dateTime": "2024-04-13T18:06:11.527Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [Return of the King Part 1]()",
+          "dateTime": "2024-04-24T13:39:02.547Z"
         },
         {
           "indexTitle": "5",
           "question": "5",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \n[ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)",
-          "dateTime": "2024-04-13T18:49:27.068Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)",
+          "dateTime": "2024-04-24T13:39:18.641Z"
         },
         {
           "indexTitle": "6",
           "question": "6",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)    \nReturn of the King part 1  \nReturn of the King part 2  \n[GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)  \n[ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)  ",
-          "dateTime": "2024-04-13T18:18:35.532Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [Return of the King part 1]()\n3. [Return of the King part 2]()\n4. [GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)\n5. [ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)",
+          "dateTime": "2024-04-24T13:40:17.365Z"
         },
         {
           "indexTitle": "7",
           "question": "7",
-          "answer": "Allan Watts Buddhism  \n[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)    \n[JoergSprave](https://www.youtube.com/@Slingshotchannel)  \n[ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)  ",
-          "dateTime": "2024-04-13T18:51:43.081Z"
+          "answer": "1. [Allan Watts Buddhism]()\n2. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n3. [JoergSprave](https://www.youtube.com/@Slingshotchannel)\n4. [ORANGE PILL PODCAST](https://www.youtube.com/@orangepill)",
+          "dateTime": "2024-04-24T13:40:49.429Z"
         },
         {
           "indexTitle": "8",
           "question": "8",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \n[GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)  \n[Charles Bukowski: Post Office (1971)](https://youtu.be/lDV_Q41oXTc)",
-          "dateTime": "2024-04-13T18:37:16.997Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [GoldSilver (w/ Mike Maloney)](https://www.youtube.com/@Goldsilver)\n3. [Charles Bukowski: Post Office (1971)](https://youtu.be/lDV_Q41oXTc)",
+          "dateTime": "2024-04-24T13:41:11.388Z"
         },
         {
           "indexTitle": "9",
           "question": "9",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  ",
-          "dateTime": "2024-04-13T18:23:01.698Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)",
+          "dateTime": "2024-04-24T13:41:22.174Z"
         },
         {
           "indexTitle": "10",
           "question": "10",
-          "answer": "[Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)  \n[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  \n[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  \n[Col. Douglas Macgregor: What Endgame Means for Political Elite, Election Financial System, #Bitcoin](https://youtu.be/5c8HrPU2y5o)  ",
-          "dateTime": "2024-04-13T18:50:11.403Z"
+          "answer": "1. [Saturday Night Live](https://www.youtube.com/@SaturdayNightLive)\n2. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)\n3. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n4. [Col. Douglas Macgregor: What Endgame Means for Political Elite, Election Financial System, #Bitcoin](https://youtu.be/5c8HrPU2y5o)",
+          "dateTime": "2024-04-24T13:41:51.644Z"
         },
         {
           "indexTitle": "26",
           "question": "26",
-          "answer": "[Thunderf00t](https://www.youtube.com/@Thunderf00t)  \n",
-          "dateTime": "2024-04-13T18:28:47.077Z"
+          "answer": "1. [Thunderf00t](https://www.youtube.com/@Thunderf00t)",
+          "dateTime": "2024-04-24T13:42:10.387Z"
         },
         {
           "indexTitle": "28",
           "question": "28",
-          "answer": "[Synthetic Sentience: Can Artificial Intelligence become conscious? Joscha Bach CCC #37c3](https://youtu.be/Ms96Py8p8Jg)  ",
-          "dateTime": "2024-04-13T18:30:44.074Z"
+          "answer": "1. [Synthetic Sentience: Can Artificial Intelligence become conscious? Joscha Bach CCC #37c3](https://youtu.be/Ms96Py8p8Jg)",
+          "dateTime": "2024-04-24T13:42:26.435Z"
         }
       ]
     },
@@ -177,32 +178,44 @@
         {
           "indexTitle": "2",
           "question": "2",
-          "answer": "[The most important video on Ukraine Prof. John Mearsheimer](https://youtu.be/emD1cN2xEz4)",
-          "dateTime": "2024-04-13T18:31:46.056Z"
+          "answer": "1. [The most important video on Ukraine Prof. John Mearsheimer](https://youtu.be/emD1cN2xEz4)",
+          "dateTime": "2024-04-24T13:42:42.159Z"
         },
         {
           "indexTitle": "13",
           "question": "13",
-          "answer": "[Cherno](https://www.youtube.com/@TheCherno)  \n[Travis Vroman](https://www.youtube.com/c/travisvroman)  \n[The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)  ",
-          "dateTime": "2024-04-13T19:15:15.296Z"
+          "answer": "1. [Cherno](https://www.youtube.com/@TheCherno)\n2. [Travis Vroman](https://www.youtube.com/c/travisvroman)\n3. [The Tim Dillon Show](https://www.youtube.com/@TimDillonShow)",
+          "dateTime": "2024-04-24T13:43:14.315Z"
         },
         {
           "indexTitle": "15",
           "question": "15",
-          "answer": "[The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)  ",
-          "dateTime": "2024-04-15T22:31:12.367Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)",
+          "dateTime": "2024-04-24T13:43:27.522Z"
         },
         {
           "indexTitle": "16",
           "question": "16",
-          "answer": "1. jingles\n2. RDR2 1 level\n  - 22:57\n  - 23:48\n  - failed to login due to mail not exising, ticket issued",
-          "dateTime": "2024-04-16T21:49:00.168Z"
+          "answer": "1. [The Mighty Jingles](https://www.youtube.com/@The_MightyJingles)\n2. [RDR2, failed to login due to mail not exising, ticket issued]()",
+          "dateTime": "2024-04-24T13:47:01.474Z"
+        },
+        {
+          "indexTitle": "22",
+          "question": "22",
+          "answer": "1. [Sean MacGuire Time](https://youtu.be/IJrzjuXlyNE)\n2. [Lenny Summers Time](https://youtu.be/Luj-DQqPbCY)\n---\nRDR2, Made them myself",
+          "dateTime": "2024-04-24T13:46:49.322Z"
         },
         {
           "indexTitle": "23",
           "question": "23",
-          "answer": "1. [Lenny Summers Time](https://youtu.be/Luj-DQqPbCY)",
-          "dateTime": "2024-04-23T15:00:36.104Z"
+          "answer": "1. [Javier Esquela fishing](https://youtu.be/jENYunFJ9Yk)\n2. [Valentine Bank 1](https://youtu.be/dlmfe3ampo4)\n3. [Valentine Bank 2](https://youtu.be/KNAcy7vJWo0)\n---\nRDR2, Made them myself",
+          "dateTime": "2024-04-24T13:46:40.226Z"
+        },
+        {
+          "indexTitle": "24",
+          "question": "24",
+          "answer": "1. [Grave Digger](https://youtu.be/JlANwomZlLw)\n2. [Medicine Wagon](https://youtu.be/Boz4eTamerY)\n3. [White Devil](https://youtu.be/q-z_6V_UKNQ)\n4. [White Devil Cave](https://youtu.be/paAkvFtkrM0)\n5. [Maxed Out Camp](https://youtu.be/sIDJk_3HDjI)\n---\nRDR2, Made them myself",
+          "dateTime": "2024-04-24T13:46:29.777Z"
         }
       ]
     }
