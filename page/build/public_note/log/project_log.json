@@ -210,8 +210,8 @@
         {
           "indexTitle": "24",
           "question": "24",
-          "answer": "1. notes_app\n   - removed data from ctors of commponents, moved to proper data types and objects, tested\n2. notes_app\n   - added category data to files, this duplicates data in files.json to files, but reader dosent use files.json\n   - edited log files so they have consistent formats\n3. notes_app\n   - added second source of data\n   - made it convinent\n   - edited some files to test",
-          "dateTime": "2024-04-24T16:47:49.285Z"
+          "answer": "1. notes_app\n   - removed data from ctors of commponents, moved to proper data types and objects, tested\n2. notes_app\n   - added category data to files, this duplicates data in files.json to files, but reader dosent use files.json\n   - edited log files so they have consistent formats\n3. notes_app\n   - added second source of data\n   - made it convinent\n   - edited some files to test\n4. notes_app\n   - figured out how to embed images from one drive to page\n   - edited inventory file to embed inventory images",
+          "dateTime": "2024-04-24T21:56:51.335Z"
         }
       ]
     }
