@@ -9196,7 +9196,7 @@ Object.entries(categories).forEach(function ([key, value]) {
 select.addEventListener('change', function () {
     new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
         id: 'fileListContainer',
-        filePath: 'data/files.json',
+        filePath: 'public_note/files.json',
         category: select.value.toLowerCase(),
     });
 });
