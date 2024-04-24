@@ -36,7 +36,7 @@ select.addEventListener('change', function () {
     new LinkClick(new PasswordProvider(), markDownIt, new CodeHighlight())
   ).initialize({
     id: 'fileListContainer',
-    filePath: 'data/files.json',
+    filePath: 'public_note/files.json',
     category: select.value.toLowerCase(),
   })
 })
