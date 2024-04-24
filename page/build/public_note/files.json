@@ -52,5 +52,11 @@
     "name": "Video Watching",
     "category": "log",
     "protected": false
+  },
+  {
+    "path": "../public_note/inventory/inventory.json",
+    "name": "Inventory",
+    "category": "inventory",
+    "protected": false
   }
 ]

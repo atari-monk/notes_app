@@ -9185,7 +9185,13 @@ new ui_lib_1.ToggleButton().initialize({
 });
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-const categories = { info: 'Info', code: 'Code', diy: 'DIY', log: 'Log' };
+const categories = {
+    info: 'Info',
+    code: 'Code',
+    diy: 'DIY',
+    log: 'Log',
+    inventory: 'Inventory',
+};
 const select = (0, ui_lib_1.getById)('filter');
 Object.entries(categories).forEach(function ([key, value]) {
     const option = document.createElement('option');
@@ -9385,11 +9391,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const EditButton_1 = __importDefault(__webpack_require__(/*! ./EditButton */ "./node_modules/ui_lib/generate_component/EditButton.js"));
-//import IEditFileData from './type/IEditFileData'
 class AnswerCard {
     renderer;
-    constructor(renderer //private readonly isEditable = false, //private readonly editFileData: IEditFileData = {} as IEditFileData
-    ) {
+    constructor(renderer) {
         this.renderer = renderer;
     }
     generate(data) {
@@ -9518,16 +9522,15 @@ class EditButton {
     generateDiv(data) {
         const div = document.createElement('div');
         div.classList.add('edit_button_div');
-        const button = this.generateButton(data);
+        const button = this.generateButton();
         this.setupButton(button, data);
         div.appendChild(button);
         return div;
     }
-    generateButton(data) {
-        //const { sectionIndex, questionIndex } = data
+    generateButton() {
         const element = document.createElement('button');
         element.className = 'edit_button';
-        element.innerText = 'Edit'; //`SectionIndex: ${sectionIndex}, QuestionIndex: ${questionIndex}`
+        element.innerText = 'Edit';
         return element;
     }
     setupButton(button, data) {
@@ -9538,7 +9541,7 @@ class EditButton {
     redirectToForm(data) {
         const { sectionIndex, questionIndex } = data;
         const { category, name } = data.fileData;
-        const url = `http://127.0.0.1:5500/editor/build/edit.html?category=${category}&file=${name}&section=${sectionIndex}&question=${questionIndex}`;
+        const url = `file:///C:/atari-monk/code/notes_app/editor/build/edit.html?category=${category}&file=${name}&section=${sectionIndex}&question=${questionIndex}`;
         window.open(url, '_blank');
     }
 }
@@ -9615,22 +9618,17 @@ const CopyButtons_1 = __importDefault(__webpack_require__(/*! ./CopyButtons */ "
 const ComponentGenerator_1 = __importDefault(__webpack_require__(/*! ../component/ComponentGenerator */ "./node_modules/ui_lib/component/ComponentGenerator.js"));
 const PageIndex_1 = __importDefault(__webpack_require__(/*! ../initialize_component/PageIndex */ "./node_modules/ui_lib/initialize_component/PageIndex.js"));
 const PageContent_1 = __importDefault(__webpack_require__(/*! ../initialize_component/PageContent */ "./node_modules/ui_lib/initialize_component/PageContent.js"));
-//import IEditFileData from './type/IEditFileData'
 class Page {
     markdown;
     codeHighlight;
-    constructor(markdown, codeHighlight //private readonly isEditable = false, //private readonly editFileData: IEditFileData = {} as IEditFileData
-    ) {
+    constructor(markdown, codeHighlight) {
         this.markdown = markdown;
         this.codeHighlight = codeHighlight;
     }
     generate(data) {
         const index = new PageIndex_1.default();
         index.initialize({ id: 'index' });
-        const content = new PageContent_1.default(this.markdown
-        //this.isEditable,
-        //this.editFileData
-        );
+        const content = new PageContent_1.default(this.markdown);
         content.indexComponent = index.indexComponent;
         content.data = data.fileData;
         content.editFileData = data.editFileData;
@@ -9659,11 +9657,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const AnswerCard_1 = __importDefault(__webpack_require__(/*! ./AnswerCard */ "./node_modules/ui_lib/generate_component/AnswerCard.js"));
-//import IEditFileData from './type/IEditFileData'
 class SectionComponent {
     renderer;
-    constructor(renderer //private readonly isEditable = false, //private readonly editFileData: IEditFileData = {} as IEditFileData
-    ) {
+    constructor(renderer) {
         this.renderer = renderer;
     }
     generate(data) {
@@ -9979,7 +9975,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
 const SectionComponent_1 = __importDefault(__webpack_require__(/*! ../generate_component/SectionComponent */ "./node_modules/ui_lib/generate_component/SectionComponent.js"));
-//import IEditFileData from '../generate_component/type/IEditFileData'
 class PageContent extends Component_1.default {
     renderer;
     _indexComponent;
@@ -9994,8 +9989,7 @@ class PageContent extends Component_1.default {
     set editFileData(editFileData) {
         this._editFileData = editFileData;
     }
-    constructor(renderer //private readonly isEditable = false, //private readonly editFileData: IEditFileData = {} as IEditFileData
-    ) {
+    constructor(renderer) {
         super();
         this.renderer = renderer;
     }

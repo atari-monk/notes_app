@@ -1,0 +1,263 @@
+{
+  "category": "inventory",
+  "sections": [
+    {
+      "title": "File",
+      "chats": [
+        {
+          "indexTitle": "Image",
+          "question": "Image",
+          "answer": "Image resolution: 400 x 300",
+          "dateTime": "2024-02-22T22:10:49.846Z"
+        }
+      ]
+    },
+    {
+      "title": "Storage Room",
+      "chats": [
+        {
+          "indexTitle": "### Foil",
+          "question": "### Foil",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216011&authkey=%21AGP75bqaJ-zhdWQ&width=389&height=300)\n   - foil.jpg  \n   - **Description:** 2 pełne rolki folii, 2 resztki  \n   - **Diameter:** 11 cm  \n   - **Length:** 53 cm \n",
+          "dateTime": "2024-04-24T21:01:05.643Z"
+        },
+        {
+          "indexTitle": "### Plastic Saw Cover",
+          "question": "### Plastic Saw Cover",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216009&authkey=%21AEmKcS3TKntNmv8&width=400&height=197)\n   - plastic_saw_cover.jpg\n   - **Description:** Plastikowa osłona na zęby piły\n",
+          "dateTime": "2024-04-24T21:01:39.652Z"
+        },
+        {
+          "indexTitle": "### Plastic Box",
+          "question": "### Plastic Box",
+          "answer": "1. - ![Side](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216016&authkey=%21AGpVMFvOGqpbE88&width=400&height=229)\n   - box_1.jpg\n   - ![Front](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216015&authkey=%21AGb6CDpzIJfWiQE&width=392&height=300)\n   - box_2.jpg\n   - **Description:** Plastikowe pudełko\n   - **Status:** W komórce lokatorskiej\n   - **Content:** Small Water Pump, Micro Irigation Set\n   - **Top:** 38 x 29 cm\n   - **Bottom:** 30 x 23 cm\n   - **Heigth:** 23 cm",
+          "dateTime": "2024-04-24T21:01:52.334Z"
+        },
+        {
+          "indexTitle": "### Small Water Pump",
+          "question": "### Small Water Pump",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216008&authkey=%21AKDKKfxUJZpvugI&width=400&height=300)\n   - small_water_pump_1.jpg  \n   -![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216007&authkey=%21ACnO5VPXFUQc7zE&width=261&height=300)\n   - small_water_pump_2.jpg  \n   - **Description:** Mała pompka turystyczna do wody  \n   - **Status:** Mało użyteczny gadżet  \n   - **TODO:** Wywieźć i użyć na działce  \n   - **Container:** Plastic Box  ",
+          "dateTime": "2024-04-24T21:02:03.277Z"
+        },
+        {
+          "indexTitle": "### Micro Irigation Set",
+          "question": "### Micro Irigation Set",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216010&authkey=%21APsXSYfTOwHfHBA&width=392&height=300)\n   - micro_irigation_set_1.jpg\n   - **Description:** Mini zestaw do irygacji roślin\n   - **Status:** Mało użyteczny gadżet\n   - **TODO:** Wywieźć i użyć na działce\n   - **Container:** Plastic Box",
+          "dateTime": "2024-04-24T20:54:35.304Z"
+        },
+        {
+          "indexTitle": "### Electric Kettle",
+          "question": "### Electric Kettle",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216013&authkey=%21AI8mwdxT0naT-oU&width=234&height=300)\n   - electric_kettle_1.jpg\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216012&authkey=%21AB906ET_wsY1RR8&width=400&height=300)\n   - electric_kettle_2.jpg\n   - **Description:** Czajnik elektryczny, pęknięta plastikowa obudowa\n   - **Status:** Zepsuty złom\n   - **TODO:** Wyszukać jak zutylizować",
+          "dateTime": "2024-04-24T20:57:14.169Z"
+        }
+      ]
+    },
+    {
+      "title": "Ikea Wardrobe",
+      "chats": [
+        {
+          "indexTitle": "### Black Cardboard Box",
+          "question": "### Black Cardboard Box",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215987&authkey=%21ABK0jsvWfOh4YMs&width=400&height=237)\n   - black_box.jpg",
+          "dateTime": "2024-04-24T21:02:17.545Z"
+        },
+        {
+          "indexTitle": "### Camera Holder",
+          "question": "### Camera Holder",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215986&authkey=%21AMwQC1UL3nL8NlI&width=309&height=300)\n   - camera_holder.jpg\n   - **Description:** Mount for Camera",
+          "dateTime": "2024-04-24T21:05:00.210Z"
+        },
+        {
+          "indexTitle": "#### Erasers",
+          "question": "#### Erasers",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215985&authkey=%21AHhkQbHJbQzr-B8&width=313&height=300)\n   - erasers.jpg\n   - **Description:**  New Erasers  ",
+          "dateTime": "2024-04-24T21:05:59.807Z"
+        },
+        {
+          "indexTitle": "#### Glasses Cleaners",
+          "question": "#### Glasses Cleaners",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215984&authkey=%21AAZEAN5sq3LD9Bs&width=361&height=300)\n   - glasses_cleaners.jpg\n   - **Description:**  Spare glasses cleaning cloths  ",
+          "dateTime": "2024-04-24T21:07:00.737Z"
+        },
+        {
+          "indexTitle": "Allen Keys",
+          "question": "Allen Keys",
+          "answer": "1. Precise Allen Keys\n   - ![Handle, bits, holder](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215983&authkey=%21AHo02SdyZuFREuQ&width=261&height=300)\n   - imbus_1.jpg\n   - ![Bag](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215982&authkey=%21AIe0I7QDbkGfvx0&width=176&height=300)\n   - imbus_2.jpg\n2. Bike Allen Keys, Red\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215981&authkey=%21AFuGgo_fHEMVTNw&width=400&height=134)\n   - imbus_3.jpg\n3. Magnus Allen Keys\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215980&authkey=%21ALtvqUOSC9iIe5Q&width=400&height=189)\n   - imbus_4.jpg\n4. Bike Allen Keys, Yellow\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215979&authkey=%21AEAk0BrjkNW1QZE&width=400&height=131)\n   - imbus_5.jpg\n5. Bike Allen Keys, Quality\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215978&authkey=%21ALkwZ-HlZeJHecc&width=400&height=168)\n   - imbus_6.jpg\n6. Ikea Allen Keys\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215977&authkey=%21AASydvdL8CCRMec&width=400&height=273)\n   - imbus_7.jpg",
+          "dateTime": "2024-04-24T20:28:58.881Z"
+        },
+        {
+          "indexTitle": "#### Knife",
+          "question": "#### Knife",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215976&authkey=%21AEirs_APLi97YRI&width=400&height=98)\n   - knife_1.jpg\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215975&authkey=%21AN-srKRIQXB0v8c&width=400&height=84)\n   - knife_2.jpg\n   - **Description:** A souvenir from a friend",
+          "dateTime": "2024-04-24T21:09:10.382Z"
+        },
+        {
+          "indexTitle": "#### Measuring Tape",
+          "question": "#### Measuring Tape",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215974&authkey=%21AEGH9DcZBDNH0vQ&width=242&height=300)\n   - measuring_tape.jpg  ",
+          "dateTime": "2024-04-24T21:10:05.993Z"
+        },
+        {
+          "indexTitle": "#### Micro Memory",
+          "question": "#### Micro Memory",
+          "answer": "1. - ![Micro Memory](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215973&authkey=%21ANZuS2BmSU-FbpE&width=215&height=300)\n   - micro_memory_1.jpg\n   - ![Micro Memory](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215972&authkey=%21AH_VSj9c843ypTk&width=236&height=300)\n   - micro_memory_2.jpg\n   - **TODO:** Check if i have use for it",
+          "dateTime": "2024-04-24T21:11:47.470Z"
+        },
+        {
+          "indexTitle": "#### Scriber Part",
+          "question": "#### Scriber Part",
+          "answer": "1. ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215970&authkey=%21AD2L1OZrtJOmJ_c&width=400&height=272)\n   - scriber_part.jpg\n   - **Description:**  Spare part of usb drawing tablet  ",
+          "dateTime": "2024-04-24T21:12:47.598Z"
+        },
+        {
+          "indexTitle": "### Soldering Tool",
+          "question": "### Soldering Tool",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215964&authkey=%21AFScLcmNqMk7fKM&width=222&height=300)\n   - soldering_tool.jpg",
+          "dateTime": "2024-04-24T21:13:53.348Z"
+        },
+        {
+          "indexTitle": "### Solar Electronics",
+          "question": "### Solar Electronics",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215967&authkey=%21AK5-sK2gDmN52E8&width=335&height=300)\n   - solar_electronics_1.jpg  \n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215969&authkey=%21AKqar8XunkF86fk&width=400&height=300)\n   - solar_electronics_2.jpg  \n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215966&authkey=%21AAtKuS2Qybeua0I&width=400&height=300)\n   - solar_electronics_3.jpg  \n   - **Container:** Black Cardboard Box ",
+          "dateTime": "2024-04-24T21:16:37.527Z"
+        },
+        {
+          "indexTitle": "### Seeds 2024",
+          "question": "### Seeds 2024",
+          "answer": "1. - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215971&authkey=%21AC7htJQai9GujdQ&width=400&height=254)\n   - seeds_2024_1.jpg\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215965&authkey=%21AJ63PBA4r2VIqNY&width=400&height=258)\n   - seeds_2024_2.jpg\n   - ![](https://onedrive.live.com/embed?resid=37F44E52F80D7972%215968&authkey=%21ALvXgwGeezpzHmE&width=308&height=300)\n   - seeds_2024_3.jpg\n   - **Description:** Seeds for season 2024",
+          "dateTime": "2024-04-24T21:20:23.662Z"
+        }
+      ]
+    },
+    {
+      "title": "Sliding Door Wardrobe 2",
+      "chats": [
+        {
+          "indexTitle": "### Cardboad Box Id 15",
+          "question": "### Cardboad Box Id 15",
+          "answer": "1. - [](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216003&authkey=%21ANYX7TyFs7-wT_c&width=319&height=300)\n   - cardboad_box_id_15.jpg\n   - **Description:** Container for cables and electronics\n   - **Status:** In use",
+          "dateTime": "2024-04-24T21:25:04.273Z"
+        },
+        {
+          "indexTitle": "### Analog hdmi Cable",
+          "question": "### Analog hdmi Cable",
+          "answer": "1. - [](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216005&authkey=%21AP7PqC8v0Jq8vdQ&width=144&height=300)\n   - analog_hdmi_cable.jpg\n   - **Description:** Analog cable with coverter from analog on monitor to hdmi on computer\n   - **Status:** Not great in use, switching screen is problematic, quality is soso, view needs manual calibration\n",
+          "dateTime": "2024-04-24T21:29:37.805Z"
+        },
+        {
+          "indexTitle": "### DVI HDMI Cable",
+          "question": "### DVI HDMI Cable",
+          "answer": "1. - [](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216001&authkey=%21AEWxWdrSq3KVH00&width=400&height=293)\n   - dvi_hdmi_cable.jpg\n   - [](https://onedrive.live.com/embed?resid=37F44E52F80D7972%216000&authkey=%21AF7qGFSf8pyBOlQ&width=369&height=300)\n   - dvi_hdmi_cable_2.jpg\n   - **Description:** DVI HDMI\n   - **Status:** I think it works",
+          "dateTime": "2024-04-24T21:32:29.334Z"
+        },
+        {
+          "indexTitle": "Audio Jack Cables",
+          "question": "Audio Jack Cables",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Cable|\n| **Image_1:**|![Audio Jack Cable 1](inventory/sliding_door_wardrobe_2/audio_jack_cable.jpg)|\n| **Description:**|Thin audio jack cable|\n| **Status:**|I think it works|\n---\n|||\n| ------:|:-----------|\n| **Category:**|Cable|\n| **Image_1:**|![Audio Jack Cable 2](inventory/sliding_door_wardrobe_2/audio_jack_cable_2.jpg)|\n| **Description:**|Thicker Audio jack cable|\n| **Status:**|This one is not so good, no longer holds connection well.|\n---",
+          "dateTime": "2024-03-08T18:37:45.293Z"
+        },
+        {
+          "indexTitle": "Mic",
+          "question": "Mic",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Mic|\n| **Image_1:**|![Clip Mic](inventory/sliding_door_wardrobe_2/clip_mic.jpg)|\n| **Description:**|Small cliped mic|\n| **Status:**|Very poor quality|\n---\n|||\n| ------:|:-----------|\n| **Category:**|Mic|\n| **Image_1:**|![Mic](inventory/sliding_door_wardrobe_2/mic.jpg)|\n| **Description:**|Mic from broken headphones|\n| **Status:**|Useless ?, poor quality|\n---",
+          "dateTime": "2024-03-08T18:56:03.724Z"
+        },
+        {
+          "indexTitle": "Ear Headphones",
+          "question": "Ear Headphones",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Headphones|\n| **Image_1:**|![Ear Headphones](inventory/sliding_door_wardrobe_2/ear_headphones.jpg)|\n| **Description:**|Flat cable ear headphones|\n| **Status:**|Thouth it would be better, phone stopped to detect them|\n---",
+          "dateTime": "2024-03-08T18:44:28.024Z"
+        },
+        {
+          "indexTitle": "Web Camera",
+          "question": "Web Camera",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Web Camera|\n| **Image_1:**|![Usb Web Camera](inventory/sliding_door_wardrobe_2/web_camera_1.jpg)|\n| **Description:**|Usb Web Camera with quite wide view|\n| **Status:**|Works|\n---",
+          "dateTime": "2024-03-08T18:47:54.548Z"
+        },
+        {
+          "indexTitle": "Joy Pad",
+          "question": "Joy Pad",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Joy Pad|\n| **Image_1:**|![Joy Pad](inventory/sliding_door_wardrobe_2/joy_pad.jpg)|\n| **Image_2:**|![Joy Pad](inventory/sliding_door_wardrobe_2/joypad_reciver.jpg)|\n| **Description:**|Joy Pad, radio, on battery, with usb reciver, nice|\n| **Status:**|Works|\n---",
+          "dateTime": "2024-03-08T18:50:52.941Z"
+        },
+        {
+          "indexTitle": "Power Cable",
+          "question": "Power Cable",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Cable|\n| **Image_1:**|![Power Cable](inventory/sliding_door_wardrobe_2/power_cable.jpg)|\n| **Description:**|Power Cable to computer|\n| **Status:**|Works|\n---",
+          "dateTime": "2024-03-08T18:57:57.604Z"
+        },
+        {
+          "indexTitle": "Usb Audio Card",
+          "question": "Usb Audio Card",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Cable|\n| **Image_1:**|![Usb Audio Card](inventory/sliding_door_wardrobe_2/usb_audio_card.jpg)|\n| **Description:**|Usb to jack|\n| **Status:**|Hit floor once and got some damage but i think it works still|\n---",
+          "dateTime": "2024-03-08T18:59:43.794Z"
+        },
+        {
+          "indexTitle": "Usb Cables",
+          "question": "Usb Cables",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Cable|\n| **Image_1:**|![Usb Cable](inventory/sliding_door_wardrobe_2/usb_cable.jpg)|\n| **Image_2:**|![Usb Cable](inventory/sliding_door_wardrobe_2/usb_cables.jpg)|\n| **Description:**|3 Usb Cables|\n| **Status:**|Works|\n---",
+          "dateTime": "2024-03-08T19:01:34.631Z"
+        },
+        {
+          "indexTitle": "Usb Hub",
+          "question": "Usb Hub",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Cable|\n| **Image_1:**|![Usb Hub](inventory/sliding_door_wardrobe_2/usb_hub.jpg)|\n| **Image_2:**|![Usb Hub](inventory/sliding_door_wardrobe_2/usb_hub_2.jpg)|\n| **Description:**|Usb Hub|\n| **Status:**|Works|\n---",
+          "dateTime": "2024-03-08T19:03:06.077Z"
+        },
+        {
+          "indexTitle": "Usb Memory Cover",
+          "question": "Usb Memory Cover",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Cover|\n| **Image_1:**|![Usb Memory Cover](inventory/sliding_door_wardrobe_2/usb_memory_cover.jpg)|\n| **Description:**|Cover|\n| **Status:**|Trash ?|\n---",
+          "dateTime": "2024-03-08T19:04:26.067Z"
+        }
+      ]
+    },
+    {
+      "title": "Green Tool Box",
+      "chats": [
+        {
+          "indexTitle": "Carpentry Clamps",
+          "question": "Carpentry Clamps",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Tool|\n| **Image_1:**|![Carpentry Clamps](inventory/tool_box_green/carpentry_clamps_1.jpg)|\n| **Image_2:**|![Carpentry Clamps](inventory/tool_box_green/carpentry_clamps_2.jpg)|\n| **Description:**|Carpentry Clamps|\n| **Status:**|Very Usefull|\n---\n",
+          "dateTime": "2024-03-10T21:03:35.774Z"
+        },
+        {
+          "indexTitle": "Tools",
+          "question": "Tools",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Tools|\n| **Image_1:**|![Image Text](inventory/tool_box_green/tools_1.jpg)|\n| **Image_1:**|![Image Text](inventory/tool_box_green/tools_2.jpg)|\n| **Description:**|img1: 3 x hair saw blade, set of cutting blades, screwdriver heads, small screwdriver, drill holder for wheel with sandpaper, 3 x flat wrench. img2: 3 x screwdriver, 2 x boxes, cap on bike tire valve|\n---\n",
+          "dateTime": "2024-03-10T21:13:15.269Z"
+        },
+        {
+          "indexTitle": "Tools",
+          "question": "Tools",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Tools|\n| **Image_1:**|![Glowes](inventory/tool_box_green/glowes.jpg)|\n| **Image_2:**|![Template](inventory/tool_box_green/template.jpg)|\n| **Image_3:**|![Wheels](inventory/tool_box_green/wheels.jpg)|\n| **Image_4:**|![Measure Tape](inventory/tool_box_green/measure_tape.jpg)|\n| **Image_5:**|![Spatula](inventory/tool_box_green/spatula.jpg)|\n| **Description:**|glowes, template for arc, wheels, measure tape, nails, holding tape, spatula, bit drill holder|\n---\n",
+          "dateTime": "2024-03-10T21:35:45.211Z"
+        }
+      ]
+    },
+    {
+      "title": "Tool Box Small",
+      "chats": [
+        {
+          "indexTitle": "Bits",
+          "question": "Bits",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Metal Tool|\n| **Image_1:**|![Bits1](inventory/tool_box_small/bit_screwdriver.jpg)|\n| **Image_2:**|![Bits2](inventory/tool_box_small/bit_sockets.jpg)|\n| **Image_3:**|![Bits3](inventory/tool_box_small/bits_torx.jpg)|\n| **Description:**|Bits|\n| **Status:**|They break pretty fast|\n---\n",
+          "dateTime": "2024-03-12T21:35:22.110Z"
+        },
+        {
+          "indexTitle": "Drills",
+          "question": "Drills",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Metal Tools|\n| **Image_1:**|![Drill1](inventory/tool_box_small/drills_wood.jpg)|\n| **Image_2:**|![Drill2](inventory/tool_box_small/drills_metal.jpg)|\n| **Image_3:**|![Drill3](inventory/tool_box_small/drills_countersink.jpg)|\n| **Image_4:**|![Drill4](inventory/tool_box_small/drills_big_wood.jpg)|\n| **Image_5:**|![Drill5](inventory/tool_box_small/center_punch.jpg)|\n| **Image_6:**|![Drill6](inventory/tool_box_small/drill_square_1.jpg)|\n| **Image_7:**|![Drill7](inventory/tool_box_small/drill_square_2.jpg)|\n| **Image_8:**|![Drill8](inventory/tool_box_small/carpenter_pencil.jpg)|\n| **Image_9:**|![Drill9](inventory/tool_box_small/eraser.jpg)|\n| **Image_10:**|![Drill10](inventory/tool_box_small/try_square_1.jpg)|\n| **Image_11:**|![Drill11](inventory/tool_box_small/try_square_2.jpg)|\n| **Image_12:**|![Drill12](inventory/tool_box_small/meter_metal.jpg)|\n| **Image_13:**|![Drill13](inventory/tool_box_small/mater_plastic.jpg)|\n| **Image_14:**|![Drill14](inventory/tool_box_small/meter_tape.jpg)|\n| **Image_15:**|![Drill15](inventory/tool_box_small/pencil_sharpener.jpg)|\n| **Description:**|Drilling tools kit|\n| **Status:**|Need more 3mm wood pilot drills|\n---\n",
+          "dateTime": "2024-03-12T21:40:52.784Z"
+        },
+        {
+          "indexTitle": "Boxes",
+          "question": "Boxes",
+          "answer": "|||\n| ------:|:-----------|\n| **Category:**|Container|\n| **Image_1:**|![Box1](inventory/tool_box_small/tool_box_small.jpg)|\n| **Image_2:**|![Box2](inventory/tool_box_small/sawing_kit_1.jpg)|\n| **Image_3:**|![Box3](inventory/tool_box_small/sawing_kit_2.jpg)|\n| **Image_4:**|![Box4](inventory/tool_box_small/sawing_kit_3.jpg)|\n| **Description:**|Plastic tool boxes|\n| **Container:**|kea Wardrobe|\n---\n|||\n| ------:|:-----------|\n| **Category:**|Misc Tools|\n| **Image_1:**|![Box1](inventory/tool_box_small/gloves_garden_1.jpg)|\n| **Image_2:**|![Box2](inventory/tool_box_small/gloves_garden_2.jpg)|\n| **Image_2:**|![Box2](inventory/tool_box_small/plastic_cover.jpg)|\n| **Description:**|Misc tools|\n| **Container:**|Plastic tool boxes|\n---",
+          "dateTime": "2024-03-12T21:47:09.449Z"
+        }
+      ]
+    }
+  ]
+}

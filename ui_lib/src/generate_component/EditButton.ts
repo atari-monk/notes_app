@@ -14,17 +14,16 @@ export default class EditButton
   private generateDiv(data: IEditButtonData): HTMLDivElement {
     const div = document.createElement('div')
     div.classList.add('edit_button_div')
-    const button = this.generateButton(data)
+    const button = this.generateButton()
     this.setupButton(button, data)
     div.appendChild(button)
     return div
   }
 
-  private generateButton(data: IEditButtonData): HTMLButtonElement {
-    //const { sectionIndex, questionIndex } = data
+  private generateButton(): HTMLButtonElement {
     const element = document.createElement('button')
     element.className = 'edit_button'
-    element.innerText = 'Edit' //`SectionIndex: ${sectionIndex}, QuestionIndex: ${questionIndex}`
+    element.innerText = 'Edit'
     return element
   }
 
@@ -37,7 +36,7 @@ export default class EditButton
   private redirectToForm(data: IEditButtonData) {
     const { sectionIndex, questionIndex } = data
     const { category, name } = data.fileData
-    const url = `http://127.0.0.1:5500/editor/build/edit.html?category=${category}&file=${name}&section=${sectionIndex}&question=${questionIndex}`
+    const url = `file:///C:/atari-monk/code/notes_app/editor/build/edit.html?category=${category}&file=${name}&section=${sectionIndex}&question=${questionIndex}`
     window.open(url, '_blank')
   }
 }
