@@ -9191,6 +9191,7 @@ const categories = {
     diy: 'DIY',
     log: 'Log',
     inventory: 'Inventory',
+    micro_engine: 'micro_engine',
 };
 const select = (0, ui_lib_1.getById)('filter');
 Object.entries(categories).forEach(function ([key, value]) {

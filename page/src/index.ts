@@ -26,6 +26,7 @@ const categories = {
   diy: 'DIY',
   log: 'Log',
   inventory: 'Inventory',
+  micro_engine: 'micro_engine',
 }
 
 const select = getById('filter') as HTMLSelectElement

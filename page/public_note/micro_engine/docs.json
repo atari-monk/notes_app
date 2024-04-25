@@ -1,0 +1,34 @@
+{
+  "category": "micro_engine",
+  "sections": [
+    {
+      "title": "Data Loading",
+      "chats": [
+        {
+          "indexTitle": "Flow in engine",
+          "question": "Flow in engine",
+          "answer": "**engine/src/singleplayer/Engine.ts**\n* **loadData(gameData: ILevel)**\n  - log 'loading gameData'\n  - asynchronously loads game data\n  - executes a callback function afterward\n\n* **initialize(gameData: ILevel)**\n  - log 'initializing Engine'\n  - subscribes to keyboard events for interaction\n  - if configured, loads the camera using tile map data from gameData \n  - todo: camera should be independent from tile map data",
+          "dateTime": "2024-04-25T19:11:26.629Z"
+        },
+        {
+          "indexTitle": "Loading of data to [id -> IEntityDataModel] pairs",
+          "question": "Loading of data to [id -> IEntityDataModel] pairs",
+          "answer": "* **ball_game/src/singleplayer/EntityData.ts**\n  - manages game entity data\n  - loading it from JSON\n  - or loading it from code\n  - provides a method to export this data as JSON (useless without editor)\n\n* **engine/src/ecs/entity_loader/GameData.ts**\n   - implements the ILevel interface\n   - container for game data structures\n   - property for entity data (entityData) \n   - property for tile map data (tileMapData)\n\n* **ball_game/src/singleplayer/SinglePlayerBuilder -> withData(gameData: ILevel)**\n  - initializes the engine with the provided game data\n  - asynchronously loads data into the engine from the provided game data\n  - marks the data initialization process as complete\n  - returns the object instance (engine builder)\n\n* **engine/src/singleplayer/loader/MainDataLoader.ts -> loadData(gameData: ILevel)**\n  - asynchronously loads tile map data using _tileMapDataLoader\n  - asynchronously loads entity data using _entityDataLoader\n\n* **engine/src/singleplayer/loader/EntityDataLoader.ts -> loadData(gameData: ILevel)**\n  - rewrites data to engine instance of type IManager<IEntityDataModel> from EntityData instance of same type\n  - uses dependency EntityCreator to create game level entities",
+          "dateTime": "2024-04-25T19:19:02.929Z"
+        },
+        {
+          "indexTitle": "Loading of data to [id -> IEntity] pairs",
+          "question": "Loading of data to [id -> IEntity] pairs",
+          "answer": "* **engine/src/singleplayer/loader/EntityCreator -> loadData()**\n  - loads data from json with FileLoader dependency\n  - using dependency on EntityComponentCreator preforms convertion from data objects to (ecs) entities with instances of commponents types, mapping data to them\n  - entities are stored in engines instance of IEntityManager\n\n* **engine/src/ecs/entity_loader/EntityComponentCreator.ts -> loadEntityManager**\n   - based on data in js objects (Record<string, any>) creates ecs\n   - creates entities, fills their props, adds to collection\n   - uses key form data to identiffy component based on predefined list of componnents\n   - gets mapper for commponent\n   - creates commponent, maps its data and adds to entity\n   - it can handle single commponents or arrays of commponents\n\n* **engine/src/ecs/entity_loader/componentList.ts**\n  - list of commponent types\n  - new component must be added here \n\n* **engine/src/ecs/entity_loader/ComponentMapper.ts**\n  - list of commponent mappers\n  - new component mapper must be added here, to map data from js objects to typed commponent instance\n\n* **engine/src/ecs/entity_loader/MapperTool.ts**\n  - enables mapping of arrays of commponents\n  - use in ComponentMapper if commponent needs arrays\n\n* **engine/src/ecs/entity_loader/MapperTool.ts**\n  - enables mapping of arrays of commponents\n  - use in ComponentMapper if commponent needs arrays\n\n* **desktop_ball_game/level/ball_game.json**\n  - commponents defined form json data point of view\n  - initial conditions for entities commponent data",
+          "dateTime": "2024-04-25T19:25:33.070Z"
+        },
+        {
+          "indexTitle": "Definition of commponents Types",
+          "question": "Definition of commponents Types",
+          "answer": "* **engine/src/ecs/component/**\n  - to define new commponent add new class with data model\n  - inherit from Commponent.ts\n\n* **ball_game/src/ecs/component/**\n  - the other place for definition of commponents specific to game\n\n* **ball_game/src/singleplayer/BallGameBuildDirector.ts**\n  - place to further define game specific commponents\n  - add new type to componentList\n  - add new mapper, for single commponent or using MapperTool for array and single",
+          "dateTime": "2024-04-25T19:28:57.771Z"
+        }
+      ]
+    }
+  ]
+}

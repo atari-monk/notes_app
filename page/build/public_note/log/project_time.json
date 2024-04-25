@@ -7,44 +7,32 @@
         {
           "indexTitle": "21",
           "question": "21",
-          "answer": "1. Repo notes\n   - 12:30\n   - 13:00\n2. Repo micro-engine\n   - 13:00\n   - 14:20\n3. Repo micro-engine\n   - 14:20\n   - 16:30\n4. Sending cv\n   - 19:00\n   - 20:00\n5. Repo react_tutorial\n   - 21:30\n   - 22:30\n---\n06:00",
-          "dateTime": "2024-04-23T12:32:00.677Z"
+          "answer": "1. notes\n   - 12:30\n   - 13:00\n2. micro-engine\n   - 13:00\n   - 14:20\n3. micro-engine\n   - 14:20\n   - 16:30\n4. Sending cv\n   - 19:00\n   - 20:00\n5. react_tutorial\n   - 21:30\n   - 22:30\n---\n06:00",
+          "dateTime": "2024-04-25T17:43:51.044Z"
         },
         {
           "indexTitle": "22",
           "question": "22",
-          "answer": "1. Cooking \n   - 12:00\n   - 15:00\n2. Cooking\n   - 15:00\n   - 17:20\n2. React\n   - 1 hour\n3. Repo micro-engine\n   - 1 hour 20 min",
-          "dateTime": "2024-04-24T14:04:36.191Z"
+          "answer": "1. Cooking \n   - 12:00\n   - 15:00\n2. Cooking\n   - 15:00\n   - 17:20\n2. react_tutorial\n   - 1 hour\n3. micro-engine\n   - 1 hour 20 min",
+          "dateTime": "2024-04-25T17:44:16.258Z"
         },
         {
           "indexTitle": "23",
           "question": "23",
-          "answer": "1. Adding the pool project and 3D Unity project to your portfolio page - 1 hour.\n2. Learning React and taking notes - 1 hour.\n3. Working on your inventory page - 1 hour.\n4. Sending out your CV - 3 sends.\n5. Soccer game development (focused on game mechanics)",
-          "dateTime": "2024-03-23T13:05:23.018Z"
-        },
-        {
-          "indexTitle": "24",
-          "question": "24",
-          "answer": "1. Upgraded scripts proj\n2. Made lame video from that",
-          "dateTime": "2024-03-25T11:21:28.087Z"
-        },
-        {
-          "indexTitle": "25",
-          "question": "25",
-          "answer": "1. cv, now 34 sended\n2. update script mouse automate, video on it, testing it",
-          "dateTime": "2024-03-26T12:24:05.866Z"
+          "answer": "1. Portfolio page\n   - 1 hour\n2. react_tutorial\n   - 1 hour\n3. Inventory page\n   - 1 hour",
+          "dateTime": "2024-04-25T17:51:08.874Z"
         },
         {
           "indexTitle": "26",
           "question": "26",
-          "answer": "1. scripts, mouse \n    * updated mouse automate to use positions files data, multiple menus and lists type are now posiible to handle, testing it a lot  \n2. micro-engine  \n    * start 18:36, with music\n    * changes:\n    * beter error handling in commponent loader\n    * fix mapper create overridable method bug\n    * add component type in new way\n    * add data of component\n    * 19:09\n    * todo: od dribble turn dribble:enable = true\n    * 19:12 setup standing and break\n    * 19:27 standing start\n    * 20:11 dribble state set\n    * 20:11 break\n    * 22:05 continue\n    * 22:51 moved dribble commponent to players, set it in kickBall handler, turn of boots     * collision if in dribble\n    * total of (2hours 6 min)\n    * todo: wait 3s to be in dribble or on button, so boots can catch a ball or push it  \n    * print text for states as debug tool",
-          "dateTime": "2024-03-28T16:52:26.034Z"
+          "answer": "2. micro-engine\n   * 18:36\n   * 20:11\n3. micro-engine\n   * 22:05\n   * 22:51\n---\n02:06",
+          "dateTime": "2024-04-25T18:00:46.211Z"
         },
         {
           "indexTitle": "27",
           "question": "27",
-          "answer": "1. micro-engine\n    * start 11:53, ears stoppers\n    * create playerState component, load from json\n    * 12:55 from 30 min a problem with engine loading seqence and starting\n    * 12:56 break\n    * 13:33 music,\n    * logging\n    * engine methods strart, prepare, run sequence modification\n    * there was a bug of not await when loading data to engine!\n    * alert: systems are loaded after data in callback, only after that engine can start!\n    * 15:11 alert: when adding new component that dosent have sprite, exclude it in withSpriteRenderer!!!!\n    * 15:20 break, wasted so much time on this sprite exclude thing\n2. scripts  \n    * 17:30 resume, scripts\n    * 19:08 refactor build_all\n    * 19:23 verb-noun ps1 function name convention, refactor build folders script\n    * 19:38 break, mom phone\n    * 23:06 resume\n    * 00:38 refactor scripts, end",
-          "dateTime": "2024-03-28T16:54:53.181Z"
+          "answer": "1. micro-engine\n   * 11:53\n   * 12:56\n2. micro-engine\n   * 13:33\n   * 15:20\n3. micro-engine, scripts\n   * 17:30\n   * 19:38\n4. micro-engine, scripts\n   * 23:06\n   * 00:38\n---\n06:30",
+          "dateTime": "2024-04-25T18:26:48.661Z"
         },
         {
           "indexTitle": "28",
@@ -216,8 +204,8 @@
         {
           "indexTitle": "25",
           "question": "25",
-          "answer": "1. notes_app\n   - 15:10\n   - 15:20\n2. notes_app\n   - 16:04\n   - 17:53",
-          "dateTime": "2024-04-25T15:53:37.203Z"
+          "answer": "1. notes_app\n   - 15:10\n   - 15:20\n2. notes_app\n   - 16:04\n   - 17:53\n3. notes_app\n   - 19:40\n   - 20:31\n4. micro-engine\n   - 20:35\n   - 21:53",
+          "dateTime": "2024-04-25T19:54:04.407Z"
         }
       ]
     }

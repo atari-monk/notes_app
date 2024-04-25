@@ -1,0 +1,16 @@
+{
+  "category": "micro_engine",
+  "sections": [
+    {
+      "title": "Obsolete",
+      "chats": [
+        {
+          "indexTitle": "RecordManager",
+          "question": "RecordManager",
+          "answer": "```typescript\nimport { IManager } from 'engine_api'\nimport ManagerLogger from './ManagerLogger'\n\nexport default class RecordManager<T>\n  extends ManagerLogger\n  implements IManager<T>\n{\n  private _list: Record<string, T> = {}\n\n  get count(): number {\n    return Object.keys(this._list).length\n  }\n\n  add(name: string, config: T) {\n    this._list[name] = config\n  }\n\n  remove(name: string) {\n    delete this._list[name]\n  }\n\n  removeAll() {\n    this._list = {}\n  }\n\n  get(name: string): T | undefined {\n    return this._list[name]\n  }\n\n  getStrict(name: string): T {\n    const object = this._list[name]\n    if (object === undefined) {\n      const message = this.getNotFoundMessage(name)\n      this.logError(message)\n      throw new Error(message)\n    }\n    return object\n  }\n\n  getWithStatus(name: string): {\n    found: boolean\n    object?: T | undefined\n  } {\n    const object = this._list[name]\n    return { found: object !== undefined, object }\n  }\n\n  forEach(callback: (name: string, object: T) => void): void {\n    for (const [name, object] of Object.entries(this._list)) {\n      callback(name, object)\n    }\n  }\n\n  getRegistered(entityIds: string[]): T[] {\n    return entityIds\n      .map((entityId) => this._list[entityId])\n      .filter(Boolean) as T[]\n  }\n\n  getKeys(): string[] {\n    return Object.keys(this._list)\n  }\n\n  protected values(): T[] {\n    return Object.values(this._list)\n  }\n}\n```",
+          "dateTime": "2024-04-25T18:59:42.436Z"
+        }
+      ]
+    }
+  ]
+}

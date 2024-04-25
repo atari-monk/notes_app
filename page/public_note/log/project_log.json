@@ -19,8 +19,8 @@
         {
           "indexTitle": "23",
           "question": "23",
-          "answer": "1. Adding the pool project and 3D Unity project to your portfolio page - 1 hour.\n2. Learning React and taking notes - 1 hour.\n3. Working on your inventory page - 1 hour.\n4. Sending out your CV - 3 sends.\n5. Soccer game development (focused on game mechanics)",
-          "dateTime": "2024-03-23T13:05:23.018Z"
+          "answer": "1. Adding 3D Unity project to portfolio page\n2. Learning React and taking notes\n3. Working on inventory page\n4. Sending CV - 3 sends\n5. Soccer game development (focused on game mechanics)",
+          "dateTime": "2024-04-25T17:54:01.132Z"
         },
         {
           "indexTitle": "24",
@@ -31,20 +31,20 @@
         {
           "indexTitle": "25",
           "question": "25",
-          "answer": "1. cv, now 34 sended\n2. update script mouse automate, video on it, testing it",
-          "dateTime": "2024-03-26T12:24:05.866Z"
+          "answer": "1. CV, 34 sended\n2. Update script mouse automate, video on it, testing it",
+          "dateTime": "2024-04-25T17:57:06.268Z"
         },
         {
           "indexTitle": "26",
           "question": "26",
-          "answer": "1. scripts, mouse \n    * updated mouse automate to use positions files data, multiple menus and lists type are now posiible to handle, testing it a lot  \n2. micro-engine  \n    * start 18:36, with music\n    * changes:\n    * beter error handling in commponent loader\n    * fix mapper create overridable method bug\n    * add component type in new way\n    * add data of component\n    * 19:09\n    * todo: od dribble turn dribble:enable = true\n    * 19:12 setup standing and break\n    * 19:27 standing start\n    * 20:11 dribble state set\n    * 20:11 break\n    * 22:05 continue\n    * 22:51 moved dribble commponent to players, set it in kickBall handler, turn of boots     * collision if in dribble\n    * total of (2hours 6 min)\n    * todo: wait 3s to be in dribble or on button, so boots can catch a ball or push it  \n    * print text for states as debug tool",
-          "dateTime": "2024-03-28T16:52:26.034Z"
+          "answer": "1. scripts\n   * Updated mouse automate to use positions files data\n   * Multiple menus and lists type are now possible to handle\n   * Testing it a lot  \n2. micro-engine\n   * Better error handling in component loader\n   * Fix mapper bug\n   * Add component type in new way\n   * Add data of component\n   * Dribble state set\n3. micro-engine\n   * Moved dribble component to players\n   * Set it in kickBall handler\n   * Turn of boots collision if in dribble",
+          "dateTime": "2024-04-25T18:16:15.134Z"
         },
         {
           "indexTitle": "27",
           "question": "27",
-          "answer": "1. micro-engine\n    * start 11:53, ears stoppers\n    * create playerState component, load from json\n    * 12:55 from 30 min a problem with engine loading seqence and starting\n    * 12:56 break\n    * 13:33 music,\n    * logging\n    * engine methods strart, prepare, run sequence modification\n    * there was a bug of not await when loading data to engine!\n    * alert: systems are loaded after data in callback, only after that engine can start!\n    * 15:11 alert: when adding new component that dosent have sprite, exclude it in withSpriteRenderer!!!!\n    * 15:20 break, wasted so much time on this sprite exclude thing\n2. scripts  \n    * 17:30 resume, scripts\n    * 19:08 refactor build_all\n    * 19:23 verb-noun ps1 function name convention, refactor build folders script\n    * 19:38 break, mom phone\n    * 23:06 resume\n    * 00:38 refactor scripts, end",
-          "dateTime": "2024-03-28T16:54:53.181Z"
+          "answer": "1. micro-engine\n   * Create playerState component\n   * Load from json\n   * Problem with engine loading sequence and starting\n2. micro-engine\n   * Logging\n   * Engine methods start, prepare, run sequence modification\n   * There was a bug of not await when loading data to engine!\n   * Systems are loaded after data in callback, only after that engine can start!\n   * When adding new component that doesn't have sprite, exclude it in \nwithSpriteRenderer!!!!, later changed to state components included, directly\n3. micro-engine, scripts\n   * Refactor build_all\n   * Verb-noun ps1 function name convention\n   * Refactor build folders script\n4. micro-engine, scripts\n   * Refactor scripts",
+          "dateTime": "2024-04-25T18:25:52.459Z"
         },
         {
           "indexTitle": "28",
@@ -216,8 +216,8 @@
         {
           "indexTitle": "25",
           "question": "25",
-          "answer": "1. notes_app\n   - start edit inventory\n2. notes_app\n   - finish editing inventory\n   - change format to simpler becouse images form concentrated canvas that way",
-          "dateTime": "2024-04-25T15:51:54.466Z"
+          "answer": "1. notes_app\n   - start edit inventory\n2. notes_app\n   - finish editing inventory\n   - change format to simpler becouse images form concentrated canvas that way\n3. notes_app\n   - edit project_time and project_log to fix format\n4. micro_engine\n   - added category [micro_engine] and 3 files to notes_app\n   - edited those files to assert quality\n   - found info on needed feature in there\n",
+          "dateTime": "2024-04-25T19:53:31.374Z"
         }
       ]
     }

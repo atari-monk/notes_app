@@ -12,6 +12,24 @@
     "protected": false
   },
   {
+    "path": "../public_note/micro_engine/step_by_step.json",
+    "name": "Step by step",
+    "category": "micro_engine",
+    "protected": false
+  },
+  {
+    "path": "../public_note/micro_engine/docs.json",
+    "name": "Docs",
+    "category": "micro_engine",
+    "protected": false
+  },
+  {
+    "path": "../public_note/micro_engine/obsolete.json",
+    "name": "Obsolete",
+    "category": "micro_engine",
+    "protected": false
+  },
+  {
     "path": "../public_note/diy/atari_monk_homemade_highlights.json",
     "name": "Atari Monk Homemade Highlights",
     "category": "diy",
