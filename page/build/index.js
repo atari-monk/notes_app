@@ -9186,12 +9186,12 @@ new ui_lib_1.ToggleButton().initialize({
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
 const categories = {
-    info: 'Info',
-    code: 'Code',
     diy: 'DIY',
+    code: 'Code',
+    micro_engine: 'Micro Engine',
+    info: 'Info',
     log: 'Log',
     inventory: 'Inventory',
-    micro_engine: 'micro_engine',
 };
 const select = (0, ui_lib_1.getById)('filter');
 Object.entries(categories).forEach(function ([key, value]) {

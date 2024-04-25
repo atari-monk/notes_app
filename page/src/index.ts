@@ -21,12 +21,12 @@ const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
 const categories = {
-  info: 'Info',
-  code: 'Code',
   diy: 'DIY',
+  code: 'Code',
+  micro_engine: 'Micro Engine',
+  info: 'Info',
   log: 'Log',
   inventory: 'Inventory',
-  micro_engine: 'micro_engine',
 }
 
 const select = getById('filter') as HTMLSelectElement
