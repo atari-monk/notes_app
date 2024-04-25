@@ -9193,6 +9193,7 @@ const categories = {
     log: 'Log',
     inventory: 'Inventory',
 };
+const defaultCategory = 'diy';
 const select = (0, ui_lib_1.getById)('filter');
 Object.entries(categories).forEach(function ([key, value]) {
     const option = document.createElement('option');
@@ -9220,7 +9221,7 @@ if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
     select.value = categoryFromUrl;
 }
 else {
-    select.value = 'info';
+    select.value = defaultCategory;
 }
 var event = new Event('change');
 select.dispatchEvent(event);
