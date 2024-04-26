@@ -37,20 +37,20 @@
         {
           "indexTitle": "28",
           "question": "28",
-          "answer": "1. scripts  \n    * start 11:14\n    * taks 71, upgrade build script\n    * i need faster builds\n    * 5 pomodoro\n    * made script that can run all my build configs, feed from json\n    * end 13:54\n    * 2 hours 40 minutes\n2. nestjs tutorial  \n    * 14:48 notes, nestjs tutorial\n    * todo: do unity tut next\n    * tutorial fin for today 15:51\n    * 1 hour 3 minutes\n3. notes  \n    * 16:52 - mod notes to use json for pages list\n    * 17:45 done removing data from code to json  \n    * failed again changing config to await on top level, did not builds after that\n    * 53 minutes\n4. micro-engine  \n   * 18:18 PlayerStateRenderer\n   * make client engine separate from singleplayer\n   * make server engine separate from singleplayer\n   * new core system in engine, sumsystem (agregates components of entities in cache on start and renders once)\n   * PlayerStateRenderer\n   * end 20:46\n   * 2 hours 28 minutes\n   * total 7 hours 4 minutes",
-          "dateTime": "2024-03-28T19:56:50.340Z"
+          "answer": "1. scripts\n   * 11:14\n   * 13:54\n2. nestjs tutorial  \n   * 14:48\n   * 15:51\n3. notes\n   * 16:52\n   * 17:45\n4. micro-engine\n   * 18:18\n   * 20:46\n---\n07:04",
+          "dateTime": "2024-04-26T06:15:08.610Z"
         },
         {
           "indexTitle": "29",
           "question": "29",
-          "answer": "1. nestjs tutorial\n    * 11:33 start\n    * 12:20 end on vid time 15:46\n    * 47 min\n2. micro-engine\n    * 13:21 start\n    * what makes a bug on kick box ?\n    * 14:13, logger levels, logger can be dissabled and filtered with levels from config.json\n    * 14:27 rename logger, to remove dredded, useless manager word from it\n    * 14:40 thanks to logging i now see what is the problem, initially ball is flipped right even when player was right\n    * 15:02 fixed ball flip bug, synced initial player facing direction left or right with flip state\n    * todo: box flip is done on kick state, should be on dribble\n    * 15:05 stop for now\n    * 1 hour and 44 minutes\n    * 16:04 resume\n    * 16:09 switched box flip to dribble.enable\n    * 17:15 dribble on delay\n    * 17:29 upgrade player state render\n    * todo: left, right must be on player entity in some component\n    * 1 hour and 25 minutes\n3. react tutorial\n    * 18:06 start\n    * tic tac toe\n    * 19:45 end\n    * 1 hour and 39 minutes  \n- Total 5 hours and 35 minutes.",
-          "dateTime": "2024-03-29T18:52:49.435Z"
+          "answer": "1. nestjs tutorial\n   * 11:33\n   * 12:20\n2. micro-engine\n   * 13:21\n   * 15:05\n3. micro-engine\n   * 16:04\n   * 17:29\n4. react tutorial\n   * 18:06\n   * 19:45\n---\n05:35",
+          "dateTime": "2024-04-26T09:18:20.769Z"
         },
         {
           "indexTitle": "30",
           "question": "30",
-          "answer": "1. nestjs-tutorial\n    * start 14:30\n    * code in repo, tested, detailed notes\n    * end 17:16, video time 32:00 midleware\n2. micro-engine\n    * start 19:04\n    * end 21:05",
-          "dateTime": "2024-03-31T22:41:04.564Z"
+          "answer": "1. nestjs-tutorial\n   * 14:30\n   * 17:16\n2. micro-engine\n   * 19:04\n   * 21:05",
+          "dateTime": "2024-04-26T09:29:57.489Z"
         }
       ]
     },
@@ -206,6 +206,12 @@
           "question": "25",
           "answer": "1. notes_app\n   - 15:10\n   - 15:20\n2. notes_app\n   - 16:04\n   - 17:53\n3. notes_app\n   - 19:40\n   - 20:31\n4. micro-engine\n   - 20:35\n   - 21:53",
           "dateTime": "2024-04-25T19:54:04.407Z"
+        },
+        {
+          "indexTitle": "26",
+          "question": "26",
+          "answer": "1. notes_app\n   - 08:08\n   - 08:25\n2. notes_app\n   - 11:10\n   - 11:xx",
+          "dateTime": "2024-04-26T09:23:42.581Z"
         }
       ]
     }
