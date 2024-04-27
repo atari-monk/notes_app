@@ -6,11 +6,19 @@ import { appendChatToFile } from '../file/append'
 import { loadchatFromFile } from '../file/load'
 
 const public_note = 'C:/atari-monk/code/notes_app/page/public_note'
+const personal_note = 'C:/atari-monk/code/notes_app/personal_page/public_note'
 const private_note = 'C:/atari-monk/docs/notes_app'
 const private_category = 'private_note'
+const personal_category = ['log', 'inventory']
 
 function getBaseDirectory(category: string) {
-  return category === private_category ? private_note : public_note
+  if (category === private_category) {
+    return private_note
+  }
+  for (const pc of personal_category) {
+    if (category === pc) return personal_note
+  }
+  return public_note
 }
 
 export const appendChat = async (req: Request, res: Response) => {
