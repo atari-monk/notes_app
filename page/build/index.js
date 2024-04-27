@@ -9221,24 +9221,10 @@ __webpack_require__(/*! font-awesome/css/font-awesome.min.css */ "./node_modules
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
 const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
-const data_lib_1 = __webpack_require__(/*! data_lib */ "./node_modules/data_lib/index.js");
 const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-new ui_lib_1.ToggleButton().initialize({
-    id: 'darkModeButton',
-    className: 'dark-mode',
-});
-(async () => {
-    const category = new data_lib_1.CategoryProvider();
-    await category.loadCategories();
-    new ui_lib_1.CategoryFilter(new ui_lib_1.FileIndexFactory(markDownIt, highlight_js_1.default)).initialize({
-        id: 'filter',
-        categories: category.getAllCategories(),
-        defaultCategory: category.getDefaultCategory(),
-        categoryFromUrl: category.getCategoryFromUrl(),
-    });
-})();
+new ui_lib_1.MainPage(markDownIt, highlight_js_1.default).initialize();
 
 
 /***/ }),
@@ -9815,7 +9801,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CategoryFilter = exports.FileIndexFactory = exports.HighlightWrapper = exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+exports.MainPage = exports.CategoryFilter = exports.FileIndexFactory = exports.HighlightWrapper = exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
@@ -9838,6 +9824,8 @@ var FileIndexFactory_1 = __webpack_require__(/*! ./factory/FileIndexFactory */ "
 Object.defineProperty(exports, "FileIndexFactory", ({ enumerable: true, get: function () { return __importDefault(FileIndexFactory_1).default; } }));
 var CategoryFilter_1 = __webpack_require__(/*! ./initialize_component/CategoryFilter */ "./node_modules/ui_lib/initialize_component/CategoryFilter.js");
 Object.defineProperty(exports, "CategoryFilter", ({ enumerable: true, get: function () { return __importDefault(CategoryFilter_1).default; } }));
+var MainPage_1 = __webpack_require__(/*! ./vanilla_component/MainPage */ "./node_modules/ui_lib/vanilla_component/MainPage.js");
+Object.defineProperty(exports, "MainPage", ({ enumerable: true, get: function () { return __importDefault(MainPage_1).default; } }));
 
 
 /***/ }),
@@ -10370,6 +10358,44 @@ class DarkModeToggler {
     }
 }
 exports["default"] = DarkModeToggler;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/vanilla_component/MainPage.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/ui_lib/vanilla_component/MainPage.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const data_lib_1 = __webpack_require__(/*! data_lib */ "./node_modules/data_lib/index.js");
+const FileIndexFactory_1 = __importDefault(__webpack_require__(/*! ../factory/FileIndexFactory */ "./node_modules/ui_lib/factory/FileIndexFactory.js"));
+const CategoryFilter_1 = __importDefault(__webpack_require__(/*! ../initialize_component/CategoryFilter */ "./node_modules/ui_lib/initialize_component/CategoryFilter.js"));
+class MainPage {
+    markDownIt;
+    hljs;
+    constructor(markDownIt, hljs) {
+        this.markDownIt = markDownIt;
+        this.hljs = hljs;
+    }
+    async initialize() {
+        const category = new data_lib_1.CategoryProvider();
+        await category.loadCategories();
+        new CategoryFilter_1.default(new FileIndexFactory_1.default(this.markDownIt, this.hljs)).initialize({
+            id: 'filter',
+            categories: category.getAllCategories(),
+            defaultCategory: category.getDefaultCategory(),
+            categoryFromUrl: category.getCategoryFromUrl(),
+        });
+    }
+}
+exports["default"] = MainPage;
 
 
 /***/ }),
