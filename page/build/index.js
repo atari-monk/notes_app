@@ -9192,6 +9192,7 @@ const categories = {
     info: 'Info',
     log: 'Log',
     inventory: 'Inventory',
+    blog: 'Blog',
 };
 const defaultCategory = 'diy';
 const select = (0, ui_lib_1.getById)('filter');

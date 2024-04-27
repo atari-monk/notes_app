@@ -76,5 +76,11 @@
     "name": "Inventory",
     "category": "inventory",
     "protected": false
+  },
+  {
+    "path": "../public_note/blog/tree.json",
+    "name": "Tree",
+    "category": "blog",
+    "protected": false
   }
 ]

@@ -27,6 +27,7 @@ const categories = {
   info: 'Info',
   log: 'Log',
   inventory: 'Inventory',
+  blog: 'Blog',
 }
 const defaultCategory = 'diy'
 
