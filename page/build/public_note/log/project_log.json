@@ -224,6 +224,12 @@
           "question": "26",
           "answer": "1. notes_app\n   - fix format of 03.2024 in files project_time and project_log\n2. notes_app\n   - fix inventory file format",
           "dateTime": "2024-04-26T09:58:24.064Z"
+        },
+        {
+          "indexTitle": "27",
+          "question": "27",
+          "answer": "1. notes_app\n   - categories file, load, use data",
+          "dateTime": "2024-04-27T15:19:21.262Z"
         }
       ]
     }

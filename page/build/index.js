@@ -11,17 +11,15 @@
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 async function loadJSONFile(filePath) {
-    try {
-        const response = await fetch(filePath);
-        if (!response.ok) {
-            throw new Error('Failed to fetch JSON file');
-        }
-        return await response.json();
+    const response = await fetch(filePath);
+    if (!response.ok) {
+        throw new Error('Failed to fetch JSON file');
     }
-    catch (error) {
-        console.error('Error loading JSON file:', error);
-        return null;
+    const jsonData = (await response.json());
+    if (!jsonData) {
+        throw new Error('Failed to parse JSON data');
     }
+    return jsonData;
 }
 exports["default"] = loadJSONFile;
 
@@ -53,6 +51,55 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 __exportStar(__webpack_require__(/*! ./z_export/data_type */ "./node_modules/data_lib/z_export/data_type.js"), exports);
 __exportStar(__webpack_require__(/*! ./z_export/file_sys */ "./node_modules/data_lib/z_export/file_sys.js"), exports);
+__exportStar(__webpack_require__(/*! ./z_export/provider */ "./node_modules/data_lib/z_export/provider.js"), exports);
+
+
+/***/ }),
+
+/***/ "./node_modules/data_lib/provider/CategoryProvider.js":
+/*!************************************************************!*\
+  !*** ./node_modules/data_lib/provider/CategoryProvider.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const json_1 = __importDefault(__webpack_require__(/*! ../file_sys/json */ "./node_modules/data_lib/file_sys/json.js"));
+class CategoryProvider {
+    categories = [];
+    defaultCategory = '';
+    async loadCategories(filePath = './public_note/categories.json') {
+        try {
+            const categoriesConfig = await (0, json_1.default)(filePath);
+            if (categoriesConfig) {
+                this.categories = categoriesConfig.categories;
+                this.defaultCategory = categoriesConfig.defaultCategory;
+            }
+            else {
+                console.error('Failed to load categories.');
+            }
+        }
+        catch (error) {
+            console.error('Error loading categories file:', error);
+        }
+    }
+    getCategoryFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const categoryParam = params.get('category');
+        return categoryParam ? categoryParam.toLowerCase() : undefined;
+    }
+    getDefaultCategory() {
+        return this.defaultCategory;
+    }
+    getAllCategories() {
+        return this.categories;
+    }
+}
+exports["default"] = CategoryProvider;
 
 
 /***/ }),
@@ -85,6 +132,25 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.loadJSONFile = void 0;
 var json_1 = __webpack_require__(/*! ../file_sys/json */ "./node_modules/data_lib/file_sys/json.js");
 Object.defineProperty(exports, "loadJSONFile", ({ enumerable: true, get: function () { return __importDefault(json_1).default; } }));
+
+
+/***/ }),
+
+/***/ "./node_modules/data_lib/z_export/provider.js":
+/*!****************************************************!*\
+  !*** ./node_modules/data_lib/z_export/provider.js ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CategoryProvider = void 0;
+var CategoryProvider_1 = __webpack_require__(/*! ./../provider/CategoryProvider */ "./node_modules/data_lib/provider/CategoryProvider.js");
+Object.defineProperty(exports, "CategoryProvider", ({ enumerable: true, get: function () { return __importDefault(CategoryProvider_1).default; } }));
 
 
 /***/ }),
@@ -9186,55 +9252,35 @@ new ui_lib_1.ToggleButton().initialize({
 });
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-async function loadCategories(filePath = './public_note/categories.json') {
-    try {
-        const categoriesConfig = await (0, data_lib_1.loadJSONFile)(filePath);
-        return categoriesConfig;
-    }
-    catch (error) {
-        console.error('Error loading categories file:', error);
-        return null;
-    }
-}
-;
 (async () => {
-    const loadedCategories = await loadCategories();
-    if (loadedCategories) {
-        console.log(loadedCategories);
-        const { categories, defaultCategory } = loadedCategories;
-        const select = (0, ui_lib_1.getById)('filter');
-        for (const category of categories) {
-            const { key, value } = category;
-            const option = document.createElement('option');
-            option.value = key;
-            option.text = value;
-            select.add(option);
-        }
-        select.addEventListener('change', function () {
-            new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
-                id: 'fileListContainer',
-                filePath: 'public_note/files.json',
-                category: select.value.toLowerCase(),
-            });
+    const categoryProvider = new data_lib_1.CategoryProvider();
+    await categoryProvider.loadCategories();
+    const categories = categoryProvider.getAllCategories();
+    const defaultCategory = categoryProvider.getDefaultCategory();
+    const categoryFromUrl = categoryProvider.getCategoryFromUrl();
+    const select = (0, ui_lib_1.getById)('filter');
+    for (const category of categories) {
+        const { key, value } = category;
+        const option = document.createElement('option');
+        option.value = key;
+        option.text = value;
+        select.add(option);
+    }
+    select.addEventListener('change', function () {
+        new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
+            id: 'fileListContainer',
+            filePath: 'public_note/files.json',
+            category: select.value.toLowerCase(),
         });
-        function getCategoryFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            const categoryParam = params.get('category');
-            return categoryParam ? categoryParam.toLowerCase() : undefined;
-        }
-        const categoryFromUrl = getCategoryFromUrl();
-        if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
-            select.value = categoryFromUrl;
-        }
-        else {
-            select.value = defaultCategory;
-        }
-        var event = new Event('change');
-        select.dispatchEvent(event);
+    });
+    if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
+        select.value = categoryFromUrl;
     }
     else {
-        console.log('Failed to load categories.');
+        select.value = defaultCategory;
     }
+    var event = new Event('change');
+    select.dispatchEvent(event);
 })();
 
 
