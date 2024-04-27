@@ -11,6 +11,7 @@ import {
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import CodeHighlight from './CodeHighlight'
+import { ICategoriesConfig, loadJSONFile } from 'data_lib'
 
 new ToggleButton().initialize({
   id: 'darkModeButton',
@@ -20,52 +21,59 @@ new ToggleButton().initialize({
 const markDownIt: MarkdownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
-const categories = {
-  diy: 'DIY',
-  code: 'Code',
-  micro_engine: 'Micro Engine',
-  info: 'Info',
-  log: 'Log',
-  inventory: 'Inventory',
-  blog: 'Blog',
-}
-const defaultCategory = 'diy'
-
-const select = getById('filter') as HTMLSelectElement
-
-Object.entries(categories).forEach(function ([key, value]) {
-  const option = document.createElement('option')
-  option.value = key
-  option.text = value
-  select.add(option)
-})
-
-select.addEventListener('change', function () {
-  new FileIndex(
-    new LinkClick(new PasswordProvider(), markDownIt, new CodeHighlight())
-  ).initialize({
-    id: 'fileListContainer',
-    filePath: 'public_note/files.json',
-    category: select.value.toLowerCase(),
-  })
-})
-
-function getCategoryFromUrl() {
-  const params = new URLSearchParams(window.location.search)
-  const categoryParam = params.get('category')
-  return categoryParam ? categoryParam.toLowerCase() : undefined
+async function loadCategories(
+  filePath = './public_note/categories.json'
+): Promise<ICategoriesConfig | null> {
+  try {
+    const categoriesConfig = await loadJSONFile(filePath)
+    return categoriesConfig as ICategoriesConfig
+  } catch (error) {
+    console.error('Error loading categories file:', error)
+    return null
+  }
 }
 
-function capitalizeFirstLetter(value: string) {
-  return value.charAt(0).toUpperCase() + value.slice(1)
-}
+;(async () => {
+  const loadedCategories = await loadCategories()
+  if (loadedCategories) {
+    console.log(loadedCategories)
+    const { categories, defaultCategory } = loadedCategories
+    const select = getById('filter') as HTMLSelectElement
 
-const categoryFromUrl = getCategoryFromUrl()
-if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
-  select.value = categoryFromUrl
-} else {
-  select.value = defaultCategory
-}
+    for (const category of categories) {
+      const { key, value } = category
+      const option = document.createElement('option')
+      option.value = key
+      option.text = value
+      select.add(option)
+    }
 
-var event = new Event('change')
-select.dispatchEvent(event)
+    select.addEventListener('change', function () {
+      new FileIndex(
+        new LinkClick(new PasswordProvider(), markDownIt, new CodeHighlight())
+      ).initialize({
+        id: 'fileListContainer',
+        filePath: 'public_note/files.json',
+        category: select.value.toLowerCase(),
+      })
+    })
+
+    function getCategoryFromUrl() {
+      const params = new URLSearchParams(window.location.search)
+      const categoryParam = params.get('category')
+      return categoryParam ? categoryParam.toLowerCase() : undefined
+    }
+
+    const categoryFromUrl = getCategoryFromUrl()
+    if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
+      select.value = categoryFromUrl
+    } else {
+      select.value = defaultCategory
+    }
+
+    var event = new Event('change')
+    select.dispatchEvent(event)
+  } else {
+    console.log('Failed to load categories.')
+  }
+})()

@@ -1,3 +1,5 @@
+export { default as ICategoriesConfig } from '../data_type/ICategoriesConfig'
+export { default as ICategory } from '../data_type/ICategory'
 export { default as IChat } from '../data_type/IChat'
 export { default as IChatEdit } from '../data_type/IChatEdit'
 export { default as IChatWithSectionTitle } from '../data_type/IChatWithSectionTitle'

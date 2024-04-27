@@ -9179,53 +9179,63 @@ const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
 const CodeHighlight_1 = __importDefault(__webpack_require__(/*! ./CodeHighlight */ "./src/CodeHighlight.ts"));
+const data_lib_1 = __webpack_require__(/*! data_lib */ "./node_modules/data_lib/index.js");
 new ui_lib_1.ToggleButton().initialize({
     id: 'darkModeButton',
     className: 'dark-mode',
 });
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-const categories = {
-    diy: 'DIY',
-    code: 'Code',
-    micro_engine: 'Micro Engine',
-    info: 'Info',
-    log: 'Log',
-    inventory: 'Inventory',
-    blog: 'Blog',
-};
-const defaultCategory = 'diy';
-const select = (0, ui_lib_1.getById)('filter');
-Object.entries(categories).forEach(function ([key, value]) {
-    const option = document.createElement('option');
-    option.value = key;
-    option.text = value;
-    select.add(option);
-});
-select.addEventListener('change', function () {
-    new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
-        id: 'fileListContainer',
-        filePath: 'public_note/files.json',
-        category: select.value.toLowerCase(),
-    });
-});
-function getCategoryFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    const categoryParam = params.get('category');
-    return categoryParam ? categoryParam.toLowerCase() : undefined;
+async function loadCategories(filePath = './public_note/categories.json') {
+    try {
+        const categoriesConfig = await (0, data_lib_1.loadJSONFile)(filePath);
+        return categoriesConfig;
+    }
+    catch (error) {
+        console.error('Error loading categories file:', error);
+        return null;
+    }
 }
-function capitalizeFirstLetter(value) {
-    return value.charAt(0).toUpperCase() + value.slice(1);
-}
-const categoryFromUrl = getCategoryFromUrl();
-if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
-    select.value = categoryFromUrl;
-}
-else {
-    select.value = defaultCategory;
-}
-var event = new Event('change');
-select.dispatchEvent(event);
+;
+(async () => {
+    const loadedCategories = await loadCategories();
+    if (loadedCategories) {
+        console.log(loadedCategories);
+        const { categories, defaultCategory } = loadedCategories;
+        const select = (0, ui_lib_1.getById)('filter');
+        for (const category of categories) {
+            const { key, value } = category;
+            const option = document.createElement('option');
+            option.value = key;
+            option.text = value;
+            select.add(option);
+        }
+        select.addEventListener('change', function () {
+            new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
+                id: 'fileListContainer',
+                filePath: 'public_note/files.json',
+                category: select.value.toLowerCase(),
+            });
+        });
+        function getCategoryFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const categoryParam = params.get('category');
+            return categoryParam ? categoryParam.toLowerCase() : undefined;
+        }
+        const categoryFromUrl = getCategoryFromUrl();
+        if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
+            select.value = categoryFromUrl;
+        }
+        else {
+            select.value = defaultCategory;
+        }
+        var event = new Event('change');
+        select.dispatchEvent(event);
+    }
+    else {
+        console.log('Failed to load categories.');
+    }
+})();
 
 
 /***/ }),

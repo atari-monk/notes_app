@@ -1,0 +1,33 @@
+{
+  "defaultCategory": "diy",
+  "categories": [
+    {
+      "key": "diy",
+      "value": "DIY"
+    },
+    {
+      "key": "code",
+      "value": "Code"
+    },
+    {
+      "key": "micro_engine",
+      "value": "Micro Engine"
+    },
+    {
+      "key": "info",
+      "value": "Info"
+    },
+    {
+      "key": "log",
+      "value": "Log"
+    },
+    {
+      "key": "inventory",
+      "value": "Inventory"
+    },
+    {
+      "key": "blog",
+      "value": "Blog"
+    }
+  ]
+}
