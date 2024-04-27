@@ -4,10 +4,8 @@ import 'font-awesome/css/font-awesome.min.css'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import hljs from 'highlight.js'
-import { CategoryProvider, ICategory } from 'data_lib'
-import { ToggleButton, FileIndex, FileIndexFactory, IFactory } from 'ui_lib'
-import Component from 'ui_lib/component/Component'
-import IComponentData from 'ui_lib/component/type/IComponentData'
+import { CategoryProvider } from 'data_lib'
+import { ToggleButton, FileIndexFactory, CategoryFilter } from 'ui_lib'
 
 const markDownIt = new MarkdownIt()
 markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
@@ -16,56 +14,6 @@ new ToggleButton().initialize({
   id: 'darkModeButton',
   className: 'dark-mode',
 })
-
-interface ICategoryFilterData extends IComponentData {
-  categories: ICategory[]
-  defaultCategory: string
-  categoryFromUrl: string | undefined
-}
-
-class CategoryFilter extends Component<HTMLSelectElement> {
-  constructor(private readonly fileIndexFactory: IFactory<FileIndex>) {
-    super()
-  }
-
-  initialize(data: ICategoryFilterData): void {
-    try {
-      super.initialize(data)
-      const { categories, defaultCategory, categoryFromUrl } = data
-
-      for (const category of categories) {
-        const { key, value } = category
-        const option = document.createElement('option')
-        option.value = key
-        option.text = value
-        this.ui.add(option)
-      }
-
-      this.ui.addEventListener('change', async () => {
-        this.fileIndexFactory.getNewInstance().initialize({
-          id: 'fileListContainer',
-          filePath: 'public_note/files.json',
-          category: this.ui.value.toLowerCase(),
-        })
-      })
-
-      if (
-        categoryFromUrl &&
-        categories.find((c) => c.key === categoryFromUrl)
-      ) {
-        this.ui.value = categoryFromUrl
-      } else {
-        this.ui.value = defaultCategory
-      }
-
-      var event = new Event('change')
-      this.ui.dispatchEvent(event)
-    } catch (error: any) {
-      console.error(error.message)
-    }
-  }
-}
-
 ;(async () => {
   const category = new CategoryProvider()
   await category.loadCategories()

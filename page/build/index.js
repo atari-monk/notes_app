@@ -9223,57 +9223,16 @@ const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! m
 const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
 const data_lib_1 = __webpack_require__(/*! data_lib */ "./node_modules/data_lib/index.js");
 const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
-const Component_1 = __importDefault(__webpack_require__(/*! ui_lib/component/Component */ "./node_modules/ui_lib/component/Component.js"));
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
 new ui_lib_1.ToggleButton().initialize({
     id: 'darkModeButton',
     className: 'dark-mode',
 });
-class CategoryFilter extends Component_1.default {
-    fileIndexFactory;
-    constructor(fileIndexFactory) {
-        super();
-        this.fileIndexFactory = fileIndexFactory;
-    }
-    initialize(data) {
-        try {
-            super.initialize(data);
-            const { categories, defaultCategory, categoryFromUrl } = data;
-            for (const category of categories) {
-                const { key, value } = category;
-                const option = document.createElement('option');
-                option.value = key;
-                option.text = value;
-                this.ui.add(option);
-            }
-            this.ui.addEventListener('change', async () => {
-                this.fileIndexFactory.getNewInstance().initialize({
-                    id: 'fileListContainer',
-                    filePath: 'public_note/files.json',
-                    category: this.ui.value.toLowerCase(),
-                });
-            });
-            if (categoryFromUrl &&
-                categories.find((c) => c.key === categoryFromUrl)) {
-                this.ui.value = categoryFromUrl;
-            }
-            else {
-                this.ui.value = defaultCategory;
-            }
-            var event = new Event('change');
-            this.ui.dispatchEvent(event);
-        }
-        catch (error) {
-            console.error(error.message);
-        }
-    }
-}
-;
 (async () => {
     const category = new data_lib_1.CategoryProvider();
     await category.loadCategories();
-    new CategoryFilter(new ui_lib_1.FileIndexFactory(markDownIt, highlight_js_1.default)).initialize({
+    new ui_lib_1.CategoryFilter(new ui_lib_1.FileIndexFactory(markDownIt, highlight_js_1.default)).initialize({
         id: 'filter',
         categories: category.getAllCategories(),
         defaultCategory: category.getDefaultCategory(),
@@ -9856,7 +9815,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.FileIndexFactory = exports.HighlightWrapper = exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+exports.CategoryFilter = exports.FileIndexFactory = exports.HighlightWrapper = exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
@@ -9877,6 +9836,8 @@ var HighlightWrapper_1 = __webpack_require__(/*! ./wrapper/HighlightWrapper */ "
 Object.defineProperty(exports, "HighlightWrapper", ({ enumerable: true, get: function () { return __importDefault(HighlightWrapper_1).default; } }));
 var FileIndexFactory_1 = __webpack_require__(/*! ./factory/FileIndexFactory */ "./node_modules/ui_lib/factory/FileIndexFactory.js");
 Object.defineProperty(exports, "FileIndexFactory", ({ enumerable: true, get: function () { return __importDefault(FileIndexFactory_1).default; } }));
+var CategoryFilter_1 = __webpack_require__(/*! ./initialize_component/CategoryFilter */ "./node_modules/ui_lib/initialize_component/CategoryFilter.js");
+Object.defineProperty(exports, "CategoryFilter", ({ enumerable: true, get: function () { return __importDefault(CategoryFilter_1).default; } }));
 
 
 /***/ }),
@@ -9905,6 +9866,63 @@ class BreakLine extends Component_1.default {
     }
 }
 exports["default"] = BreakLine;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/initialize_component/CategoryFilter.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/ui_lib/initialize_component/CategoryFilter.js ***!
+  \********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const Component_1 = __importDefault(__webpack_require__(/*! ../component/Component */ "./node_modules/ui_lib/component/Component.js"));
+class CategoryFilter extends Component_1.default {
+    fileIndexFactory;
+    constructor(fileIndexFactory) {
+        super();
+        this.fileIndexFactory = fileIndexFactory;
+    }
+    initialize(data) {
+        try {
+            super.initialize(data);
+            const { categories, defaultCategory, categoryFromUrl } = data;
+            for (const category of categories) {
+                const { key, value } = category;
+                const option = document.createElement('option');
+                option.value = key;
+                option.text = value;
+                this.ui.add(option);
+            }
+            this.ui.addEventListener('change', async () => {
+                this.fileIndexFactory.getNewInstance().initialize({
+                    id: 'fileListContainer',
+                    filePath: 'public_note/files.json',
+                    category: this.ui.value.toLowerCase(),
+                });
+            });
+            if (categoryFromUrl &&
+                categories.find((c) => c.key === categoryFromUrl)) {
+                this.ui.value = categoryFromUrl;
+            }
+            else {
+                this.ui.value = defaultCategory;
+            }
+            var event = new Event('change');
+            this.ui.dispatchEvent(event);
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    }
+}
+exports["default"] = CategoryFilter;
 
 
 /***/ }),
