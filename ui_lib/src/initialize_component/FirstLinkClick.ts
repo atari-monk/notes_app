@@ -1,7 +1,7 @@
 import Component from '../component/Component'
 import IComponentData from '../component/type/IComponentData'
 
-export default class FirstLinkClick extends Component {
+export default class FirstLinkClick extends Component<HTMLAnchorElement> {
   constructor() {
     super()
     this.tag = 'a'

@@ -228,8 +228,8 @@
         {
           "indexTitle": "27",
           "question": "27",
-          "answer": "1. notes_app\n   - categories file, load, use data",
-          "dateTime": "2024-04-27T15:19:21.262Z"
+          "answer": "1. notes_app\n   - categories file, load, use data\n2. notes_app\n   - CategoryProvider, encapsulated data loader in class and lib",
+          "dateTime": "2024-04-27T19:55:00.740Z"
         }
       ]
     }

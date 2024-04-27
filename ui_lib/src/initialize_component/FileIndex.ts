@@ -7,7 +7,7 @@ import FirstLinkClick from './FirstLinkClick'
 import Link from './Link'
 import BreakLine from './BreakLine'
 
-export default class FileIndex extends Component {
+export default class FileIndex extends Component<HTMLElement> {
   private readonly fileList: IFileMetadata[] = []
   private filePath = ''
 

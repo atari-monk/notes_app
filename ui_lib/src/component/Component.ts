@@ -3,12 +3,12 @@ import IComponent from './type/IComponent'
 import { Tag } from './type/Tag'
 import InitializationGuard from '../util/InitializationGuard'
 
-export default class Component implements IComponent {
+export default class Component<T extends HTMLElement> implements IComponent {
   private readonly initializationGuard: InitializationGuard
   id: string = ''
   tag: Tag = ''
   className: string = ''
-  ui!: HTMLElement
+  ui!: T
 
   constructor() {
     this.initializationGuard = new InitializationGuard(
@@ -30,7 +30,7 @@ export default class Component implements IComponent {
     if (!item) {
       throw new Error(`Element with ID '${this.id}' not found.`)
     }
-    this.ui = item
+    this.ui = item as T
   }
 
   addClick(listener: (event: MouseEvent) => any) {
@@ -38,7 +38,7 @@ export default class Component implements IComponent {
   }
 
   addClickAsync(
-    ui: HTMLElement,
+    ui: T,
     listener: (event: MouseEvent) => Promise<any>
   ) {
     ui.addEventListener('click', async (event: MouseEvent) => {

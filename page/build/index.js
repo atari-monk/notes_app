@@ -9246,41 +9246,68 @@ const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
 const CodeHighlight_1 = __importDefault(__webpack_require__(/*! ./CodeHighlight */ "./src/CodeHighlight.ts"));
 const data_lib_1 = __webpack_require__(/*! data_lib */ "./node_modules/data_lib/index.js");
+const Component_1 = __importDefault(__webpack_require__(/*! ui_lib/component/Component */ "./node_modules/ui_lib/component/Component.js"));
 new ui_lib_1.ToggleButton().initialize({
     id: 'darkModeButton',
     className: 'dark-mode',
 });
-const markDownIt = new markdown_it_1.default();
-markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
+class MarkdownAdapter {
+    markDownIt;
+    constructor(markDownIt = new markdown_it_1.default()) {
+        this.markDownIt = markDownIt;
+        markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
+    }
+    render(text) {
+        return this.markDownIt.render(text);
+    }
+}
+class CategoryFilter extends Component_1.default {
+    initialize(data) {
+        try {
+            super.initialize(data);
+            const { categories, defaultCategory, categoryFromUrl } = data;
+            for (const category of categories) {
+                const { key, value } = category;
+                const option = document.createElement('option');
+                option.value = key;
+                option.text = value;
+                this.ui.add(option);
+            }
+            this.ui.addEventListener('change', async () => {
+                new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), new MarkdownAdapter(), new CodeHighlight_1.default())).initialize({
+                    id: 'fileListContainer',
+                    filePath: 'public_note/files.json',
+                    category: this.ui.value.toLowerCase(),
+                });
+            });
+            if (categoryFromUrl &&
+                categories.find((c) => c.key === categoryFromUrl)) {
+                this.ui.value = categoryFromUrl;
+            }
+            else {
+                this.ui.value = defaultCategory;
+            }
+            var event = new Event('change');
+            this.ui.dispatchEvent(event);
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    }
+}
+;
 (async () => {
     const categoryProvider = new data_lib_1.CategoryProvider();
     await categoryProvider.loadCategories();
     const categories = categoryProvider.getAllCategories();
     const defaultCategory = categoryProvider.getDefaultCategory();
     const categoryFromUrl = categoryProvider.getCategoryFromUrl();
-    const select = (0, ui_lib_1.getById)('filter');
-    for (const category of categories) {
-        const { key, value } = category;
-        const option = document.createElement('option');
-        option.value = key;
-        option.text = value;
-        select.add(option);
-    }
-    select.addEventListener('change', function () {
-        new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), markDownIt, new CodeHighlight_1.default())).initialize({
-            id: 'fileListContainer',
-            filePath: 'public_note/files.json',
-            category: select.value.toLowerCase(),
-        });
+    new CategoryFilter().initialize({
+        id: 'filter',
+        categories,
+        defaultCategory,
+        categoryFromUrl,
     });
-    if (categoryFromUrl && Object.keys(categories).includes(categoryFromUrl)) {
-        select.value = categoryFromUrl;
-    }
-    else {
-        select.value = defaultCategory;
-    }
-    var event = new Event('change');
-    select.dispatchEvent(event);
 })();
 
 

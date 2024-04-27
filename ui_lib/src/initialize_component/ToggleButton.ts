@@ -1,7 +1,7 @@
 import IComponentData from '../component/type/IComponentData'
 import Component from '../component/Component'
 
-export default class ToggleButton extends Component {
+export default class ToggleButton extends Component<HTMLButtonElement> {
   initialize(data: IComponentData): void {
     try {
       super.initialize(data)

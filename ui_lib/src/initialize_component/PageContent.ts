@@ -6,7 +6,7 @@ import IndexComponent from '../generate_component/IndexComponent'
 import SectionComponent from '../generate_component/SectionComponent'
 import IEditFileData from '../generate_component/type/IEditFileData'
 
-export default class PageContent extends Component {
+export default class PageContent extends Component<HTMLElement> {
   private _indexComponent!: IndexComponent
   private _data!: ISectionsAndChats
   private _editFileData!: IEditFileData

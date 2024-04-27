@@ -2,7 +2,7 @@ import IComponentData from '../component/type/IComponentData'
 import Component from '../component/Component'
 import IndexComponent from '../generate_component/IndexComponent'
 
-export default class PageIndex extends Component {
+export default class PageIndex extends Component<HTMLElement> {
   private _indexComponent!: IndexComponent
 
   get indexComponent(): IndexComponent {

@@ -1,7 +1,7 @@
 import ILinkData from './type/ILinkData'
 import Component from '../component/Component'
 
-export default class Link extends Component {
+export default class Link extends Component<HTMLAnchorElement> {
   private href: string = ''
   private textContent: string = ''
 
