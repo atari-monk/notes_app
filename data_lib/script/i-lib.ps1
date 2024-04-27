@@ -19,7 +19,8 @@ $workingList = @(
     "server",
     "editor",
     "reader",
-    "page"
+    "page",
+    "personal_page"
 )
 
 $fullList = @(

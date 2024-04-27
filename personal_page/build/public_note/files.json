@@ -1,0 +1,44 @@
+[
+  {
+    "path": "../public_note/log/project_time.json",
+    "name": "Project Time",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../public_note/log/project_log.json",
+    "name": "Project Log",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../public_note/log/sleep.json",
+    "name": "Sleep",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../public_note/log/cleaning.json",
+    "name": "Cleaning Log",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../public_note/log/day.json",
+    "name": "Day",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../public_note/log/video_watching.json",
+    "name": "Video Watching",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../public_note/inventory/inventory.json",
+    "name": "Inventory",
+    "category": "inventory",
+    "protected": false
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "defaultCategory": "log",
+  "categories": [
+    {
+      "key": "log",
+      "value": "Log"
+    },
+    {
+      "key": "inventory",
+      "value": "Inventory"
+    }
+  ]
+}
