@@ -1,12 +1,11 @@
 import 'ui_lib/css/dark_mode.css'
 import 'ui_lib/css/styles.css'
 import 'font-awesome/css/font-awesome.min.css'
-import { ToggleButton, FileIndex, LinkClick, PasswordProvider } from 'ui_lib'
+import { ToggleButton, FileIndex, LinkClick, PasswordProvider, MarkdownWrapper } from 'ui_lib'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import CodeHighlight from './CodeHighlight'
 import { CategoryProvider, ICategory } from 'data_lib'
-import IRenderer from 'ui_lib/generate_component/type/IRenderer'
 import Component from 'ui_lib/component/Component'
 import IComponentData from 'ui_lib/component/type/IComponentData'
 
@@ -15,14 +14,8 @@ new ToggleButton().initialize({
   className: 'dark-mode',
 })
 
-class MarkdownAdapter implements IRenderer {
-  constructor(private readonly markDownIt = new MarkdownIt()) {
-    markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
-  }
-  render(text: string): string {
-    return this.markDownIt.render(text)
-  }
-}
+const markDownIt = new MarkdownIt()
+markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
 interface ICategoryFilterData extends IComponentData {
   categories: ICategory[]
@@ -43,12 +36,12 @@ class CategoryFilter extends Component<HTMLSelectElement> {
         option.text = value
         this.ui.add(option)
       }
-      
+
       this.ui.addEventListener('change', async () => {
         new FileIndex(
           new LinkClick(
             new PasswordProvider(),
-            new MarkdownAdapter(),
+            new MarkdownWrapper(markDownIt),
             new CodeHighlight()
           )
         ).initialize({

@@ -9251,16 +9251,8 @@ new ui_lib_1.ToggleButton().initialize({
     id: 'darkModeButton',
     className: 'dark-mode',
 });
-class MarkdownAdapter {
-    markDownIt;
-    constructor(markDownIt = new markdown_it_1.default()) {
-        this.markDownIt = markDownIt;
-        markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-    }
-    render(text) {
-        return this.markDownIt.render(text);
-    }
-}
+const markDownIt = new markdown_it_1.default();
+markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
 class CategoryFilter extends Component_1.default {
     initialize(data) {
         try {
@@ -9274,7 +9266,7 @@ class CategoryFilter extends Component_1.default {
                 this.ui.add(option);
             }
             this.ui.addEventListener('change', async () => {
-                new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), new MarkdownAdapter(), new CodeHighlight_1.default())).initialize({
+                new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), new ui_lib_1.MarkdownWrapper(markDownIt), new CodeHighlight_1.default())).initialize({
                     id: 'fileListContainer',
                     filePath: 'public_note/files.json',
                     category: this.ui.value.toLowerCase(),
@@ -9297,16 +9289,13 @@ class CategoryFilter extends Component_1.default {
 }
 ;
 (async () => {
-    const categoryProvider = new data_lib_1.CategoryProvider();
-    await categoryProvider.loadCategories();
-    const categories = categoryProvider.getAllCategories();
-    const defaultCategory = categoryProvider.getDefaultCategory();
-    const categoryFromUrl = categoryProvider.getCategoryFromUrl();
+    const category = new data_lib_1.CategoryProvider();
+    await category.loadCategories();
     new CategoryFilter().initialize({
         id: 'filter',
-        categories,
-        defaultCategory,
-        categoryFromUrl,
+        categories: category.getAllCategories(),
+        defaultCategory: category.getDefaultCategory(),
+        categoryFromUrl: category.getCategoryFromUrl(),
     });
 })();
 
@@ -9852,7 +9841,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
@@ -9867,6 +9856,8 @@ var getById_1 = __webpack_require__(/*! ./util/getById */ "./node_modules/ui_lib
 Object.defineProperty(exports, "getById", ({ enumerable: true, get: function () { return __importDefault(getById_1).default; } }));
 var DarkModeToggler_1 = __webpack_require__(/*! ./vanilla_component/DarkModeToggler */ "./node_modules/ui_lib/vanilla_component/DarkModeToggler.js");
 Object.defineProperty(exports, "DarkModeToggler", ({ enumerable: true, get: function () { return __importDefault(DarkModeToggler_1).default; } }));
+var MarkdownWrapper_1 = __webpack_require__(/*! ./wrapper/MarkdownWrapper */ "./node_modules/ui_lib/wrapper/MarkdownWrapper.js");
+Object.defineProperty(exports, "MarkdownWrapper", ({ enumerable: true, get: function () { return __importDefault(MarkdownWrapper_1).default; } }));
 
 
 /***/ }),
@@ -10342,6 +10333,29 @@ class DarkModeToggler {
     }
 }
 exports["default"] = DarkModeToggler;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/wrapper/MarkdownWrapper.js":
+/*!********************************************************!*\
+  !*** ./node_modules/ui_lib/wrapper/MarkdownWrapper.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class MarkdownWrapper {
+    markDownIt;
+    constructor(markDownIt) {
+        this.markDownIt = markDownIt;
+    }
+    render(text) {
+        return this.markDownIt.render(text);
+    }
+}
+exports["default"] = MarkdownWrapper;
 
 
 /***/ }),
