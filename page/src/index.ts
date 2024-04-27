@@ -5,14 +5,7 @@ import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import hljs from 'highlight.js'
 import { CategoryProvider, ICategory } from 'data_lib'
-import {
-  ToggleButton,
-  FileIndex,
-  LinkClick,
-  PasswordProvider,
-  MarkdownWrapper,
-  HighlightWrapper,
-} from 'ui_lib'
+import { ToggleButton, FileIndex, FileIndexFactory, IFactory } from 'ui_lib'
 import Component from 'ui_lib/component/Component'
 import IComponentData from 'ui_lib/component/type/IComponentData'
 
@@ -31,6 +24,10 @@ interface ICategoryFilterData extends IComponentData {
 }
 
 class CategoryFilter extends Component<HTMLSelectElement> {
+  constructor(private readonly fileIndexFactory: IFactory<FileIndex>) {
+    super()
+  }
+
   initialize(data: ICategoryFilterData): void {
     try {
       super.initialize(data)
@@ -45,13 +42,7 @@ class CategoryFilter extends Component<HTMLSelectElement> {
       }
 
       this.ui.addEventListener('change', async () => {
-        new FileIndex(
-          new LinkClick(
-            new PasswordProvider(),
-            new MarkdownWrapper(markDownIt),
-            new HighlightWrapper(hljs)
-          )
-        ).initialize({
+        this.fileIndexFactory.getNewInstance().initialize({
           id: 'fileListContainer',
           filePath: 'public_note/files.json',
           category: this.ui.value.toLowerCase(),
@@ -79,7 +70,7 @@ class CategoryFilter extends Component<HTMLSelectElement> {
   const category = new CategoryProvider()
   await category.loadCategories()
 
-  new CategoryFilter().initialize({
+  new CategoryFilter(new FileIndexFactory(markDownIt, hljs)).initialize({
     id: 'filter',
     categories: category.getAllCategories(),
     defaultCategory: category.getDefaultCategory(),

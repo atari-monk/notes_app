@@ -9231,6 +9231,11 @@ new ui_lib_1.ToggleButton().initialize({
     className: 'dark-mode',
 });
 class CategoryFilter extends Component_1.default {
+    fileIndexFactory;
+    constructor(fileIndexFactory) {
+        super();
+        this.fileIndexFactory = fileIndexFactory;
+    }
     initialize(data) {
         try {
             super.initialize(data);
@@ -9243,7 +9248,7 @@ class CategoryFilter extends Component_1.default {
                 this.ui.add(option);
             }
             this.ui.addEventListener('change', async () => {
-                new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), new ui_lib_1.MarkdownWrapper(markDownIt), new ui_lib_1.HighlightWrapper(highlight_js_1.default))).initialize({
+                this.fileIndexFactory.getNewInstance().initialize({
                     id: 'fileListContainer',
                     filePath: 'public_note/files.json',
                     category: this.ui.value.toLowerCase(),
@@ -9268,7 +9273,7 @@ class CategoryFilter extends Component_1.default {
 (async () => {
     const category = new data_lib_1.CategoryProvider();
     await category.loadCategories();
-    new CategoryFilter().initialize({
+    new CategoryFilter(new ui_lib_1.FileIndexFactory(markDownIt, highlight_js_1.default)).initialize({
         id: 'filter',
         categories: category.getAllCategories(),
         defaultCategory: category.getDefaultCategory(),
@@ -9426,6 +9431,39 @@ class ComponentGenerator {
     }
 }
 exports["default"] = ComponentGenerator;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/factory/FileIndexFactory.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/ui_lib/factory/FileIndexFactory.js ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const LinkClick_1 = __importDefault(__webpack_require__(/*! ../handler/LinkClick */ "./node_modules/ui_lib/handler/LinkClick.js"));
+const FileIndex_1 = __importDefault(__webpack_require__(/*! ../initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js"));
+const PasswordProvider_1 = __importDefault(__webpack_require__(/*! ../provider/PasswordProvider */ "./node_modules/ui_lib/provider/PasswordProvider.js"));
+const HighlightWrapper_1 = __importDefault(__webpack_require__(/*! ../wrapper/HighlightWrapper */ "./node_modules/ui_lib/wrapper/HighlightWrapper.js"));
+const MarkdownWrapper_1 = __importDefault(__webpack_require__(/*! ../wrapper/MarkdownWrapper */ "./node_modules/ui_lib/wrapper/MarkdownWrapper.js"));
+class FileIndexFactory {
+    markDownIt;
+    hljs;
+    constructor(markDownIt, hljs) {
+        this.markDownIt = markDownIt;
+        this.hljs = hljs;
+    }
+    getNewInstance() {
+        return new FileIndex_1.default(new LinkClick_1.default(new PasswordProvider_1.default(), new MarkdownWrapper_1.default(this.markDownIt), new HighlightWrapper_1.default(this.hljs)));
+    }
+}
+exports["default"] = FileIndexFactory;
 
 
 /***/ }),
@@ -9818,7 +9856,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.HighlightWrapper = exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+exports.FileIndexFactory = exports.HighlightWrapper = exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
@@ -9837,6 +9875,8 @@ var MarkdownWrapper_1 = __webpack_require__(/*! ./wrapper/MarkdownWrapper */ "./
 Object.defineProperty(exports, "MarkdownWrapper", ({ enumerable: true, get: function () { return __importDefault(MarkdownWrapper_1).default; } }));
 var HighlightWrapper_1 = __webpack_require__(/*! ./wrapper/HighlightWrapper */ "./node_modules/ui_lib/wrapper/HighlightWrapper.js");
 Object.defineProperty(exports, "HighlightWrapper", ({ enumerable: true, get: function () { return __importDefault(HighlightWrapper_1).default; } }));
+var FileIndexFactory_1 = __webpack_require__(/*! ./factory/FileIndexFactory */ "./node_modules/ui_lib/factory/FileIndexFactory.js");
+Object.defineProperty(exports, "FileIndexFactory", ({ enumerable: true, get: function () { return __importDefault(FileIndexFactory_1).default; } }));
 
 
 /***/ }),
