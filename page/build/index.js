@@ -9203,29 +9203,6 @@ const punycode = {
 
 /***/ }),
 
-/***/ "./src/CodeHighlight.ts":
-/*!******************************!*\
-  !*** ./src/CodeHighlight.ts ***!
-  \******************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
-class CodeHighlight {
-    generate(item) {
-        highlight_js_1.default.highlightElement(item);
-    }
-}
-exports["default"] = CodeHighlight;
-
-
-/***/ }),
-
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
@@ -9241,18 +9218,18 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 __webpack_require__(/*! ui_lib/css/dark_mode.css */ "./node_modules/ui_lib/css/dark_mode.css");
 __webpack_require__(/*! ui_lib/css/styles.css */ "./node_modules/ui_lib/css/styles.css");
 __webpack_require__(/*! font-awesome/css/font-awesome.min.css */ "./node_modules/font-awesome/css/font-awesome.min.css");
-const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
 const markdown_it_1 = __importDefault(__webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js"));
 const markdown_it_implicit_figures_1 = __importDefault(__webpack_require__(/*! markdown-it-implicit-figures */ "./node_modules/markdown-it-implicit-figures/index.js"));
-const CodeHighlight_1 = __importDefault(__webpack_require__(/*! ./CodeHighlight */ "./src/CodeHighlight.ts"));
+const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/lib/index.js"));
 const data_lib_1 = __webpack_require__(/*! data_lib */ "./node_modules/data_lib/index.js");
+const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
 const Component_1 = __importDefault(__webpack_require__(/*! ui_lib/component/Component */ "./node_modules/ui_lib/component/Component.js"));
+const markDownIt = new markdown_it_1.default();
+markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
 new ui_lib_1.ToggleButton().initialize({
     id: 'darkModeButton',
     className: 'dark-mode',
 });
-const markDownIt = new markdown_it_1.default();
-markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
 class CategoryFilter extends Component_1.default {
     initialize(data) {
         try {
@@ -9266,7 +9243,7 @@ class CategoryFilter extends Component_1.default {
                 this.ui.add(option);
             }
             this.ui.addEventListener('change', async () => {
-                new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), new ui_lib_1.MarkdownWrapper(markDownIt), new CodeHighlight_1.default())).initialize({
+                new ui_lib_1.FileIndex(new ui_lib_1.LinkClick(new ui_lib_1.PasswordProvider(), new ui_lib_1.MarkdownWrapper(markDownIt), new ui_lib_1.HighlightWrapper(highlight_js_1.default))).initialize({
                     id: 'fileListContainer',
                     filePath: 'public_note/files.json',
                     category: this.ui.value.toLowerCase(),
@@ -9841,7 +9818,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
+exports.HighlightWrapper = exports.MarkdownWrapper = exports.DarkModeToggler = exports.getById = exports.Page = exports.PasswordProvider = exports.LinkClick = exports.FileIndex = exports.ToggleButton = void 0;
 var ToggleButton_1 = __webpack_require__(/*! ./initialize_component/ToggleButton */ "./node_modules/ui_lib/initialize_component/ToggleButton.js");
 Object.defineProperty(exports, "ToggleButton", ({ enumerable: true, get: function () { return __importDefault(ToggleButton_1).default; } }));
 var FileIndex_1 = __webpack_require__(/*! ./initialize_component/FileIndex */ "./node_modules/ui_lib/initialize_component/FileIndex.js");
@@ -9858,6 +9835,8 @@ var DarkModeToggler_1 = __webpack_require__(/*! ./vanilla_component/DarkModeTogg
 Object.defineProperty(exports, "DarkModeToggler", ({ enumerable: true, get: function () { return __importDefault(DarkModeToggler_1).default; } }));
 var MarkdownWrapper_1 = __webpack_require__(/*! ./wrapper/MarkdownWrapper */ "./node_modules/ui_lib/wrapper/MarkdownWrapper.js");
 Object.defineProperty(exports, "MarkdownWrapper", ({ enumerable: true, get: function () { return __importDefault(MarkdownWrapper_1).default; } }));
+var HighlightWrapper_1 = __webpack_require__(/*! ./wrapper/HighlightWrapper */ "./node_modules/ui_lib/wrapper/HighlightWrapper.js");
+Object.defineProperty(exports, "HighlightWrapper", ({ enumerable: true, get: function () { return __importDefault(HighlightWrapper_1).default; } }));
 
 
 /***/ }),
@@ -10333,6 +10312,29 @@ class DarkModeToggler {
     }
 }
 exports["default"] = DarkModeToggler;
+
+
+/***/ }),
+
+/***/ "./node_modules/ui_lib/wrapper/HighlightWrapper.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/ui_lib/wrapper/HighlightWrapper.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class HighlightWrapper {
+    hljs;
+    constructor(hljs) {
+        this.hljs = hljs;
+    }
+    generate(item) {
+        this.hljs.highlightElement(item);
+    }
+}
+exports["default"] = HighlightWrapper;
 
 
 /***/ }),

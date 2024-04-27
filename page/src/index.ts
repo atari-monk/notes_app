@@ -1,21 +1,28 @@
 import 'ui_lib/css/dark_mode.css'
 import 'ui_lib/css/styles.css'
 import 'font-awesome/css/font-awesome.min.css'
-import { ToggleButton, FileIndex, LinkClick, PasswordProvider, MarkdownWrapper } from 'ui_lib'
 import MarkdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
-import CodeHighlight from './CodeHighlight'
+import hljs from 'highlight.js'
 import { CategoryProvider, ICategory } from 'data_lib'
+import {
+  ToggleButton,
+  FileIndex,
+  LinkClick,
+  PasswordProvider,
+  MarkdownWrapper,
+  HighlightWrapper,
+} from 'ui_lib'
 import Component from 'ui_lib/component/Component'
 import IComponentData from 'ui_lib/component/type/IComponentData'
+
+const markDownIt = new MarkdownIt()
+markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
 new ToggleButton().initialize({
   id: 'darkModeButton',
   className: 'dark-mode',
 })
-
-const markDownIt = new MarkdownIt()
-markDownIt.use(implicitFigures, { dataType: false, figcaption: true })
 
 interface ICategoryFilterData extends IComponentData {
   categories: ICategory[]
@@ -42,7 +49,7 @@ class CategoryFilter extends Component<HTMLSelectElement> {
           new LinkClick(
             new PasswordProvider(),
             new MarkdownWrapper(markDownIt),
-            new CodeHighlight()
+            new HighlightWrapper(hljs)
           )
         ).initialize({
           id: 'fileListContainer',
