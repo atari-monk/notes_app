@@ -1,5 +1,5 @@
 {
-  "category": "log",	
+  "category": "log",
   "sections": [
     {
       "title": "04.2024",
@@ -39,6 +39,12 @@
           "question": "23",
           "answer": "- Dishwasher run\n- Washing shoe shelf\n- Filling shelf with plastic protection sheet and washed boots\n- Washing machine run",
           "dateTime": "2024-04-23T15:23:21.944Z"
+        },
+        {
+          "indexTitle": "28",
+          "question": "28",
+          "answer": "- Full trash removed, container washed\n- Floors mopped",
+          "dateTime": "2024-04-27T22:30:31.306Z"
         }
       ]
     }

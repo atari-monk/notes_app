@@ -1,0 +1,22 @@
+{
+  "category": "micro_engine",
+  "sections": [
+    {
+      "title": "Keys",
+      "chats": [
+        {
+          "indexTitle": "Keyboard keys mapping",
+          "question": "Keyboard keys mapping",
+          "answer": "- i\n   * markers\n- o\n   * debugUI\n- e\n   * kick\n- ,\n   * kick\n",
+          "dateTime": "2024-04-28T16:02:23.431Z"
+        },
+        {
+          "indexTitle": "KeyMap Component",
+          "question": "KeyMap Component",
+          "answer": "```json\n \"keyMap\": {\n      \"actions\": [\n        {\n          \"action\": \"markers\",\n          \"key\": \"i\"\n        },\n        {\n          \"action\": \"debugUI\",\n          \"key\": \"o\"\n        }\n      ]\n    }\n```\n- This Component is for mapping key to action\n- system that uses key, loads keyMap component and maps it's action to a key",
+          "dateTime": "2024-04-28T16:06:24.896Z"
+        }
+      ]
+    }
+  ]
+}
