@@ -18,6 +18,12 @@
     "protected": false
   },
   {
+    "path": "../public_note/code/game_math.json",
+    "name": "Game Math",
+    "category": "code",
+    "protected": false
+  },
+  {
     "path": "../public_note/micro_engine/step_by_step.json",
     "name": "Step by step",
     "category": "micro_engine",
