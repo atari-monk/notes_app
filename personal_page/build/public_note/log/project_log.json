@@ -236,6 +236,12 @@
           "question": "28",
           "answer": "1. micro-engine\n   - renamed IUIManager to IUITool and moved it in projects\n   - implemented and used EditoMenu with save level button\n2. notes_app\n   - clean project_log file data format\n   - update some notes\n3. micro-engine\n   - improved print project script\n   - introduced esc to json EntitySaver api ",
           "dateTime": "2024-04-28T20:58:32.986Z"
+        },
+        {
+          "indexTitle": "29",
+          "question": "29",
+          "answer": "1. micro-engine\n   - Save json file with ecs entities\n2. micro-engine\n   - KeyMap toJSON\n3. notes_app\n   - added nice notes\n4. micro-engine\n   - Transform toJSON",
+          "dateTime": "2024-04-29T21:00:30.523Z"
         }
       ]
     }

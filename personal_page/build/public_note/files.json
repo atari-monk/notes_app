@@ -40,5 +40,11 @@
     "name": "Inventory",
     "category": "inventory",
     "protected": false
+  },
+  {
+    "path": "../public_note/crazy/crazy_thoughts.json",
+    "name": "Crazy Thoughts",
+    "category": "crazy",
+    "protected": false
   }
 ]

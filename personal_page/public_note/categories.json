@@ -8,6 +8,10 @@
     {
       "key": "inventory",
       "value": "Inventory"
+    },
+    {
+      "key": "crazy",
+      "value": "Crazy"
     }
   ]
 }

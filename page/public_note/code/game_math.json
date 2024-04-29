@@ -1,0 +1,22 @@
+{
+  "category": "code",
+  "sections": [
+    {
+      "title": "Math",
+      "chats": [
+        {
+          "indexTitle": "Source",
+          "question": "Source",
+          "answer": "[Math for Game Devs [2022]](https://www.youtube.com/watch?v=fjOdtSu4Lm4&list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF)",
+          "dateTime": "2024-04-29T19:29:52.695Z"
+        },
+        {
+          "indexTitle": "Radial Trigger",
+          "question": "Radial Trigger",
+          "answer": "- In Unity\n- Add Trigger to Hierarchy\n- Add object\n- Add script to Trigger named RadialTrigger\n```csharp\npublic class RiadialTrigger : MonoBehaviour {\n\n  public float radius = 1;\n  public Transform player;\n\n  void OnDrawGizmos() {\n    Vector3 center = transform.position;\n    if( player == null )\n      return;\n    Vector3 playerPos = player.position;\n    float dist = Vector3.Distance( center, playerPos );\n\tbool inside = dist <= radius;\n\tGizmos.color = inside ? Color.white : Color.red;\n\tGizmos.DrawWireSphere( center, radius);\n  }\n}\n```\n- Set player referance in editor and radius value\n- This will work but there are common points to make\n```csharp\nVector3 delta = center - playerPos;\nfloat dist = Mathf.Sqrt ( delta.x * delta.x + delta.y * delta.y + delta.z * delta.z );\n```\n- It's better to use 1., more performant\n- second option is for floating point exponents, more expensive math\n```csharp\n//1. \ndelta.x * delta.x\n//2.\nMathf.Pow( delta.x, 2 );\nMathf.Pow( delta.x, 2.5f ); \n```\n- More important point is that Sqrt is most expensive operation here so use squered length instead\n```csharp\nfloat sqrDist = delta.x * delta.x + delta.y * delta.y + delta.z * delta.z;\nbool inside = sqrDist <= radius*radius;\n```\n- These are equal but second option is dimension independent and works for 2d and 3d alike, witch we may want\n```csharp\nfloat sqrDist = delta.x * delta.x + delta.y * delta.y + delta.z * delta.z;\nfloat sqrDist = Vector3.Dot( delta, delta );\n```\n- Optimized\n```csharp\npublic class RadialTrigger : MonoBehaviour {\n\n    public float radius = 1;\n    public Transform player;\n    private float sqrRadius;\n    private Vector3 center;\n\n    void Start() {\n        if (!IsPlayerValid()) {\n            Debug.LogWarning(\"Player reference is not set.\");\n        }\n        sqrRadius = radius * radius;\n        center = transform.position;\n    }\n\n    void OnDrawGizmos() {\n        Vector3 delta = center - player.position;\n        float sqrDist = delta.sqrMagnitude;\n        bool inside = sqrDist <= sqrRadius;\n        Gizmos.color = inside ? Color.white : Color.red;\n        Gizmos.DrawWireSphere(center, radius);\n    }\n\n    bool IsPlayerValid() {\n        return player != null;\n    }\n}\n```",
+          "dateTime": "2024-04-29T20:31:15.601Z"
+        }
+      ]
+    }
+  ]
+}
