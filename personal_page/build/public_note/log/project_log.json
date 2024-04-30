@@ -7,61 +7,61 @@
         {
           "indexTitle": "21",
           "question": "21",
-          "answer": "1. notes\n   - Plan\n2. micro-engine\n   - New solution scripts\n   - Lack of order, turned out they where already in place (but worse)   \n3. micro-engine\n   - Refactoring to enable extension of ComponentMapper\n4. Sending CV\n   - Any possible job advertisement\n5. react_tutorial\n   - Learn react with notes\n---\nRather laid back",
-          "dateTime": "2024-04-26T09:32:47.479Z"
+          "answer": "1. notes\n   - Plan\n2. micro_engine\n   - New solution scripts\n   - Lack of order, turned out they where already in place (but worse)   \n3. micro_engine\n   - Refactoring to enable extension of ComponentMapper\n4. sending_cv\n   - Any possible job advertisement\n5. react_tutorial\n   - Learn react with notes",
+          "dateTime": "2024-04-30T13:58:27.399Z"
         },
         {
           "indexTitle": "22",
           "question": "22",
-          "answer": "1. Grocery, roasting chicken, slicing food for cold storage\n2. Chicken clean up\n3. Learning React and taking notes\n4. Soccer game development (focused on game mechanics)",
-          "dateTime": "2024-04-24T14:05:43.940Z"
+          "answer": "1. react_tutorial\n   - Learning React and taking notes\n2. micro_engine\n   - Soccer game development (focused on game mechanics)",
+          "dateTime": "2024-04-30T14:09:04.491Z"
         },
         {
           "indexTitle": "23",
           "question": "23",
-          "answer": "1. Adding 3D Unity project to portfolio page\n2. Learning React and taking notes\n3. Working on inventory page\n4. Sending CV - 3 sends\n5. Soccer game development (focused on game mechanics)",
-          "dateTime": "2024-04-25T17:54:01.132Z"
+          "answer": "1. portfolio_page\n   - Adding 3D Unity project to portfolio page\n2. react_tutorial\n   - Learning React and taking notes\n3. inventory_page\n   - Working on inventory page",
+          "dateTime": "2024-04-30T14:10:01.032Z"
         },
         {
           "indexTitle": "24",
           "question": "24",
-          "answer": "1. Upgraded scripts proj\n2. Made lame video from that",
-          "dateTime": "2024-03-25T11:21:28.087Z"
+          "answer": "1. scripts\n   - Upgraded scripts proj\n   - Made lame video from that",
+          "dateTime": "2024-04-30T14:11:15.401Z"
         },
         {
           "indexTitle": "25",
           "question": "25",
-          "answer": "1. CV, 34 sended\n2. Update script mouse automate, video on it, testing it",
-          "dateTime": "2024-04-25T17:57:06.268Z"
+          "answer": "1. sending_cv\n   - 34 sended\n2. scripts\n   - Update script mouse automate, video on it, testing it",
+          "dateTime": "2024-04-30T14:11:47.916Z"
         },
         {
           "indexTitle": "26",
           "question": "26",
-          "answer": "1. scripts\n   * Updated mouse automate to use positions files data\n   * Multiple menus and lists type are now possible to handle\n   * Testing it a lot  \n2. micro-engine\n   * Better error handling in component loader\n   * Fix mapper bug\n   * Add component type in new way\n   * Add data of component\n   * Dribble state set\n3. micro-engine\n   * Moved dribble component to players\n   * Set it in kickBall handler\n   * Turn of boots collision if in dribble",
+          "answer": "1. scripts\n   * Updated mouse automate to use positions files data\n   * Multiple menus and lists type are now possible to handle\n   * Testing it a lot  \n2. micro_engine\n   * Better error handling in component loader\n   * Fix mapper bug\n   * Add component type in new way\n   * Add data of component\n   * Dribble state set\n3. micro_engine\n   * Moved dribble component to players\n   * Set it in kickBall handler\n   * Turn of boots collision if in dribble",
           "dateTime": "2024-04-25T18:16:15.134Z"
         },
         {
           "indexTitle": "27",
           "question": "27",
-          "answer": "1. micro-engine\n   * Create playerState component\n   * Load from json\n   * Problem with engine loading sequence and starting\n2. micro-engine\n   * Logging\n   * Engine methods start, prepare, run sequence modification\n   * There was a bug of not await when loading data to engine!\n   * Systems are loaded after data in callback, only after that engine can start!\n   * When adding new component that doesn't have sprite, exclude it in \nwithSpriteRenderer!!!!, later changed to state components included, directly\n3. micro-engine, scripts\n   * Refactor build_all\n   * Verb-noun ps1 function name convention\n   * Refactor build folders script\n4. micro-engine, scripts\n   * Refactor scripts",
-          "dateTime": "2024-04-25T18:25:52.459Z"
+          "answer": "1. micro_engine\n   * Create playerState component\n   * Load from json\n   * Problem with engine loading sequence and starting\n2. micro_engine\n   * Logging\n   * Engine methods start, prepare, run sequence modification\n   * There was a bug of not await when loading data to engine!\n   * Systems are loaded after data in callback, only after that engine can start!\n   * When adding new component that doesn't have sprite, exclude it in \nwithSpriteRenderer!!!!, later changed to state components included, directly\n3. micro_engine\n   * Scripts\n   * Refactor build_all\n   * Verb-noun ps1 function name convention\n   * Refactor build folders script\n4. micro_engine\n   * Scripts\n   * Refactor scripts",
+          "dateTime": "2024-04-30T13:37:18.937Z"
         },
         {
           "indexTitle": "28",
           "question": "28",
-          "answer": "1. scripts\n   * Task 71, upgrade build script\n   * Made script that can run all my build configs, feed from json\n2. nestjs tutorial\n   * notes\n3. notes\n   * Mod notes to use json for pages list\n   * Done removing data from code to json  \n   * Failed again, upgrading libs to versions allowing top level await, did not builds after that \n4. micro-engine\n   * PlayerStateRenderer\n   * Make client engine separate from singleplayer\n   * Make server engine separate from singleplayer\n   * New core system in engine, Sumsystem\n   * Agregates components of entities in cache on start and renders once",
+          "answer": "1. scripts\n   * Task 71, upgrade build script\n   * Made script that can run all my build configs, feed from json\n2. nestjs tutorial\n   * notes\n3. notes\n   * Mod notes to use json for pages list\n   * Done removing data from code to json  \n   * Failed again, upgrading libs to versions allowing top level await, did not builds after that \n4. micro_engine\n   * PlayerStateRenderer\n   * Make client engine separate from singleplayer\n   * Make server engine separate from singleplayer\n   * New core system in engine, Sumsystem\n   * Agregates components of entities in cache on start and renders once",
           "dateTime": "2024-04-26T06:24:18.445Z"
         },
         {
           "indexTitle": "29",
           "question": "29",
-          "answer": "1. nestjs tutorial\n   * notes\n2. micro-engine\n   * What makes a bug on kick box ?\n   * Logger levels, logger can be dissabled and filtered with levels from config.json\n   * Rename logger, to remove dredded, useless manager word from it\n   * Thanks to logging i now see what is the problem, initially ball is flipped right even when player was right\n   * Fixed ball flip bug, synced initial player facing direction left or right with flip state\n3. micro-engine\n   * Switched box flip to dribble.enable\n   * Dribble on delay\n   * Upgrade player state render\n3. react tutorial\n   * tic tac toe",
-          "dateTime": "2024-04-26T09:22:16.057Z"
+          "answer": "1. nestjs_tutorial\n   * notes\n2. micro_engine\n   * What makes a bug on kick box ?\n   * Logger levels, logger can be dissabled and filtered with levels from config.json\n   * Rename logger, to remove dredded, useless manager word from it\n   * Thanks to logging i now see what is the problem, initially ball is flipped right even when player was right\n   * Fixed ball flip bug, synced initial player facing direction left or right with flip state\n3. micro_engine\n   * Switched box flip to dribble.enable\n   * Dribble on delay\n   * Upgrade player state render\n3. react_tutorial\n   * tic tac toe",
+          "dateTime": "2024-04-30T14:12:06.990Z"
         },
         {
           "indexTitle": "30",
           "question": "30",
-          "answer": "1. nestjs-tutorial\n   * Code in repo, tested, detailed notes",
+          "answer": "1. nestjs_tutorial\n   * Code in repo, tested, detailed notes",
           "dateTime": "2024-04-26T09:30:01.337Z"
         }
       ]
@@ -72,134 +72,62 @@
         {
           "indexTitle": "01",
           "question": "01",
-          "answer": "1. nestjs-tutorial\n    * notes\n2. nestjs-tutorial\n    * notes\n3. micro-engine\n    * ",
-          "dateTime": "2024-04-28T17:08:21.582Z"
+          "answer": "1. nestjs_tutorial\n    * notes\n2. nestjs_tutorial\n    * notes",
+          "dateTime": "2024-04-30T14:13:22.517Z"
         },
         {
           "indexTitle": "02",
           "question": "02",
-          "answer": "1. nestjs-tutorial\n    * notes\n2. micro-engine\n    * ",
-          "dateTime": "2024-04-28T17:10:01.176Z"
+          "answer": "1. nestjs_tutorial\n    * notes",
+          "dateTime": "2024-04-30T14:13:30.363Z"
         },
         {
           "indexTitle": "03",
           "question": "03",
-          "answer": "1. micro-engine\n    * \n2. micro-engine\n    * \n3. nestjs-tutorial\n    * notes",
-          "dateTime": "2024-04-28T17:11:03.085Z"
-        },
-        {
-          "indexTitle": "04",
-          "question": "04",
-          "answer": "1. micro-engine\n    * ",
-          "dateTime": "2024-04-28T17:11:22.014Z"
-        },
-        {
-          "indexTitle": "05",
-          "question": "05",
-          "answer": "1. micro-engine\n  - \n2. micro-engine\n  - \n3. micro-engine\n  - \n4. micro-engine\n  - ",
-          "dateTime": "2024-04-28T17:11:56.684Z"
-        },
-        {
-          "indexTitle": "06",
-          "question": "06",
-          "answer": "1. micro-engine\n  - ",
-          "dateTime": "2024-04-28T17:12:36.033Z"
+          "answer": "3. nestjs_tutorial\n    * notes",
+          "dateTime": "2024-04-30T14:13:42.013Z"
         },
         {
           "indexTitle": "07",
           "question": "07",
-          "answer": "0. micro-engine\n   - fail, to hot, to much sun on balcony, despite reflection screens\n1. micro-engine\n  - refactor, renaming, very time intensive, as it was core used evrywhere\n2. micro-engine\n  - replaced manager name to cache for maps of resources classes",
-          "dateTime": "2024-04-28T17:16:24.916Z"
+          "answer": "0. micro_engine\n   - fail, to hot, to much sun on balcony, despite reflection screens\n1. micro_engine\n   - refactor, renaming, very time intensive, as it was core used evrywhere\n2. micro_engine\n   - replaced manager name to cache for maps of resources classes",
+          "dateTime": "2024-04-30T14:16:43.478Z"
         },
         {
           "indexTitle": "08",
           "question": "08",
-          "answer": "1. diy, sun protection for laptop\n  - two panels made, for behind and top of laptop\n  - frame from 4x2, panel from 3mm playwood\n2. micro-engine\n  - refactoring system builders",
-          "dateTime": "2024-04-28T17:19:49.142Z"
+          "answer": "1. laptop_sun_protection\n   - two panels made, for behind and top of laptop\n   - frame from 4x2, panel from 3mm playwood\n2. micro_engine\n   - refactoring system builders",
+          "dateTime": "2024-04-30T14:16:53.606Z"
         },
         {
           "indexTitle": "09",
           "question": "09",
-          "answer": "1. micro-engine\n  - refactoring, added systemAssembler, better validations\n2. nest-js tutorial\n  - notes\n3. add 3d unity tutorial to portfolio\n  - put on [myitch](https://atari-monk.itch.io/)\n4. micro-engine\n  - ",
-          "dateTime": "2024-04-28T17:20:56.849Z"
+          "answer": "1. micro_engine\n   - refactoring, added systemAssembler, better validations\n2. nest-js tutorial\n   - notes\n3. add 3d unity tutorial to portfolio\n   - put on [myitch](https://atari-monk.itch.io/)",
+          "dateTime": "2024-04-30T14:17:03.926Z"
         },
         {
           "indexTitle": "10",
           "question": "10",
-          "answer": "1. micro-engine\n  - \n2. nestjs\n  - notes\n3. samples\n  - mp3 update\n4. micro-engine\n  - refactor system builder",
-          "dateTime": "2024-04-28T17:21:49.221Z"
+          "answer": "2. nestjs\n   - notes\n3. samples\n   - mp3 update\n4. micro_engine\n   - refactor system builder",
+          "dateTime": "2024-04-30T14:17:12.566Z"
         },
         {
           "indexTitle": "11",
           "question": "11",
-          "answer": "1. micro-engine\n  - \n2. micro-engine\n  - refactor system builder (exported data to new model and used to build)\n3. nest-js tutorial\n  - before One To Many Relation, do Module4 from 1:35:18",
-          "dateTime": "2024-04-28T17:22:53.976Z"
+          "answer": "2. micro_engine\n   - refactor system builder (exported data to new model and used to build)\n3. nest-js tutorial\n   - before One To Many Relation, do Module4 from 1:35:18",
+          "dateTime": "2024-04-30T14:17:21.052Z"
         },
         {
           "indexTitle": "12",
           "question": "12",
-          "answer": "1. micro-engine\n  - refactoring, split sys assembler class to prepare and add\n2. diy\n  - glue and screw second panel\n3. micro-engine\n  - fixed system builder, after broken by refactoring, now its simpler",
-          "dateTime": "2024-04-28T17:24:55.804Z"
+          "answer": "1. micro_engine\n   - refactoring, split sys assembler class to prepare and add\n2. laptop_sun_protection\n   - glue and screw second panel\n3. micro_engine\n   - fixed system builder, after broken by refactoring, now its simpler",
+          "dateTime": "2024-04-30T14:15:21.127Z"
         },
         {
           "indexTitle": "13",
           "question": "13",
-          "answer": "1. micro-engine\n   - script that puts code in one txt file for chatgpt\n2. notes\n   - reorganizing\n3. micro-engine\n   - refactor\n   - improved file structure\n   - add step of system builder\n4. notes\n   - rewrite video_watching_log format\n5. micro-engine\n   - add new entities validation step",
+          "answer": "1. micro_engine\n   - script that puts code in one txt file for chatgpt\n2. notes\n   - reorganizing\n3. micro_engine\n   - refactor\n   - improved file structure\n   - add step of system builder\n4. notes\n   - rewrite video_watching_log format\n5. micro_engine\n   - add new entities validation step",
           "dateTime": "2024-04-28T17:26:25.183Z"
-        },
-        {
-          "indexTitle": "14",
-          "question": "14",
-          "answer": "1. micro-engine\n  - ",
-          "dateTime": "2024-04-28T17:26:47.140Z"
-        },
-        {
-          "indexTitle": "15",
-          "question": "15",
-          "answer": "1. micro-engine\n  - \n2. notes\n  - \n3. micro-engine\n  - ",
-          "dateTime": "2024-04-28T17:27:08.735Z"
-        },
-        {
-          "indexTitle": "16",
-          "question": "16",
-          "answer": "1. notes \n  - \n2. notes\n  - \n3. notes\n  - \n4. notes\n  - ",
-          "dateTime": "2024-04-28T17:27:35.733Z"
-        },
-        {
-          "indexTitle": "17",
-          "question": "17",
-          "answer": "1. notes\n  - \n2. notes\n  - \n3. notes\n  - \n4. notes\n  - ",
-          "dateTime": "2024-04-28T17:28:04.899Z"
-        },
-        {
-          "indexTitle": "18",
-          "question": "18",
-          "answer": "1. notes_app\n  - ",
-          "dateTime": "2024-04-28T17:28:15.246Z"
-        },
-        {
-          "indexTitle": "19",
-          "question": "19",
-          "answer": "1. notes\n  - \n2. notes\n  - ",
-          "dateTime": "2024-04-28T17:28:37.473Z"
-        },
-        {
-          "indexTitle": "20",
-          "question": "20",
-          "answer": "1. notes_app\n  - ",
-          "dateTime": "2024-04-28T17:28:58.136Z"
-        },
-        {
-          "indexTitle": "21",
-          "question": "21",
-          "answer": "1. notes_app\n  - \n2. notes_app\n  - ",
-          "dateTime": "2024-04-28T17:29:21.397Z"
-        },
-        {
-          "indexTitle": "22",
-          "question": "22",
-          "answer": "1. notes_app\n  - \n2. notes_app\n  - \n3. notes_app\n  - ",
-          "dateTime": "2024-04-28T17:30:05.542Z"
         },
         {
           "indexTitle": "23",
@@ -234,14 +162,20 @@
         {
           "indexTitle": "28",
           "question": "28",
-          "answer": "1. micro-engine\n   - renamed IUIManager to IUITool and moved it in projects\n   - implemented and used EditoMenu with save level button\n2. notes_app\n   - clean project_log file data format\n   - update some notes\n3. micro-engine\n   - improved print project script\n   - introduced esc to json EntitySaver api ",
+          "answer": "1. micro_engine\n   - renamed IUIManager to IUITool and moved it in projects\n   - implemented and used EditoMenu with save level button\n2. notes_app\n   - clean project_log file data format\n   - update some notes\n3. micro_engine\n   - improved print project script\n   - introduced esc to json EntitySaver api ",
           "dateTime": "2024-04-28T20:58:32.986Z"
         },
         {
           "indexTitle": "29",
           "question": "29",
-          "answer": "1. micro-engine\n   - Save json file with ecs entities\n2. micro-engine\n   - KeyMap toJSON\n3. notes_app\n   - added nice notes\n4. micro-engine\n   - Transform toJSON",
-          "dateTime": "2024-04-29T21:00:30.523Z"
+          "answer": "1. micro_engine\n   - Save json file with ecs entities\n2. micro_engine\n   - KeyMap toJSON\n3. notes_app\n   - Added nice notes\n4. micro_engine\n   - Transform toJSON",
+          "dateTime": "2024-04-30T14:08:07.272Z"
+        },
+        {
+          "indexTitle": "30",
+          "question": "30",
+          "answer": "1. notes_app\n   - fix project_log format\n   - project_time_convert script to create json project_time data file\n   - project_time script to calculate monthly stats\n2. micro_engine\n   - save BoxColliders array to json from components in memory",
+          "dateTime": "2024-04-30T22:47:24.948Z"
         }
       ]
     }
