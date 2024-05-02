@@ -46,5 +46,11 @@
     "name": "Crazy Thoughts",
     "category": "crazy",
     "protected": false
+  },
+  {
+    "path": "../public_note/idea/project.json",
+    "name": "Project Idea",
+    "category": "idea",
+    "protected": false
   }
 ]

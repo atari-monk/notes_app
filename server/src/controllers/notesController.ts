@@ -7,9 +7,9 @@ import { loadchatFromFile } from '../file/load'
 
 const public_note = 'C:/atari-monk/code/notes_app/page/public_note'
 const personal_note = 'C:/atari-monk/code/notes_app/personal_page/public_note'
-const private_note = 'C:/atari-monk/docs/notes_app'
+const private_note = 'C:/atari-monk/docs/notes_app/build/public_note'
 const private_category = 'private_note'
-const personal_category = ['log', 'inventory', 'crazy']
+const personal_category = ['log', 'inventory', 'crazy', 'idea']
 
 function getBaseDirectory(category: string) {
   if (category === private_category) {

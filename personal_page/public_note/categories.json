@@ -12,6 +12,10 @@
     {
       "key": "crazy",
       "value": "Crazy"
+    },
+	{
+      "key": "idea",
+      "value": "Idea"
     }
   ]
 }

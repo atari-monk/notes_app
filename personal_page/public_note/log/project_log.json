@@ -178,6 +178,23 @@
           "dateTime": "2024-04-30T22:47:24.948Z"
         }
       ]
+    },
+    {
+      "title": "05.2024",
+      "chats": [
+        {
+          "indexTitle": "1",
+          "question": "1",
+          "answer": "1. micro_engine\n   - added many toJson to commponents\n   - so that player1.json saved from components in memry loads again from file",
+          "dateTime": "2024-05-01T21:19:41.188Z"
+        },
+        {
+          "indexTitle": "2",
+          "question": "2",
+          "answer": "1. notes_app\n   - local page with json markdown douments, hosted on flask with py script\n   - some notes",
+          "dateTime": "2024-05-02T20:43:31.497Z"
+        }
+      ]
     }
   ]
 }

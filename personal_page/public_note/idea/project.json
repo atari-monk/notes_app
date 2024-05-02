@@ -1,0 +1,28 @@
+{
+  "category": "idea",
+  "sections": [
+    {
+      "title": "Note",
+      "chats": [
+        {
+          "indexTitle": "Artificial Life",
+          "question": "Artificial Life",
+          "answer": "- Simple life game \n- With creatures and player interaction",
+          "dateTime": "2024-05-02T20:38:25.281Z"
+        },
+        {
+          "indexTitle": "Motion Controller",
+          "question": "Motion Controller",
+          "answer": "- Use camera for motion control\n- Detect object motion as mouse\n- Use sound",
+          "dateTime": "2024-05-02T20:40:26.422Z"
+        },
+        {
+          "indexTitle": "Visualizers",
+          "question": "Visualizers",
+          "answer": "- Vizualize diffrence between unit and 8*10^9 units",
+          "dateTime": "2024-05-02T20:42:29.145Z"
+        }
+      ]
+    }
+  ]
+}
