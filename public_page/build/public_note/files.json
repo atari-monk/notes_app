@@ -1,5 +1,35 @@
 [
   {
+    "path": "../public_note/link/audiobook.json",
+    "name": "Audiobook",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/comedy.json",
+    "name": "Comedy",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/entertainment.json",
+    "name": "Entertainment",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/game.json",
+    "name": "Game",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/list.json",
+    "name": "List",
+    "category": "link",
+    "protected": false
+  },
+  {
     "path": "../public_note/link/most_used.json",
     "name": "Most Used",
     "category": "link",
@@ -8,6 +38,24 @@
   {
     "path": "../public_note/link/movie.json",
     "name": "Movie",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/music.json",
+    "name": "Music",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/short.json",
+    "name": "Short",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/talk.json",
+    "name": "Talk",
     "category": "link",
     "protected": false
   },
