@@ -1,4 +1,4 @@
 node_modules
 build
-!page/build/
+!public_page/build/
 !personal_page/build/

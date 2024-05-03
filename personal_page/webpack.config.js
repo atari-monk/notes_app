@@ -30,7 +30,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/index.html', to: 'index.html' },
-        { from: 'public_note', to: 'public_note' },
+        { from: 'personal_note', to: 'personal_note' },
       ],
     }),
     new MiniCssExtractPlugin({

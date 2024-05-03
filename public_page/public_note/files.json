@@ -1,8 +1,14 @@
 [
   {
-    "path": "../public_note/info/links.json",
-    "name": "Links",
-    "category": "info",
+    "path": "../public_note/link/links.json",
+    "name": "Link",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/tutorial.json",
+    "name": "Tutorial",
+    "category": "link",
     "protected": false
   },
   {
