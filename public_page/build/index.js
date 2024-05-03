@@ -72,7 +72,7 @@ const json_1 = __importDefault(__webpack_require__(/*! ../file_sys/json */ "./no
 class CategoryProvider {
     categories = [];
     defaultCategory = '';
-    async loadCategories(filePath = './public_note/categories.json') {
+    async loadCategories(filePath) {
         try {
             const categoriesConfig = await (0, json_1.default)(filePath);
             if (categoriesConfig) {
@@ -9224,7 +9224,10 @@ const highlight_js_1 = __importDefault(__webpack_require__(/*! highlight.js */ "
 const ui_lib_1 = __webpack_require__(/*! ui_lib */ "./node_modules/ui_lib/index.js");
 const markDownIt = new markdown_it_1.default();
 markDownIt.use(markdown_it_implicit_figures_1.default, { dataType: false, figcaption: true });
-new ui_lib_1.MainPage(markDownIt, highlight_js_1.default).initialize();
+const dataFolder = 'public_note';
+const categoryFilePath = `${dataFolder}/categories.json`;
+const contentFilePath = `${dataFolder}/files.json`;
+new ui_lib_1.MainPage(markDownIt, highlight_js_1.default, categoryFilePath).initialize(contentFilePath);
 
 
 /***/ }),
@@ -9889,11 +9892,8 @@ class CategoryFilter extends Component_1.default {
                 this.ui.add(option);
             }
             this.ui.addEventListener('change', async () => {
-                this.fileIndexFactory.getNewInstance().initialize({
-                    id: 'fileListContainer',
-                    filePath: 'public_note/files.json',
-                    category: this.ui.value.toLowerCase(),
-                });
+                data.fileIndexData.category = this.ui.value.toLowerCase();
+                this.fileIndexFactory.getNewInstance().initialize(data.fileIndexData);
             });
             if (categoryFromUrl &&
                 categories.find((c) => c.key === categoryFromUrl)) {
@@ -10380,18 +10380,25 @@ const CategoryFilter_1 = __importDefault(__webpack_require__(/*! ../initialize_c
 class MainPage {
     markDownIt;
     hljs;
-    constructor(markDownIt, hljs) {
+    categoryFilePath;
+    constructor(markDownIt, hljs, categoryFilePath) {
         this.markDownIt = markDownIt;
         this.hljs = hljs;
+        this.categoryFilePath = categoryFilePath;
     }
-    async initialize() {
+    async initialize(filePath) {
         const category = new data_lib_1.CategoryProvider();
-        await category.loadCategories();
+        await category.loadCategories(this.categoryFilePath);
         new CategoryFilter_1.default(new FileIndexFactory_1.default(this.markDownIt, this.hljs)).initialize({
             id: 'filter',
             categories: category.getAllCategories(),
             defaultCategory: category.getDefaultCategory(),
             categoryFromUrl: category.getCategoryFromUrl(),
+            fileIndexData: {
+                id: 'fileListContainer',
+                category: '',
+                filePath: filePath,
+            },
         });
     }
 }

@@ -6,9 +6,7 @@ export default class CategoryProvider {
   private categories: ICategory[] = []
   private defaultCategory: string = ''
 
-  async loadCategories(
-    filePath = './public_note/categories.json'
-  ): Promise<void> {
+  async loadCategories(filePath: string): Promise<void> {
     try {
       const categoriesConfig = await loadJSONFile<ICategoriesConfig>(filePath)
       if (categoriesConfig) {

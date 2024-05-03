@@ -3,17 +3,15 @@ import FileIndexFactory from '../factory/FileIndexFactory'
 import CategoryFilter from '../initialize_component/CategoryFilter'
 
 export default class MainPage {
-  private markDownIt: any
-  private hljs: any
+  constructor(
+    private readonly markDownIt: any,
+    private readonly hljs: any,
+    private readonly categoryFilePath: string
+  ) {}
 
-  constructor(markDownIt: any, hljs: any) {
-    this.markDownIt = markDownIt
-    this.hljs = hljs
-  }
-
-  async initialize() {
+  async initialize(filePath: string) {
     const category = new CategoryProvider()
-    await category.loadCategories()
+    await category.loadCategories(this.categoryFilePath)
 
     new CategoryFilter(
       new FileIndexFactory(this.markDownIt, this.hljs)
@@ -22,6 +20,11 @@ export default class MainPage {
       categories: category.getAllCategories(),
       defaultCategory: category.getDefaultCategory(),
       categoryFromUrl: category.getCategoryFromUrl(),
+      fileIndexData: {
+        id: 'fileListContainer',
+        category: '',
+        filePath: filePath,
+      },
     })
   }
 }

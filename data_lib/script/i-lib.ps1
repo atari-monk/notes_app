@@ -19,7 +19,7 @@ $workingList = @(
     "server",
     "editor",
     "reader",
-    "page",
+    "public_page",
     "personal_page"
 )
 

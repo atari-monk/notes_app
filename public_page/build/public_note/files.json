@@ -1,8 +1,20 @@
 [
   {
-    "path": "../public_note/info/links.json",
-    "name": "Links",
-    "category": "info",
+    "path": "../public_note/link/most_used.json",
+    "name": "Most Used",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/movie.json",
+    "name": "Movie",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/tutorial.json",
+    "name": "Tutorial",
+    "category": "link",
     "protected": false
   },
   {

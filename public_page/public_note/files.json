@@ -1,7 +1,13 @@
 [
   {
-    "path": "../public_note/link/links.json",
-    "name": "Link",
+    "path": "../public_note/link/most_used.json",
+    "name": "Most Used",
+    "category": "link",
+    "protected": false
+  },
+  {
+    "path": "../public_note/link/movie.json",
+    "name": "Movie",
     "category": "link",
     "protected": false
   },

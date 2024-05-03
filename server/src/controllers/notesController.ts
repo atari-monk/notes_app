@@ -5,9 +5,9 @@ import { IChat, IChatEdit } from 'data_lib'
 import { appendChatToFile } from '../file/append'
 import { loadchatFromFile } from '../file/load'
 
-const public_note = 'C:/atari-monk/code/notes_app/page/public_note'
-const personal_note = 'C:/atari-monk/code/notes_app/personal_page/public_note'
-const private_note = 'C:/atari-monk/docs/notes_app/build/public_note'
+const public_note = 'C:/atari-monk/code/notes_app/public_page/public_note'
+const personal_note = 'C:/atari-monk/code/notes_app/personal_page/personal_note'
+const private_note = 'C:/atari-monk/my_app/notes_app/private_note'
 const private_category = 'private_note'
 const personal_category = ['log', 'inventory', 'crazy', 'idea']
 

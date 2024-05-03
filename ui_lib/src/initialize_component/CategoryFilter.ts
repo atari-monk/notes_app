@@ -22,11 +22,8 @@ export default class CategoryFilter extends Component<HTMLSelectElement> {
       }
 
       this.ui.addEventListener('change', async () => {
-        this.fileIndexFactory.getNewInstance().initialize({
-          id: 'fileListContainer',
-          filePath: 'public_note/files.json',
-          category: this.ui.value.toLowerCase(),
-        })
+        data.fileIndexData.category = this.ui.value.toLowerCase()
+        this.fileIndexFactory.getNewInstance().initialize(data.fileIndexData)
       })
 
       if (

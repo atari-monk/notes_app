@@ -1,54 +1,54 @@
 [
   {
-    "path": "../public_note/log/project_time.json",
+    "path": "../personal_note/log/project_time.json",
     "name": "Project Time",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../public_note/log/project_log.json",
+    "path": "../personal_note/log/project_log.json",
     "name": "Project Log",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../public_note/log/sleep.json",
+    "path": "../personal_note/log/sleep.json",
     "name": "Sleep",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../public_note/log/cleaning.json",
+    "path": "../personal_note/log/cleaning.json",
     "name": "Cleaning Log",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../public_note/log/day.json",
+    "path": "../personal_note/log/day.json",
     "name": "Day",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../public_note/log/video_watching.json",
+    "path": "../personal_note/log/video_watching.json",
     "name": "Video Watching",
     "category": "log",
     "protected": false
   },
   {
-    "path": "../public_note/inventory/inventory.json",
+    "path": "../personal_note/inventory/inventory.json",
     "name": "Inventory",
     "category": "inventory",
     "protected": false
   },
   {
-    "path": "../public_note/crazy/crazy_thoughts.json",
+    "path": "../personal_note/crazy/crazy_thoughts.json",
     "name": "Crazy Thoughts",
     "category": "crazy",
     "protected": false
   },
   {
-    "path": "../public_note/idea/project.json",
+    "path": "../personal_note/idea/project.json",
     "name": "Project Idea",
     "category": "idea",
     "protected": false
