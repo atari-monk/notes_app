@@ -193,6 +193,12 @@
           "question": "2",
           "answer": "1. notes_app\n   - local page with json markdown douments, hosted on flask with py script\n   - some notes",
           "dateTime": "2024-05-02T20:43:31.497Z"
+        },
+        {
+          "indexTitle": "3",
+          "question": "3",
+          "answer": "- notes_app\n   - sort pass app\n   - sort docs folder\n   - script to put links into json notes files\n   - renamed folders of app\n   - put paths to files to top of page class",
+          "dateTime": "2024-05-03T18:07:56.649Z"
         }
       ]
     }

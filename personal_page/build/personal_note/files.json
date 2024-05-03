@@ -52,5 +52,11 @@
     "name": "Project Idea",
     "category": "idea",
     "protected": false
+  },
+  {
+    "path": "../personal_note/idea/to_do.json",
+    "name": "To Do",
+    "category": "idea",
+    "protected": false
   }
 ]
