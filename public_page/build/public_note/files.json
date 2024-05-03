@@ -1,5 +1,11 @@
 [
   {
+    "path": "../public_note/link/most_used.json",
+    "name": "Most Used",
+    "category": "link",
+    "protected": false
+  },
+  {
     "path": "../public_note/link/audiobook.json",
     "name": "Audiobook",
     "category": "link",
@@ -26,12 +32,6 @@
   {
     "path": "../public_note/link/list.json",
     "name": "List",
-    "category": "link",
-    "protected": false
-  },
-  {
-    "path": "../public_note/link/most_used.json",
-    "name": "Most Used",
     "category": "link",
     "protected": false
   },
