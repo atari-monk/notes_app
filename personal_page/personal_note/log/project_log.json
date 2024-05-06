@@ -199,6 +199,18 @@
           "question": "3",
           "answer": "- notes_app\n   - sort pass app\n   - sort docs folder\n   - script to put links into json notes files\n   - renamed folders of app\n   - put paths to files to top of page class",
           "dateTime": "2024-05-03T18:07:56.649Z"
+        },
+        {
+          "indexTitle": "5",
+          "question": "5",
+          "answer": "1. micro_engine\n   - trying to make it more robust\n   - result of analisis is todo:\n   - system builder is broken\n   - it should not build data when validation fails and should not proceed to assembly on this system\n   - in other words, probably there should be some validation flag added that will turn of all steps down from failed validation step, for each system individually  ",
+          "dateTime": "2024-05-05T21:38:40.618Z"
+        },
+        {
+          "indexTitle": "6",
+          "question": "6",
+          "answer": "1. micro_engine\n   - improved system validation during building systems\n   - blocked data steps and assembly steps after failed system-entity validation (systems may need some entity/components)\n   - add validation on components needed for system\n   - tested on minimal sets of data for player witch helps see whats what",
+          "dateTime": "2024-05-06T15:43:33.130Z"
         }
       ]
     }
