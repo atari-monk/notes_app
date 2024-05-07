@@ -1,5 +1,5 @@
 {
-  "category": "code",	
+  "category": "code",
   "sections": [
     {
       "title": "Note",
@@ -93,6 +93,12 @@
           "question": "One to Many Relation",
           "answer": "* A has many instances of B, B has one of A\n* Playlist have multiple songs\n* User can have multiple playlists\n* Many playlists can belong to single user\n\n1. Create Playlist Entity and add Relations\n  - create folder src/playlists\n  - create file playlist.entity.ts\n  - install typeorm\n```bash\nnpm i typeorm\n```\n  - define entitties and relationships\n```typescript\nimport { Song } from 'src/songs/song.entity'\nimport {\n  Column,\n  Entity,\n  JoinTable,\n  ManyToMany,\n  PrimaryGeneratedColumn,\n} from 'typeorm'\n\n@Entity('artists')\nexport class Artist {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  name: string\n\n  @ManyToMany(() => Song, (song) => song.artists, { cascade: true })\n  @JoinTable({ name: 'songs_artists' })\n  songs: Song[]\n}\n```\n```typescript\nimport { Song } from 'src/songs/song.entity'\nimport { User } from 'src/users/user.entity'\nimport {\n  Column,\n  Entity,\n  ManyToOne,\n  OneToMany,\n  PrimaryGeneratedColumn,\n} from 'typeorm'\n\n@Entity('playlists')\nexport class Playlist {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  name: string\n\n  @OneToMany(() => Song, (song) => song.playList)\n  songs: Song[]\n\n  @ManyToOne(() => User, (user) => user.playLists)\n  user: User\n}\n```\n```typescript\nimport { Artist } from 'src/artists/artist.entity'\nimport { Playlist } from 'src/playlists/playlist.entity'\nimport {\n  Column,\n  Entity,\n  JoinTable,\n  ManyToMany,\n  ManyToOne,\n  PrimaryGeneratedColumn,\n} from 'typeorm'\n\n@Entity('songs')\nexport class Song {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  title: string\n\n  @Column('date')\n  releasedDate: Date\n\n  @Column('time')\n  duration: Date\n\n  @Column()\n  lyrics: string\n\n  @ManyToMany(() => Artist, (artist) => artist.songs, { cascade: true })\n  @JoinTable({ name: 'songs_artists' })\n  artists: Artist[]\n\n  @ManyToOne(() => Playlist, (playList) => playList.songs)\n  playList: Playlist\n}\n```\n```typescript\nimport { Playlist } from 'src/playlists/playlist.entity'\nimport { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'\n\n@Entity('users')\nexport class User {\n  @PrimaryGeneratedColumn()\n  id: number\n\n  @Column()\n  firstName: string\n\n  @Column()\n  lastName: string\n\n  @Column()\n  email: string\n\n  @Column()\n  password: string\n\n  @OneToMany(() => Playlist, (playList) => playList.user)\n  playLists: Playlist[]\n}\n```",
           "dateTime": "2024-04-11T21:42:31.317Z"
+        },
+        {
+          "indexTitle": "TypeORM and Postgres",
+          "question": "TypeORM and Postgres",
+          "answer": "- Install Dependencies\n```bash\nnpm i @nestjs/typeorm pg typeorm\n```\n```bash\nnpm i --save-dev @types/node\n```\n- In AppModule\n```bash\nimports: [\n TypeOrmModule.forRoot({\n  type: 'postgres',\n  host: 'localhost',\n  port: 5432,\n  username: 'your_username',\n  password: 'your_db_password',\n  database: 'n-test',\n  entities: [],\n  synchronize: true,\n}),\n```\n- synchronize, is for test database, removes data on start\n",
+          "dateTime": "2024-05-07T21:11:14.908Z"
         }
       ]
     }

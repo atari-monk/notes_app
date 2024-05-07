@@ -12,6 +12,12 @@
     "protected": false
   },
   {
+    "path": "../personal_note/log/attention.json",
+    "name": "Attention Log",
+    "category": "log",
+    "protected": false
+  },
+  {
     "path": "../personal_note/log/sleep.json",
     "name": "Sleep",
     "category": "log",
