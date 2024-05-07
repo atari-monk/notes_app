@@ -211,6 +211,12 @@
           "question": "6",
           "answer": "1. micro_engine\n   - improved system validation during building systems\n   - blocked data steps and assembly steps after failed system-entity validation (systems may need some entity/components)\n   - add validation on components needed for system\n   - tested on minimal sets of data for player witch helps see whats what",
           "dateTime": "2024-05-06T15:43:33.130Z"
+        },
+        {
+          "indexTitle": "7",
+          "question": "7",
+          "answer": "1. micro_engine\n   - am i able to introduce new features ?\n   - am i able to ship a game ?",
+          "dateTime": "2024-05-07T11:00:40.844Z"
         }
       ]
     }
