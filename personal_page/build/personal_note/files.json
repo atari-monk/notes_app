@@ -30,6 +30,12 @@
     "protected": false
   },
   {
+    "path": "../personal_note/log/out.json",
+    "name": "Out",
+    "category": "log",
+    "protected": false
+  },
+  {
     "path": "../personal_note/log/day.json",
     "name": "Day",
     "category": "log",

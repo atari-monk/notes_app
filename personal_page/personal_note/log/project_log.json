@@ -217,6 +217,12 @@
           "question": "7",
           "answer": "1. micro_engine\n   - am i able to introduce new features ?\n   - am i able to ship a game ?\n   - experimenting with ball json\n2. micro_engine\n   - fixes of system builder so that ball can have keyboard movement system on\n3. nestjs_tutorial\n   - small note\n4. notes_app\n   - bit crazy, restoring note on older project, to show how crazy it was  ",
           "dateTime": "2024-05-07T22:32:59.897Z"
+        },
+        {
+          "indexTitle": "8",
+          "question": "8",
+          "answer": "- notes_app\n   - update logs for the day",
+          "dateTime": "2024-05-08T11:20:18.071Z"
         }
       ]
     }
