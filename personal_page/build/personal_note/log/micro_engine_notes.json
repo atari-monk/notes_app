@@ -1,0 +1,28 @@
+{
+  "category": "log",
+  "sections": [
+    {
+      "title": "Note",
+      "chats": [
+        {
+          "indexTitle": "Ball Experiment",
+          "question": "Ball Experiment",
+          "answer": "- Taken just ball from ball_game.json, to ball.json\n- Turn off Player Ball collison system, no player\n- Turn off Ball Gate collison system, no gate\n- Found out 2 important points\n   * to turn on EntityMovement system: \n      - Problem:\n         * there was a need to define that system uses ball entity\n         * it was set for ball_game file to players entities\n      - Fix:\n         * so SystemEntitiesProvider must be modiffied depending on level data\n         * i would like to use just diffrent one depending on level file\n         * factory will check level file and use correct SystemEntitiesProvider \n   * also rigidBody->moveStep decides about movement in some way\n      - Problem:\n         * if it's zero there is no movement\n      - Fix:\n         * remove this from EntityMovement  and use constant ?\n- Updgraded system entity selector so that it has data now and they are specific to level file",
+          "dateTime": "2024-05-07T16:40:07.613Z"
+        },
+        {
+          "indexTitle": "Beat Goalkeeper level",
+          "question": "Beat Goalkeeper level",
+          "answer": "- I want level of beating goalkeeper\n- ",
+          "dateTime": "2024-05-08T11:37:51.850Z"
+        },
+        {
+          "indexTitle": "Debug UI",
+          "question": "Debug UI",
+          "answer": "- new component DebugUI\n- shoud have isOn:bolean\n- keyMap\n- maybe it could be placed in entity called global, then it affects all entities\n- but it could also be placed locally and then affect specific entity ?",
+          "dateTime": "2024-05-08T11:58:17.765Z"
+        }
+      ]
+    }
+  ]
+}

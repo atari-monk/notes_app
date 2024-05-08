@@ -12,8 +12,14 @@
     "protected": false
   },
   {
-    "path": "../personal_note/log/attention.json",
-    "name": "Attention Log",
+    "path": "../personal_note/log/micro_engine_notes.json",
+    "name": "micro_engine Notes",
+    "category": "log",
+    "protected": false
+  },
+  {
+    "path": "../personal_note/log/micro_engine_tasks.json",
+    "name": "micro_engine Tasks",
     "category": "log",
     "protected": false
   },

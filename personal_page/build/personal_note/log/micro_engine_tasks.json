@@ -1,0 +1,22 @@
+{
+  "category": "log",
+  "sections": [
+    {
+      "title": "Tasks",
+      "chats": [
+        {
+          "indexTitle": "Debug UI",
+          "question": "Debug UI",
+          "answer": "---\nDescription:\n- Fix feature\n- Rendering of UI's for debuging collision boxes, points, vectors and so on  \n\nSteps:\n- Move key mappings to debugUI entity\n- Fix in system\n- Test if every file level works\n- It should be posible to turn it on/off by default in component\n- Do same with MarkersRenderer system\n---\nSill to do:\n- Test if every file level works",
+          "dateTime": "2024-05-08T20:24:44.312Z"
+        },
+        {
+          "indexTitle": "List duplication",
+          "question": "List duplication",
+          "answer": "- componentType\n- componentList\n- check why this duplication ?",
+          "dateTime": "2024-05-08T12:53:37.548Z"
+        }
+      ]
+    }
+  ]
+}
