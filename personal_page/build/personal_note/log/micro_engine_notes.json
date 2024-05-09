@@ -23,6 +23,17 @@
           "dateTime": "2024-05-08T11:58:17.765Z"
         }
       ]
+    },
+    {
+      "title": "Build script",
+      "chats": [
+        {
+          "indexTitle": "Config param Options",
+          "question": "Config param Options",
+          "answer": "- Builds all projs: engine_api, engine, ball_game, desktop_ball_game, mobile_ball_game\n```bash\n.\\build.ps1 -Config full\n```\n- Builds all for current proj: engine_api, engine, ball_game, desktop_ball_game\n```bash\n.\\build.ps1 -Config medium\n```\n- Builds current proj exluding api: engine, ball_game, desktop_ball_game\n```bash\n.\\build.ps1 -Config minimal\n```\n- Builds current proj exluding api and engine: ball_game, desktop_ball_game\n```bash\n.\\build.ps1 -Config fast\n```\n- Builds only current proj: desktop_ball_game\n```bash\n.\\build.ps1 -Config fastest\n```",
+          "dateTime": "2024-05-09T17:30:41.737Z"
+        }
+      ]
     }
   ]
 }
