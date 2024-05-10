@@ -229,6 +229,12 @@
           "question": "9",
           "answer": "1. micro_engine\n   - refactor data files config\n   - test of sprite and debugUI renderers, with minimal data, also save and load of data\n2. micro_engine\n   - test of keyboardMapping, with minimal data, also save and load of data\n3. micro_engine\n   - test of markers, with minimal data, also save and load of data",
           "dateTime": "2024-05-09T21:26:04.034Z"
+        },
+        {
+          "indexTitle": "10",
+          "question": "10",
+          "answer": "1. micro_engine\n   - animation test (minimal data and systems for it to work, load and save json, load from save)\n   - movement test\n   - InsideBoxCollisionSystem test and fix",
+          "dateTime": "2024-05-10T21:24:09.379Z"
         }
       ]
     }
