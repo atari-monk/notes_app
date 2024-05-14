@@ -247,6 +247,18 @@
           "question": "12",
           "answer": "1. micro_engine\n   - button activated overlay with menu containing save button for saving entities to json file",
           "dateTime": "2024-05-12T18:41:57.773Z"
+        },
+        {
+          "indexTitle": "13",
+          "question": "13",
+          "answer": "1. micro_engine\n   - ball movement test\n   - field ball collision test\n2. micro_engine\n   - new movement controller witch allows to steer entity precisly in arrrows direction and maintains velocity of rigid body\n3. micro_engine\n   - BallMovement, PlayerMovment, turn of inside box collision in ball_game",
+          "dateTime": "2024-05-13T19:01:06.282Z"
+        },
+        {
+          "indexTitle": "14",
+          "question": "14",
+          "answer": "1. micro_engine\n   - limitMove test, save test\n2. micro_engine\n   - leftGate test, save test\n3. added some tojson to components, saved ball_game file, loaded from save\n4. \n5. fixed ball_game_keeper level, edited ball_game at last\n6. leftGateBallCollision test",
+          "dateTime": "2024-05-14T17:50:51.638Z"
         }
       ]
     }
