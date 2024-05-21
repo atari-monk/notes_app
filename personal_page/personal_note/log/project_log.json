@@ -271,6 +271,24 @@
           "question": "16",
           "answer": "1. micro_engine\n   - ballKick test",
           "dateTime": "2024-05-16T16:44:34.837Z"
+        },
+        {
+          "indexTitle": "19",
+          "question": "19",
+          "answer": "1. micro_engine\n   - extracted multi stuff to projs, single is now separate, compiled and run ok on single\n2. \n   - start to build multiplayer projs\n3.\n   - build engine client proj",
+          "dateTime": "2024-05-19T21:49:10.728Z"
+        },
+        {
+          "indexTitle": "20",
+          "question": "20",
+          "answer": "1. micro_engine\n   - renamed single player projects and scripts, rebuilded ",
+          "dateTime": "2024-05-20T13:34:37.491Z"
+        },
+        {
+          "indexTitle": "21",
+          "question": "21",
+          "answer": "1. micro_engine\n   - trying to decouple some projects by introducing interfaces to engine class\n2. micro_engine\n   - build football_multi\n3. micro_engine\n   - build football_multi_desktop\n4. micro_engine\n   - fix build script for football_single_desktop\n5. micro_engine\n   - notes on json files for test cases",
+          "dateTime": "2024-05-21T23:10:30.465Z"
         }
       ]
     }

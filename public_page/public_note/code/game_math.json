@@ -17,6 +17,23 @@
           "dateTime": "2024-04-29T20:31:15.601Z"
         }
       ]
+    },
+    {
+      "title": "Transformation Matrices",
+      "chats": [
+        {
+          "indexTitle": "Matrices",
+          "question": "Matrices",
+          "answer": "- Way of storing points\n- Column matrix\n```plaintext\n|x|\n|y|\n|z|\n```\n- Row matrix\n```plaintext\n|x y z|\n```",
+          "dateTime": "2024-05-19T15:28:16.412Z"
+        },
+        {
+          "indexTitle": "Multiplication",
+          "question": "Multiplication",
+          "answer": "- a x b\n```plaintext\n                |bx|\n[ax ay az] |by|\n                |bz|\n```\n- Multiplication rule is\n```plaintext\n[bx by bz]      \n[ax ay az]  = bx*ax + by*ay + bz*az\n```\n* It's Dot Product\n* [Visualisation](http://matrixmultiplication.xyz/)",
+          "dateTime": "2024-05-19T16:18:09.249Z"
+        }
+      ]
     }
   ]
 }

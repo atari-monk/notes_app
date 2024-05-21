@@ -41,8 +41,70 @@
         {
           "indexTitle": "Test",
           "question": "Test",
-          "answer": "```json\nanimationState\n```\n```json\nballMovement\n```\n```json\ndebugUI\n```\n```json\nfield\n```\n```json\nfieldBallCollision\n```\n```json\ninsideBoxCollision\n```\n```json\nkeyboardMapping\n```\n```json\nmarkers\n```\n```json\nplayerMovement\n```\n```json\nsprite\n```\n```json\nball_game\n```",
-          "dateTime": "2024-05-13T18:32:52.181Z"
+          "answer": "```json\nfield\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```\n```json\n\n```",
+          "dateTime": "2024-05-21T22:22:07.530Z"
+        },
+        {
+          "indexTitle": "Level",
+          "question": "Level",
+          "answer": "```\nfootball\n```\n```\ngoal_king\n```",
+          "dateTime": "2024-05-21T22:10:31.765Z"
+        },
+        {
+          "indexTitle": "Field",
+          "question": "Field",
+          "answer": "Test of sprite  \nSpecificly field sprite  \n```\nfield.json\n```\n```typescript\n{\n  \"field\": {\n    \"id\": \"field\",\n    \"name\": \"field\",\n    \"transform\": {\n      \"position\": {\n        \"x\": 960,\n        \"y\": 540\n      },\n      \"scale\": {\n        \"x\": 1,\n        \"y\": 1\n      },\n      \"rotation\": 0\n    },\n    \"sprite\": {\n      \"spriteOffset\": {\n        \"x\": -960,\n        \"y\": -540\n      },\n      \"isFlipped\": true,\n      \"spriteAnimation\": [\n        {\n          \"imagePath\": \"./assets/grass_big.png\",\n          \"frameCount\": 1,\n          \"frameDuration\": 1,\n          \"frameSize\": {\n            \"x\": 1920,\n            \"y\": 1080\n          },\n          \"animationType\": 1\n        }\n      ],\n      \"state\": \"idle\"\n    }\n  }\n}\n```",
+          "dateTime": "2024-05-21T22:40:39.041Z"
+        },
+        {
+          "indexTitle": "DebugUI",
+          "question": "DebugUI",
+          "answer": "This is minimal number of entities and components to get box collider rendered  \nThere needs to be debugUI entity and component, transform and boxCollider component for entity to display box collider  \nTest:  \nTest debugUI system that isOn by default  \nTest load data and build systems  \nTest save data to json file and load from it  \n```\ndebugUI.json\n```\n```json\n{\n  \"debugUI\": {\n    \"id\": \"debugUI\",\n    \"name\": \"debugUI\",\n    \"debugUI\": {\n      \"isOn\": true,\n      \"actions\": [\n        {\n          \"action\": \"debugUI\",\n          \"key\": \"o\"\n        }\n      ]\n    }\n  },\n  \"player1\": {\n    \"id\": \"player1\",\n    \"name\": \"player1\",\n    \"transform\": {\n      \"position\": {\n        \"x\": 830,\n        \"y\": 540\n      },\n      \"scale\": {\n        \"x\": 1,\n        \"y\": 1\n      },\n      \"rotation\": 0\n    },\n    \"boxCollider\": [\n      {\n        \"id\": \"body\",\n        \"size\": {\n          \"x\": 40,\n          \"y\": 42.5\n        },\n        \"center\": {\n          \"x\": 0,\n          \"y\": 33.75\n        },\n        \"isTrigger\": false,\n        \"material\": {\n          \"dynamicFriction\": 0.8,\n          \"staticFriction\": 0.2,\n          \"bounciness\": 0\n        },\n        \"color\": \"red\",\n        \"enableRender\": false\n      }\n    ]\n  }\n}\n```\nSystems and their entities  \n```typescript\nimport ISystemEntity from './ISystemEntity'\n\nexport const entity = ['player1']\n\nexport const debugUI: ISystemEntity[] = [\n  {\n    id: 'debugRenderer',\n    entityIds: entity,\n  },\n  {\n    id: 'keyboardMapping',\n    entityIds: ['debugUI'],\n  },\n]\n```",
+          "dateTime": "2024-05-21T23:03:33.710Z"
+        }
+      ]
+    },
+    {
+      "title": "Single Player",
+      "chats": [
+        {
+          "indexTitle": "Single Player Projects List",
+          "question": "Single Player Projects List",
+          "answer": "1. \n```\nengine_api\n```\n2. \n```\nengine\n```\n3.\n```\nengine_single\n```\n4.\n```\nfootball\n```\n5.\n```\nfootball_single\n```\n6.\n```\nfootball_single_desktop\n```",
+          "dateTime": "2024-05-20T15:18:26.127Z"
+        }
+      ]
+    },
+    {
+      "title": "Multi Player",
+      "chats": [
+        {
+          "indexTitle": "Multi Player Projects List",
+          "question": "Multi Player Projects List",
+          "answer": "1.\n```\nengine_api\n```\n2.\n```\nengine\n```\n3.\n```\nfootball\n```\n4.\n```\nengine_api_multi\n```\n5.\n```\nengine_api_client\n```\n6.\n```\nengine_client\n```\n7.\n```\nfootball_multi\n```\n8.\n```\nfootball_multi_desktop\n```\n",
+          "dateTime": "2024-05-21T22:01:08.275Z"
+        }
+      ]
+    },
+    {
+      "title": "Script",
+      "chats": [
+        {
+          "indexTitle": "i-lib.ps1",
+          "question": "i-lib.ps1",
+          "answer": "- Pack project as library and intall it to list of library consumer projects\n- Gives many options, custom is for fast building, rest is for well defined project like singleDesktop, or for dev stuff like test, sketch\n```powershell\nparam (\n    [switch]$custom = $false,\n    [switch]$singleDesktop = $false,\n    [switch]$singleMobile = $false,\n    [switch]$multiDesktop = $false,\n    [switch]$test = $false,\n    [switch]$sketch = $false\n)\n\n. \"./../../script/src_ps1/functions/npm.ps1\"\n\n$repoPath = \"C:\\atari-monk\\Code\\micro-engine\\\"\n$libFolder = \"engine_api\"\n$libName = \"engine_api\"\n$build = \"$libFolder\\build\\\"\n$pack = \"$libName-1.0.0.tgz\"\n$lib = Join-Path $repoPath ($build + $pack)\n\n$customList = @(\n    \"engine\"\n)\n\n$singleDesktopList = @(\n    \"engine\",\n    \"engine_single_player_client\"\n    \"ball_game\",\n    \"ball_game_single_player\",\n    \"desktop_ball_game\"\n)\n\n$singleMobileList = @(\n    \"ball_game\\\",\n    \"mobile_ball_game\\\"\n)\n\n$multiDesktopList = @(\n    \"engine_api_multi\",\n    \"engine_api_client\",\n    \"engine_client\",\n    \"multi_desktop_client\"\n)\n\n$testList = @(\n    \"engine_test\\\"\n)\n\n$sketchList = @(\n    \"sketch\\\"\n)\n\nif ($custom) {\n    $targetProjects = $customList\n    $selectedList = \"custom\"\n}\nelseif ($singleDesktop) {\n    $targetProjects = $singleDesktopList\n    $selectedList = \"single-desktop\"\n}\nelseif ($singleMobile) {\n    $targetProjects = $singleMobileList\n    $selectedList = \"single-mobile\"\n}\nelseif ($multiDesktop) {\n    $targetProjects = $multiDesktopList\n    $selectedList = \"multi-desktop\"\n}\nelseif ($test) {\n    $targetProjects = $testList\n    $selectedList = \"test\"\n}\nelseif ($sketch) {\n    $targetProjects = $sketchList\n    $selectedList = \"sketch\"\n}\nelse {\n    $targetProjects = $customList\n    $selectedList = \"custom\"\n}\n\n$targetProjects = $targetProjects | ForEach-Object { Join-Path $repoPath $_ }\n\nWrite-Output (\"Using {0} list\" -f $selectedList)\n\ntry {\n    Build-Lib\n    if (-not (Assert-Lib -libPath $lib)) {\n        return\n    }\n    foreach ($targetProj in $targetProjects) {\n        $copyParams = @{\n            packPath = $lib\n            projDir  = $targetProj\n            packName = $pack\n        }\n        Write-Output $copyParams\n        Install-Pack @copyParams\n    }\n    Write-Output \"Script execution completed successfully.\"\n}\ncatch {\n    Write-Error \"An error occurred: $_\"\n}\n```\npackage.json scripts for i-lib.ps1\n```json\n\"i-lib-custom\": \"powershell.exe -ExecutionPolicy Bypass -File .\\\\script\\\\i-lib.ps1 -custom\",\n    \"i-lib-singledesktop\": \"powershell.exe -ExecutionPolicy Bypass -File .\\\\script\\\\i-lib.ps1 -singleDesktop\",\n    \"i-lib-singlemobile\": \"powershell.exe -ExecutionPolicy Bypass -File .\\\\script\\\\i-lib.ps1 -singleMobile\",\n    \"i-lib-multidesktop\": \"powershell.exe -ExecutionPolicy Bypass -File .\\\\script\\\\i-lib.ps1 -multiDesktop\",\n    \"i-lib-test\": \"powershell.exe -ExecutionPolicy Bypass -File .\\\\script\\\\i-lib.ps1 -test\",\n    \"i-lib-sketch\": \"powershell.exe -ExecutionPolicy Bypass -File .\\\\script\\\\i-lib.ps1 -sketch\"\n```",
+          "dateTime": "2024-05-20T11:32:26.874Z"
+        }
+      ]
+    },
+    {
+      "title": "Http Server",
+      "chats": [
+        {
+          "indexTitle": "Alternative to live server",
+          "question": "Alternative to live server",
+          "answer": "After live server broke  \nIf you're looking for alternatives to Live Server for developing and previewing web projects, here are several options that you can consider:\n\n### 1. **Visual Studio Code Extensions**\n- **BrowserSync**: Another extension for VS Code that provides live reload functionality. It offers more customization and can sync across multiple devices.\n- **Five Server**: A newer extension similar to Live Server but with additional features like instant updates without a page refresh.\n\n### 2. **Standalone Applications**\n- **http-server**: A simple, zero-configuration command-line static HTTP server. Install it globally via npm:\n  ```bash\n  npm install -g http-server\n  ```\n  Then, you can start the server by running:\n  ```bash\n  http-server\n  ```",
+          "dateTime": "2024-05-21T22:06:16.941Z"
         }
       ]
     }
