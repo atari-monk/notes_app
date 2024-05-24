@@ -289,6 +289,24 @@
           "question": "21",
           "answer": "1. micro_engine\n   - trying to decouple some projects by introducing interfaces to engine class\n2. micro_engine\n   - build football_multi\n3. micro_engine\n   - build football_multi_desktop\n4. micro_engine\n   - fix build script for football_single_desktop\n5. micro_engine\n   - notes on json files for test cases",
           "dateTime": "2024-05-21T23:10:30.465Z"
+        },
+        {
+          "indexTitle": "22",
+          "question": "22",
+          "answer": "1. micro_engine\n   - build script for multi and mobile clients\n2. cv\n   - build html cv pages with chatgpt, failed a bit initially\n   - then, build template first\n   - build js label and content filler methods",
+          "dateTime": "2024-05-23T12:57:50.315Z"
+        },
+        {
+          "indexTitle": "23",
+          "question": "23",
+          "answer": "1. cv\n   - added couple of data filled ui elements\n2. cv\n   - add data\n3. cv\n   - finished product",
+          "dateTime": "2024-05-24T14:04:17.618Z"
+        },
+        {
+          "indexTitle": "24",
+          "question": "24",
+          "answer": "1. micro_engine\n   - build server\n2. micro_engine\n   - build, run server, remove config error\n3. micro_engine\n   - Copy EngineBuilderDirector to engine_server and make it fit server",
+          "dateTime": "2024-05-24T22:03:52.779Z"
         }
       ]
     }

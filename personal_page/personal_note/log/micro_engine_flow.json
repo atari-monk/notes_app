@@ -1,0 +1,16 @@
+{
+  "category": "log",
+  "sections": [
+    {
+      "title": "05.2024",
+      "chats": [
+        {
+          "indexTitle": "24",
+          "question": "24",
+          "answer": "1. Add server build to engine_api i-lib.ps1\n2. Add server build to engine_api_multi i-lib.ps1\n3. Add server build to engine_api_server i-lib.ps1\n4. Add server build to engine i-lib.ps1\n5. Add server build to engine_server i-lib.ps1\n6. Add server build to engine_single i-lib.ps1\n7. Build server\n---\n1. Update script to build server\n2. Build and run server\n3. Remove config error, fetch is browser, not server\n---\n1. Copy EngineBuilderDirector to engine_server and make it fit server",
+          "dateTime": "2024-05-24T22:03:05.854Z"
+        }
+      ]
+    }
+  ]
+}
