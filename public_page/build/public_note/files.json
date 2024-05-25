@@ -66,6 +66,12 @@
     "protected": false
   },
   {
+    "path": "../public_note/code/pong.json",
+    "name": "Pong",
+    "category": "code",
+    "protected": false
+  },
+  {
     "path": "../public_note/code/nestjs_tutorial.json",
     "name": "Nestjs Tutorial",
     "category": "code",
