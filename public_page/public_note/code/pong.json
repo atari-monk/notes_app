@@ -21,6 +21,12 @@
           "question": "New Project",
           "answer": "- Created [Github Repository](https://github.com/atari-monk/pong_unity)\n- Created new project in unity\n- I created unity proj and github repo, how do i set up repo, when proj folder exists ? Clone dosent work\nIf you have already created a Unity project and a GitHub repository, and you want to set up the repository for your existing project, follow these steps:\n\n### Step 1: Initialize Git in Your Existing Project Folder\n\n1. Open a terminal (or Git Bash on Windows).\n2. Navigate to your Unity project folder using the `cd` command. For example:\n\n   ```bash\n   cd path/to/your/unity/project\n   ```\n\n3. Initialize a Git repository in your project folder:\n\n   ```bash\n   git init\n   ```\n\n### Step 2: Add the Remote Repository\n\n1. Add the remote repository URL. Replace `your-github-username` and `your-repo-name` with your actual GitHub username and repository name:\n\n   ```bash\n   git remote add origin https://github.com/atari-monk/pong_unity\n   ```\n\n### Step 3: Add, Commit, and Push Your Project to GitHub\n\n1. Add all the files to your local Git repository:\n\n   ```bash\n   git add .\n   ```\n\n2. Commit the files:\n\n   ```bash\n   git commit -m \"Initial commit\"\n   ```\n\n3. Push the files to the remote repository:\n\n   ```bash\n   git push -u origin master\n   ```\n\n### Summary\n\n1. Navigate to your Unity project folder.\n2. Initialize a Git repository (`git init`).\n3. Add the GitHub remote repository (`git remote add origin <repository-url>`).\n4. Create a `.gitignore` file with Unity-specific rules.\n5. Add, commit, and push your project files to GitHub.\n\nThese steps will help you set up your GitHub repository for an existing Unity project.",
           "dateTime": "2024-05-25T13:22:36.459Z"
+        },
+        {
+          "indexTitle": "This Far",
+          "question": "This Far",
+          "answer": "Notes above contain some commands and encuragement therfore usefull,  \nbut what really was done is:  \n1. Initial Chatgpt questions about whole thing\n2. Setup repo in Github, Unity gitignore selected\n3. Create project in latest Unity 6, 2d template\n4. Init git repo there, add origin, start githubDesktop, select main, initial commit  \nI consider this to be initial setup and now one can tinker with that.  ",
+          "dateTime": "2024-05-25T13:37:54.810Z"
         }
       ]
     }
