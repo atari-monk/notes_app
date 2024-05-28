@@ -319,6 +319,18 @@
           "question": "26",
           "answer": "1. notes\n   - update link notes\n2. micro_engine\n   - build server and run it, fixed error, by creating new Engine withou stuff not needed in server",
           "dateTime": "2024-05-26T23:01:52.777Z"
+        },
+        {
+          "indexTitle": "27",
+          "question": "27",
+          "answer": "1. micro_engine\n   - decoupled few projects from each other with engine api\n   - run server and client, client dosen have systems\n   - there is a need to introduce json data to system builder, becouse there is no point of coping this data in code to other projects, first introduce json data and then copy system builder code to multi\n   - projects need more simplification, to complex, to brittle right now",
+          "dateTime": "2024-05-27T19:03:47.646Z"
+        },
+        {
+          "indexTitle": "28",
+          "question": "28",
+          "answer": "1. micro_engine\n   - fixed file loaders to have file path param in method and not in ctor\n2. micro_engine\n   - system selector data from code to json\n3. micro_engine\n   - system selector data from code to json for tests, half of them\n4. micro_engine\n   - system selector data for all data moved from code to json :)\n5. notes\n   - audiobook file in category link, fixed",
+          "dateTime": "2024-05-28T21:28:14.553Z"
         }
       ]
     }

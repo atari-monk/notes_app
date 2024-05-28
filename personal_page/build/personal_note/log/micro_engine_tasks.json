@@ -26,6 +26,12 @@
           "question": "KeyboardMapping",
           "answer": "- for some reason arrows move entity a bit",
           "dateTime": "2024-05-09T20:53:21.526Z"
+        },
+        {
+          "indexTitle": "Ensure array",
+          "question": "Ensure array",
+          "answer": "```json\n[\n  {\n    \"id\": \"spriteRenderer\",\n    \"entityIds\": [\"field\"]\n  }\n]\n```\nAbove, field system selection file, should not produce errors in case below  \n```json\n[\n  {\n    \"id\": \"spriteRenderer\",\n    \"entityIds\": \"field\"\n  }\n]\n```",
+          "dateTime": "2024-05-28T14:49:17.888Z"
         }
       ]
     }
