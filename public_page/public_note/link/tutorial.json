@@ -2,25 +2,13 @@
   "category": "link",
   "sections": [
     {
-      "title": "Note",
+      "title": "Woodwork",
       "chats": [
         {
-          "indexTitle": "",
-          "question": "",
-          "answer": "- [DIY Pallet Shelves, Pallet Recycling Idea](https://youtu.be/JBg1MJVHjss)\n- Simple Shelves diy",
-          "dateTime": "2024-05-03T15:42:31.890Z"
-        },
-        {
-          "indexTitle": "",
-          "question": "",
-          "answer": "[t](https://youtu.be/lwmVAWXQyY4)",
-          "dateTime": "2024-05-03T15:28:44.192Z"
-        },
-        {
-          "indexTitle": "",
-          "question": "",
-          "answer": "[t](https://youtu.be/XlvfHOrF26M)",
-          "dateTime": "2024-05-03T15:28:44.192Z"
+          "indexTitle": "Pallet Shelves",
+          "question": "Pallet Shelves",
+          "answer": "---\n[DIY Pallet Shelves, Pallet Recycling Idea](https://youtu.be/JBg1MJVHjss)",
+          "dateTime": "2024-05-30T21:22:58.512Z"
         },
         {
           "indexTitle": "",
@@ -1617,12 +1605,28 @@
           "question": "",
           "answer": "[t](https://youtu.be/nl0KXCa5pJk)",
           "dateTime": "2024-05-03T15:28:44.192Z"
-        },
+        }
+      ]
+    },
+    {
+      "title": "Idea",
+      "chats": [
         {
-          "indexTitle": "",
-          "question": "",
-          "answer": "[t]()",
-          "dateTime": "2024-05-03T15:28:44.192Z"
+          "indexTitle": "Harsh Truths",
+          "question": "Harsh Truths",
+          "answer": "---\n[40 Harsh Truths I Know at 40 but Wish I Knew at 20](https://youtu.be/lwmVAWXQyY4)",
+          "dateTime": "2024-05-30T21:26:20.143Z"
+        }
+      ]
+    },
+    {
+      "title": "Programming",
+      "chats": [
+        {
+          "indexTitle": "Languages ",
+          "question": "Languages ",
+          "answer": "---\n[Programming languages that everyone should learn | George Hotz and Lex Fridman](https://youtu.be/XlvfHOrF26M)",
+          "dateTime": "2024-05-30T21:28:48.570Z"
         }
       ]
     }
