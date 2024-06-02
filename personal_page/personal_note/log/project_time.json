@@ -409,6 +409,29 @@
           "question": "30",
           "answer": "1. micro_engine\n   - 17:40\n   - 19:47\n2. micro_engine\n   - 22:15\n   - 23:13\n3. notes\n   - 23:15\n   - 23:40",
           "dateTime": "2024-05-30T21:41:05.980Z"
+        },
+        {
+          "indexTitle": "31",
+          "question": "31",
+          "answer": "1. cv send\n   - 15:22\n   - 16:16\n2. micro_engine\n   - 17:07\n   - 19:31\n3. micro_engine\n   - 21:37\n   - 01:56",
+          "dateTime": "2024-05-31T23:56:40.773Z"
+        }
+      ]
+    },
+    {
+      "title": "06.2024",
+      "chats": [
+        {
+          "indexTitle": "1",
+          "question": "1",
+          "answer": "1. micro_engine\n   - 16:06\n   - 16:13\n2. micro_engine\n   - 17:09\n   - 19:33\n3. micro_engine\n   - 22:22\n   - 23:30",
+          "dateTime": "2024-06-01T21:29:44.599Z"
+        },
+        {
+          "indexTitle": "2",
+          "question": "2",
+          "answer": "1. c_engine\n   - 21:28\n   - 22:38\n2. micro_engine\n   - 22:40\n   - 23:40",
+          "dateTime": "2024-06-02T21:39:14.136Z"
         }
       ]
     }

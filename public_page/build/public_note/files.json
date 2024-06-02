@@ -90,6 +90,18 @@
     "protected": false
   },
   {
+    "path": "../public_note/code/c_engine.json",
+    "name": "C Engine",
+    "category": "code",
+    "protected": false
+  },
+  {
+    "path": "../public_note/code/c_language.json",
+    "name": "C Language",
+    "category": "code",
+    "protected": false
+  },
+  {
     "path": "../public_note/micro_engine/step_by_step.json",
     "name": "Step by step",
     "category": "micro_engine",
