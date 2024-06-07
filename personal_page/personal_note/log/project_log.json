@@ -366,6 +366,36 @@
           "question": "2",
           "answer": "1. c_engine\n   - repo, c++ setup, engine class not finished\n2. micro_engine\n   - fixed severals system.json files",
           "dateTime": "2024-06-02T21:39:54.345Z"
+        },
+        {
+          "indexTitle": "3",
+          "question": "3",
+          "answer": "1. micro_engine\n   - fixed all remaining system.json files to one file format agreed upon for now",
+          "dateTime": "2024-06-03T13:39:19.958Z"
+        },
+        {
+          "indexTitle": "4",
+          "question": "4",
+          "answer": "1. micro_engine\n   - refactoring system data provider by moving logic and engine data to engine project from football project\n2. micro_engine\n   - finished with 1.\n   - some system factories are defined in football as they are defined there\n3. micro_engine\n   - moved factory of system builder to engine",
+          "dateTime": "2024-06-04T20:48:22.485Z"
+        },
+        {
+          "indexTitle": "5",
+          "question": "5",
+          "answer": "1. micro_engine\n   - Fixed client engine loop by introducing setter to core engine\n2. micro_engine\n   - Destroyed builds with new config\n   - Reverted Desktop, Mobile, Multi Desktop and server to safer config and build\n   - Fixed server config loader\n   - Now problem is browser stuff on server in engine\n3. micro_engine\n   - introduced config with flags to dependencies of engine\n   - made input conditional\n   - it demands additional checks but maybe it make sense ",
+          "dateTime": "2024-06-05T23:40:26.168Z"
+        },
+        {
+          "indexTitle": "6",
+          "question": "6",
+          "answer": "1. micro_engine\n   - I seen that i didnt invoke validation at all becouse there were functions returned and then they need to be wrapped in validator template function, but they have to be invoked there after beeing returned from functions that create them, so that was shock\n2. micro_engine\n   - Fixed ability to on/off input in engine with config, there was many logic bugs in system data and assembly steps\n3. micro_engine\n   - empty Renderer, empty mock ",
+          "dateTime": "2024-06-06T21:32:12.684Z"
+        },
+        {
+          "indexTitle": "7",
+          "question": "7",
+          "answer": "1. micro_engine\n   - Add conditions to have empty renderer, and renderCache\n2. micro_engine\n   - Commit\n3. micro_engine\n   - Try to unify server engine to engine, part 1",
+          "dateTime": "2024-06-07T22:42:31.400Z"
         }
       ]
     }

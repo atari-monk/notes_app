@@ -113,6 +113,17 @@
           "dateTime": "2024-05-21T22:06:16.941Z"
         }
       ]
+    },
+	{
+      "title": "Build",
+      "chats": [
+        {
+          "indexTitle": "New build from scratch",
+          "question": "New build from scratch",
+          "answer": "When building from new github clone  \nWith my build script  \nIt is kind of needed to remove libs from package.json dependency section\nOtherwise errors insue",
+          "dateTime": "2024-06-07T14:01:22.657Z"
+        }
+      ]
     }
   ]
 }

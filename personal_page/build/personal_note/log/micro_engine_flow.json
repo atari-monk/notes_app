@@ -13,8 +13,19 @@
         {
           "indexTitle": "28",
           "question": "28",
-          "answer": "---\n1. Moved file path from ctor to param of async method\n   - this was very stinking becouse i seen async method run in ctor without await\n   - and also after new class was unable to load data again witch is stupid\n   - it is many reasons to put this file path param in async load method than to have it in ctor\n   - fixed builds of single, client, server\n---\n2. Load system selector data from json\n   - system builder proccess needed data in json\n   - this should make posibble to eventually move system builders to client and server projs, from single much esier \n---\n3. ",
-          "dateTime": "2024-05-28T13:55:12.725Z"
+          "answer": "---\n1. Moved file path from ctor to param of async method\n   - this was very stinking becouse i seen async method run in ctor without await\n   - and also after new class was unable to load data again witch is stupid\n   - it is many reasons to put this file path param in async load method than to have it in ctor\n   - fixed builds of single, client, server\n---\n2. Load system selector data from json\n   - system builder proccess needed data in json\n   - this should make posibble to eventually move system builders to client and server projs, from single much esier",
+          "dateTime": "2024-06-05T13:05:26.138Z"
+        }
+      ]
+    },
+    {
+      "title": "06.2024",
+      "chats": [
+        {
+          "indexTitle": "5",
+          "question": "5",
+          "answer": "1.",
+          "dateTime": "2024-06-05T13:09:55.954Z"
         }
       ]
     }
