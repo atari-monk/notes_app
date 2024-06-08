@@ -396,6 +396,12 @@
           "question": "7",
           "answer": "1. micro_engine\n   - Add conditions to have empty renderer, and renderCache\n2. micro_engine\n   - Commit\n3. micro_engine\n   - Try to unify server engine to engine, part 1",
           "dateTime": "2024-06-07T22:42:31.400Z"
+        },
+        {
+          "indexTitle": "8",
+          "question": "8",
+          "answer": "1. micro_engine\n   - refactored class SinglePlayerBuilder to GameBuilder, it puts together engine to build game\n   - doing it slow becouse of music i need to block outside noise and just becouse doing it fast produces just mess\n2. micro_engine\n   - removed SingleGame class, only GameBuilder left with all steps needed to build game\n3. micro_engine\n   - removed project footbal_single, GameBuilder moved to football\n4. micro_engine\n   - use GameBuilder  in mobile version",
+          "dateTime": "2024-06-08T19:44:09.451Z"
         }
       ]
     }
