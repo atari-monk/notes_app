@@ -66,6 +66,12 @@
     "protected": false
   },
   {
+    "path": "../personal_note/log/pushup.json",
+    "name": "Pushup",
+    "category": "log",
+    "protected": false
+  },
+  {
     "path": "../personal_note/inventory/inventory.json",
     "name": "Inventory",
     "category": "inventory",

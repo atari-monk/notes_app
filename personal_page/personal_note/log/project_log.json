@@ -402,6 +402,12 @@
           "question": "8",
           "answer": "1. micro_engine\n   - refactored class SinglePlayerBuilder to GameBuilder, it puts together engine to build game\n   - doing it slow becouse of music i need to block outside noise and just becouse doing it fast produces just mess\n2. micro_engine\n   - removed SingleGame class, only GameBuilder left with all steps needed to build game\n3. micro_engine\n   - removed project footbal_single, GameBuilder moved to football\n4. micro_engine\n   - use GameBuilder  in mobile version",
           "dateTime": "2024-06-08T19:44:09.451Z"
+        },
+        {
+          "indexTitle": "9",
+          "question": "9",
+          "answer": "1. micro_engine\n   - Added engine provider, interface and implementation\n   - This provides engine implementation depending on environment\n   - I can use common code but change implementation depending on envo, witch that how it should be to remain sain\n2. micro_engine\n   - Removed engine_single project, moved engine and builders, directors and providers to engine, point is to move to use GameBuilder in client\n3. micro_engine\n   - ClientGameBuilder, GameBuilder used in client and client stuff after, wiht client game loop, some progress, now the server should be build same way and only then work on sync can begin",
+          "dateTime": "2024-06-09T16:14:53.185Z"
         }
       ]
     }

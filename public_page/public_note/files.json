@@ -66,6 +66,12 @@
     "protected": false
   },
   {
+    "path": "../public_note/link/to_sort.json",
+    "name": "To Sort",
+    "category": "link",
+    "protected": false
+  },
+  {
     "path": "../public_note/code/pong.json",
     "name": "Pong",
     "category": "code",
