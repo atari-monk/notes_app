@@ -1,0 +1,103 @@
+{
+  "category": "code",
+  "sections": [
+    {
+      "title": "21.03.2024",
+      "chats": [
+        {
+          "indexTitle": "Creating and nesting components ",
+          "question": "[Quick Start](https://react.dev/learn)  \nCreating and nesting components \n",
+          "answer": "1. React components are JavaScript/Typescript (Python, Kotlin) functions that return markup\n\n```javascript\nfunction MyButton() {\n  return (\n    <button>I'm a button</button>\n  );\n}\n```\n\n2.  Nesting components  \n\n```javascript\nexport default function MyApp() {\n  return (\n    <div>\n      <h1>Welcome to my app</h1>\n      <MyButton />\n    </div>\n  );\n}\n```\n\n3. Convention\n\nReact component names must always start with a capital letter, while HTML tags must be lowercase.",
+          "dateTime": "2024-03-21T21:30:17.766Z"
+        },
+        {
+          "indexTitle": "Writing markup with JSX ",
+          "question": "Writing markup with JSX ",
+          "answer": "1. JSX is a syntax extension for JavaScript often used with React. \n2. It allows you to write HTML-like syntax directly in your JavaScript code. \n3. However, JSX has stricter rules than HTML, such as requiring self-closing tags like <br /> and requiring a single parent element for multiple JSX elements.  \n4. To convert HTML to JSX, you can use online converters for convenience.  \n    * [online converter](https://transform.tools/html-to-jsx)\n\n```javascript\nfunction AboutPage() {\n  return (\n    <>\n      <h1>About</h1>\n      <p>Hello there.<br />How do you do?</p>\n    </>\n  );\n}\n```",
+          "dateTime": "2024-03-21T21:27:50.144Z"
+        }
+      ]
+    },
+    {
+      "title": "22.03.2024",
+      "chats": [
+        {
+          "indexTitle": "Adding styles ",
+          "question": "Adding styles ",
+          "answer": "Html style\n```html\n<img class=\"avatar\" />\n```\nReact style\n```javascript\n<img className=\"avatar\" />\n```\nCss file\n```css\n.avatar {\n  border-radius: 50%;\n}\n```\nSimplest way to add css file is <link> in html\nOther options is build tool or a framework, consult its documentation",
+          "dateTime": "2024-03-22T16:26:58.269Z"
+        },
+        {
+          "indexTitle": "Displaying data ",
+          "question": "Displaying data \n",
+          "answer": "Curly braces enable embedding js variables in JSX, e.g., user.name.\n```javascript\nreturn (\n  <h1>\n    {user.name}\n  </h1>\n);\n```\nAlso works in JSX attributes\n```javascript\nreturn (\n  <img\n    className=\"avatar\"\n    src={user.imageUrl}\n  />\n);\n```\nAlso expressions like string concatenation\n```javascript\nconst user = {\n  name: 'Hedy Lamarr',\n  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',\n  imageSize: 90,\n};\n\nexport default function Profile() {\n  return (\n    <>\n      <h1>{user.name}</h1>\n      <img\n        className=\"avatar\"\n        src={user.imageUrl}\n        alt={'Photo of ' + user.name}\n        style={{\n          width: user.imageSize,\n          height: user.imageSize\n        }}\n      />\n    </>\n  );\n}\n```\nstyle={{}} means {}, js object in JSX curly braces, {{}}  \nstyle can be used with code if it depends on js variables",
+          "dateTime": "2024-03-22T16:41:53.722Z"
+        },
+        {
+          "indexTitle": "Conditional rendering",
+          "question": "Conditional rendering",
+          "answer": "Js condition on JSX in React\n```javascript\nlet content;\nif (isLoggedIn) {\n  content = <AdminPanel />;\n} else {\n  content = <LoginForm />;\n}\nreturn (\n  <div>\n    {content}\n  </div>\n);\n``` \nConditional ? operator works inside JSX\n```javascript\n<div>\n  {isLoggedIn ? (\n    <AdminPanel />\n  ) : (\n    <LoginForm />\n  )}\n</div>\n```\nWhen no else needed, use this shorter logical && syntax\n```javascript\n<div>\n  {isLoggedIn && <AdminPanel />}\n</div>\n```\nAll above also works for attributes",
+          "dateTime": "2024-03-22T16:48:33.870Z"
+        },
+        {
+          "indexTitle": "Rendering lists",
+          "question": "Rendering lists",
+          "answer": "Using map to convert data to JSX\n\n```javascript\nconst products = [\n  { title: 'Cabbage', id: 1 },\n  { title: 'Garlic', id: 2 },\n  { title: 'Apple', id: 3 },\n];\n```\n\n```javascript\nconst listItems = products.map(product =>\n  <li key={product.id}>\n    {product.title}\n  </li>\n);\n\nreturn (\n  <ul>{listItems}</ul>\n);\n```\nKey should be db unique id, React use it to log insert, delete, or reorder\n```javascript\nconst products = [\n  { title: 'Cabbage', isFruit: false, id: 1 },\n  { title: 'Garlic', isFruit: false, id: 2 },\n  { title: 'Apple', isFruit: true, id: 3 },\n];\n\nexport default function ShoppingList() {\n  const listItems = products.map(product =>\n    <li\n      key={product.id}\n      style={{\n        color: product.isFruit ? 'magenta' : 'darkgreen'\n      }}\n    >\n      {product.title}\n    </li>\n  );\n\n  return (\n    <ul>{listItems}</ul>\n  );\n}\n```",
+          "dateTime": "2024-03-22T16:55:41.482Z"
+        },
+        {
+          "indexTitle": "Responding to events",
+          "question": "Responding to events",
+          "answer": "Respond to events with handler functions inside your components\n```javascript\nfunction MyButton() {\n  function handleClick() {\n    alert('You clicked me!');\n  }\n\n  return (\n    <button onClick={handleClick}>\n      Click me\n    </button>\n  );\n}\n```",
+          "dateTime": "2024-03-22T17:02:14.525Z"
+        },
+        {
+          "indexTitle": "Updating the screen, Component State",
+          "question": "Updating the screen, Component State",
+          "answer": "```javascript\nimport { useState } from 'react';\n```\nDeclare state variable inside your component like this\n```javascript\nfunction MyButton() {\n  const [count, setCount] = useState(0);\n```\nthis provides current state count and function to update it\n```javascript\nfunction MyButton() {\n  const [count, setCount] = useState(0);\n\n  function handleClick() {\n    setCount(count + 1);\n  }\n\n  return (\n    <button onClick={handleClick}>\n      Clicked {count} times\n    </button>\n  );\n}\n```\nSate is independent for each component\n```javascript\nimport { useState } from 'react';\n\nexport default function MyApp() {\n  return (\n    <div>\n      <h1>Counters that update separately</h1>\n      <MyButton />\n      <MyButton />\n    </div>\n  );\n}\n\nfunction MyButton() {\n  const [count, setCount] = useState(0);\n\n  function handleClick() {\n    setCount(count + 1);\n  }\n\n  return (\n    <button onClick={handleClick}>\n      Clicked {count} times\n    </button>\n  );\n}\n```",
+          "dateTime": "2024-03-22T17:12:08.994Z"
+        },
+        {
+          "indexTitle": "Using Hooks",
+          "question": "Using Hooks",
+          "answer": "Hooks, like useState in React, are specialized functions. They must be called at the top level of components or other Hooks. Hooks are not intended for use within conditions or loops.",
+          "dateTime": "2024-03-22T17:23:58.449Z"
+        },
+        {
+          "indexTitle": "Sharing data between components",
+          "question": "Sharing data between components",
+          "answer": "Example of \"lifting up state\"\n```javascript\nimport { useState } from 'react';\n\nexport default function MyApp() {\n  const [count, setCount] = useState(0);\n\n  function handleClick() {\n    setCount(count + 1);\n  }\n\n  return (\n    <div>\n      <h1>Counters that update together</h1>\n      <MyButton count={count} onClick={handleClick} />\n      <MyButton count={count} onClick={handleClick} />\n    </div>\n  );\n}\n\nfunction MyButton({ count, onClick }) {\n  return (\n    <button onClick={onClick}>\n      Clicked {count} times\n    </button>\n  );\n}\n```\nWitch means define state in container/parent component  \nwith state hadler methods  \nThem pass those as props to children components  \nand use it in their function  \nThis will make button share state",
+          "dateTime": "2024-03-22T17:35:08.436Z"
+        }
+      ]
+    },
+    {
+      "title": "29.03.2024",
+      "chats": [
+        {
+          "indexTitle": "New Project",
+          "question": "New Project",
+          "answer": "1. Create repo on github\n2. Clone it with gitbash\n```bash\ncd C:\\atari-monk\\code\n```\n```bash\ngit clone https://github.com/atari-monk/react_tutorial.git\n```\n3. Install [Node.js](https://nodejs.org/en)\n4. Install facebook tool Create React App\n```bash\nnpm install -g create-react-app\n```\n5. On admin powershell\n```bash\ncd C:\\atari-monk\\code\\react_tutorial\n```\n6. Create project\nfor javascript\n```bash\nnpx create-react-app tic-tac-toe\n```\nfor typescript\n```bash\nnpx create-react-app tic-tac-toe --template typescript\n```\nthis worked\n```bash\nnpm init react-app tic-tac-toe\n```\n7. \n```bash\ncd C:\\atari-monk\\code\\react_tutorial\\tic-tac-toe\n```\n8. Start the Development Server\n```bash\nnpm start\n```\n9. When coded, Build for Production\n```bash\nnpm run build\n```",
+          "dateTime": "2024-03-29T18:06:36.831Z"
+        },
+        {
+          "indexTitle": "Start tic tac toe",
+          "question": "Start tic tac toe",
+          "answer": "1. Initial code  \nplaced in files in components folder  \nboard used in app.js\n```javascript\nimport { useState } from 'react';\n\nfunction Square() {\n  const [value, setValue] = useState(null);\n\n  function handleClick() {\n    setValue('X');\n  }\n\n  return (\n    <button\n      className=\"square\"\n      onClick={handleClick}\n    >\n      {value}\n    </button>\n  );\n}\n\nexport default function Board() {\n  return (\n    <>\n      <div className=\"board-row\">\n        <Square />\n        <Square />\n        <Square />\n      </div>\n      <div className=\"board-row\">\n        <Square />\n        <Square />\n        <Square />\n      </div>\n      <div className=\"board-row\">\n        <Square />\n        <Square />\n        <Square />\n      </div>\n    </>\n  );\n}\n```\nadded to App.css\n```css\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 34px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 34px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.status {\n    margin-bottom: 10px;\n}\n.game {\n    display: flex;\n    flex-direction: row;\n}\n\n.game-info {\n    margin-left: 20px;\n}\n```",
+          "dateTime": "2024-03-29T18:37:53.281Z"
+        }
+      ]
+    },
+    {
+      "title": "React component",
+      "chats": [
+        {
+          "indexTitle": "Single parent",
+          "question": "Single parent",
+          "answer": "In React, it's common practice for the top-level component to be wrapped in a single parent element. This is because React components must return a single JSX element. So, if you have multiple elements to render, they need to be enclosed within a single parent element.\n\nFor example:\n\n```jsx\n// This is valid in React\nfunction App() {\n  return (\n    <div>\n      <Header />\n      <MainContent />\n      <Footer />\n    </div>\n  );\n}\n```\n\nHere, the `<div>` acts as the parent element, containing all the child components (`Header`, `MainContent`, and `Footer`). This structure allows React to render the components correctly.\n\nHowever, React 16 introduced a feature called Fragments, which allows you to return multiple elements without wrapping them in a single parent element. Fragments are handy when you don't want to introduce unnecessary nesting:\n\n```jsx\n// Using React Fragments\nfunction App() {\n  return (\n    <>\n      <Header />\n      <MainContent />\n      <Footer />\n    </>\n  );\n}\n```\n\nIn this example, the `<>` and `</>` are shorthand for `<React.Fragment>` and `</React.Fragment>`, respectively. This achieves the same result as wrapping the elements in a `<div>` but without adding an extra node to the DOM.",
+          "dateTime": "2024-06-11T16:31:50.600Z"
+        }
+      ]
+    }
+  ]
+}

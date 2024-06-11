@@ -66,6 +66,12 @@
     "protected": false
   },
   {
+    "path": "../public_note/link/to_sort.json",
+    "name": "To Sort",
+    "category": "link",
+    "protected": false
+  },
+  {
     "path": "../public_note/code/pong.json",
     "name": "Pong",
     "category": "code",
@@ -98,6 +104,18 @@
   {
     "path": "../public_note/code/c_language.json",
     "name": "C Language",
+    "category": "code",
+    "protected": false
+  },
+  {
+    "path": "../public_note/code/react_notes.json",
+    "name": "React Learn",
+    "category": "code",
+    "protected": false
+  },
+  {
+    "path": "../public_note/code/react_herrington.json",
+    "name": "React Mr Herrington",
     "category": "code",
     "protected": false
   },

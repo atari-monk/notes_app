@@ -2,7 +2,7 @@
   "category": "code",
   "sections": [
     {
-      "title": "Math",
+      "title": "Note",
       "chats": [
         {
           "indexTitle": "Source",
@@ -32,6 +32,17 @@
           "question": "Multiplication",
           "answer": "- a x b\n```plaintext\n                |bx|\n[ax ay az] |by|\n                |bz|\n```\n- Multiplication rule is\n```plaintext\n[bx by bz]      \n[ax ay az]  = bx*ax + by*ay + bz*az\n```\n* It's Dot Product\n* [Visualisation](http://matrixmultiplication.xyz/)",
           "dateTime": "2024-05-19T16:18:09.249Z"
+        }
+      ]
+    },
+    {
+      "title": "Scalar Projection",
+      "chats": [
+        {
+          "indexTitle": "Definition",
+          "question": "Definition",
+          "answer": "- timestamp in video\n   * 2:24:30\n- definition\n   * normalized vector a dot product with vector b\n- interpretation\n   * length of b projected on direction a\n- use case\n   * distance of object a to b\n      - take direction a moves\n      - take ab vector\n      - calculate their scalar projection to get distance\n- both a and b normalized give angle betwen them ?",
+          "dateTime": "2024-06-10T18:39:19.324Z"
         }
       ]
     }

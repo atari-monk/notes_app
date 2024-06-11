@@ -108,6 +108,18 @@
     "protected": false
   },
   {
+    "path": "../public_note/code/react_notes.json",
+    "name": "React Learn",
+    "category": "code",
+    "protected": false
+  },
+  {
+    "path": "../public_note/code/react_herrington.json",
+    "name": "React Mr Herrington",
+    "category": "code",
+    "protected": false
+  },
+  {
     "path": "../public_note/micro_engine/step_by_step.json",
     "name": "Step by step",
     "category": "micro_engine",

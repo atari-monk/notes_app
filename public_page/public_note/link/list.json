@@ -199,12 +199,6 @@
         {
           "indexTitle": "",
           "question": "",
-          "answer": "[Learn React and TypeScript](https://youtube.com/playlist?list=PLNqp92_EXZBJ4CBroxVBJEpAXoz1g-naZ&feature=shared)",
-          "dateTime": "2024-05-03T17:11:06.475Z"
-        },
-        {
-          "indexTitle": "",
-          "question": "",
           "answer": "[TypeScript Engine](https://youtube.com/playlist?list=PLv8Ddw9K0JPiTHLMQw31Yh4qyTAcHRnJx&feature=shared)",
           "dateTime": "2024-05-03T17:11:06.475Z"
         },
@@ -362,6 +356,12 @@
           "question": "",
           "answer": "[Math for Game Devs [2022]](https://youtube.com/playlist?list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF&feature=shared)",
           "dateTime": "2024-06-09T17:34:14.908Z"
+        },
+        {
+          "indexTitle": "Learn React and TypeScript",
+          "question": "",
+          "answer": "[Learn React and TypeScript](https://youtube.com/playlist?list=PLNqp92_EXZBJ4CBroxVBJEpAXoz1g-naZ&feature=shared)",
+          "dateTime": "2024-06-10T20:38:49.685Z"
         }
       ]
     }
