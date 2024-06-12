@@ -420,6 +420,12 @@
           "question": "11",
           "answer": "1. micro_engine\n   - flags to switch on/off canvas, editor, key log, game dependencies\n2. react_tutorial\n   - updated tic tac toe game\n3. micro_engine\n   - fixed server and client to the point where acctually there is some communication going on, wow",
           "dateTime": "2024-06-11T20:08:39.826Z"
+        },
+        {
+          "indexTitle": "12",
+          "question": "12",
+          "answer": "1. diy_house\n   - blender model of house building\n   - bugs done, post should be in sloped ground, not on level\n2. micro_engine\n   - writing to be able to have client and server specific systems\n3. micro_engine\n   - build and tested single player\n4. micro_engine\n   - build and tested single desktop, mobile, multi client, server\n5. micro_engine\n   - fixing errors so that ClientMovment and ServerMovment components and systems work\n   - there is bug, clientId is written on entity.Id witch will destroy engine",
+          "dateTime": "2024-06-12T18:12:00.897Z"
         }
       ]
     }
