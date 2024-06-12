@@ -424,8 +424,8 @@
         {
           "indexTitle": "12",
           "question": "12",
-          "answer": "1. diy_house\n   - blender model of house building\n   - bugs done, post should be in sloped ground, not on level\n2. micro_engine\n   - writing to be able to have client and server specific systems\n3. micro_engine\n   - build and tested single player\n4. micro_engine\n   - build and tested single desktop, mobile, multi client, server\n5. micro_engine\n   - fixing errors so that ClientMovment and ServerMovment components and systems work\n   - there is bug, clientId is written on entity.Id witch will destroy engine",
-          "dateTime": "2024-06-12T18:12:00.897Z"
+          "answer": "1. diy_house\n   - blender model of house building\n   - bugs done, post should be in sloped ground, not on level\n2. micro_engine\n   - writing to be able to have client and server specific systems\n3. micro_engine\n   - build and tested single player\n4. micro_engine\n   - build and tested single desktop, mobile, multi client, server\n5. micro_engine\n   - fixing errors so that ClientMovment and ServerMovment components and systems work\n   - there is bug, clientId is written on entity.Id witch will destroy engine\n6. cv_send\n   - 3\n7. react_tutorial\n   - lifting up state for game history part\n8. diy_house\n   - added empty and made hierarchy to move model and parts/stages\n   - moved botton post 4cm more into ground, move lines down 4cm",
+          "dateTime": "2024-06-12T20:57:35.224Z"
         }
       ]
     }
