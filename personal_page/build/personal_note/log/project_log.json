@@ -426,6 +426,24 @@
           "question": "12",
           "answer": "1. diy_house\n   - blender model of house building\n   - bugs done, post should be in sloped ground, not on level\n2. micro_engine\n   - writing to be able to have client and server specific systems\n3. micro_engine\n   - build and tested single player\n4. micro_engine\n   - build and tested single desktop, mobile, multi client, server\n5. micro_engine\n   - fixing errors so that ClientMovment and ServerMovment components and systems work\n   - there is bug, clientId is written on entity.Id witch will destroy engine\n6. cv_send\n   - 3\n7. react_tutorial\n   - lifting up state for game history part\n8. diy_house\n   - added empty and made hierarchy to move model and parts/stages\n   - moved botton post 4cm more into ground, move lines down 4cm",
           "dateTime": "2024-06-12T20:57:35.224Z"
+        },
+        {
+          "indexTitle": "13",
+          "question": "13",
+          "answer": "1. micro_engine\n   - fix clientId failed\n   - set up notes to really read code\n2. micro_engine\n   - notes on important server classes\n3. micro_engine\n   - regained server client sync for player1 wsad, not yet for arrows\n   - still kind of weak knowlege how client server comms work\n   - i dont know why arrows dont work and player2\n4. react_tutorial\n   - finished tic tac toe example (no tasks)",
+          "dateTime": "2024-06-13T19:33:42.060Z"
+        },
+        {
+          "indexTitle": "14",
+          "question": "14",
+          "answer": "1. micro_engine\n   - test for server and 2 clients, minimal systems and data for players movement\n   - player2 dosent move\n2. micro_engine\n   - testing \n3. micro_engine\n   - testing with flipped player id\n   - so confused, server must decide role Player1, or Player2 based on connection order",
+          "dateTime": "2024-06-14T21:32:29.874Z"
+        },
+        {
+          "indexTitle": "15",
+          "question": "15",
+          "answer": "1. micro_engine\n   - most fruitfull session in a long time\n   - fixed client server sync\n   - still hard to know how it works as a whole, no doc\n   - was able to push stuff only by working on small part and move along breadcrums",
+          "dateTime": "2024-06-15T15:10:26.542Z"
         }
       ]
     }

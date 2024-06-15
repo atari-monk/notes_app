@@ -22,10 +22,21 @@
       "title": "06.2024",
       "chats": [
         {
-          "indexTitle": "5",
-          "question": "5",
-          "answer": "1.",
-          "dateTime": "2024-06-05T13:09:55.954Z"
+          "indexTitle": "14",
+          "question": "14",
+          "answer": "1. Prepared test data for server and clients with\n   - components clientMovement and serverMovement\n   - systems of the same names\n   - scripts to build and run server & client\n   - run test\n---\n2. Tests\n   - prepare script to build and run single client\n   - prepare couple of Movment tests\n   - read ServerMovement system\n   - read Movement and ClientMovement system\n---\n3. Tests\n   - notes on Movement and ClientMovement system\n   - switched player id, two clients\n   - script for running second client\n   - removed fullscreen on click, needs full builds :(\n   - debuging:\n      * arrows dont run server ServerPlayerCache->setPlayerInput\n      * arrows dont make server recive event Server->Connection->socket.on(SocketEvents.ClientFrame, (inputDtoPlainData: any), (wsad do)\n      * ClientGameLoop->sendFrame, edit breakpoint with: this._inputDto.direction.length > 0\n      * problem is player1 is always chosen in any client as playable",
+          "dateTime": "2024-06-14T21:12:15.486Z"
+        }
+      ]
+    },
+    {
+      "title": "Misc",
+      "chats": [
+        {
+          "indexTitle": "ToDo",
+          "question": "ToDo",
+          "answer": "- editor_menu gameDependency dosent turn of overlay button, ony save option",
+          "dateTime": "2024-06-14T13:32:15.602Z"
         }
       ]
     }

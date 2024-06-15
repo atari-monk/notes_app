@@ -120,8 +120,14 @@
     "protected": false
   },
   {
-    "path": "../public_note/micro_engine/step_by_step.json",
-    "name": "Step by step",
+    "path": "../public_note/micro_engine/ball_game.json",
+    "name": "Ball Game",
+    "category": "micro_engine",
+    "protected": false
+  },
+  {
+    "path": "../public_note/micro_engine/class.json",
+    "name": "Class",
     "category": "micro_engine",
     "protected": false
   },
@@ -134,6 +140,12 @@
   {
     "path": "../public_note/micro_engine/obsolete.json",
     "name": "Obsolete",
+    "category": "micro_engine",
+    "protected": false
+  },
+  {
+    "path": "../public_note/micro_engine/step_by_step.json",
+    "name": "Step by step",
     "category": "micro_engine",
     "protected": false
   },

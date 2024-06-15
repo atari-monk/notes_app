@@ -1,0 +1,85 @@
+{
+  "category": "micro_engine",
+  "sections": [
+    {
+      "title": "server",
+      "chats": [
+        {
+          "indexTitle": "ServerPlayerCache",
+          "question": "ServerPlayerCache",
+          "answer": "---\nCreate 06.13.2024  \n- extends EntityCache\n- implements IServerPlayerCache\n- setPlayerInput(inputDto: InputDto)\n   - sets data in InputDto, on to ServerMovement component, of player entity, based on entity.id and inputDto.id\n- getGameFrameDto()\n   - constructs FrameDto that contains players data send back to client\n   - it uses entity.id\n- getClientsDto()\n   - gets clientId of players in cache \n---\nToDo:\n- i dont really now if i should use clientId (socketId) or id with just string name\n- rename to PlayerCache, FrameDto\n- integrate to engine and with client if possible, at least common api part",
+          "dateTime": "2024-06-13T10:13:12.665Z"
+        },
+        {
+          "indexTitle": "ServerGameLoop",
+          "question": "ServerGameLoop",
+          "answer": "---\nCreate 06.13.2024  \n* iimplements IGameLoop, IServerGameLoop\n* game loop for server without rendering\n* evry frame sends FrameDto with game data to clients\n* set for 25 fps\n---",
+          "dateTime": "2024-06-13T09:55:22.058Z"
+        },
+        {
+          "indexTitle": "ServerEngine",
+          "question": "ServerEngine",
+          "answer": "---\nCreate 06.13.2024  \n* iimplements IEngineServerApi\n* addPlayer(socketId: string)\n   - takes player from engine entityCache and puts it in playerCache by player.id\n   - sets player.clientId to socketId\n* passClientInputToPlayerMovementComponent(inputDto: InputDto)\n   - invokes setPlayerInput on player cache\n* getPlayerCount()\n   - gets player count from player cache\n* sendPlayers()\n   - sends clientIds of players\n---",
+          "dateTime": "2024-06-13T10:15:04.684Z"
+        },
+        {
+          "indexTitle": "GameServer",
+          "question": "GameServer",
+          "answer": "---\nCreate 06.13.2024  \n* iimplements IGameServerApi\n* loadEngine(engine: IEngineServerApi)\n   - connects server and engine\n* sendFrame(frameDto: any)\n   - emits SocketEvents.ServerFrame with frameDto\n* sendPlayers(clients: any)\n   - emits SocketEvents.SendPlayers with clients (socketIds)\n* start()\n   - starts server on port\n---",
+          "dateTime": "2024-06-13T10:22:32.950Z"
+        },
+        {
+          "indexTitle": "Connection",
+          "question": "Connection",
+          "answer": "---\nCreate 06.13.2024  \n* handles socket.io server\n* loadEngine(engine: IEngineServerApi)\n   - sets server engine\n*  OnConnection = (socket: Socket) => {\n   - adds player to engine\n   - send player info back to clients\n   - handles client requests\n   - handles SocketEvents.ClientFrame, recives player input with entity.id and direction\n---",
+          "dateTime": "2024-06-13T10:38:48.853Z"
+        },
+        {
+          "indexTitle": "ServerMovement",
+          "question": "ServerMovement",
+          "answer": "---\nCreate 06.14.2024\n- Takes direction from serverMovement component  \n- Updates transform coordinates for each direction\n",
+          "dateTime": "2024-06-14T14:03:15.231Z"
+        }
+      ]
+    },
+    {
+      "title": "client",
+      "chats": [
+        {
+          "indexTitle": "MultiplayerPlayerCache",
+          "question": "MultiplayerPlayerCache",
+          "answer": "---\nCreate 06.13.2024  \n* extends EntityCache, implements IMultiplayerPlayerCache\n* addPlayer(socketId: string): IResult\n   - adds player to player cache for client engine\n* updatePlayer(gameFrameDto: GameFrameDto): void\n   - updates players data every frame\n   - uses entity.id\n---",
+          "dateTime": "2024-06-13T12:14:22.803Z"
+        },
+        {
+          "indexTitle": "ClientGameLoop",
+          "question": "ClientGameLoop",
+          "answer": "---\nCreate 06.13.2024  \n* implements IGameLoop, IMultiplayerGameLoop\n* load(clientId: string)\n   - sets player for client based on clientid\n   - sets inputDto for chosen player\n* private sendFrame()\n   - every frame, with clientApi, inputDto is send to server\n---",
+          "dateTime": "2024-06-13T12:20:15.186Z"
+        }
+      ]
+    },
+    {
+      "title": "engine",
+      "chats": [
+        {
+          "indexTitle": "Movement",
+          "question": "Movement",
+          "answer": "---\nCreate 06.14.2024  \n* ecs\\system\\movement\n* System for movement input\n* Abstract class making posible to override methods handling arrow directions for entity\n* Maps arrows and wsad depenfing on flag in rigidBody component\n* Sends Movement state events\n---",
+          "dateTime": "2024-06-14T17:38:02.822Z"
+        }
+      ]
+    },
+    {
+      "title": "engine_client",
+      "chats": [
+        {
+          "indexTitle": "ClientMovement",
+          "question": "ClientMovement",
+          "answer": "---\nCreate 06.14.2024  \n* ecs\\system\n* System for movement input for client\n* extends engine Movement\n* depending on arrows and wsad input, puts Direction type values, to inputDto, of ClientMovement component\n---",
+          "dateTime": "2024-06-14T17:45:55.701Z"
+        }
+      ]
+    }
+  ]
+}
