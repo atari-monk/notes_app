@@ -444,6 +444,12 @@
           "question": "15",
           "answer": "1. micro_engine\n   - most fruitfull session in a long time\n   - fixed client server sync\n   - still hard to know how it works as a whole, no doc\n   - was able to push stuff only by working on small part and move along breadcrums\n2. data_sorting\n   - comedy file",
           "dateTime": "2024-06-15T21:51:29.746Z"
+        },
+        {
+          "indexTitle": "16",
+          "question": "16",
+          "answer": "1. micro_engine\n   - warm up, editor proj\n2. micro_engine\n   - editor menu and overlay it uses, is now controlled with config bit\n3. micro_engine\n   - one canvas class, improved, composition in renderer\n4. micro_engine\n   - refactor UIBuilder, config, add test build, fix test proj",
+          "dateTime": "2024-06-16T22:43:21.131Z"
         }
       ]
     }
