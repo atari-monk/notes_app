@@ -32,6 +32,12 @@
           "question": "16",
           "answer": "1. Create new project responsible for editor features\n   - create engine folder, add to workspace, copy proj files from football_single_desktop\n   - name proj in package.json\n   - remove dependencies\n   - npm i\n   - update script i-lib and it's package.json script in engine_api, engine, football\n   - update build script data and code\n   - build, serve and test \n2. Make editor menu, turn on/off based on config\n   - distracted with Canvas, need to refactor, there is 2 classes for Canvas\n   - refactor editorMenu class\n   - hide overlay with style\n   - class with static methods for manipulating style class\n   - refactored editor menu in editor\n   - added overlay class\n   - overlay and showOverlayBtn removed by default with style class\n   - config bit controls menu adding\n   - menu build in static method\n3. Create one Canvas class use it as singleton in renderer and canvas\n   - refactor Canvas class, improved, use it in renderer with composition\n   - rename UITool to UIBuilder\n   - refactor config, much better names, short but capture function, made any config posible, remove weird type constraint, now any config type fine\n   - fix test proj, hell of import type, chai has import, my modules commonjs, it was hard to match that\n   - todo: use newer imports ?, not commonjs, but first reaserch this, for now it works",
           "dateTime": "2024-06-16T22:41:13.241Z"
+        },
+        {
+          "indexTitle": "17",
+          "question": "17",
+          "answer": "1. Menu for switching scenes\n   - disabled menu in single desktop\n   - script to run/serve editor\n   - refactored sketch proj to use config, to switch between prototypes/tests",
+          "dateTime": "2024-06-17T17:40:46.621Z"
         }
       ]
     },
