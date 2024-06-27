@@ -38,17 +38,42 @@
           "question": "17",
           "answer": "1. Menu for switching scenes\n   - disabled menu in single desktop\n   - script to run/serve editor\n   - refactored sketch proj to use config, to switch between prototypes/tests",
           "dateTime": "2024-06-17T17:40:46.621Z"
-        }
-      ]
-    },
-    {
-      "title": "Misc",
-      "chats": [
+        },
         {
-          "indexTitle": "ToDo",
-          "question": "ToDo",
-          "answer": "- editor_menu gameDependency dosent turn of overlay button, ony save option",
-          "dateTime": "2024-06-14T13:32:15.602Z"
+          "indexTitle": "18",
+          "question": "18",
+          "answer": " 2. Remove multi_api proj, merge to engine_api",
+          "dateTime": "2024-06-18T12:16:46.948Z"
+        },
+        {
+          "indexTitle": "19",
+          "question": "19",
+          "answer": "1. Remove runtime errors after merging libs and wrapping dependecies\n   - fix server bug, not set fileSystem wrapper\n   - todo: note that using ndb, one can input debugger keyword for breakpoint\n   - use FootballClientConfigurator to fix client bug of using one for single player\n   - fix server bug of unset port\n   - fix client server bug where wrappers for socket api functions where wrapping my data in arrays\n   - all these bug where introduced with changes, nessecery of course changes, but it shows one, the importance of tests and bug fixing after changes, and keeping code in this state, most important\n2. Try to further merge projects ?\n   - merge single and mobile single to renamed 'client' proj\n   - update config api and data, also enable switch between single desktop and mobile for test\n   - removed errors and fixed buld after single desktop and mobile merge\n   - all this shows, that project structure must be robust from the start and should not change really, during project, in other words it's important to have working projs structure\n   - my current structure is 2x proj for engine, 2x supporting for test and prototypes\n      * 1x for game library, 1x for client, 1x for server, i think this should work just fine for longer, more project is to long build\n      * if something would be moved to library, it should be something very robust and not changing and with tests, so it would not need to be added during build\n      * build with 4 proj, where libs are installed, fisrt to 3, second to 2, third to 1, is 2/3 minutes witch is max for me",
+          "dateTime": "2024-06-19T15:35:13.238Z"
+        },
+        {
+          "indexTitle": "20",
+          "question": "20",
+          "answer": "1. merge editor proj to client\n   - added config for configs, specific config selection in config\n   - merged editor, tested\n2. merge multi client proj to client\n   - update build scripts\n   - tested\n3. disable playerStats in desktop mode\n   - done in system\n   - desktop mode presents game, editor presents work version\n   - todo: playerStats should be removed from desktop mode football data, this is only for editor",
+          "dateTime": "2024-06-20T17:05:18.253Z"
+        },
+        {
+          "indexTitle": "21",
+          "question": "21",
+          "answer": "1. Reloading scenes, maybe\n   - menu\n   - clear engine data\n   - refactor data lodaing from builder to engine, broke input",
+          "dateTime": "2024-06-22T21:07:59.374Z"
+        },
+        {
+          "indexTitle": "22",
+          "question": "22",
+          "answer": "1. Scene reload",
+          "dateTime": "2024-06-22T12:17:39.836Z"
+        },
+        {
+          "indexTitle": "23",
+          "question": "23",
+          "answer": "1. fix intorduced bugs\n   - engine.initialize  for keyborad moved from getEngine to withEngine fixed input\n   - refactored data load so that clear all data is now possible",
+          "dateTime": "2024-06-23T09:25:53.158Z"
         }
       ]
     }

@@ -1,0 +1,34 @@
+{
+  "category": "micro_engine",
+  "sections": [
+    {
+      "title": "debugUI",
+      "chats": [
+        {
+          "indexTitle": "Description",
+          "question": "Description",
+          "answer": "---\n* This feature is responsible for rendering boxColliders on all entities.\n* It maps key 'o' to switch enableRender flag on boxColliders.\n* Flag enableRender is by default set to false in json data.\n* Feature provides flag press once on start, witch can turn the render on by default.\n* It renders border around boxColliders with color specified in component data.\n* key can me mapped to keyboard keys that are mapped by keboardMapping class\n* More information in data->feature->debugUI.",
+          "dateTime": "2024-06-24T21:01:21.729Z"
+        },
+        {
+          "indexTitle": "KeyboardMapping",
+          "question": "KeyboardMapping",
+          "answer": "* class maps inputSystem to eventSystem\n* subscribes callback to inputSystem keyDown event\n* callback sends events in eventSystem with pressed key and entity id that is registered in this system",
+          "dateTime": "2024-06-24T21:15:28.366Z"
+        },
+        {
+          "indexTitle": "DebugRenderer",
+          "question": "DebugRenderer",
+          "answer": "* renders collision box\n* velociy\n* direction\n* transform position\n* flag enableRender from collision box controlls visibility",
+          "dateTime": "2024-06-24T21:20:52.262Z"
+        },
+        {
+          "indexTitle": "KeyboardActionHandler",
+          "question": "KeyboardActionHandler",
+          "answer": "* this class subscribe to key event\n* also checks key form component data to map it to event\n* KeyMap component is required in entity registered in this system, otherwise exception\n* if there is no or wrong action data in json default key will be used\n* this class is used in system witch is assign to key, and its injected in file engineSystem or footballSystem",
+          "dateTime": "2024-06-24T21:40:11.731Z"
+        }
+      ]
+    }
+  ]
+}

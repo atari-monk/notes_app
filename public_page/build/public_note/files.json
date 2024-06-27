@@ -150,6 +150,18 @@
     "protected": false
   },
   {
+    "path": "../public_note/micro_engine/feature.json",
+    "name": "Feature",
+    "category": "micro_engine",
+    "protected": false
+  },
+  {
+    "path": "../public_note/pong_engine/documentation.json",
+    "name": "Documentation",
+    "category": "pong_engine",
+    "protected": false
+  },
+  {
     "path": "../public_note/diy/atari_monk_homemade_highlights.json",
     "name": "Atari Monk Homemade Highlights",
     "category": "diy",
