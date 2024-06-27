@@ -27,6 +27,18 @@
           "question": "Install Node.js  \nHow to install node.js on windows ?",
           "answer": "Installing Node.js on Windows is straightforward. Here’s a step-by-step guide to help you get started:\n\n### Step 1: Download Node.js Installer\n\n1. **Visit the Node.js official website:** Go to [nodejs.org](https://nodejs.org/).\n   \n2. **Download the installer:** Click on the \"Recommended For Most Users\" button to download the Windows Installer (.msi).\n\n### Step 2: Run the Installer\n\n1. **Run the downloaded installer (.msi):** Once the download is complete, double-click the downloaded file to launch the installer.\n\n2. **Accept the User Account Control prompt:** If prompted by User Account Control, click \"Yes\" to allow the installer to make changes to your device.\n\n3. **Choose installation options:**\n   - You can leave the default settings or customize the installation by clicking on \"Customize\".\n   - It's recommended to leave the default options unless you have a specific reason to change them.\n\n4. **Install:** Click on the \"Next\" button, then click \"Install\" to start the installation.\n\n### Step 3: Verify Installation\n\n1. **Check Node.js version:** Once the installation is complete, you can verify it by opening a Command Prompt (cmd.exe) or PowerShell and typing:\n   ```bash\n   node -v\n   ```\n   This command should print the version of Node.js installed (e.g., `v16.4.0`).\n\n2. **Check npm (Node Package Manager) version:** Additionally, you can check the version of npm (which comes bundled with Node.js) by typing:\n   ```bash\n   npm -v\n   ```\n   This command should print the version of npm installed.\n\n### Step 4: Update npm (optional)\n\nNode.js often comes with a bundled version of npm, but you can update it to the latest stable version using npm itself:\n   \n```bash\nnpm install -g npm@latest\n```\n\nThis command updates npm globally to the latest version.\n\n### Step 5: Start Using Node.js\n\nNow that Node.js is installed, you can start using it to run JavaScript applications, build servers, and more on your Windows machine.\n\n### Additional Notes:\n\n- **Environment Variables:** During installation, Node.js should automatically add itself to your PATH environment variable, which allows you to run `node` and `npm` commands from any command prompt.\n\n- **Troubleshooting:** If you encounter any issues during installation or with running Node.js after installation, checking the Node.js documentation or community forums for troubleshooting tips can be helpful.\n\nBy following these steps, you should have Node.js installed and ready to use on your Windows system.",
           "dateTime": "2024-06-27T10:07:27.105Z"
+        },
+        {
+          "indexTitle": "Chatgpt",
+          "question": "Chatgpt",
+          "answer": "* Note on usage\n* I Like short question, take note if answear is usefull, and delete it\n* If need be to input code i like to say wait for n files and question after",
+          "dateTime": "2024-06-27T10:20:02.857Z"
+        },
+        {
+          "indexTitle": "Setup Project Execution",
+          "question": "Setup Project Execution  \nWhat i did difrent from Setup Project note",
+          "answer": "* build folder insted dist\n* .gitignore\n```plaintext\nbuild\nnode_modules\n```",
+          "dateTime": "2024-06-27T10:33:05.365Z"
         }
       ]
     }
