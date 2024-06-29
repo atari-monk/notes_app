@@ -516,6 +516,18 @@
           "question": "27",
           "answer": "1. setup documentation, repo, project\n2. my goal is to restore ball animation\n   - problem is i dont like my file format\n   - i now why it is not working, no longer ball boots collision handler but dribble\n   - decided to migrate project to new project structure to clean code and document and test\n3. new proj structure, build, test sample\n4. figured out config of libs import\n5. test config",
           "dateTime": "2024-06-27T22:51:41.875Z"
+        },
+        {
+          "indexTitle": "28",
+          "question": "28",
+          "answer": "1. lesurly updated docs on Config, with bukowksi poetry reading\n2. quite lesurly, but thouthfull, config helpers and use of config data\n3. tinckering with canvas class",
+          "dateTime": "2024-06-28T23:24:28.980Z"
+        },
+        {
+          "indexTitle": "29",
+          "question": "29",
+          "answer": "football_engine:\n1. canvas test image feature, resizer feature\n2. ecs_api lib\n3. ecs_api lib fix",
+          "dateTime": "2024-06-29T20:52:23.191Z"
         }
       ]
     }
