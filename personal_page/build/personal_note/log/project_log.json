@@ -516,6 +516,101 @@
           "question": "27",
           "answer": "1. setup documentation, repo, project\n2. my goal is to restore ball animation\n   - problem is i dont like my file format\n   - i now why it is not working, no longer ball boots collision handler but dribble\n   - decided to migrate project to new project structure to clean code and document and test\n3. new proj structure, build, test sample\n4. figured out config of libs import\n5. test config",
           "dateTime": "2024-06-27T22:51:41.875Z"
+        },
+        {
+          "indexTitle": "28",
+          "question": "28",
+          "answer": "1. lesurly updated docs on Config, with bukowksi poetry reading\n2. quite lesurly, but thouthfull, config helpers and use of config data\n3. tinckering with canvas class",
+          "dateTime": "2024-06-28T23:24:28.980Z"
+        },
+        {
+          "indexTitle": "29",
+          "question": "29",
+          "answer": "football_engine:\n1. canvas test image feature, resizer feature\n2. ecs_api lib\n3. ecs_api lib fix",
+          "dateTime": "2024-06-29T20:52:23.191Z"
+        },
+        {
+          "indexTitle": "30",
+          "question": "30",
+          "answer": "football_engine:  \n1. exports from ecs_api\n2. shared_api; engine_api, engine, independent from ecs_api, ecs; thanks to shared_api\n3. ecs component\n4. entity loader, add shared lib, becouse of static methods",
+          "dateTime": "2024-06-30T21:51:21.770Z"
+        }
+      ]
+    },
+    {
+      "title": "07.2024",
+      "chats": [
+        {
+          "indexTitle": "1",
+          "question": "1",
+          "answer": "football_engine:\n1. EntitySaver\n2. SpriteState\n3. adding systems\n4. movement, keyboard\n5. include src in proj, build offen, otherwise monorepo may gave many errors\n6. added sys provider api, part1",
+          "dateTime": "2024-07-01T22:03:31.438Z"
+        },
+        {
+          "indexTitle": "2",
+          "question": "2",
+          "answer": "football_engine:\n1. adding ecs\n2. could not concentrate any more",
+          "dateTime": "2024-07-02T21:40:33.235Z"
+        },
+        {
+          "indexTitle": "3",
+          "question": "3",
+          "answer": "1. moving files\n2. engine class\n3. systemEngine class and engine class",
+          "dateTime": "2024-07-03T21:02:42.047Z"
+        },
+        {
+          "indexTitle": "4",
+          "question": "4",
+          "answer": "football_engine:\n1. engine builder\n2. engine director\n3. engine director",
+          "dateTime": "2024-07-04T21:22:01.155Z"
+        },
+        {
+          "indexTitle": "5",
+          "question": "5",
+          "answer": "football_engine:\n1. engine director class finish\n2. system engine builder and things connected to that for it to work",
+          "dateTime": "2024-07-05T18:21:57.035Z"
+        },
+        {
+          "indexTitle": "6",
+          "question": "6",
+          "answer": "football_engine:\n1. SystemEngineDirector\n2. use SystemEngineDirector",
+          "dateTime": "2024-07-06T21:56:18.553Z"
+        },
+        {
+          "indexTitle": "7",
+          "question": "7",
+          "answer": "football_engine:\n1. restore menu to editor mode in client\n2. fix bugs of undefined dependency field",
+          "dateTime": "2024-07-07T20:20:36.884Z"
+        },
+        {
+          "indexTitle": "8",
+          "question": "8",
+          "answer": "football_engine:\n1. nearly gave up, system builder use\n2. gave up, new repo, monorepo with client copied from micro_engine in 50 min, omg\n3. failed atempt to restore server in monorepo",
+          "dateTime": "2024-07-08T21:31:00.904Z"
+        },
+        {
+          "indexTitle": "9",
+          "question": "9",
+          "answer": "1. ball_engine:\n   - problem building server in my monorepo setup\n   - create monorepo example with chatgpt, testing it till it builds project",
+          "dateTime": "2024-07-09T22:27:33.194Z"
+        },
+        {
+          "indexTitle": "10",
+          "question": "10",
+          "answer": "1. ball_engine\n   - testing monorepo project structures\n   - testing monorepo with yarn and nx, building engie ts lib with bare tsc, merging code\n   - mergin libs to one lib, engine",
+          "dateTime": "2024-07-10T20:46:26.966Z"
+        },
+        {
+          "indexTitle": "11",
+          "question": "11",
+          "answer": "1. ball_engine\n   - adding elements to engine lib from micro_engine proj\n   - adding elements\n   - adding sys builder, client",
+          "dateTime": "2024-07-11T21:14:30.466Z"
+        },
+        {
+          "indexTitle": "12",
+          "question": "12",
+          "answer": "1. ball_engine\n   - adding elements from football lib to engine lib (merging)\n   - created monorepo with nx for ts-engine-nx project, added engine lib\n   - client in nx, works :)",
+          "dateTime": "2024-07-12T21:58:45.120Z"
         }
       ]
     }

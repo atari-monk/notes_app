@@ -5,10 +5,10 @@
       "title": "03.2024",
       "chats": [
         {
-          "indexTitle": "21",
-          "question": "21",
-          "answer": "1. notes\n   - 12:30\n   - 13:00\n2. micro_engine\n   - 13:00\n   - 14:20\n3. micro_engine\n   - 14:20\n   - 16:30\n4. sending_cv\n   - 19:00\n   - 20:00\n5. react_tutorial\n   - 21:30\n   - 22:30",
-          "dateTime": "2024-04-30T13:39:03.922Z"
+          "indexTitle": "7",
+          "question": "7",
+          "answer": "football_engine:\n1. 17:14 -  ",
+          "dateTime": "2024-07-07T15:14:27.417Z"
         },
         {
           "indexTitle": "22",
@@ -582,6 +582,101 @@
           "question": "27",
           "answer": "pong_engine:  \n\n1. 11:26 - 12:43\n\nmicro_engine:  \n\n2. 14:17 - 15:21\n\nfootball_engine:\n  \n3. 15:23 - 16:50\n4. 18:23 - 21:33\n5. 23:00 - 00:50",
           "dateTime": "2024-06-27T22:51:05.288Z"
+        },
+        {
+          "indexTitle": "28",
+          "question": "28",
+          "answer": "football_engine:\n1. 12:44 - 13:52\n2. 15:06 - 18:17\n3. 21:34 - 01:23",
+          "dateTime": "2024-06-28T23:24:01.083Z"
+        },
+        {
+          "indexTitle": "29",
+          "question": "29",
+          "answer": "football_engine:\n1. 13:22 - 16:53\n2. 19:52 - 21:06\n3. 21:32 - 22:51",
+          "dateTime": "2024-06-29T20:51:33.505Z"
+        },
+        {
+          "indexTitle": "30",
+          "question": "30",
+          "answer": "football_engine:\n1. 12:30 - 13:10\n2. 14:05 - 16:05\n3. 18:18 - 19:31\n4. 22:03 - 23:50",
+          "dateTime": "2024-06-30T21:50:32.449Z"
+        }
+      ]
+    },
+    {
+      "title": "07.2024",
+      "chats": [
+        {
+          "indexTitle": "1",
+          "question": "1",
+          "answer": "football_engine:\n1. 13:26 - 14:01\n2. 14:15 - 14:49\n3. 14:57 - 15:27\n4. 17:30 - 17:55\n5. 19:16 - 21:06\n6. 22:58 - 00:02",
+          "dateTime": "2024-07-01T22:02:46.652Z"
+        },
+        {
+          "indexTitle": "2",
+          "question": "2",
+          "answer": "football_engine:\n1. 15:25 - 17:05\n2. 22:54 - 23:39",
+          "dateTime": "2024-07-02T21:39:59.129Z"
+        },
+        {
+          "indexTitle": "3",
+          "question": "3",
+          "answer": "football_engine:\n1. 15:19 - 17:35\n2. 18:35 - 21:03\n3. 21:48 - 23:00",
+          "dateTime": "2024-07-03T21:00:43.645Z"
+        },
+        {
+          "indexTitle": "4",
+          "question": "4",
+          "answer": "football_engine:\n1. 13:53 - 16:02\n2. 17:44 - 19:39\n3. 22:35 - 23:20",
+          "dateTime": "2024-07-04T21:20:49.673Z"
+        },
+        {
+          "indexTitle": "5",
+          "question": "5",
+          "answer": "football_engine:\n1. 17:28 - 17:50\n2. 19:00 - 20:20",
+          "dateTime": "2024-07-05T18:20:58.213Z"
+        },
+        {
+          "indexTitle": "6",
+          "question": "6",
+          "answer": "football_engine:\n1. 12:57 - 19:08\n2. 22:31 - 23:55",
+          "dateTime": "2024-07-06T21:55:38.941Z"
+        },
+        {
+          "indexTitle": "7",
+          "question": "7",
+          "answer": "football_engine:\n1. 17:15 - 20:09\n2. 22:00 - 22:17",
+          "dateTime": "2024-07-07T20:17:09.699Z"
+        },
+        {
+          "indexTitle": "8",
+          "question": "8",
+          "answer": "1. football_engine:\n   - 11:15 - 14:26  \n2. ball_engine:\n   - 16:27 - 17:17\n   - 22:59 - 23:29",
+          "dateTime": "2024-07-08T21:29:55.825Z"
+        },
+        {
+          "indexTitle": "9",
+          "question": "9",
+          "answer": "1. ball_engine\n   - 17:39 - x\n   - 22:34 - 00:24",
+          "dateTime": "2024-07-09T22:24:37.007Z"
+        },
+        {
+          "indexTitle": "10",
+          "question": "10",
+          "answer": "1. ball_engine\n   - 12:56 - 14:53\n   - 17:22 - 19:42\n   - 21:50 - 22:45",
+          "dateTime": "2024-07-10T20:45:29.199Z"
+        },
+        {
+          "indexTitle": "11",
+          "question": "11",
+          "answer": "1. ball_engine\n   - 15:47 - 16:22\n   - 18:28 - 19:31\n   - 22:18 - 23:13",
+          "dateTime": "2024-07-11T21:13:56.632Z"
+        },
+        {
+          "indexTitle": "12",
+          "question": "12",
+          "answer": "1. ball_engine\n   - 12:49 - 14:17\n   - 17:34 - 18:52\n   - 21:09 - 23:57",
+          "dateTime": "2024-07-12T21:57:35.652Z"
         }
       ]
     }
