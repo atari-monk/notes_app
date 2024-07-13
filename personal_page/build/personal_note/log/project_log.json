@@ -611,6 +611,12 @@
           "question": "12",
           "answer": "1. ball_engine\n   - adding elements from football lib to engine lib (merging)\n   - created monorepo with nx for ts-engine-nx project, added engine lib\n   - client in nx, works :)",
           "dateTime": "2024-07-12T21:58:45.120Z"
+        },
+        {
+          "indexTitle": "13",
+          "question": "13",
+          "answer": "1. ts-engine-nx\n   - added server to nx, added code, fixes, build\n   - problem with client bug, js in imports were generating errors, one of those stupid one letter errors that was to long time to find\n   - still some weird warns\n2. diy wood stand for poster frame\n   - cut 2x 40 cm, 4x4 cm, connected them with 30cm L shaped joint from plywood and screws\n3. ts-engine-nx\n   - synced server and client, paths, server engine was not start\n   - debug for server (VSCode lunch.json + nx cli dev dep, use on dist js code)",
+          "dateTime": "2024-07-13T21:20:25.170Z"
         }
       ]
     }
