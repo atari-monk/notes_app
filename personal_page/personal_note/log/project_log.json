@@ -617,6 +617,18 @@
           "question": "13",
           "answer": "1. ts-engine-nx\n   - added server to nx, added code, fixes, build\n   - problem with client bug, js in imports were generating errors, one of those stupid one letter errors that was to long time to find\n   - still some weird warns\n2. diy wood stand for poster frame\n   - cut 2x 40 cm, 4x4 cm, connected them with 30cm L shaped joint from plywood and screws\n3. ts-engine-nx\n   - synced server and client, paths, server engine was not start\n   - debug for server (VSCode lunch.json + nx cli dev dep, use on dist js code)",
           "dateTime": "2024-07-13T21:20:25.170Z"
+        },
+        {
+          "indexTitle": "14",
+          "question": "14",
+          "answer": "1. ts-engine-nx\n   - added test, fixed build issue with it\n   - upd ts target version\n   - tried to fix webpack by using it without nx, fail\n   - tired of proj management, want to just code comfortably, setup seems fine to do it\n2. ts-engine-nx\n   - canvas features from other repo\n3. ts-engine-nx\n   - restored canvas resizer, but it dosent work for my renderings for some reason",
+          "dateTime": "2024-07-14T19:52:06.784Z"
+        },
+        {
+          "indexTitle": "15",
+          "question": "15",
+          "answer": "1. ts-engine-nx\n   - introduced CanvasImageTest as a system feature\n2. ts-engine-nx\n   - introduced new system to scale entity position when canvas is scaled\n3. diy\n   - cut all planks for poster stand\n4. jobs\n   - send 2 cv\n5. scaling of canvas drawings and entity collision box on any screen",
+          "dateTime": "2024-07-15T21:31:14.074Z"
         }
       ]
     }
