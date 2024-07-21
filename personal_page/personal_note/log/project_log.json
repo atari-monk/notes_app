@@ -629,6 +629,42 @@
           "question": "15",
           "answer": "1. ts-engine-nx\n   - introduced CanvasImageTest as a system feature\n2. ts-engine-nx\n   - introduced new system to scale entity position when canvas is scaled\n3. diy\n   - cut all planks for poster stand\n4. jobs\n   - send 2 cv\n5. scaling of canvas drawings and entity collision box on any screen",
           "dateTime": "2024-07-15T21:31:14.074Z"
+        },
+        {
+          "indexTitle": "16",
+          "question": "16",
+          "answer": "1. ts-engine-nx\n   - refactored class CanvasResizeTester quite a bit, class has one state obj, logging, tested",
+          "dateTime": "2024-07-16T22:42:41.817Z"
+        },
+        {
+          "indexTitle": "17",
+          "question": "17",
+          "answer": "1. ts-engine-nx\n   -  refactored canvasResize feature, documented\n2. ts-engine-nx\n   - refactor canvasScaler to system\n3. ts-engine-nx\n   - refactor, prepared ground for sprite scaler",
+          "dateTime": "2024-07-17T21:22:49.293Z"
+        },
+        {
+          "indexTitle": "18",
+          "question": "18",
+          "answer": "1. ts-engine-nx\n   - setup files to work on EntityScalerV2\n   - figured out that i need to add scale param to sprite class and system\n   - failed to scale sprite position to be consistent with collision box",
+          "dateTime": "2024-07-18T22:01:32.463Z"
+        },
+        {
+          "indexTitle": "19",
+          "question": "19",
+          "answer": "1. ts-engine-nx\n   - investigating sprite scaling\n      - origin is in top left not center, so scaling is not around center\n   - chatgpt told me how to scale around a point and it was right, althou i mistaken implementation at first",
+          "dateTime": "2024-07-19T21:08:08.242Z"
+        },
+        {
+          "indexTitle": "20",
+          "question": "20",
+          "answer": "1. ts-engine-nx\n   - collision box dosent scale as sprite",
+          "dateTime": "2024-07-20T20:05:53.552Z"
+        },
+        {
+          "indexTitle": "21",
+          "question": "21",
+          "answer": "1. ts-engine-nx\n   - fixed all scenes data for editor and server client mode\n   - failed to scale filed sprite satisfactory\n   - nice image drawed on canvas with scaling, done by just invoking canvas method with correct scale multiplayer, simplest works",
+          "dateTime": "2024-07-21T19:30:32.427Z"
         }
       ]
     }
