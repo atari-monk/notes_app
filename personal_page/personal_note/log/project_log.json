@@ -665,6 +665,12 @@
           "question": "21",
           "answer": "1. ts-engine-nx\n   - fixed all scenes data for editor and server client mode\n   - failed to scale filed sprite satisfactory\n   - nice image drawed on canvas with scaling, done by just invoking canvas method with correct scale multiplayer, simplest works",
           "dateTime": "2024-07-21T19:30:32.427Z"
+        },
+        {
+          "indexTitle": "22",
+          "question": "22",
+          "answer": "1. ts-engine-nx\n   - succeded in scaling field colliders, just canvas method with scale multiplication and cordinates, simplest is best\n   - scaled goal posts in same way, canvas transformations failed me (position is destroyed on scaling), must use new fliped image, instead of flipping it with software for now\n   - scaled ball rendered, with animation, again canvas method, data and calculations, simple and best",
+          "dateTime": "2024-07-22T19:05:51.179Z"
         }
       ]
     }
