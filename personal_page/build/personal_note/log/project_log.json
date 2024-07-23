@@ -671,6 +671,12 @@
           "question": "22",
           "answer": "1. ts-engine-nx\n   - succeded in scaling field colliders, just canvas method with scale multiplication and cordinates, simplest is best\n   - scaled goal posts in same way, canvas transformations failed me (position is destroyed on scaling), must use new fliped image, instead of flipping it with software for now\n   - scaled ball rendered, with animation, again canvas method, data and calculations, simple and best",
           "dateTime": "2024-07-22T19:05:51.179Z"
+        },
+        {
+          "indexTitle": "23",
+          "question": "23",
+          "answer": "1. ts-engine-nx\n   - new folder structrue for data\n   - fix data and scene selector\n   - render with scaling, box colliders of players",
+          "dateTime": "2024-07-23T18:52:43.535Z"
         }
       ]
     }
