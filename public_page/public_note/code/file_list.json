@@ -1,0 +1,16 @@
+{
+  "category": "code",
+  "sections": [
+    {
+      "title": "ecs",
+      "chats": [
+        {
+          "indexTitle": "system",
+          "question": "system",
+          "answer": "- spriteRendererWithScaling\n```bash\ncode packages\\\\engine\\\\src\\\\ecs\\\\system\\\\renderer\\\\SpriteRendererWithScaling.ts\n```",
+          "dateTime": "2024-07-24T10:04:46.155Z"
+        }
+      ]
+    }
+  ]
+}

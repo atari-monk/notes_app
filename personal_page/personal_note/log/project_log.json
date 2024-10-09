@@ -677,6 +677,36 @@
           "question": "23",
           "answer": "1. ts-engine-nx\n   - new folder structrue for data\n   - fix data and scene selector\n   - render with scaling, box colliders of players",
           "dateTime": "2024-07-23T18:52:43.535Z"
+        },
+        {
+          "indexTitle": "24",
+          "question": "24",
+          "answer": "1. ts-engine-nx\n   - formulate strategy of what to do to get anim system back to work but also with scaling\n   - move elements to animation_system 1.0.0\n   - done moving elements to animation_system 1.0.0",
+          "dateTime": "2024-07-24T19:32:25.239Z"
+        },
+        {
+          "indexTitle": "25",
+          "question": "25",
+          "answer": "1. ts-engine-nx\n   - new versions of animation system, test with keys to switch animation\n   - test animation switching refactor\n   - animation with scaling and keyborad switcher",
+          "dateTime": "2024-07-25T22:03:37.194Z"
+        },
+        {
+          "indexTitle": "26",
+          "question": "26",
+          "answer": "1. ts-engine-nx\n   - big focused but slow session, consolidated SpriteRenderer system to do all rendering tasks\n   - fix football1.0.0 by restoring SpriteRendererV100\n2. piano\n   - virtual piano with twinkle litle star",
+          "dateTime": "2024-07-27T01:53:28.973Z"
+        },
+        {
+          "indexTitle": "27",
+          "question": "27",
+          "answer": "1. diy audio stand\n   - base cross 80% made",
+          "dateTime": "2024-07-27T19:29:33.304Z"
+        },
+        {
+          "indexTitle": "28",
+          "question": "28",
+          "answer": "1. ts-engine-nx\n   - fixed animation system integrity, used in scenes",
+          "dateTime": "2024-07-28T09:13:23.392Z"
         }
       ]
     }
